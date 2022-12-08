@@ -1,0 +1,41 @@
+# Fonctions
+
+## Fonctions plancher et plafond
+
+UTILE LORSQUE NOUS FERONS DE LA THÉORIE DES NOMBRES
+
+## Fonctions en `Python`
+
+DEVRAIT-ON PARLER DE ÇA????
+
+DICTIONNAIRE, HACHAGE...
+
+:::{#exm-hash-python}
+
+[Fonction de hachage dans Python](https://www.wikiwand.com/en/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function)
+
+[Hachage Python](https://andrewbrookins.com/technology/pythons-default-hash-algorithm/)
+
+[Dictionnary in Python](https://thepythoncorner.com/posts/2020-08-21-hash-tables-understanding-dictionaries/)
+
+A checksum is used to determine if something is the same.
+
+If you have download a file, you can never be sure if it got corrupted on the way to your machine. You can use cksum to calculate a checksum (based on CRC-32) of the copy you now have and can then compare it to the checksum the file should have. This is how you check for file integrity.
+
+A hash function is used to map data to other data of fixed size. A perfect hash function is injective, so there are no collisions. Every input has one fixed output.
+
+A cryptographic hash function is used for verification. With a cryptographic hash function you should to not be able to compute the original input.
+
+A very common use case is password hashing. This allows the verification of a password without having to save the password itself. A service provider only saves a hash of a password and is not able to compute the original password. If the database of password hashes gets compromised, an attacker should not be able to compute these passwords as well. This is not the case, because there are strong and weak algorithms for password hashing. You can find more on that on this very site.
+
+TL;DR:
+
+Checksums are used to compare two pieces of information to check if two parties have exactly the same thing.
+
+Hashes are used (in cryptography) to verify something, but this time, deliberately only one party has access to the data that has to be verified, while the other party only has access to the hash.
+
+:::
+
+## Injection, surjection et bijection
+
+### Fonction de hachage est une fonction injective? surjective?

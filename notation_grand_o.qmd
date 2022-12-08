@@ -1,0 +1,13 @@
+# Notation grand O
+
+## Mesurer un temps de calcul avec une fonction
+
+## Notation grand-O
+
+## Sommations
+
+## Établir la complexité d'un algorithme
+
+## Calculabilité et complexité
+
+## P vs NP

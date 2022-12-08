@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - Références</title>
+<title>Mathématiques discrètes - 8&nbsp; Preuves et raisonnement mathématique</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./applications.html" rel="prev">
+<link href="./denombrement.html" rel="next">
+<link href="./theorie_nombres.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,6 +61,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -88,7 +71,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Références</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -160,7 +143,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preuves.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></a>
+  <a href="./preuves.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,7 +168,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">Références</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
     </ul>
@@ -193,14 +176,31 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#méthodes-de-preuve" id="toc-méthodes-de-preuve" class="nav-link active" data-scroll-target="#méthodes-de-preuve"><span class="toc-section-number">8.1</span>  Méthodes de preuve</a>
+  <ul class="collapse">
+  <li><a href="#preuve-directe" id="toc-preuve-directe" class="nav-link" data-scroll-target="#preuve-directe"><span class="toc-section-number">8.1.1</span>  Preuve directe</a></li>
+  <li><a href="#preuve-indirecte-par-contraposée" id="toc-preuve-indirecte-par-contraposée" class="nav-link" data-scroll-target="#preuve-indirecte-par-contraposée"><span class="toc-section-number">8.1.2</span>  Preuve indirecte (par contraposée)</a></li>
+  <li><a href="#preuve-par-contradiction" id="toc-preuve-par-contradiction" class="nav-link" data-scroll-target="#preuve-par-contradiction"><span class="toc-section-number">8.1.3</span>  Preuve par contradiction</a></li>
+  <li><a href="#principe-des-tiroirs-de-dirichlet" id="toc-principe-des-tiroirs-de-dirichlet" class="nav-link" data-scroll-target="#principe-des-tiroirs-de-dirichlet"><span class="toc-section-number">8.1.4</span>  Principe des tiroirs de Dirichlet</a></li>
+  </ul></li>
+  <li><a href="#principe-de-linduction" id="toc-principe-de-linduction" class="nav-link" data-scroll-target="#principe-de-linduction"><span class="toc-section-number">8.2</span>  Principe de l’induction</a>
+  <ul class="collapse">
+  <li><a href="#preuve-par-récurrence" id="toc-preuve-par-récurrence" class="nav-link" data-scroll-target="#preuve-par-récurrence"><span class="toc-section-number">8.2.1</span>  Preuve par récurrence</a></li>
+  <li><a href="#algorithmes-récursifs" id="toc-algorithmes-récursifs" class="nav-link" data-scroll-target="#algorithmes-récursifs"><span class="toc-section-number">8.2.2</span>  Algorithmes récursifs</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Références</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></h1>
 </div>
 
 
@@ -215,11 +215,89 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
-
+<section id="méthodes-de-preuve" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="méthodes-de-preuve"><span class="header-section-number">8.1</span> Méthodes de preuve</h2>
+<section id="preuve-directe" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="preuve-directe"><span class="header-section-number">8.1.1</span> Preuve directe</h3>
+<div id="exm-produit-nombres-pairs-impairs" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.1 </strong></span>LE PRODUIT DE NOMBRES PAIRS ET IMPAIRS</p>
 </div>
+<div id="exm-racines-nombres-pairs" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.2 </strong></span>RACINE DE NOMBRES PAIRS</p>
+</div>
+<div id="exm-n2-pair" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.3 </strong></span>PREUVE QUE <span class="math inline">\(n^2\)</span> EST PAIR</p>
+</div>
+<div id="exm-a-divise-b-divise-c" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.4 </strong></span>Soit <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> et <span class="math inline">\(c\)</span> des entiers. Si <span class="math inline">\(a|b\)</span> et <span class="math inline">\(b|c\)</span> alors <span class="math inline">\(a|c\)</span>.</p>
+</div>
+</section>
+<section id="preuve-indirecte-par-contraposée" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="preuve-indirecte-par-contraposée"><span class="header-section-number">8.1.2</span> Preuve indirecte (par contraposée)</h3>
+<div id="exm-n2-pair-alors-n-pair" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.5 </strong></span>Montrez que si <span class="math inline">\(n^2\)</span> est pair alors <span class="math inline">\(n\)</span> est pair.</p>
+</div>
+<div id="exm-aplusb-impair-a-b-impair" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.6 </strong></span>Montrez que si <span class="math inline">\(a+b\)</span> est impair, alors <span class="math inline">\(a\)</span> est impair ou <span class="math inline">\(b\)</span> est impair.</p>
+</div>
+<div id="exm-nombre-premier-impair" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.7 </strong></span>Soit <span class="math inline">\(p\)</span> un nombre premier. Si <span class="math inline">\(p\neq 2\)</span> alors <span class="math inline">\(p\)</span> est impair.</p>
+</div>
+</section>
+<section id="preuve-par-contradiction" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="preuve-par-contradiction"><span class="header-section-number">8.1.3</span> Preuve par contradiction</h3>
+<div id="exm-plus-petit-nombre-rationnel" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.8 </strong></span>EXISTE-T-IL UN PLUS PETIT NOMBRE RATIONNEL POSITIF?</p>
+</div>
+<div id="exm-sqrt2-irrationnel" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.9 </strong></span>PREUVE QUE <span class="math inline">\(\sqrt{2}\)</span> EST IRRATIONNEL</p>
+</div>
+<div id="exm-infinite-nombres-premiers" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.10 </strong></span>PREUVE QUE QU’IL EXISTE UNE INFINITÉ DE NOMBRES PREMIERS</p>
+</div>
+<div id="exm-pas-entiers-equation" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.11 </strong></span>Il n’existe pas d’entiers <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> tels que <span class="math inline">\(x^2=4y+2\)</span>.</p>
+</div>
+</section>
+<section id="principe-des-tiroirs-de-dirichlet" class="level3" data-number="8.1.4">
+<h3 data-number="8.1.4" class="anchored" data-anchor-id="principe-des-tiroirs-de-dirichlet"><span class="header-section-number">8.1.4</span> Principe des tiroirs de Dirichlet</h3>
+<div id="exm-fonction-hachage" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.12 (Fonction de hachage) </strong></span>Une fonction de hachage est une fonction qui transforme une suite de bits de longueur arbitraire en une chaîne de longueur fixe. Du fait qu’il y a plus de chaînes possibles en entrée qu’en sortie découle par le principe des tiroirs l’existence de collisions : plusieurs chaînes distinctes ont le même haché. Rendre ces collisions difficiles à déterminer efficacement est un enjeu important en cryptographie.</p>
+</div>
+</section>
+</section>
+<section id="principe-de-linduction" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="principe-de-linduction"><span class="header-section-number">8.2</span> Principe de l’induction</h2>
+<section id="preuve-par-récurrence" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="preuve-par-récurrence"><span class="header-section-number">8.2.1</span> Preuve par récurrence</h3>
+<div id="exm-somme-n-premiers-entiers" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.13 </strong></span>PREUVE QUE <span class="math inline">\(1+2+3+\ldots +n=\frac{n(n+1)}{2}\)</span></p>
+</div>
+<div id="exm-n-plus-petit-2n" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.14 </strong></span>PREUVE QUE <span class="math inline">\(n&lt;2^n\)</span></p>
+</div>
+<div id="exm-6-divise-7n-1" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.15 </strong></span>PREUVE QUE 6 EST UN DIVISEUR DE <span class="math inline">\(7^n-1\)</span></p>
+</div>
+<div id="exm-space-filling-shapes" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.16 </strong></span>MONTRER QUE NOUS POUVONS UTILISER DES T-GONES POUR REMPLIR UNE GRILLE <span class="math inline">\(2^n \times 2^n\)</span></p>
+</div>
+<div id="exm-exponential-vs-factorial" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 8.17 </strong></span>MONTRER QUE LA FACTORIELLE CROÎT PLUS RAPIDEMENT QUE L’EXPONENTIELLE</p>
+</div>
+</section>
+<section id="algorithmes-récursifs" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="algorithmes-récursifs"><span class="header-section-number">8.2.2</span> Algorithmes récursifs</h3>
+<section id="fonctions-récursives" class="level4" data-number="8.2.2.1">
+<h4 data-number="8.2.2.1" class="anchored" data-anchor-id="fonctions-récursives"><span class="header-section-number">8.2.2.1</span> Fonctions récursives</h4>
+</section>
+<section id="algorithmes-de-type-diviser-pour-régner" class="level4" data-number="8.2.2.2">
+<h4 data-number="8.2.2.2" class="anchored" data-anchor-id="algorithmes-de-type-diviser-pour-régner"><span class="header-section-number">8.2.2.2</span> Algorithmes de type diviser pour régner</h4>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -357,11 +435,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./applications.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></span>
+      <a href="./theorie_nombres.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./denombrement.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - Références</title>
+<title>Mathématiques discrètes - 9&nbsp; Dénombrement</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./applications.html" rel="prev">
+<link href="./graphes.html" rel="next">
+<link href="./preuves.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +70,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Références</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -165,7 +147,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./denombrement.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></a>
+  <a href="./denombrement.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,7 +167,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">Références</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
     </ul>
@@ -193,14 +175,23 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#notions-de-base" id="toc-notions-de-base" class="nav-link active" data-scroll-target="#notions-de-base"><span class="toc-section-number">9.1</span>  Notions de base</a></li>
+  <li><a href="#principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet" id="toc-principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet" class="nav-link" data-scroll-target="#principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet"><span class="toc-section-number">9.2</span>  Principe des nids de pigeon (principe des tiroirs de Dirichlet)</a></li>
+  <li><a href="#permutations-et-combinaisons" id="toc-permutations-et-combinaisons" class="nav-link" data-scroll-target="#permutations-et-combinaisons"><span class="toc-section-number">9.3</span>  Permutations et combinaisons</a></li>
+  <li><a href="#relations-de-récurrence-et-dénombrement" id="toc-relations-de-récurrence-et-dénombrement" class="nav-link" data-scroll-target="#relations-de-récurrence-et-dénombrement"><span class="toc-section-number">9.4</span>  Relations de récurrence et dénombrement</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Références</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></h1>
 </div>
 
 
@@ -215,11 +206,20 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
+<section id="notions-de-base" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="notions-de-base"><span class="header-section-number">9.1</span> Notions de base</h2>
+</section>
+<section id="principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet"><span class="header-section-number">9.2</span> Principe des nids de pigeon (principe des tiroirs de Dirichlet)</h2>
+</section>
+<section id="permutations-et-combinaisons" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="permutations-et-combinaisons"><span class="header-section-number">9.3</span> Permutations et combinaisons</h2>
+</section>
+<section id="relations-de-récurrence-et-dénombrement" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="relations-de-récurrence-et-dénombrement"><span class="header-section-number">9.4</span> Relations de récurrence et dénombrement</h2>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -357,11 +357,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./applications.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></span>
+      <a href="./preuves.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./graphes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

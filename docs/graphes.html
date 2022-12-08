@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - Références</title>
+<title>Mathématiques discrètes - 10&nbsp; Graphes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./applications.html" rel="prev">
+<link href="./arbres.html" rel="next">
+<link href="./denombrement.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +70,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Références</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -170,7 +152,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./graphes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></a>
+  <a href="./graphes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,7 +167,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">Références</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
     </ul>
@@ -193,14 +175,33 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#terminologie-et-types-de-graphes" id="toc-terminologie-et-types-de-graphes" class="nav-link active" data-scroll-target="#terminologie-et-types-de-graphes"><span class="toc-section-number">10.1</span>  Terminologie et types de graphes</a></li>
+  <li><a href="#représentation-des-graphes" id="toc-représentation-des-graphes" class="nav-link" data-scroll-target="#représentation-des-graphes"><span class="toc-section-number">10.2</span>  Représentation des graphes</a>
+  <ul class="collapse">
+  <li><a href="#représentation-par-listes-dadjacence" id="toc-représentation-par-listes-dadjacence" class="nav-link" data-scroll-target="#représentation-par-listes-dadjacence"><span class="toc-section-number">10.2.1</span>  Représentation par listes d’adjacence</a></li>
+  <li><a href="#représentation-par-matrice-dadjacence" id="toc-représentation-par-matrice-dadjacence" class="nav-link" data-scroll-target="#représentation-par-matrice-dadjacence"><span class="toc-section-number">10.2.2</span>  Représentation par matrice d’adjacence</a></li>
+  </ul></li>
+  <li><a href="#chemins-dans-un-graphe" id="toc-chemins-dans-un-graphe" class="nav-link" data-scroll-target="#chemins-dans-un-graphe"><span class="toc-section-number">10.3</span>  Chemins dans un graphe</a>
+  <ul class="collapse">
+  <li><a href="#chemins-circuits-cycles" id="toc-chemins-circuits-cycles" class="nav-link" data-scroll-target="#chemins-circuits-cycles"><span class="toc-section-number">10.3.1</span>  Chemins, circuits, cycles</a></li>
+  <li><a href="#dénombrement-de-chemins" id="toc-dénombrement-de-chemins" class="nav-link" data-scroll-target="#dénombrement-de-chemins"><span class="toc-section-number">10.3.2</span>  Dénombrement de chemins</a></li>
+  <li><a href="#chemins-et-circuits-eulériens" id="toc-chemins-et-circuits-eulériens" class="nav-link" data-scroll-target="#chemins-et-circuits-eulériens"><span class="toc-section-number">10.3.3</span>  Chemins et circuits eulériens</a></li>
+  <li><a href="#chemins-et-circuits-hamiltoniens" id="toc-chemins-et-circuits-hamiltoniens" class="nav-link" data-scroll-target="#chemins-et-circuits-hamiltoniens"><span class="toc-section-number">10.3.4</span>  Chemins et circuits hamiltoniens</a></li>
+  </ul></li>
+  <li><a href="#problème-du-plus-court-chemin" id="toc-problème-du-plus-court-chemin" class="nav-link" data-scroll-target="#problème-du-plus-court-chemin"><span class="toc-section-number">10.4</span>  Problème du plus court chemin</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Références</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></h1>
 </div>
 
 
@@ -215,11 +216,38 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
+<section id="terminologie-et-types-de-graphes" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="terminologie-et-types-de-graphes"><span class="header-section-number">10.1</span> Terminologie et types de graphes</h2>
+</section>
+<section id="représentation-des-graphes" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="représentation-des-graphes"><span class="header-section-number">10.2</span> Représentation des graphes</h2>
+<section id="représentation-par-listes-dadjacence" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="représentation-par-listes-dadjacence"><span class="header-section-number">10.2.1</span> Représentation par listes d’adjacence</h3>
+</section>
+<section id="représentation-par-matrice-dadjacence" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="représentation-par-matrice-dadjacence"><span class="header-section-number">10.2.2</span> Représentation par matrice d’adjacence</h3>
+</section>
+</section>
+<section id="chemins-dans-un-graphe" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="chemins-dans-un-graphe"><span class="header-section-number">10.3</span> Chemins dans un graphe</h2>
+<section id="chemins-circuits-cycles" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="chemins-circuits-cycles"><span class="header-section-number">10.3.1</span> Chemins, circuits, cycles</h3>
+</section>
+<section id="dénombrement-de-chemins" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="dénombrement-de-chemins"><span class="header-section-number">10.3.2</span> Dénombrement de chemins</h3>
+</section>
+<section id="chemins-et-circuits-eulériens" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="chemins-et-circuits-eulériens"><span class="header-section-number">10.3.3</span> Chemins et circuits eulériens</h3>
+</section>
+<section id="chemins-et-circuits-hamiltoniens" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="chemins-et-circuits-hamiltoniens"><span class="header-section-number">10.3.4</span> Chemins et circuits hamiltoniens</h3>
+</section>
+</section>
+<section id="problème-du-plus-court-chemin" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="problème-du-plus-court-chemin"><span class="header-section-number">10.4</span> Problème du plus court chemin</h2>
 
-</div>
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -357,11 +385,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./applications.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></span>
+      <a href="./denombrement.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./arbres.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Arbres</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

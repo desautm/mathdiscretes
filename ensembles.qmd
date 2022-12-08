@@ -1,0 +1,15 @@
+# Théorie des ensembles
+
+## Notions de base sur les ensembles
+
+## Ensembles de nombres $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$
+
+## Produit cartésien
+
+## Opérations sur les ensembles $\cap$, $\cup$, $\oplus$, $-$
+
+## Diagrammes de Venn
+
+## Représentation de sous-ensembles par trains de bits
+
+## Polygones convexes avec des opérations sur les ensembles

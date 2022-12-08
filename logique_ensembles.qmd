@@ -1,0 +1,78 @@
+# Logique et ensembles
+
+## C'est quoi les mathématiques discrètes?
+
+::: {.callout-tip}
+## Réfléchissez!
+
+- Le mathématicien le plus populaire au monde organise une fête avec tous ses amis. Pour partir cette fête, ils décident de tous se serrer la main. En supposant que 10 personnes à la fête serrent la main avec toutes les autres personnes (sauf elles-mêmes bien sûr) exactement une fois, combien de poignées de mains auront été données?
+- En guise de réchauffement avant le Concours de Mangeurs de Hot-Dogs de Peter, André a mangé un hot-dog. Bernard quant à lui en a mangé trois. Pour rester dans la partie, Carole en a mangé cinq. Chaque participant en a ensuite mangé deux de plus que le participant précédent. Combien de hot-dog Zeno (le 26ème et dernier participant) en a-t-il mangé? Combien de hot-dog ont été mangés au total?
+- Après avoir excavé durant des semaines, vous arrivez enfin à la chambre funéraire. La salle est vide à l'exception de deux grands coffres. Sur chacun est écrit un message (étrangement en français). Vous savez qu'exactement un seul des messages est vrai. Que devriez-vous faire?
+    - *Si ce coffre est vide, alors le message sur l'autre coffre est vrai.*
+    - *Ce coffre est rempli de trésors ou l'autre coffre contient des scorpions venimeux.*
+- Dans le temps de vos parents, cinq petites villes avaient décidé de construire des routes pour connecter chaque paire de villes. Bien que les villes avaient beaucoip d'argent pour construire des routes aussi longues et aussi sinueuses qu'elles voulaient, il était très important que les routes ne s'intersectent pas (il n'y avait pas d'ARRÊT à l'époque). Les tunnels et les ponts n'étaient pas acceptés. Est-il possible pour chacune de ces villes de construire une route vers chacune des quatre autres villes sans créer d'intersections?
+
+:::
+
+## Énoncés mathématiques
+
+::: {.callout-tip}
+## Réfléchissez!
+
+Pendant une marche dans une forêt fictive, vous rencontrez trois trolls gardant un pont. Chacun est soit un *chevalier*, qui dit toujours la vérité, ou un *fripon*, qui ment toujours. Les trolls ne vous laisseront pas passer tant que vous n'identifierez pas correctement chacun d'entre eux comme un chevalier ou un fripon. Chaque troll dit une seule phrase.
+
+- Troll 1 : Si je suis un fripon, alors il y a exactement deux chevaliers ici.
+- Troll 2 : Le troll 1 ment.
+- Troll 3 : Soit nous sommes tous des fripons ou alors au moins un d'entre nous est un chevalier.
+
+:::
+
+::: {#def-proposition}
+## Proposition
+
+Un énoncé qui est soit vrai, soit faux est appelé une **proposition**. La **valeur de vérité** d’une proposition est donc vrai (**vrai**) ou faux (**faux**).
+:::
+
+Allez voir la @def-proposition.
+
+::: {#def-connecteurs-logiques}
+
+## Connecteurs logiques
+
+Allo
+:::
+
+::: {#exm-logik}
+Un premier exemple.
+Déterminez si la phrase suivante est une proposition ou non. Si oui, précisez s’il s’agit d’une proposition
+vraie ou d’une proposition fausse.
+
+a. Le nombre 7 est pair.
+a. Toto
+:::
+
+::: {.solution}
+Un essai
+:::
+
+
+
+
+## Les ensembles
+
+First Term
+: This is the definition of the first term.
+
+Second Term
+: This is one definition of the second term.
+: This is another definition of the second term.
+
+
+::: {#def-connecteurs_logiques}
+
+## Connecteurs logiques
+
+Un essai
+:::
+
+Dans la @def-connecteurs_logiques, 

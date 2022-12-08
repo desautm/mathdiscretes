@@ -1,0 +1,36 @@
+# Théorie des nombres
+
+## Arithmétique modulaire
+
+### Division entière
+
+### Congruence modulo $m$
+
+## Entiers et algorithmes
+
+### Algorithme d'exponentiation modulaire efficace
+
+### Nombres premiers et PGCD
+
+### Algorithme d'Euclide et théorème de Bézout
+
+### Inverse modulo $m$
+
+### Résolution de congruence
+
+### Petit théorème de Fermat
+
+## Cryptographie à clé secrète
+
+### Chiffrement par décalage
+
+### Permutation de l'alphabet
+
+### Masque jetable
+
+### Chiffrement affine
+
+## Cryptographie à clé publique
+
+### Chiffrement RSA
+

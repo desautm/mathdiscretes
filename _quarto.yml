@@ -1,24 +1,49 @@
 project:
   type: book
   output-dir: docs
+  preview:
+    watch-inputs: true
 
 book:
   title: "Mathématiques discrètes"
   author: "Marc-André Désautels"
   date: "2022-11-27"
+  reader-mode: true
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - systeme_numeration.qmd
+    - logique.qmd
+    - ensembles.qmd
+    - fonctions.qmd
+    - notation_grand_o.qmd
+    - algorithmes.qmd
+    - theorie_nombres.qmd
+    - preuves.qmd
+    - denombrement.qmd
+    - graphes.qmd
+    - arbres.qmd
+    - applications.qmd
     - references.qmd
 
 bibliography: references.bib
 
+highlight-style: pygments
+
 format:
   html:
     theme: cosmo
+    code-copy: true
   pdf:
-    documentclass: scrreprt
+    documentclass: scrbook
+    keep-tex: true
+    code-block-bg: "#d5d6db"
+    pdf-engine: pdflatex
+    geometry:
+      - paper=a4paper
+      - top=2cm
+      - bottom=2cm
+      - left=1.5cm
+      - right=3.5cm
+      - twoside
 
-
-
+code-fold: false

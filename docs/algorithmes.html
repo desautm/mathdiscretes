@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - Références</title>
+<title>Mathématiques discrètes - 6&nbsp; Introduction aux algorithmes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -49,7 +93,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./applications.html" rel="prev">
+<link href="./theorie_nombres.html" rel="next">
+<link href="./notation_grand_o.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -88,7 +133,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Références</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -150,7 +195,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></a>
+  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,7 +230,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">Références</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
     </ul>
@@ -193,14 +238,27 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#bogo-sort" id="toc-bogo-sort" class="nav-link active" data-scroll-target="#bogo-sort"><span class="toc-section-number">6.1</span>  Bogo sort</a></li>
+  <li><a href="#exemples-dalgorithmes" id="toc-exemples-dalgorithmes" class="nav-link" data-scroll-target="#exemples-dalgorithmes"><span class="toc-section-number">6.2</span>  Exemples d’algorithmes</a></li>
+  <li><a href="#fouille-linéaire" id="toc-fouille-linéaire" class="nav-link" data-scroll-target="#fouille-linéaire"><span class="toc-section-number">6.3</span>  Fouille linéaire</a></li>
+  <li><a href="#bubble-sort" id="toc-bubble-sort" class="nav-link" data-scroll-target="#bubble-sort"><span class="toc-section-number">6.4</span>  Bubble sort</a></li>
+  <li><a href="#insertion-sort" id="toc-insertion-sort" class="nav-link" data-scroll-target="#insertion-sort"><span class="toc-section-number">6.5</span>  Insertion sort</a></li>
+  <li><a href="#binary-search" id="toc-binary-search" class="nav-link" data-scroll-target="#binary-search"><span class="toc-section-number">6.6</span>  Binary search</a></li>
+  <li><a href="#heap-sort" id="toc-heap-sort" class="nav-link" data-scroll-target="#heap-sort"><span class="toc-section-number">6.7</span>  Heap sort</a></li>
+  <li><a href="#complexité-algorithmique" id="toc-complexité-algorithmique" class="nav-link" data-scroll-target="#complexité-algorithmique"><span class="toc-section-number">6.8</span>  Complexité algorithmique</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Références</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></h1>
 </div>
 
 
@@ -215,11 +273,57 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
-
+<section id="bogo-sort" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="bogo-sort"><span class="header-section-number">6.1</span> Bogo sort</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> shuffle</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> seed</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randint</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_sorted(data) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Determine whether the data is sorted."""</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">all</span>(a <span class="op">&lt;=</span> b <span class="cf">for</span> a, b <span class="kw">in</span> <span class="bu">zip</span>(data, data[<span class="dv">1</span>:]))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bogosort(data) <span class="op">-&gt;</span> <span class="bu">list</span>:</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Shuffle data until sorted."""</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    N <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">not</span> is_sorted(data):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        shuffle(data)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        N <span class="op">=</span> N <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data, N</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>seed(<span class="dv">1234</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [randint(<span class="dv">1</span>,<span class="dv">10</span>) <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(N)]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>bogosort(data)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>([1, 1, 2, 2, 2, 2, 8, 10], 1552)</code></pre>
 </div>
+</div>
+</section>
+<section id="exemples-dalgorithmes" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="exemples-dalgorithmes"><span class="header-section-number">6.2</span> Exemples d’algorithmes</h2>
+</section>
+<section id="fouille-linéaire" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="fouille-linéaire"><span class="header-section-number">6.3</span> Fouille linéaire</h2>
+</section>
+<section id="bubble-sort" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="bubble-sort"><span class="header-section-number">6.4</span> Bubble sort</h2>
+</section>
+<section id="insertion-sort" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="insertion-sort"><span class="header-section-number">6.5</span> Insertion sort</h2>
+</section>
+<section id="binary-search" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="binary-search"><span class="header-section-number">6.6</span> Binary search</h2>
+</section>
+<section id="heap-sort" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="heap-sort"><span class="header-section-number">6.7</span> Heap sort</h2>
+</section>
+<section id="complexité-algorithmique" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="complexité-algorithmique"><span class="header-section-number">6.8</span> Complexité algorithmique</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -357,11 +461,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./applications.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></span>
+      <a href="./notation_grand_o.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notation grand O</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./theorie_nombres.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

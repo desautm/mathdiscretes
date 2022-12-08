@@ -1,0 +1,93 @@
+# Preuves et raisonnement mathématique
+
+## Méthodes de preuve
+
+### Preuve directe
+
+:::{#exm-produit-nombres-pairs-impairs}
+LE PRODUIT DE NOMBRES PAIRS ET IMPAIRS
+:::
+
+:::{#exm-racines-nombres-pairs}
+RACINE DE NOMBRES PAIRS
+:::
+
+:::{#exm-n2-pair}
+PREUVE QUE $n^2$ EST PAIR
+:::
+
+:::{#exm-a-divise-b-divise-c}
+Soit $a$, $b$ et $c$ des entiers. Si $a|b$ et  $b|c$ alors $a|c$.
+:::
+
+### Preuve indirecte (par contraposée)
+
+:::{#exm-n2-pair-alors-n-pair}
+Montrez que si $n^2$ est pair alors $n$ est pair.
+:::
+
+:::{#exm-aplusb-impair-a-b-impair}
+Montrez que si $a+b$ est impair, alors $a$ est impair ou $b$ est impair.
+:::
+
+:::{#exm-nombre-premier-impair}
+Soit $p$ un nombre premier. Si $p\neq 2$ alors $p$ est impair.
+:::
+
+### Preuve par contradiction
+
+:::{#exm-plus-petit-nombre-rationnel}
+EXISTE-T-IL UN PLUS PETIT NOMBRE RATIONNEL POSITIF?
+:::
+
+:::{#exm-sqrt2-irrationnel}
+PREUVE QUE $\sqrt{2}$ EST IRRATIONNEL
+:::
+
+:::{#exm-infinite-nombres-premiers}
+PREUVE QUE QU'IL EXISTE UNE INFINITÉ DE NOMBRES PREMIERS
+:::
+
+:::{#exm-pas-entiers-equation}
+Il n'existe pas d'entiers $x$ et $y$ tels que $x^2=4y+2$.
+:::
+
+### Principe des tiroirs de Dirichlet
+
+:::{#exm-fonction-hachage}
+
+## Fonction de hachage
+
+Une fonction de hachage est une fonction qui transforme une suite de bits de longueur arbitraire en une chaîne de longueur fixe. Du fait qu'il y a plus de chaînes possibles en entrée qu'en sortie découle par le principe des tiroirs l'existence de collisions : plusieurs chaînes distinctes ont le même haché. Rendre ces collisions difficiles à déterminer efficacement est un enjeu important en cryptographie.
+
+:::
+
+## Principe de l'induction
+
+### Preuve par récurrence
+
+:::{#exm-somme-n-premiers-entiers}
+PREUVE QUE $1+2+3+\ldots +n=\frac{n(n+1)}{2}$
+:::
+
+:::{#exm-n-plus-petit-2n}
+PREUVE QUE $n<2^n$
+:::
+
+:::{#exm-6-divise-7n-1}
+PREUVE QUE 6 EST UN DIVISEUR DE $7^n-1$
+:::
+
+:::{#exm-space-filling-shapes}
+MONTRER QUE NOUS POUVONS UTILISER DES T-GONES POUR REMPLIR UNE GRILLE $2^n \times 2^n$
+:::
+
+:::{#exm-exponential-vs-factorial}
+MONTRER QUE LA FACTORIELLE CROÎT PLUS RAPIDEMENT QUE L'EXPONENTIELLE
+:::
+
+### Algorithmes récursifs
+
+#### Fonctions récursives
+
+#### Algorithmes de type diviser pour régner

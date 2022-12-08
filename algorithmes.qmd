@@ -1,0 +1,42 @@
+# Introduction aux algorithmes
+
+## Bogo sort
+
+```{python}
+from random import shuffle
+from random import seed
+from random import randint
+
+def is_sorted(data) -> bool:
+    """Determine whether the data is sorted."""
+    return all(a <= b for a, b in zip(data, data[1:]))
+
+def bogosort(data) -> list:
+    """Shuffle data until sorted."""
+    N = 0
+    while not is_sorted(data):
+        shuffle(data)
+        N = N + 1
+    return data, N
+
+seed(1234)
+N = 8
+data = [randint(1,10) for x in range(N)]
+bogosort(data)
+```
+
+
+## Exemples d'algorithmes
+
+## Fouille linéaire
+
+## Bubble sort
+
+## Insertion sort
+
+## Binary search
+
+## Heap sort
+
+## Complexité algorithmique
+

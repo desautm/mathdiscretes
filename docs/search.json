@@ -4,27 +4,475 @@
     "href": "index.html",
     "title": "Mathématiques discrètes",
     "section": "",
-    "text": "Préface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Préface\nCe document est un livre Quarto.\nPour en apprendre davantage sur les livres Quarto, visitez https://quarto.org/docs/books."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
-    "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "objectID": "systeme_numeration.html#système-décimal",
+    "href": "systeme_numeration.html#système-décimal",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.1 Système décimal",
+    "text": "1.1 Système décimal\nIl s’agit du système de numération le plus utilisé dans notre société. On peut le résumer avec les trois règles suivantes.\n\nBase = 10\nSymboles ordonnés qu’on nomme les chiffres : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.\nLe poids des symboles est donné par 10position\n\n\nExemple 1.1 Représentez le nombre 3482 sous une forme de numération positionnelle.\n\n\n\n\n\n\n\n\n\n\nSymboles (digits)\n3\n4\n8\n2\n\n\n\n\nRang (position)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\nPoids\n\n\n\n\n\n\nValeur du poids\n\n\n\n\n\n\nValeur de chaque symbole (digits)\n\n\n\n\n\n\n\nNous avons donc que 3482=\n\n\n\n\n\n\n\nImportant\n\n\n\nPour convertir un nombre de la base \\(b\\) vers la base 10 (décimal), on trouve sa représentation polynomiale.\n\n\n\nExemple 1.2 En utilisant la représentation polynomale en base 10, convertissez le nombre (176,21)8."
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Sommaire",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever."
+    "objectID": "systeme_numeration.html#système-binaire",
+    "href": "systeme_numeration.html#système-binaire",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.2 Système binaire",
+    "text": "1.2 Système binaire\nCe concept est essentiel en informatique, puisque les processeurs des ordinateurs sont composés de transistors ne gérant que deux états chacun (0 ou 1). Un calcul informatique n’est donc qu’une suite d’opérations sur des paquets de 0 et de 1, appelés bits.\n\nBase = 2\nSymboles ordonnés qu’on nomme les bits: 0, 1\nLe poids des symboles est donné par 2position\n\n\n\n\n\n\n\nImportant\n\n\n\nEn base 2, le chiffre 2 n’existe pas (c’est un nombre); tout comme le chiffre 10 n’existe pas en base 10 (c’est un nombre).\n\n\n\nExemple 1.3 Convertissez le nombre (11001)2 en décimal.\n\n\n\n\n\n\n\n\n\n\n\nSymboles (digits)\n1\n1\n0\n0\n1\n\n\n\n\nRang (position)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\nPoids\n\n\n\n\n\n\n\nValeur du poids\n\n\n\n\n\n\n\nValeur de chaque symbole (digits)\n\n\n\n\n\n\n\n\nNous avons donc que (11001)2 =\n\n\nExemple 1.4 Convertissez les nombres suivants en base 10 (décimal).\n\n(110)2 =\n(101101)2 =\n(0,1011)2 =\n(110,101)2 =\n\n\n\nExemple 1.5 Quels sont les nombres qui, dans la base deux, succèdent à (0)2?\n\n\nExemple 1.6 Quels sont les nombres qui, dans la base deux, succèdent à (1110)2?"
   },
   {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "objectID": "systeme_numeration.html#système-hexadécimal",
+    "href": "systeme_numeration.html#système-hexadécimal",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.3 Système hexadécimal",
+    "text": "1.3 Système hexadécimal\nLe système hexadécimal est utilisé notamment en électronique numérique et en informatique car il est particulièrement commode et permet un compromis entre le code binaire des machines et une base de numération pratique à utiliser pour les ingénieurs. En effet, chaque chiffre hexadécimal correspond exactement à quatre chiffres binaires (ou bits), rendant les conversions très simples et fournissant une écriture plus compacte. L’hexadécimal a été utilisé la première fois en 1956 par les ingénieurs de l’ordinateur Bendix G-15.\n\nBase = 16\nSymboles ordonnés qu’on nomme les chiffres: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F\nLe poids des symboles est donné par 16position\n\nOn remarque qu’en base 16, les dix chiffres de 0 à 9 ne suffisent pas. Il faut donc se doter de 6 symboles additionnels. On utilise les lettres de A à F avec la signification suivante:\n\\[\n(A)_{16}=(10)_{10}, \\quad (B)_{16}=(11)_{10}, \\quad (C)_{16}=(12)_{10}, \\quad (D)_{16}=(13)_{10}, \\quad (E)_{16}=(14)_{10}, \\quad (F)_{16}=(15)_{10}\n\\]\n\nExemple 1.7 Trouvez la représentation en base 10 de:\n\n(AB0)16\n(214,EA)16\n\n\n\nExemple 1.8 Donnez, en base 16, les dix nombres qui succèdent à (AAA)16."
+  },
+  {
+    "objectID": "systeme_numeration.html#division-entière",
+    "href": "systeme_numeration.html#division-entière",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.4 Division entière",
+    "text": "1.4 Division entière\n\nDéfinition 1.3 (Divisibilité) Si \\(a\\in\\mathbb{Z}\\), \\(b\\in\\mathbb{Z}\\) et \\(a\\neq 0\\), on dit que \\(a\\) divise \\(b\\) s’il existe un entier \\(c\\) tel que \\(b=ac\\). L’entier \\(a\\) est alors appelé facteur de \\(b\\).\nSi \\(a\\) divise \\(b\\), nous le notons \\(a \\mid b\\).\n\n\nThéorème 1.1 (Divisibilité) Soit \\(a\\), \\(b\\) et \\(c\\) des nombres entiers quelconques, avec \\(a\\neq 0\\).\n\nSi \\(a\\mid b\\) et \\(a\\mid c\\) alors \\(a\\mid(b+c)\\) et \\(a\\mid (b-c)\\).\nSi \\(a\\mid b\\) alors \\(a\\mid (bc)\\).\nSi \\(a\\mid b\\) et \\(b\\mid c\\) alors \\(a\\mid c\\).\n\n\n\nExemple 1.9 Vrai ou faux? Justifiez en invoquant une définition, un théorème, en donnant une preuve ou un contre-exemple.\n\n\\(7\\mid 10\\)\n\\(-5\\mid 10\\)\n\\(100\\mid 10\\)\n\\(5\\mid -10\\)\n\n\n\nThéorème 1.2 Soit \\(a\\) et \\(d\\) des entiers, avec \\(d>0\\). Il existe une seule paire d’entiers \\(q\\) et \\(r\\) satisfaisant \\[\n0\\leq r<d \\quad \\text{et} \\quad a=dq+r\n\\]\n\n\nDéfinition 1.4 (Diviseur, dividende, quotient, reste) Considérons \\(a\\) et \\(d\\) des entiers, avec \\(d>0\\). Le Théorème 1.2 stipule qu’il existe une seule paire d’entiers \\(q\\) et \\(r\\) satisfaisant \\[\na=dq+r \\quad \\text{et} \\quad 0\\leq r<d\n\\]\nPar exemple, si \\(a=17\\) et \\(d=3\\), on a \\[\n17=3\\cdot 5+2 \\quad \\text{et} \\quad 0\\leq 2<3\n\\]\n\nL’entier \\(d=3\\) est appelé diviseur.\nL’entier \\(a=17\\) est appelé le dividende.\nL’entier \\(q=5\\) est appeléle quotient (notation: $q=a d).\nL’entier \\(r=2\\) est appelé le reste."
+  },
+  {
+    "objectID": "systeme_numeration.html#conversions-de-la-base-10-vers-une-base-b",
+    "href": "systeme_numeration.html#conversions-de-la-base-10-vers-une-base-b",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.5 Conversions de la base 10 vers une base \\(b\\)",
+    "text": "1.5 Conversions de la base 10 vers une base \\(b\\)\nPour convertir un nombre entier de la base 10 vers une base \\(b\\), il faut effectuer de façon successive des divisions en utilisant la Définition 1.4. Les restes des divisions successives correspondent aux coefficients de la représentation polynomiale (lire de base en haut).\n\n1.5.1 Conversions vers binaire\n\nExemple 1.10 Convertissez les nombres suivants en binaire.\n\n115\n71\n\n\nNous pouvons utiliser la command bin de Python pour convertir des entiers décimaux en binaire.\n\nbin(115)\nbin(71)\n\n'0b1000111'\n\n\nPour convertir un nombre fractionnaire en binaire, il suffit de multiplier (plutôt que de diviser) la partie fractionnaire en notant les parties entières et fractionnaires obtenues. Il faut ensuite répéter ces étapes avec la nouvelle partie fractionnaire et poursuivre le processus jusqu’à ce que la partie fractionnaire soit nulle. Les parties entières des résultats de ces produits correspondent aux coefficients de la représentation polynomiale (lire de haut en bas).\n\nExemple 1.11 Convertissez les nombres suivants en binaire.\n\n(0,8125)10\n(0,15)10\n\n\n\n\n\n\n\n\nImportant\n\n\n\nLa conversion en binaire ou en n’importe quelle base ne donne pas toujours une suite finie. Si c’est un nombre rationnel, la conversion donnera toujours une suite finie ou périodique.\n\n\n\nExemple 1.12 Convertissez en binaire les nombres suivants, en ne conservant que 6 chiffres pour la partie fractionnaire, au besoin.\n\n(51,375)10\n(564,32)10\n\n\n\n\n1.5.2 Conversions vers hexadécimal\n\nExemple 1.13 Convertissez les nombres décimaux suivants en hexadécimal.\n\n(176,47)10\n(69,28)10\n\n\nNous pouvons utiliser la command hex de Python pour convertir des entiers décimaux en hexadécimal.\n\nhex(115)\nhex(71)\n\n'0x47'\n\n\n\n\n1.5.3 Conversions binaire - hexadécimal\nUne des raisons pour lesquelles le format hexadécimal a été inventé est qu’il est particulièrement simple de convertir un nombre binaire en nombre hexadécimal et inversement.\n\n\n\nHexa\n0\n1\n2\n3\n4\n5\n6\n7\n\n\n\n\nBinaire\n0000\n0001\n0010\n0011\n0100\n0101\n0110\n0111\n\n\nHexa\n8\n9\nA\nB\nC\nD\nE\nF\n\n\nBinaire\n1000\n1001\n1010\n1011\n1100\n1101\n1110\n1111\n\n\n\nPour convertir un nombre binaire, on regroupe par paquets de 4 chiffres à partir de la virgule (pour la partie entière et la partie fractionnaire).\n\nExemple 1.14 Convertissez les nombres binaires suivants en hexadécimal.\n\n(111001,1101)2\n\\((1110001,11\\overline{001})_2\\)\n\n\n\nExemple 1.15 Convertissez les nombres hexadécimaux suivants en binaire.\n\n(537,14)16\n\\((45B,1\\overline{DE})_{16}\\)"
+  },
+  {
+    "objectID": "systeme_numeration.html#applications-des-nombres-binaires-et-hexadécimaux",
+    "href": "systeme_numeration.html#applications-des-nombres-binaires-et-hexadécimaux",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.6 Applications des nombres binaires et hexadécimaux",
+    "text": "1.6 Applications des nombres binaires et hexadécimaux\n\n1.6.1 Vocabulaire des nombres binaires\nLes codes binaires sont incontournables en informatique, car l’information la plus élémentaire est le bit (binary-digit).\n\nQuartet\n\nNombre binaire composé de 4 éléments binaires.\n\nOctet (byte)\n\nNombre binaire composé de 8 éléments binaires.\n\nMot\n\nNombre binaire composé de 16, 32 ou 64 éléments binaires.\n\nLSB (Least Significant Bit)\n\nBit le moins significatif ou bit de poids faible (élément le plus à droite).\n\nMSB (Most Significant Bit)\n\nBit le plus significatif ou bit de poids fort (élément le plus à gauche).\n\n\n\n\n\n\n\n\nTruc\n\n\n\nLes mots de 8 ou de 16 bits écrits en binaire sont plus lisibles si on les inscrit en laissant un espace entre les groupes de quatre bits comme ceci: 0100 0001\n\n\n\n\n\n\n\n\nTruc\n\n\n\nOn a avantage à représenter les zéros non significatifs pour montrer la taille des codes transcrits. remarquez que ces 0 à gauche ne sont d’ailleurs pas toujours non significatifs. En effet, les codes binaires ne représentent pas toujours des valurs numériques. Ce sont parfois simplement des codes qui ne représentent pas des quantités. Inutile donc de faire de l’arithmétique avec ces codes. Dans ce cas, cela n’a aucun sens de vouloir les convertir en décimal et ce serait une erreur d’omettre l’écriture des zéros à gauche.\n\n\n\n\n1.6.2 Adresse IP\nUne adresse IP (Internet Protocol) est un numéro d’identification qui est attribué de façon permanente ou provisoire à chaque périphérique relié à un réseau informatique qui utilise l’Internet Protocol. L’adresse IP est à la base du système d’acheminement (le routage) des paquets de données sur Internet.\nIl existe des adresses IP de version 4 sur 32 bits, et de version 6 sur 128 bits. La version 4 est actuellement la plus utilisée : elle est généralement représentée en notation décimale avec quatre nombres compris entre 0 et 255, séparés par des points, ce qui donne par exemple « 181.174.87.53 ».\n\n\n\nAdresse Ipv4\n\n\n\n\n\nAdresse Ipv6\n\n\n\n\n1.6.3 Adresse MAC\nUne adresse MAC (de l’anglais Media Access Control), parfois nommée adresse physique, est un identifiant physique stocké dans une carte réseau ou une interface réseau similaire. À moins qu’elle n’ait été modifiée par l’utilisateur, elle est unique au monde. Le MAC (acronyme de Media Access Control) n’a aucun rapport avec le Mac d’Apple (diminutif de Macintosh). Toutes les cartes réseau ont une adresse MAC, même celles contenues dans les PC et autres appareils connectés (tablette tactile, smartphone, consoles de jeux, réfrigérateurs, montres …).\nOn peut utiliser Python et le module uuid pour trouver l’adresse MAC de l’appareil que j’utilise pour écrire ces lignes.\n\nimport uuid\nprint(hex(uuid.getnode()))\n\n0xc0b5d7b3d9a2\n\n\n\n\n1.6.4 Couleurs\nRouge, vert, bleu, de l’acronyme RVB ou en anglais RGB « red, green, blue ») désigne un système de traitement optique, d’affichage électronique ou d’un codage de signal vidéo analogique, ou un codage informatique des couleurs.\nCe principe est exploité par un téléviseur, un écran vidéo ou d’ordinateur, lequel reproduit la couleur par synthèse additive, à partir de trois couleurs primaires : rouge, vert et bleu.\nPour l’univers infographique, la valeur de chacune des couleurs primaires s’exprime dans un intervalle entre 0 et le maximum, qui est soit 1 ou 100 %, soit 255.\nL’informatique utilise des nombres codés en système binaire, par groupes de huit (octet). En attribuant un octet à chacun des canaux de couleur primaire, on obtient un nombre de couleurs tel que deux codes consécutifs, pour une ou plusieurs composantes, ne peuvent pas se distinguer sur un écran correctement réglé.\n\n\n\n\n\n\n\n\n\n\n\n\n\nValeur\nCouleur\nValeur\nCouleur\nValeur\nCouleur\nValeur\nCouleur\n\n\n\n\n#00FFFF\naqua / cyan\n#008000\ngreen (vert)\n#000080\nnavy (bleu marine)\n#C0C0C0\nsilver (argent)\n\n\n#000000\nblack (noir)\n#808080\ngray (gris)\n#808000\nolive (jaune olive)\n#008080\nteal (sarcelle)\n\n\n#0000FF\nblue (bleu)\n#00FF00\nlime (vert citron)\n#800080\npurple (violet)\n#FFFFFF\nwhite (blanc)\n\n\n#FF00FF\nfuchsia / magenta (fuchsia)\n#800000\nmaroon (bordeaux)\n#FF0000\nred (rouge)\n#FFFF00\nyellow (jaune)\n\n\n\n\n\n\n\n\n\n\n\n\n\nCouleur\nValeur Rouge\nValeur Vert\nValeur Bleu\nHexadécimal\n\n\n\n\nRed (rouge)\n255 (FF)\n0 (00)\n0 (00)\n#FF0000\n\n\nGreen (vert)\n0 (00)\n255 (FF)\n0 (00)\n#00FF00\n\n\nBlue (bleu)\n0 (00)\n0 (00)\n255 (FF)\n#0000FF\n\n\nYellow (jaune)\n255 (FF)\n255 (FF)\n0 (00)\n#FFFF00\n\n\nOrange\n255 (FF)\n165 (A5)\n0 (00)\n#FFA500\n\n\nAqua\n0 (00)\n255 (FF)\n255 (FF)\n#00FFFF\n\n\nNavy blue (bleu marine)\n0 (00)\n0 (00)\n128 (80)\n#000080\n\n\nBlack (noir)\n0 (00)\n0 (00)\n0 (00)\n#000000\n\n\nWhite (blanc)\n255 (FF)\n255 (FF)\n255 (FF)\n#FFFFFF"
+  },
+  {
+    "objectID": "systeme_numeration.html#addition-en-binaire",
+    "href": "systeme_numeration.html#addition-en-binaire",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.7 Addition en binaire",
+    "text": "1.7 Addition en binaire"
+  },
+  {
+    "objectID": "systeme_numeration.html#représentation-des-entiers",
+    "href": "systeme_numeration.html#représentation-des-entiers",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.8 Représentation des entiers",
+    "text": "1.8 Représentation des entiers\n\n1.8.1 Entiers non signés\n\n\n1.8.2 Entiers signés\n\n\n1.8.3 Complément à 1\n\n\n1.8.4 Complément à 2\n\n\n1.8.5 Débordement"
+  },
+  {
+    "objectID": "systeme_numeration.html#représentation-des-nombres-en-virgule-flottante",
+    "href": "systeme_numeration.html#représentation-des-nombres-en-virgule-flottante",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.9 Représentation des nombres en virgule flottante",
+    "text": "1.9 Représentation des nombres en virgule flottante"
+  },
+  {
+    "objectID": "systeme_numeration.html#la-norme-ieee754",
+    "href": "systeme_numeration.html#la-norme-ieee754",
+    "title": "1  Systèmes de numération positionnelle",
+    "section": "1.10 La norme IEEE754",
+    "text": "1.10 La norme IEEE754"
+  },
+  {
+    "objectID": "logique.html#logique-propositionnelle",
+    "href": "logique.html#logique-propositionnelle",
+    "title": "2  Logique",
+    "section": "2.1 Logique propositionnelle",
+    "text": "2.1 Logique propositionnelle\n\nDéfinition 2.1 (Proposition) Un énoncé qui est soit vrai, soit faux est appelé une proposition. La valeur de vérité d’une proposition est donc VRAI ou FAUX.\nEn Python, les valeurs de vérités sont données par True (VRAI) et False (FAUX).\n\nUn énoncé qui n’est pas une proposition (comme un paradoxe, une phrase impérative ou interrogative) sera qualifié d’innaceptable.\n\nExemple 2.1 Les énoncés suivants sont des propositions:\n\nLes numéros de téléphones au Canada ont dix chiffres.\nLa lune est faite de fromage.\n42 est la réponse à la question portant sur la vie, l’univers et tout ce qui existe.\nChaque nombre pair plus grand que 2 peut être exprimé comme la somme de deux nombres premiers.\n\\(3+7=12\\)\n\nLes énoncés suivants ne sont pas des propositions:\n\nVoulez-vous du gâteau?\nLa somme de deux carrés.\n\\(1+3+5+7+\\ldots +2n+1\\).\nVa dans ta chambre!\n\\(3+x=12\\)\n\n\nNous utilisons une table de vérité pour montrer les valeurs de vérité de propositions composées.\n\n2.1.1 La négation\n\nDéfinition 2.2 (La négation) Soit \\(p\\) une proposition. L’énoncé:\n\nIl n’est pas vrai que \\(p\\).\n\nest une autre proposition appelée négation de \\(p\\), qui est représentée par \\(\\lnot p\\). La proposition \\(\\lnot p\\) se lit non \\(p\\). La table de vérité de la négation est donnée ci-dessous.\n\n\n\n\\(p\\)\n\\(\\lnot p\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\nEn Python, l’opérateur not permet de faire la négation d’une valeur de vérité.\n\ndef negation(p):\n    return not p\n\nprint(\"p    non_p\")\nfor p in [True, False]:\n    non_p = negation(p)\n    print(p, non_p)\n\np    non_p\nTrue False\nFalse True\n\n\n\n\n\n2.1.2 La conjonction\n\nJe suis une roche ET je suis une île.\n\n\nDéfinition 2.3 (La conjonction) Soit \\(p\\) et \\(q\\) deux propositions. La proposition \\(p\\) et \\(q\\), notée \\(p\\wedge q\\), est vraie si à la fois \\(p\\) et \\(q\\) sont vraies. Elle est fausse dans tous les autres cas. Cette proposition est appelée la conjonction de \\(p\\) et de \\(q\\). La table de vérité de la conjonction est donnée ci-dessous.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\wedge q\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\nEn Python, l’opérateur and permet de faire la conjonction de deux valeurs de vérité.\n\ndef conjonction(p, q):\n    return p and q\n\nprint(\"p    q    p_et_q\")\nfor p in [True, False]:\n    for q in [True, False]:\n        p_et_q = conjonction(p, q)\n        print(p, q, p_et_q)\n\np    q    p_et_q\nTrue True True\nTrue False False\nFalse True False\nFalse False False\n\n\n\n\n\n2.1.3 La disjonction\n\nElle a étudié très fort OU elle est extrêmement brillante.\n\n\nDéfinition 2.4 (La disjonction) Soit \\(p\\) et \\(q\\) deux propositions. La proposition \\(p\\) ou \\(q\\), notée \\(p\\vee q\\), est fausse si \\(p\\) et \\(q\\) sont fausses. Elle est vraie dans tous les autres cas. Cette proposition est appelée la disjonction de \\(p\\) et de \\(q\\). La table de vérité de la disjonction est donnée ci-dessous.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\vee q\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\nEn Python, l’opérateur or permet de faire la disjonction de deux valeurs de vérité.\n\ndef disjonction(p, q):\n    return p or q\n\nprint(\"p    q    p_ou_q\")\nfor p in [True, False]:\n    for q in [True, False]:\n        p_ou_q = disjonction(p, q)\n        print(p, q, p_ou_q)\n\np    q    p_ou_q\nTrue True True\nTrue False True\nFalse True True\nFalse False False\n\n\n\n\n\n2.1.4 La disjonction exclusive\n\nPrenez SOIT deux Advil OU deux Tylenols.\n\n\nDéfinition 2.5 (La disjonction exclusive) Soit \\(p\\) et \\(q\\) deux propositions. La proposition \\(p\\) ou exclusif \\(q\\), notée \\(p\\oplus q\\), est vraie si \\(p\\) et \\(q\\) ont des valeurs de vérité différentes. Elle est fausse dans tous les autres cas. Cette proposition est appelée la disjonction exclusive de \\(p\\) et de \\(q\\). La table de vérité de la disjonction exclusive est donnée ci-dessous.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\oplus q\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\nEn Python, il n’existe pas d’opérateur logique pour effectuer la disjonction exclusive. On peut par contre utiliser l’opérateur bit à bit ^ pour faire cette disjonction exclusive.\n\n\nExemple 2.2 Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la disjonction exclusive dans Python.\n\ndef disjonction_exclusive(p, q):\n    return #REMPLACEZ MOI#\n\nprint(\"p    q    p_ou_exclusif_q\")\nfor p in [True, False]:\n    for q in [True, False]:\n        p_ou_exclusif_q = disjonction_exclusive(p, q)\n        print(p, q, p_ou_exclusif_q)\n\n\n\np    q    p_ou_exclusif_q\nTrue True False\nTrue False True\nFalse True True\nFalse False False\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nLa disjonction exclusive signifie l’un ou l’autre, mais pas les deux.\n\n\n\n\n2.1.5 L’implication\n\nSI vous avez 100 à l’examen final, ALORS vous obtiendrez A dans ce cours.\n\n\nDéfinition 2.6 (L’implication) Soit \\(p\\) et \\(q\\) deux propositions. L’implication \\(p\\rightarrow q\\) est une proposition qui est fausse quand \\(p\\) est vraie et que \\(q\\) est fausse, et qui est vraie dans tous les autres cas. Dans une implication, \\(p\\) est appelée l’hypothèse (ou l’antécédent ou la prémisse) et \\(q\\), la conclusion (ou la conséquence). La table de vérité de l’implication’ est donnée ci-dessous.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\rightarrow q\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\nEn Python, il n’existe pas d’opérateur logique pour effectuer l’implication.\n\n\nExemple 2.3 Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de l’implication dans Python.\n\ndef implication(p, q):\n    return #REMPLACEZ MOI#\n\nprint(\"p    q    p_implique_q\")\nfor p in [True, False]:\n    for q in [True, False]:\n        p_implique_q = implication(p, q)\n        print(p, q, p_implique_q)\n\n\n\np    q    p_implique_q\nTrue True True\nTrue False False\nFalse True True\nFalse False True\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nUne implication peut être considérée comme un contrat qui échoue seulement si les conditions du contrat sont respectées mais les résultats ne sont pas remplis.\n\n\nComme les implications apparaissent constamment en mathématiques, il existe une vaste terminologie pour désigner \\(p\\rightarrow q\\). Voici les modes les plus courants:\n\nsi \\(p\\) alors \\(q\\);\n\\(p\\) implique \\(q\\);\n\\(p\\) seulement si \\(q\\);\n\\(p\\) est suffisant pour \\(q\\);\n\\(q\\) si \\(p\\);\n\\(q\\) chaque fois que \\(p\\);\n\\(q\\) est nécessaire à \\(p\\).\n\n\n\n2.1.6 La biconditionnelle\n\nIl pleut dehors SI ET SEULEMENT SI c’est un jour nuageux.\n\n\nDéfinition 2.7 (La biconditionnelle) Soit \\(p\\) et \\(q\\) deux propositions. La biconditionnelle \\(p\\leftrightarrow q\\) est une proposition qui est vraie quand \\(p\\) et \\(q\\) ont les mêmes valeurs de vérité et qui est fausse dans les autres cas. La table de vérité de la biconditionnelle est donnée ci-dessous.\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\leftrightarrow q\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\nEn Python, il n’existe pas d’opérateur logique pour effectuer la biconditionnelle.\n\n\nExemple 2.4 Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la biconditionnelle dans Python.\n\ndef biconditionnelle(p, q):\n    return #REMPLACEZ MOI#\n\nprint(\"p    q    p_biconditionnelle_q\")\nfor p in [True, False]:\n    for q in [True, False]:\n        p_biconditionnelle_q = biconditionnelle(p, q)\n        print(p, q, p_biconditionnelle_q)\n\n\n\np    q    p_biconditionnelle_q\nTrue True True\nTrue False False\nFalse True False\nFalse False True\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nLa biconditionnelle est vraie si les propositions ont la même valeur de vérité et fausse autrement.\n\n\nComme les biconditionnelles apparaissent constamment en mathématiques, il existe une vaste terminologie pour désigner \\(p\\leftrightarrow q\\). Voici les modes les plus courants:\n\n\\(p\\) si et seulement si \\(q\\);\n\\(p\\) est nécessaire et suffisante pour \\(q\\);\nsi \\(p\\) alors \\(q\\) et réciproquement.\n\n\nDéfinition 2.8 (Réciproque, contraposée et inverse)  \n\nLa réciproque de la proposition \\(p\\rightarrow q\\) est la proposition \\(q \\rightarrow p\\).\nLa contraposée de la proposition \\(p\\rightarrow q\\) est la proposition \\(\\lnot q \\rightarrow \\lnot p\\).\nL’inverse de la proposition \\(p\\rightarrow q\\) est la proposition \\(\\lnot p \\rightarrow \\lnot q\\)."
+  },
+  {
+    "objectID": "logique.html#équivalences-propositionnelles",
+    "href": "logique.html#équivalences-propositionnelles",
+    "title": "2  Logique",
+    "section": "2.2 Équivalences propositionnelles",
+    "text": "2.2 Équivalences propositionnelles\nUne proposition composée est une proposition formée de plusieurs connecteurs logiques.\n\nDéfinition 2.9 (Tautologie, contradiction et contingence) Une proposition composée qui est toujours vraie, quelle que soit la valeur de vérité des fonctions qui la compose est appelée une tautologie. Une proposition composée qui est toujours fausse est appelée une contradiction. Finalement, une proposition qui n’est ni une tautologie ni une contradiction est appelée une contingence.\n\n\nExemple 2.5 Remplissez la table de vérité suivante et dites si les propositions composées sont des tautologies, des contradictions ou des contingences.\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(p \\vee \\lnot p\\)\n\\(p \\wedge \\lnot p\\)\n\n\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\n\n\nExemple 2.6 Le code ci-dessous révèle la table de vérité de la proposition composée \\((p \\wedge q) \\vee \\lnot q\\).\n\ndef conjonction(p, q):\n    return p and q\n\ndef disjonction(p, q):\n    return p or q\n\nprint(\"p    q    a\")\nfor p in [True, False]:\n    for q in [True, False]:\n        a = disjonction(conjonction(p, q), not q)\n        print(p, q, a)\n\np    q    a\nTrue True True\nTrue False True\nFalse True False\nFalse False True\n\n\nDe quelle manière pouvez-vous modifier le code précédent pour obtenir la table de vérité de la proposition composée \\((p \\vee \\lnot q) \\wedge \\lnot p\\)?\n\nLorsque vous créez votre table de vérité, il est crucial que vous soyiez systématique pour vous assurer d’avoir toutes les valeurs de vérité possibles pour chacune des propositions simples. Chaque proposition a deux valeurs de vérité possibles, le nombre de lignes de la table devrait être égal à \\(2^n\\), où \\(n\\) est le nombre de propositions. Vous devriez également considérer de briser vos propositions complexes en plus petites propositions.\n\nExemple 2.7 L’extrait de code suivant fait intervenir les variables booléennes \\(p\\), \\(q\\) et \\(r\\). Chacune de ces variables peut prendre les valeurs vrai ou faux. Pour chaque bloc indiqué, donnez toutes les valeurs possibles pour \\(p\\), \\(q\\) et \\(r\\) au moment où le bloc est atteint.\n\nif (p and q):\n    if r:\n        #BLOC 1#\n    else:\n        #BLOC 2#\nelse:\n    #BLOC 3#\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(r\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\n\nV\nV\nV\n\n\n\n\n\nV\nV\nF\n\n\n\n\n\nV\nF\nV\n\n\n\n\n\nV\nF\nF\n\n\n\n\n\nF\nV\nV\n\n\n\n\n\nF\nV\nF\n\n\n\n\n\nF\nF\nV\n\n\n\n\n\nF\nF\nF\n\n\n\n\n\n\n\n\nDéfinition 2.10 (Équivalences de propositions) Les propositions \\(p\\) et \\(q\\) sont dites logiquement équivalentes si la proposition \\(p \\leftrightarrow q\\) est une tautologie. Ainsi, deux propositions sont logiquement équivalentes si elles ont la même table de vérité, c’est-à-dire la même valeur de vérité dans tous les cas possibles.\nLa notation \\(p\\equiv q\\) signifie que \\(p\\) et \\(q\\) sont équivalentes.\n\n\nExemple 2.8 Vérifiez l’équivalence suivante à l’aide d’une table de vérité. \\[\np \\rightarrow q \\equiv \\lnot p \\vee q\n\\]\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\n\nV\nV\n\n\n\n\n\nV\nF\n\n\n\n\n\nF\nV\n\n\n\n\n\nF\nF\n\n\n\n\n\n\n\n\nExemple 2.9 Vérifiez l’équivalence suivante à l’aide d’une table de vérité. \\[\n\\lnot (p \\vee q) \\equiv \\lnot p \\wedge \\lnot q\n\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\\(p\\)\n\\(q\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\\(\\phantom{V}\\)\n\n\n\n\nV\nV\n\n\n\n\n\n\n\nV\nF\n\n\n\n\n\n\n\nF\nV\n\n\n\n\n\n\n\nF\nF\n\n\n\n\n\n\n\n\n\nPour gagner du temps"
+  },
+  {
+    "objectID": "logique.html#prédicats-et-quantificateurs",
+    "href": "logique.html#prédicats-et-quantificateurs",
+    "title": "2  Logique",
+    "section": "2.3 Prédicats et quantificateurs",
+    "text": "2.3 Prédicats et quantificateurs\n\nDéfinition 2.11 (Quantificateurs) \\[\n\\forall:\\ \\text{quantificateur universel} \\qquad \\exists:\\ \\text{quantificateur existentiel}\n\\]"
+  },
+  {
+    "objectID": "ensembles.html#notions-de-base-sur-les-ensembles",
+    "href": "ensembles.html#notions-de-base-sur-les-ensembles",
+    "title": "3  Théorie des ensembles",
+    "section": "3.1 Notions de base sur les ensembles",
+    "text": "3.1 Notions de base sur les ensembles"
+  },
+  {
+    "objectID": "ensembles.html#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr",
+    "href": "ensembles.html#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr",
+    "title": "3  Théorie des ensembles",
+    "section": "3.2 Ensembles de nombres \\(\\mathbb{N}\\), \\(\\mathbb{Z}\\), \\(\\mathbb{Q}\\), \\(\\mathbb{R}\\)",
+    "text": "3.2 Ensembles de nombres \\(\\mathbb{N}\\), \\(\\mathbb{Z}\\), \\(\\mathbb{Q}\\), \\(\\mathbb{R}\\)"
+  },
+  {
+    "objectID": "ensembles.html#produit-cartésien",
+    "href": "ensembles.html#produit-cartésien",
+    "title": "3  Théorie des ensembles",
+    "section": "3.3 Produit cartésien",
+    "text": "3.3 Produit cartésien"
+  },
+  {
+    "objectID": "ensembles.html#opérations-sur-les-ensembles-cap-cup-oplus--",
+    "href": "ensembles.html#opérations-sur-les-ensembles-cap-cup-oplus--",
+    "title": "3  Théorie des ensembles",
+    "section": "3.4 Opérations sur les ensembles \\(\\cap\\), \\(\\cup\\), \\(\\oplus\\), \\(-\\)",
+    "text": "3.4 Opérations sur les ensembles \\(\\cap\\), \\(\\cup\\), \\(\\oplus\\), \\(-\\)"
+  },
+  {
+    "objectID": "ensembles.html#diagrammes-de-venn",
+    "href": "ensembles.html#diagrammes-de-venn",
+    "title": "3  Théorie des ensembles",
+    "section": "3.5 Diagrammes de Venn",
+    "text": "3.5 Diagrammes de Venn"
+  },
+  {
+    "objectID": "ensembles.html#représentation-de-sous-ensembles-par-trains-de-bits",
+    "href": "ensembles.html#représentation-de-sous-ensembles-par-trains-de-bits",
+    "title": "3  Théorie des ensembles",
+    "section": "3.6 Représentation de sous-ensembles par trains de bits",
+    "text": "3.6 Représentation de sous-ensembles par trains de bits"
+  },
+  {
+    "objectID": "ensembles.html#polygones-convexes-avec-des-opérations-sur-les-ensembles",
+    "href": "ensembles.html#polygones-convexes-avec-des-opérations-sur-les-ensembles",
+    "title": "3  Théorie des ensembles",
+    "section": "3.7 Polygones convexes avec des opérations sur les ensembles",
+    "text": "3.7 Polygones convexes avec des opérations sur les ensembles"
+  },
+  {
+    "objectID": "fonctions.html#fonctions-plancher-et-plafond",
+    "href": "fonctions.html#fonctions-plancher-et-plafond",
+    "title": "4  Fonctions",
+    "section": "4.1 Fonctions plancher et plafond",
+    "text": "4.1 Fonctions plancher et plafond\nUTILE LORSQUE NOUS FERONS DE LA THÉORIE DES NOMBRES"
+  },
+  {
+    "objectID": "fonctions.html#fonctions-en-python",
+    "href": "fonctions.html#fonctions-en-python",
+    "title": "4  Fonctions",
+    "section": "4.2 Fonctions en Python",
+    "text": "4.2 Fonctions en Python\nDEVRAIT-ON PARLER DE ÇA????\nDICTIONNAIRE, HACHAGE…\n\nExemple 4.1 Fonction de hachage dans Python\nHachage Python\nDictionnary in Python\nA checksum is used to determine if something is the same.\nIf you have download a file, you can never be sure if it got corrupted on the way to your machine. You can use cksum to calculate a checksum (based on CRC-32) of the copy you now have and can then compare it to the checksum the file should have. This is how you check for file integrity.\nA hash function is used to map data to other data of fixed size. A perfect hash function is injective, so there are no collisions. Every input has one fixed output.\nA cryptographic hash function is used for verification. With a cryptographic hash function you should to not be able to compute the original input.\nA very common use case is password hashing. This allows the verification of a password without having to save the password itself. A service provider only saves a hash of a password and is not able to compute the original password. If the database of password hashes gets compromised, an attacker should not be able to compute these passwords as well. This is not the case, because there are strong and weak algorithms for password hashing. You can find more on that on this very site.\nTL;DR:\nChecksums are used to compare two pieces of information to check if two parties have exactly the same thing.\nHashes are used (in cryptography) to verify something, but this time, deliberately only one party has access to the data that has to be verified, while the other party only has access to the hash."
+  },
+  {
+    "objectID": "fonctions.html#injection-surjection-et-bijection",
+    "href": "fonctions.html#injection-surjection-et-bijection",
+    "title": "4  Fonctions",
+    "section": "4.3 Injection, surjection et bijection",
+    "text": "4.3 Injection, surjection et bijection\n\n4.3.1 Fonction de hachage est une fonction injective? surjective?"
+  },
+  {
+    "objectID": "notation_grand_o.html#mesurer-un-temps-de-calcul-avec-une-fonction",
+    "href": "notation_grand_o.html#mesurer-un-temps-de-calcul-avec-une-fonction",
+    "title": "5  Notation grand O",
+    "section": "5.1 Mesurer un temps de calcul avec une fonction",
+    "text": "5.1 Mesurer un temps de calcul avec une fonction"
+  },
+  {
+    "objectID": "notation_grand_o.html#notation-grand-o",
+    "href": "notation_grand_o.html#notation-grand-o",
+    "title": "5  Notation grand O",
+    "section": "5.2 Notation grand-O",
+    "text": "5.2 Notation grand-O"
+  },
+  {
+    "objectID": "notation_grand_o.html#sommations",
+    "href": "notation_grand_o.html#sommations",
+    "title": "5  Notation grand O",
+    "section": "5.3 Sommations",
+    "text": "5.3 Sommations"
+  },
+  {
+    "objectID": "notation_grand_o.html#établir-la-complexité-dun-algorithme",
+    "href": "notation_grand_o.html#établir-la-complexité-dun-algorithme",
+    "title": "5  Notation grand O",
+    "section": "5.4 Établir la complexité d’un algorithme",
+    "text": "5.4 Établir la complexité d’un algorithme"
+  },
+  {
+    "objectID": "notation_grand_o.html#calculabilité-et-complexité",
+    "href": "notation_grand_o.html#calculabilité-et-complexité",
+    "title": "5  Notation grand O",
+    "section": "5.5 Calculabilité et complexité",
+    "text": "5.5 Calculabilité et complexité"
+  },
+  {
+    "objectID": "notation_grand_o.html#p-vs-np",
+    "href": "notation_grand_o.html#p-vs-np",
+    "title": "5  Notation grand O",
+    "section": "5.6 P vs NP",
+    "text": "5.6 P vs NP"
+  },
+  {
+    "objectID": "algorithmes.html#bogo-sort",
+    "href": "algorithmes.html#bogo-sort",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.1 Bogo sort",
+    "text": "6.1 Bogo sort\n\nfrom random import shuffle\nfrom random import seed\nfrom random import randint\n\ndef is_sorted(data) -> bool:\n    \"\"\"Determine whether the data is sorted.\"\"\"\n    return all(a <= b for a, b in zip(data, data[1:]))\n\ndef bogosort(data) -> list:\n    \"\"\"Shuffle data until sorted.\"\"\"\n    N = 0\n    while not is_sorted(data):\n        shuffle(data)\n        N = N + 1\n    return data, N\n\nseed(1234)\nN = 8\ndata = [randint(1,10) for x in range(N)]\nbogosort(data)\n\n([1, 1, 2, 2, 2, 2, 8, 10], 1552)"
+  },
+  {
+    "objectID": "algorithmes.html#exemples-dalgorithmes",
+    "href": "algorithmes.html#exemples-dalgorithmes",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.2 Exemples d’algorithmes",
+    "text": "6.2 Exemples d’algorithmes"
+  },
+  {
+    "objectID": "algorithmes.html#fouille-linéaire",
+    "href": "algorithmes.html#fouille-linéaire",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.3 Fouille linéaire",
+    "text": "6.3 Fouille linéaire"
+  },
+  {
+    "objectID": "algorithmes.html#bubble-sort",
+    "href": "algorithmes.html#bubble-sort",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.4 Bubble sort",
+    "text": "6.4 Bubble sort"
+  },
+  {
+    "objectID": "algorithmes.html#insertion-sort",
+    "href": "algorithmes.html#insertion-sort",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.5 Insertion sort",
+    "text": "6.5 Insertion sort"
+  },
+  {
+    "objectID": "algorithmes.html#binary-search",
+    "href": "algorithmes.html#binary-search",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.6 Binary search",
+    "text": "6.6 Binary search"
+  },
+  {
+    "objectID": "algorithmes.html#heap-sort",
+    "href": "algorithmes.html#heap-sort",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.7 Heap sort",
+    "text": "6.7 Heap sort"
+  },
+  {
+    "objectID": "algorithmes.html#complexité-algorithmique",
+    "href": "algorithmes.html#complexité-algorithmique",
+    "title": "6  Introduction aux algorithmes",
+    "section": "6.8 Complexité algorithmique",
+    "text": "6.8 Complexité algorithmique"
+  },
+  {
+    "objectID": "theorie_nombres.html#arithmétique-modulaire",
+    "href": "theorie_nombres.html#arithmétique-modulaire",
+    "title": "7  Théorie des nombres",
+    "section": "7.1 Arithmétique modulaire",
+    "text": "7.1 Arithmétique modulaire\n\n7.1.1 Division entière\n\n\n7.1.2 Congruence modulo \\(m\\)"
+  },
+  {
+    "objectID": "theorie_nombres.html#entiers-et-algorithmes",
+    "href": "theorie_nombres.html#entiers-et-algorithmes",
+    "title": "7  Théorie des nombres",
+    "section": "7.2 Entiers et algorithmes",
+    "text": "7.2 Entiers et algorithmes\n\n7.2.1 Algorithme d’exponentiation modulaire efficace\n\n\n7.2.2 Nombres premiers et PGCD\n\n\n7.2.3 Algorithme d’Euclide et théorème de Bézout\n\n\n7.2.4 Inverse modulo \\(m\\)\n\n\n7.2.5 Résolution de congruence\n\n\n7.2.6 Petit théorème de Fermat"
+  },
+  {
+    "objectID": "theorie_nombres.html#cryptographie-à-clé-secrète",
+    "href": "theorie_nombres.html#cryptographie-à-clé-secrète",
+    "title": "7  Théorie des nombres",
+    "section": "7.3 Cryptographie à clé secrète",
+    "text": "7.3 Cryptographie à clé secrète\n\n7.3.1 Chiffrement par décalage\n\n\n7.3.2 Permutation de l’alphabet\n\n\n7.3.3 Masque jetable\n\n\n7.3.4 Chiffrement affine"
+  },
+  {
+    "objectID": "theorie_nombres.html#cryptographie-à-clé-publique",
+    "href": "theorie_nombres.html#cryptographie-à-clé-publique",
+    "title": "7  Théorie des nombres",
+    "section": "7.4 Cryptographie à clé publique",
+    "text": "7.4 Cryptographie à clé publique\n\n7.4.1 Chiffrement RSA"
+  },
+  {
+    "objectID": "preuves.html#méthodes-de-preuve",
+    "href": "preuves.html#méthodes-de-preuve",
+    "title": "8  Preuves et raisonnement mathématique",
+    "section": "8.1 Méthodes de preuve",
+    "text": "8.1 Méthodes de preuve\n\n8.1.1 Preuve directe\n\nExemple 8.1 LE PRODUIT DE NOMBRES PAIRS ET IMPAIRS\n\n\nExemple 8.2 RACINE DE NOMBRES PAIRS\n\n\nExemple 8.3 PREUVE QUE \\(n^2\\) EST PAIR\n\n\nExemple 8.4 Soit \\(a\\), \\(b\\) et \\(c\\) des entiers. Si \\(a|b\\) et \\(b|c\\) alors \\(a|c\\).\n\n\n\n8.1.2 Preuve indirecte (par contraposée)\n\nExemple 8.5 Montrez que si \\(n^2\\) est pair alors \\(n\\) est pair.\n\n\nExemple 8.6 Montrez que si \\(a+b\\) est impair, alors \\(a\\) est impair ou \\(b\\) est impair.\n\n\nExemple 8.7 Soit \\(p\\) un nombre premier. Si \\(p\\neq 2\\) alors \\(p\\) est impair.\n\n\n\n8.1.3 Preuve par contradiction\n\nExemple 8.8 EXISTE-T-IL UN PLUS PETIT NOMBRE RATIONNEL POSITIF?\n\n\nExemple 8.9 PREUVE QUE \\(\\sqrt{2}\\) EST IRRATIONNEL\n\n\nExemple 8.10 PREUVE QUE QU’IL EXISTE UNE INFINITÉ DE NOMBRES PREMIERS\n\n\nExemple 8.11 Il n’existe pas d’entiers \\(x\\) et \\(y\\) tels que \\(x^2=4y+2\\).\n\n\n\n8.1.4 Principe des tiroirs de Dirichlet\n\nExemple 8.12 (Fonction de hachage) Une fonction de hachage est une fonction qui transforme une suite de bits de longueur arbitraire en une chaîne de longueur fixe. Du fait qu’il y a plus de chaînes possibles en entrée qu’en sortie découle par le principe des tiroirs l’existence de collisions : plusieurs chaînes distinctes ont le même haché. Rendre ces collisions difficiles à déterminer efficacement est un enjeu important en cryptographie."
+  },
+  {
+    "objectID": "preuves.html#principe-de-linduction",
+    "href": "preuves.html#principe-de-linduction",
+    "title": "8  Preuves et raisonnement mathématique",
+    "section": "8.2 Principe de l’induction",
+    "text": "8.2 Principe de l’induction\n\n8.2.1 Preuve par récurrence\n\nExemple 8.13 PREUVE QUE \\(1+2+3+\\ldots +n=\\frac{n(n+1)}{2}\\)\n\n\nExemple 8.14 PREUVE QUE \\(n<2^n\\)\n\n\nExemple 8.15 PREUVE QUE 6 EST UN DIVISEUR DE \\(7^n-1\\)\n\n\nExemple 8.16 MONTRER QUE NOUS POUVONS UTILISER DES T-GONES POUR REMPLIR UNE GRILLE \\(2^n \\times 2^n\\)\n\n\nExemple 8.17 MONTRER QUE LA FACTORIELLE CROÎT PLUS RAPIDEMENT QUE L’EXPONENTIELLE\n\n\n\n8.2.2 Algorithmes récursifs\n\n8.2.2.1 Fonctions récursives\n\n\n8.2.2.2 Algorithmes de type diviser pour régner"
+  },
+  {
+    "objectID": "denombrement.html#notions-de-base",
+    "href": "denombrement.html#notions-de-base",
+    "title": "9  Dénombrement",
+    "section": "9.1 Notions de base",
+    "text": "9.1 Notions de base"
+  },
+  {
+    "objectID": "denombrement.html#principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet",
+    "href": "denombrement.html#principe-des-nids-de-pigeon-principe-des-tiroirs-de-dirichlet",
+    "title": "9  Dénombrement",
+    "section": "9.2 Principe des nids de pigeon (principe des tiroirs de Dirichlet)",
+    "text": "9.2 Principe des nids de pigeon (principe des tiroirs de Dirichlet)"
+  },
+  {
+    "objectID": "denombrement.html#permutations-et-combinaisons",
+    "href": "denombrement.html#permutations-et-combinaisons",
+    "title": "9  Dénombrement",
+    "section": "9.3 Permutations et combinaisons",
+    "text": "9.3 Permutations et combinaisons"
+  },
+  {
+    "objectID": "denombrement.html#relations-de-récurrence-et-dénombrement",
+    "href": "denombrement.html#relations-de-récurrence-et-dénombrement",
+    "title": "9  Dénombrement",
+    "section": "9.4 Relations de récurrence et dénombrement",
+    "text": "9.4 Relations de récurrence et dénombrement"
+  },
+  {
+    "objectID": "graphes.html#terminologie-et-types-de-graphes",
+    "href": "graphes.html#terminologie-et-types-de-graphes",
+    "title": "10  Graphes",
+    "section": "10.1 Terminologie et types de graphes",
+    "text": "10.1 Terminologie et types de graphes"
+  },
+  {
+    "objectID": "graphes.html#représentation-des-graphes",
+    "href": "graphes.html#représentation-des-graphes",
+    "title": "10  Graphes",
+    "section": "10.2 Représentation des graphes",
+    "text": "10.2 Représentation des graphes\n\n10.2.1 Représentation par listes d’adjacence\n\n\n10.2.2 Représentation par matrice d’adjacence"
+  },
+  {
+    "objectID": "graphes.html#chemins-dans-un-graphe",
+    "href": "graphes.html#chemins-dans-un-graphe",
+    "title": "10  Graphes",
+    "section": "10.3 Chemins dans un graphe",
+    "text": "10.3 Chemins dans un graphe\n\n10.3.1 Chemins, circuits, cycles\n\n\n10.3.2 Dénombrement de chemins\n\n\n10.3.3 Chemins et circuits eulériens\n\n\n10.3.4 Chemins et circuits hamiltoniens"
+  },
+  {
+    "objectID": "graphes.html#problème-du-plus-court-chemin",
+    "href": "graphes.html#problème-du-plus-court-chemin",
+    "title": "10  Graphes",
+    "section": "10.4 Problème du plus court chemin",
+    "text": "10.4 Problème du plus court chemin"
+  },
+  {
+    "objectID": "arbres.html#introduction-aux-arbres",
+    "href": "arbres.html#introduction-aux-arbres",
+    "title": "11  Arbres",
+    "section": "11.1 Introduction aux arbres",
+    "text": "11.1 Introduction aux arbres"
+  },
+  {
+    "objectID": "arbres.html#applications-des-arbres",
+    "href": "arbres.html#applications-des-arbres",
+    "title": "11  Arbres",
+    "section": "11.2 Applications des arbres",
+    "text": "11.2 Applications des arbres"
+  },
+  {
+    "objectID": "arbres.html#parcours-dun-arbre",
+    "href": "arbres.html#parcours-dun-arbre",
+    "title": "11  Arbres",
+    "section": "11.3 Parcours d’un arbre",
+    "text": "11.3 Parcours d’un arbre"
+  },
+  {
+    "objectID": "arbres.html#arbres-et-tri",
+    "href": "arbres.html#arbres-et-tri",
+    "title": "11  Arbres",
+    "section": "11.4 Arbres et tri",
+    "text": "11.4 Arbres et tri"
+  },
+  {
+    "objectID": "arbres.html#arbres-et-recouvrement",
+    "href": "arbres.html#arbres-et-recouvrement",
+    "title": "11  Arbres",
+    "section": "11.5 Arbres et recouvrement",
+    "text": "11.5 Arbres et recouvrement"
+  },
+  {
+    "objectID": "arbres.html#arbres-générateurs-de-coût-minimal",
+    "href": "arbres.html#arbres-générateurs-de-coût-minimal",
+    "title": "11  Arbres",
+    "section": "11.6 Arbres générateurs de coût minimal",
+    "text": "11.6 Arbres générateurs de coût minimal"
+  },
+  {
+    "objectID": "applications.html#cryptographie-à-clé-privée-symétrique",
+    "href": "applications.html#cryptographie-à-clé-privée-symétrique",
+    "title": "12  Applications",
+    "section": "12.1 Cryptographie à clé privée (symétrique)",
+    "text": "12.1 Cryptographie à clé privée (symétrique)"
+  },
+  {
+    "objectID": "applications.html#cryptographie-à-clé-publique-asymétrique",
+    "href": "applications.html#cryptographie-à-clé-publique-asymétrique",
+    "title": "12  Applications",
+    "section": "12.2 Cryptographie à clé publique (asymétrique)",
+    "text": "12.2 Cryptographie à clé publique (asymétrique)"
+  },
+  {
+    "objectID": "applications.html#rsa",
+    "href": "applications.html#rsa",
+    "title": "12  Applications",
+    "section": "12.3 RSA",
+    "text": "12.3 RSA"
+  },
+  {
+    "objectID": "applications.html#cryptanalyse",
+    "href": "applications.html#cryptanalyse",
+    "title": "12  Applications",
+    "section": "12.4 Cryptanalyse",
+    "text": "12.4 Cryptanalyse"
+  },
+  {
+    "objectID": "applications.html#tests-de-primalité",
+    "href": "applications.html#tests-de-primalité",
+    "title": "12  Applications",
+    "section": "12.5 Tests de primalité",
+    "text": "12.5 Tests de primalité\n\n12.5.1 La méthode naïve\nLe test le plus simple est celui des divisions successives : pour tester \\(N\\), on vérifie s’il est divisible par l’un des entiers compris au sens large entre 2 et \\(N-1\\). Si la réponse est négative, alors \\(N\\) est premier, sinon il est composé.\nPlusieurs changements permettent d’améliorer les performances de cet algorithme :\n\nil suffit de tester tous les nombres de 2 à \\(\\sqrt{N}\\) seulement, puisque si \\(N=pq\\) alors soit \\(p\\leq \\sqrt{N}\\) soit \\(q\\leq \\sqrt{N}\\),\non peut encore diviser par deux le travail en ne testant que les nombres impairs, une fois que la divisibilité par deux a échoué,\nde façon générale, on peut calculer à l’avance une liste des nombres premiers inférieurs à une limite (avec un crible d’Ératosthène), pour ne tester que ceux-ci. Par exemple, pour tester les nombres inférieurs à 39 000, il suffit de tester les nombres premiers inférieurs à 198 (car 1982 > 39 000), soit 45 nombres premiers.\n\n\nExemple 12.1 (Le crible d’Érasthotène) Trouvez tous les nombres premiers plus petits ou égaux à 30.\nDébutons en générant une liste de tous les entiers de 2 à 30:\n2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n\n\n\n\nLe crible d’Érasthotène\n\n\n\nimport numpy\ndef primes_upto2(limit):\n    is_prime = numpy.ones(limit + 1, dtype=bool)\n    for n in range(2, int(limit**0.5 + 1.5)): \n        if is_prime[n]:\n            is_prime[n*n::n] = 0\n    return numpy.nonzero(is_prime)[0][2:]\n\nprimes_upto2(100)\n\narray([ 2,  3,  5,  7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59,\n       61, 67, 71, 73, 79, 83, 89, 97], dtype=int64)\n\n\n\n\n12.5.2 Les nombres de Mersenne\n\n\n\nLe 39e nombre premier de Mersenne\n\n\n\n\n12.5.3 Le petit théorème de Fermat\nLe petit théorème de Fermat s’énonce en termes de congruence sur les entiers:\n\nThéorème 12.1 (Le petit théorème de Fermat) Si \\(p\\) est un nombre premier alors pour tout \\(1 \\leq a < p\\), \\(a^{p-1}\\equiv 1 \\mod p\\), c’est-à-dire \\(a^{p-1}-1\\) est divisible par \\(p\\).\n\nEn algorithmique, le test de primalité de Fermat est un test de primalité probabiliste basé sur le petit théorème de Fermat. Il est de type Monte-Carlo : s’il détecte qu’un nombre est composé alors il a raison ; en revanche, il peut se tromper s’il prétend que le nombre est premier.\nLe test de primalité de Fermat repose sur l’idée suivante : si \\(p\\) est composé, alors il est peu probable que \\(a^p–1\\) soit congru à 1 modulo \\(p\\) pour une valeur arbitraire de \\(a\\).\n\n\n\nSi le test de Fermat échoue, alors le nombre est composé. Si le test réussit, il y a de fortes chances que le nombre soit premier\n\n\n\ndef fermat_test(n, k):\n    import random\n    # Implementation uses the Fermat Primality Test\n    # If number is even, it's a composite number\n\n    if n == 2:\n        return True\n\n    if n % 2 == 0:\n        return False\n\n    for i in range(k):\n        a = random.randint(1, n-1)\n\n        if pow(a, n-1) % n != 1:\n            return False\n    return True\n\nfermat_test(97,1)\n\nTrue"
+  },
+  {
+    "objectID": "applications.html#fonction-de-hachage",
+    "href": "applications.html#fonction-de-hachage",
+    "title": "12  Applications",
+    "section": "12.6 Fonction de hachage",
+    "text": "12.6 Fonction de hachage\nOn nomme fonction de hachage, de l’anglais hash function (hash : pagaille, désordre, recouper et mélanger) par analogie avec la cuisine, une fonction particulière qui, à partir d’une donnée fournie en entrée, calcule une empreinte numérique servant à identifier rapidement la donnée initiale, au même titre qu’une signature pour identifier une personne. Les fonctions de hachage sont utilisées en informatique et en cryptographie notamment pour reconnaître rapidement des fichiers ou des mots de passe.\n\n\n\nExemples de hachages de textes par la fonction md5; (a) le texte utilisé est la version libre de Vingt mille lieues sous les mers du projet Gutenberg ; (b) la version modifiée est le même fichier texte, le 10e caractère de la 1000e ligne ayant été remplacé par le caractère ““. Source : Wikipédia*\n\n\nUne fonction de hachage est typiquement une fonction qui, pour un ensemble de très grande taille (théoriquement infini) et de nature très diversifiée, va renvoyer des résultats aux spécifications précises (en général des chaînes de caractère de taille limitée ou fixe) optimisées pour des applications particulières. Les chaînes permettent d’établir des relations (égalité, égalité probable, non-égalité, ordre…) entre les objets de départ sans accéder directement à ces derniers, en général soit pour des questions d’optimisation (la taille des objets de départ nuit aux performances), soit pour des questions de confidentialité.\nAutrement dit : à 1 fichier (ou à 1 mot) va correspondre une signature unique (le résultat de la fonction de hachage, soit le hash).\nEn termes très concrets, on peut voir une fonction de hachage (non cryptographique) comme un moyen de replier l’espace de données que l’on suppose potentiellement très grand et très peu rempli pour le faire entrer dans la mémoire de l’ordinateur. En revanche, une fonction de hachage cryptographique est ce que l’on appelle une fonction à sens unique, ce qui veut dire que le calcul de la fonction de hachage est facile et rapide tandis que le calcul de sa fonction inverse est infaisable par calcul et donc non calculable en pratique. Grâce à la valeur de hachage (le hash), on peut discriminer deux objets apparemment proches, ce qui peut être utilisé pour garantir l’intégrité des objets, autrement dit leur non-modification par une erreur ou un acteur malveillant."
+  },
+  {
+    "objectID": "applications.html#fonction-de-hachage-cryptographique",
+    "href": "applications.html#fonction-de-hachage-cryptographique",
+    "title": "12  Applications",
+    "section": "12.7 Fonction de hachage cryptographique",
+    "text": "12.7 Fonction de hachage cryptographique\nUne fonction de hachage cryptographique est une fonction de hachage qui, à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu’elle est pratiquement impossible à inverser, c’est-à-dire que si l’image d’une donnée par la fonction se calcule très efficacement, le calcul inverse d’une donnée d’entrée ayant pour image une certaine valeur se révèle impossible sur le plan pratique. Pour cette raison, on dit d’une telle fonction qu’elle est à sens unique.\n\n\n\nUne fonction de hachage cryptographique (spécifiquement, SHA-1) en action. Notez que même de petits changements dans la donnée d’entrée (ici dans le mot over) changent radicalement le résultat de sortie par un phénomène appelé effet avalanche."
+  },
+  {
+    "objectID": "applications.html#arithmétique-parallélisée",
+    "href": "applications.html#arithmétique-parallélisée",
+    "title": "12  Applications",
+    "section": "12.8 Arithmétique parallélisée",
+    "text": "12.8 Arithmétique parallélisée"
+  },
+  {
+    "objectID": "applications.html#sommes-de-contrôle-checksum",
+    "href": "applications.html#sommes-de-contrôle-checksum",
+    "title": "12  Applications",
+    "section": "12.9 Sommes de contrôle (checksum)",
+    "text": "12.9 Sommes de contrôle (checksum)\nUne somme de contrôle (checksum en anglais) est une courte séquence de données numériques calculée à partir d’un bloc de données plus important (par exemple un fichier ou un message) permettant de vérifier, avec une très haute probabilité, que l’intégrité de ce bloc a été préservée lors d’une opération de copie, stockage ou transmission. On parle aussi parfois d’empreinte numérique. Pour l’utilisateur final, les sommes de contrôle se présentent typiquement sous la forme de nombres au format hexadécimal. L’utilisation d’une somme de contrôle est une forme de contrôle par redondance.\n\n\n\nExemple de calcul de l’empreinte de deux chaînes de caractères proches. Ceci est généralisable à n’importe quelle chaîne de caractères et n’importe quel fichier."
+  },
+  {
+    "objectID": "applications.html#génération-de-nombres-pseudo-aléatoires",
+    "href": "applications.html#génération-de-nombres-pseudo-aléatoires",
+    "title": "12  Applications",
+    "section": "12.10 Génération de nombres pseudo-aléatoires",
+    "text": "12.10 Génération de nombres pseudo-aléatoires\nUn générateur de nombres pseudo-aléatoires, pseudorandom number generator (PRNG) en anglais, est un algorithme qui génère une séquence de nombres présentant certaines propriétés du hasard. Par exemple, les nombres sont supposés être suffisamment indépendants les uns des autres, et il est potentiellement difficile de repérer des groupes de nombres qui suivent une certaine règle (comportements de groupe).\n\n12.10.1 La méthode de Von Neumann\nEn 1946, John von Neumann propose un générateur pseudo-aléatoire connu sous le nom de la méthode middle-square (carré médian). Très simple, elle consiste à prendre un nombre, à l’élever au carré et à prendre les chiffres au milieu comme sortie. Celle-ci est utilisée comme graine pour l’itération suivante.\n\nExemple 12.2 Soit le nombre “1111”.\n\n\\(1111^2=1234321\\)\non récupère les chiffres du milieu: \\(3432\\). C’est la sortie du générateur.\n\\(3432^2=11778624\\)\non récupère les chiffres du milieu: \\(7786\\). et ainsi de suite.\n\n\nUn exemple de la méthode programmée en Python:\n\nseed = 675248\ndef random():\n    global seed\n    s = str(seed ** 2)\n    while len(s) != 12:\n        s = \"0\" + s\n    seed = int(s[3:9])\n    return seed\nfor i in range(0,5):\n    print(random())\n\n959861\n333139\n981593\n524817\n432883\n\n\nVon Neumann utilisa des nombres comportant 10 chiffres, le principe restant le même. Toutefois, la période du middle-square est faible. La qualité des sorties dépend de la graine, « 0000 » produit toujours la même séquence et constitue un « état absorbant » de l’algorithme. Von Neumann en était conscient, mais il craignait que des retouches a priori nécessaires n’apportent d’autres vices cachés. Sur l’ordinateur ENIAC qu’il utilisait avec sa méthode, il obtenait une génération 200 fois plus rapide que les résultats obtenus avec des cartes perforées. Selon Von Neumann, les générateurs basés sur du matériel ne pouvaient pas fonctionner correctement car ils ne stockaient pas les résultats (et on ne pouvait donc pas les vérifier). La méthode de Von Neumann montra vite ses limites lors d’applications utilisant des méthodes statistiques comme celle de Monte Carlo.\n\n\n12.10.2 La méthode de Fibonacci\nCette méthode est basée sur la suite de Fibonacci modulo la valeur maximale désirée:\n\\[\nx_n = (x_{n-1}+x_{n-2}) \\mod M \\ \\text{avec } x_0\\ \\text{et} \\ x_1\\ \\text{en entrée}\n\\]\nOn peut employer une variante:\n\\[\nx_n = (x_{n-1}+x_{n-k}) \\mod M \\ \\text{avec } x_0,\\ldots , x_{k-1}\\ \\text{en entrée}\n\\]\nLa qualité du générateur dépend de \\(k\\) et des nombres utilisés pour initialiser la suite. Ce générateur est par contre très simple à implémenter et ne consomme que peu de ressources.\n\n\n12.10.3 Générateurs congruentiels linéaires\nIntroduits en 1948 par D. H. Lehmer sous une forme réduite (incrément nul), ils vont être généralisés et seront largement utilisés ensuite. Ils reposent sur une simple formule de récurrence:\n\\[\nX_{n+1}=(a\\cdot X_n+c) \\mod m\n\\] avec \\(X_0\\) la graine. En général, la graine est un nombre premier, mais les contraintes exactes à son sujet dépendent de l’algorithme. Certaines graines peuvent conduire à des séquences dégénérées.\nLa période de ce générateur est au maximum de m, c’est-à-dire qu’elle est relativement courte puisque m est souvent choisi de manière à être de l’ordre de la longueur des mots sur l’ordinateur (par exemple : 232 sur une machine 32 bits). Mais cette méthode présente un avantage : on connaît les critères sur les nombres a, c et m qui vont permettre d’obtenir une période maximale (égale à m).\n\ndef bsd_rand(seed):\n   def rand():\n      nonlocal seed\n      # 0x7FFFFFFF is a number in hexadecimal (2,147,483,647 in decimal)\n      seed = (1103515245*seed + 12345) & 0x7fffffff\n      return seed\n   return rand\n\ndef msvcrt_rand(seed):\n   def rand():\n      nonlocal seed\n      # 0x7FFFFFFF is a number in hexadecimal (2,147,483,647 in decimal)\n      seed = (214013*seed + 2531011) & 0x7fffffff\n      return seed >> 16\n   return rand"
   }
 ]

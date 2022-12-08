@@ -1,0 +1,345 @@
+# Arithmétique des nombres en base $n$
+
+## Nombres en base $n$
+
+Un système de numération est un ensemble de règles qui permettent de représenter des nombres. Le plus ancien est probablement le système unaire où le symbole | représente l’entier un, || représente l’entier deux, ||| pour trois, |||| pour quatre et ainsi de suite. Ce système atteint vite ses limites, mais il permet de mettre en évidence le fait qu’il existe plusieurs façons de représenter les entiers.
+
+| **Nom français** |     **Système unaire**     | **Système décimal** | **Chiffres romains** |
+|:----------------:|:--------------------------:|:-------------------:|:--------------------:|
+|       Zéro       |                            |          0          |                      |
+|        Un        |             \|             |          1          |           I          |
+|       Deux       |            \|\|            |          2          |          II          |
+|       Trois      |           \|\|\|           |          3          |          III         |
+|     $\vdots$     |          $\vdots$          |       $\vdots$      |       $\vdots$       |
+|       Douze      | \|\|\|\| \|\|\|\| \|\|\|\| |          12         |          XII         |
+|     $\vdots$     |          $\vdots$          |       $\vdots$      |       $\vdots$       |
+
+Dans la table ci-dessus, on remarque que sur une ligne donnée, on retrouve quatre manières différentes de représenter le même entier. Pour le reste de cette section, il sera important de dissocier la **représentation** d’un nombre et sa **valeur**.
+
+:::{#def-systeme-numeration}
+## Système de numération
+
+Un **système de numération** permet de compter des objets et de les représenter par des nombres. Un système de numération **positionnel** possède trois éléments:
+
+- Base $b$ (un entier supérieur à 1)
+- Symboles (digits): 0, 1, 2, ..., $b$-1
+- Poids des symboles selon la position et la base, où poids=base^position^
+
+:::
+
+:::{.callout-note}
+Lorsque plusieurs bases interviennent dans un même contexte, on écrit $(a_n \ldots a_1a_0)_b$ pour indiquer que le nombre représenté en base $b$.
+:::
+
+Le tableau ci-dessous liste les bases les plus fréquemment utilisées en informatique.
+
+| **Nom**     | **Base** | **Chiffres**                                   |
+|-------------|:--------:|------------------------------------------------|
+| Binaire     |     2    | 0, 1                                           |
+| Octal       |     8    | 0, 1, 2, 3, 4, 5, 6, 7                         |
+| Décimal     |    10    | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9                   |
+| Hexadécimal |    16    | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F |
+
+On remarque qu'en base 16, les dix chiffres de 0 à 9 ne suffisent pas. Il faut donc se doter de 6 symboles additionnels. On utilise les lettres de A à F avec la signification suivante:
+
+$$
+(A)_{16}=(10)_{10}, \quad (B)_{16}=(11)_{10}, \quad (C)_{16}=(12)_{10}, \quad (D)_{16}=(13)_{10}, \quad (E)_{16}=(14)_{10}, \quad (F)_{16}=(15)_{10}
+$$
+
+### Le système de numération décimal
+
+Il s’agit du système de numération le plus utilisé dans notre société. On peut le résumer avec les trois règles suivantes.
+
+- Base = 10
+- Symboles ordonnés qu'on nomme les *chiffres* : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+- Le poids des symboles est donné par 10^position^
+
+:::{#exm-decimal-3482}
+Représentez le nombre 3482 sous une forme de numération positionnelle.
+
+| **Symboles (digits)**                 |       3       |       4       |       8       |       2       |
+|---------------------------------------|:-------------:|:-------------:|:-------------:|:-------------:|
+| **Rang (position)**                   | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| **Poids**                             |               |               |               |               |
+| **Valeur du poids**                   |               |               |               |               |
+| **Valeur de chaque symbole (digits)** |               |               |               |               |
+
+Nous avons donc que 3482=
+
+:::
+
+:::{#def-representation-polynomiale}
+## Représentation polynomiale
+
+Le système positionnel utilise la **représentation polynomiale**. Celle-ci est donnée par:
+$$
+(a_na_{n-1}\ldots a_1a_0,a_{-1}a_{-2}\ldots a_{-m})_b = a_nb^n+a_{n-1}b^{n-1}+\ldots +a_1b^1+a_0b^0+a_{-1}b^{-1}+\ldots +a_{-m}b^{-m}
+$$
+où $b$ est la **base** et les $a_i$ sont des **coefficients** (les symboles de votre système de numération).
+:::
+
+:::{.callout-important}
+Pour convertir un nombre de la base $b$ vers la base 10 (décimal), on trouve sa représentation polynomiale.
+:::
+
+:::{#exm-octal-vers-decimal}
+En utilisant la représentation polynomale en base 10, convertissez le nombre (176,21)~8~.
+:::
+
+### Les nombres binaires
+
+Ce concept est essentiel en informatique, puisque les processeurs des ordinateurs sont composés de transistors ne gérant que deux états chacun (0 ou 1). Un calcul informatique n'est donc qu'une suite d'opérations sur des paquets de 0 et de 1, appelés **bits**.
+
+- Base: 2
+- Symboles: 0, 1
+- Poids: puissances de 2
+
+:::{.callout-important}
+En base 2, le *chiffre* 2 n'existe pas (c'est un **nombre**); tout comme le *chiffre* 10 n'existe pas en base 10 (c'est un **nombre**).
+:::
+
+:::{#exm-11001-en-decimal}
+Convertissez le nombre (11001)~2~ en décimal.
+
+| **Symboles (digits)**                 |       3       |       4       |       8       |       2       |
+|---------------------------------------|:-------------:|:-------------:|:-------------:|:-------------:|
+| **Rang (position)**                   | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| **Poids**                             |               |               |               |               |
+| **Valeur du poids**                   |               |               |               |               |
+| **Valeur de chaque symbole (digits)** |               |               |               |               |
+
+Nous avons donc que (11001)~2~ = 
+:::
+
+:::{#exm-binaire-to-decimal}
+Convertissez les nombres suivants en base 10 (décimal).
+
+(a) (110)~2~ = 
+(a) (101101)~2~ = 
+(a) (0,1011)~2~ = 
+(a) (110,101)~2~ = 
+
+:::
+
+:::{#exm-nombres-succedent-0-base-2-1}
+Quels sont les nombres qui, dans la base deux, succèdent à (0)~2~?
+:::
+
+:::{#exm-nombres-succedent-0-base-2-2}
+Quels sont les nombres qui, dans la base deux, succèdent à (1110)~2~?
+:::
+
+#### Étendue des valeurs pour les entiers
+
+En utilisant $n$ bits, on peut former $2^n$ entiers différents et le plus grand d'entre eux est égal à $2^n-1$.
+
+:::{#exm-entiers-binaires}
+Combien d'entiers différents pouvez-vous écrire en binaire en utilisant 8 **bits**? Quel est l'entier maximal que vous pouvez représenter avec 8 **bits**?
+:::
+
+#### Vocabulaire
+
+Les codes binaires sont incontournables en informatique, car l'information la plus élémentaire est le **bit** (*binary-digit*).
+
+**Quartet**
+: Nombre binaire composé de 4 éléments binaires.
+
+**Octet** (*byte*)
+: Nombre binaire composé de 8 éléments binaires.
+
+**Mot**
+: Nombre binaire composé de 16, 32 ou 64 éléments binaires.
+
+**LSB** (Least Significant Bit)
+: Bit le moins significatif ou bit de poids faible (élément le plus à droite).
+
+**MSB** (Most Significant Bit)
+: Bit le plus significatif ou bit de poids fort (élément le plus à gauche).
+
+:::{.callout-tip}
+Les mots de 8 ou de 16 bits écrits en binaire sont plus lisibles si on les inscrit en laissant un espace entre les groupes de quatre bits comme ceci: 0100 0001
+:::
+
+:::{.callout-tip}
+On a avantage à représenter les zéros non significatifs pour montrer la taille des codes transcrits. remarquez que ces 0 à gauche ne sont d'ailleurs pas toujours *non significatifs*. En effet, les codes binaires ne représentent pas toujours des valurs numériques. Ce sont parfois simplement des codes qui ne représentent pas des quantités. Inutile donc de faire de l'arithmétique avec ces codes. Dans ce cas, cela n'a aucun sens de vouloir les convertir en décimal et ce serait une erreur d'omettre l'écriture des zéros à gauche.
+:::
+
+#### Préfixes pour représenter les puissances de 10 dans la vie courante
+
+On doit souvent en informatique utiliser de très grands nombres. Le système métrique nous a habitués à utiliser des puissances de 10 et de regrouper les chiffres par trois comme 1 000 = 10^3^ ou 1 000 000 = 10^6^.
+
+Pour les grands nombres, les puissances successives de 10^3^ portent ces noms:
+
+|  **Préfixe** | **Puissance** |
+|:------------:|:-------------:|
+| **Kilo (k)** |     10^3^     |
+| **Méga (M)** |     10^6^     |
+| **Giga (G)** |     10^9^     |
+| **Téra (T)** |     10^12^    |
+| **Péta (P)** |     10^15^    |
+|  **Exa (E)** |     10^18^    |
+
+Les petits nombres quant à eux s'expriment au moyen des puisances de 10^-3^:
+
+|    **Préfixe**    | **Puissance** |
+|:-----------------:|:-------------:|
+|   **milli (m)**   |     10^-3^    |
+| **micro ($\mu$)** |     10^-6^    |
+|    **nano (n)**   |     10^-9^    |
+|    **pico (p)**   |    10^-12^    |
+|   **femto (f)**   |    10^-15^    |
+
+En informatique, on n'utilise pas les puissances de 10^3^ pour désigner des nombres mais plutôt les puissances de 2^10^. En effet, 2^10^ = 1024. Ce nombre étant proche de 1000, il est désigné par le préfixe *kilo*.
+
+:::{.callout-note}
+Quand il s'agit de dimension de mémoires, on parle 
+:::
+
+### Les nombres binaires
+
+Ce concept est essentiel en informatique, puisque les processeurs des ordinateurs sont composés de transistors ne gérant que deux états chacun (0 ou 1). Un calcul informatique n'est donc qu'une suite d'opérations sur des paquets de 0 et de 1, appelés **bits**.
+
+- Base: 2
+- Symboles: 0, 1
+- Poids: puissances de 2
+
+:::{.callout-important}
+En base 2, le *chiffre* 2 n'existe pas (c'est un **nombre**); tout comme le *chiffre* 10 n'existe pas en base 10 (c'est un **nombre**).
+:::
+
+:::{#exm-11001-en-decimal}
+Convertissez le nombre (11001)~2~ en décimal.
+
+| **Symboles (digits)**                 |       3       |       4       |       8       |       2       |
+|---------------------------------------|:-------------:|:-------------:|:-------------:|:-------------:|
+| **Rang (position)**                   | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| **Poids**                             |               |               |               |               |
+| **Valeur du poids**                   |               |               |               |               |
+| **Valeur de chaque symbole (digits)** |               |               |               |               |
+
+Nous avons donc que (11001)~2~ = 
+:::
+
+:::{#exm-binaire-to-decimal}
+Convertissez les nombres suivants en base 10 (décimal).
+
+(a) (110)~2~ = 
+(a) (101101)~2~ = 
+(a) (0,1011)~2~ = 
+(a) (110,101)~2~ = 
+
+:::
+
+:::{#exm-nombres-succedent-0-base-2-1}
+Quels sont les nombres qui, dans la base deux, succèdent à (0)~2~?
+:::
+
+:::{#exm-nombres-succedent-0-base-2-2}
+Quels sont les nombres qui, dans la base deux, succèdent à (1110)~2~?
+:::
+
+#### Étendue des valeurs pour les entiers
+
+En utilisant $n$ bits, on peut former $2^n$ entiers différents et le plus grand d'entre eux est égal à $2^n-1$.
+
+:::{#exm-entiers-binaires}
+Combien d'entiers différents pouvez-vous écrire en binaire en utilisant 8 **bits**? Quel est l'entier maximal que vous pouvez représenter avec 8 **bits**?
+:::
+
+#### Vocabulaire
+
+Les codes binaires sont incontournables en informatique, car l'information la plus élémentaire est le **bit** (*binary-digit*).
+
+**Quartet**
+: Nombre binaire composé de 4 éléments binaires.
+
+**Octet** (*byte*)
+: Nombre binaire composé de 8 éléments binaires.
+
+**Mot**
+: Nombre binaire composé de 16, 32 ou 64 éléments binaires.
+
+**LSB** (Least Significant Bit)
+: Bit le moins significatif ou bit de poids faible (élément le plus à droite).
+
+**MSB** (Most Significant Bit)
+: Bit le plus significatif ou bit de poids fort (élément le plus à gauche).
+
+:::{.callout-tip}
+Les mots de 8 ou de 16 bits écrits en binaire sont plus lisibles si on les inscrit en laissant un espace entre les groupes de quatre bits comme ceci: 0100 0001
+:::
+
+:::{.callout-tip}
+On a avantage à représenter les zéros non significatifs pour montrer la taille des codes transcrits. remarquez que ces 0 à gauche ne sont d'ailleurs pas toujours *non significatifs*. En effet, les codes binaires ne représentent pas toujours des valurs numériques. Ce sont parfois simplement des codes qui ne représentent pas des quantités. Inutile donc de faire de l'arithmétique avec ces codes. Dans ce cas, cela n'a aucun sens de vouloir les convertir en décimal et ce serait une erreur d'omettre l'écriture des zéros à gauche.
+:::
+
+#### Préfixes pour représenter les puissances de 10 dans la vie courante
+
+On doit souvent en informatique utiliser de très grands nombres. Le système métrique nous a habitués à utiliser des puissances de 10 et de regrouper les chiffres par trois comme 1 000 = 10^3^ ou 1 000 000 = 10^6^.
+
+Pour les grands nombres, les puissances successives de 10^3^ portent ces noms:
+
+|  **Préfixe** | **Puissance** |
+|:------------:|:-------------:|
+| **Kilo (k)** |     10^3^     |
+| **Méga (M)** |     10^6^     |
+| **Giga (G)** |     10^9^     |
+| **Téra (T)** |     10^12^    |
+| **Péta (P)** |     10^15^    |
+|  **Exa (E)** |     10^18^    |
+
+Les petits nombres quant à eux s'expriment au moyen des puisances de 10^-3^:
+
+|    **Préfixe**    | **Puissance** |
+|:-----------------:|:-------------:|
+|   **milli (m)**   |     10^-3^    |
+| **micro ($\mu$)** |     10^-6^    |
+|    **nano (n)**   |     10^-9^    |
+|    **pico (p)**   |    10^-12^    |
+|   **femto (f)**   |    10^-15^    |
+
+En informatique, on n'utilise pas les puissances de 10^3^ pour désigner des nombres mais plutôt les puissances de 2^10^. En effet, 2^10^ = 1024. Ce nombre étant proche de 1000, il est désigné par le préfixe *kilo*.
+
+:::{.callout-note}
+Quand il s'agit de dimension de mémoires, on parle 
+:::
+
+### Les nombres hexadécimaux
+
+## Addition en binaire
+
+## Représentation des entiers
+
+## Arithmétique de l'ordinateur
+
+## Nombres en virgules flottantes
+
+## Lies my computer tell me
+
+
+```{python}
+#| eval: false
+#| 
+b_num = list(input("Input a binary number: "))
+value = 0
+
+for i in range(len(b_num)):
+	digit = b_num.pop()
+	if digit == '1':
+		value = value + pow(2, i)
+print("The decimal value of the number is", value)
+```
+
+
+```{python}
+# Function to convert decimal number
+# to binary using recursion
+def DecimalToBinary(num):
+     
+    if num >= 1:
+        DecimalToBinary(num // 2)
+    print(num % 2, end = '')
+ 
+DecimalToBinary(37)
+```
+

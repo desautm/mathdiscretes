@@ -1,0 +1,437 @@
+# Logique
+
+## Logique propositionnelle
+
+:::{#def-proposition}
+## Proposition
+
+Un énoncé qui est soit vrai, soit faux est appelé une **proposition**. La **valeur de vérité** d'une proposition est donc **VRAI** ou **FAUX**.
+
+En `Python`, les valeurs de vérités sont données par `True` (**VRAI**) et `False` (**FAUX**).
+:::
+
+Un énoncé qui n'est pas une proposition (comme un paradoxe, une phrase impérative ou interrogative) sera qualifié d'innaceptable.
+
+:::{#exm-propositions}
+Les énoncés suivants sont des propositions:
+
+- Les numéros de téléphones au Canada ont dix chiffres.
+- La lune est faite de fromage.
+- 42 est la réponse à la question portant sur la *vie, l'univers et tout ce qui existe*.
+- Chaque nombre pair plus grand que 2 peut être exprimé comme la somme de deux nombres premiers.
+- $3+7=12$
+
+Les énoncés suivants ne sont **pas** des propositions:
+
+- Voulez-vous du gâteau?
+- La somme de deux carrés.
+- $1+3+5+7+\ldots +2n+1$.
+- Va dans ta chambre!
+- $3+x=12$
+
+:::
+
+Nous utilisons une table de vérité pour montrer les valeurs de vérité de propositions composées.
+
+### La négation
+
+:::{#def-negation}
+## La négation
+
+Soit $p$ une proposition. L'énoncé:
+
+> *Il n'est pas vrai que $p$.*
+
+est une autre proposition appelée **négation** de $p$, qui est représentée par $\lnot p$. La proposition $\lnot p$ se lit *non $p$*. La table de vérité de la négation est donnée ci-dessous.
+
+|      $p$      |   $\lnot p$   |
+|:-------------:|:-------------:|
+| $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ |
+
+En `Python`, l'opérateur `not` permet de faire la négation d'une valeur de vérité.
+```{python}
+#| label: negation-python
+
+def negation(p):
+    return not p
+
+print("p    non_p")
+for p in [True, False]:
+    non_p = negation(p)
+    print(p, non_p)
+```
+:::
+
+### La conjonction
+
+> Je suis une roche **ET** je suis une île.
+
+:::{#def-conjonction}
+## La conjonction
+
+Soit $p$ et $q$ deux propositions. La proposition *$p$ et $q$*, notée $p\wedge q$, est vraie si à la fois $p$ et $q$ sont vraies. Elle est fausse dans tous les autres cas. Cette proposition est appelée la **conjonction** de $p$ et de $q$. La table de vérité de la conjonction est donnée ci-dessous.
+
+|      $p$      |      $q$      |  $p \wedge q$ |
+|:-------------:|:-------------:|:-------------:|
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+
+En `Python`, l'opérateur `and` permet de faire la conjonction de deux valeurs de vérité.
+```{python}
+#| label: conjonction-python
+
+def conjonction(p, q):
+    return p and q
+
+print("p    q    p_et_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_et_q = conjonction(p, q)
+        print(p, q, p_et_q)
+```
+:::
+
+### La disjonction
+
+> Elle a étudié très fort **OU** elle est extrêmement brillante.
+
+:::{#def-disjonction}
+## La disjonction
+
+Soit $p$ et $q$ deux propositions. La proposition *$p$ ou $q$*, notée $p\vee q$, est fausse si $p$ et $q$ sont fausses. Elle est vraie dans tous les autres cas. Cette proposition est appelée la **disjonction** de $p$ et de $q$. La table de vérité de la disjonction est donnée ci-dessous.
+
+|      $p$      |      $q$      |   $p \vee q$  |
+|:-------------:|:-------------:|:-------------:|
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+
+En `Python`, l'opérateur `or` permet de faire la disjonction de deux valeurs de vérité.
+```{python}
+#| label: disjonction-python
+
+def disjonction(p, q):
+    return p or q
+
+print("p    q    p_ou_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_ou_q = disjonction(p, q)
+        print(p, q, p_ou_q)
+```
+:::
+
+### La disjonction exclusive
+
+> Prenez **SOIT** deux Advil **OU** deux Tylenols.
+
+:::{#def-disjonction-exclusive}
+## La disjonction exclusive
+
+Soit $p$ et $q$ deux propositions. La proposition *$p$ ou exclusif $q$*, notée $p\oplus q$, est vraie si $p$ et $q$ ont des valeurs de vérité **différentes**. Elle est fausse dans tous les autres cas. Cette proposition est appelée la **disjonction exclusive** de $p$ et de $q$. La table de vérité de la disjonction exclusive est donnée ci-dessous.
+
+|      $p$      |      $q$      |  $p \oplus q$ |
+|:-------------:|:-------------:|:-------------:|
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+| $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+
+En `Python`, il n'existe pas d'opérateur logique pour effectuer la disjonction exclusive. On peut par contre utiliser l'opérateur bit à bit `^` pour faire cette disjonction exclusive.
+:::
+
+:::{#exm-disjonction-exclusive-python}
+
+Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la disjonction exclusive dans `Python`.
+```{python}
+#| label: disjonction-exclusive-python-todo
+#| eval: false
+
+def disjonction_exclusive(p, q):
+    return #REMPLACEZ MOI#
+
+print("p    q    p_ou_exclusif_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_ou_exclusif_q = disjonction_exclusive(p, q)
+        print(p, q, p_ou_exclusif_q)
+```
+
+```{python}
+#| label: disjonction-exclusive-python
+#| echo: false
+
+def disjonction_exclusive(p, q):
+    return p ^ q
+
+print("p    q    p_ou_exclusif_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_ou_exclusif_q = disjonction_exclusive(p, q)
+        print(p, q, p_ou_exclusif_q)
+```
+:::
+
+:::{.callout-important}
+La disjonction exclusive signifie l'un ou l'autre, mais pas les deux.
+:::
+
+### L'implication
+
+> **SI** vous avez 100 à l'examen final, **ALORS** vous obtiendrez A dans ce cours.
+
+:::{#def-implication}
+## L'implication
+
+Soit $p$ et $q$ deux propositions. L'**implication** $p\rightarrow q$ est une proposition qui est fausse quand $p$ est vraie et que $q$ est fausse, et qui est vraie dans tous les autres cas. Dans une implication, $p$ est appelée l'**hypothèse** (ou l'**antécédent** ou la **prémisse**) et $q$, la **conclusion** (ou la **conséquence**). La table de vérité de l'implication' est donnée ci-dessous.
+
+|      $p$      |      $q$      | $p \rightarrow q$ |
+|:-------------:|:-------------:|:-----------------:|
+| $\phantom{V}$ | $\phantom{V}$ |   $\phantom{V}$   |
+| $\phantom{V}$ | $\phantom{V}$ |   $\phantom{V}$   |
+| $\phantom{V}$ | $\phantom{V}$ |   $\phantom{V}$   |
+| $\phantom{V}$ | $\phantom{V}$ |   $\phantom{V}$   |
+
+En `Python`, il n'existe pas d'opérateur logique pour effectuer l'implication.
+:::
+
+:::{#exm-implication-python}
+
+Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de l'implication dans `Python`.
+
+```{python}
+#| label: implication-python-todo
+#| eval: false
+
+def implication(p, q):
+    return #REMPLACEZ MOI#
+
+print("p    q    p_implique_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_implique_q = implication(p, q)
+        print(p, q, p_implique_q)
+```
+
+```{python}
+#| label: implication-python
+#| echo: false
+
+def implication(p, q):
+    return  (not p) or q
+
+print("p    q    p_implique_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_implique_q = implication(p, q)
+        print(p, q, p_implique_q)
+```
+:::
+
+:::{.callout-important}
+Une implication peut être considérée comme un **contrat** qui échoue seulement si les conditions du contrat sont respectées mais les résultats ne sont pas remplis.
+:::
+
+Comme les implications apparaissent constamment en mathématiques, il existe une vaste terminologie pour désigner $p\rightarrow q$. Voici les modes les plus courants:
+
+- si $p$ alors $q$;
+- $p$ implique $q$;
+- $p$ seulement si $q$;
+- $p$ est suffisant pour $q$;
+- $q$ si $p$;
+- $q$ chaque fois que $p$;
+- $q$ est nécessaire à $p$.
+
+### La biconditionnelle
+
+> Il pleut dehors **SI ET SEULEMENT SI** c'est un jour nuageux.
+
+:::{#def-biconditionnelle}
+## La biconditionnelle
+
+Soit $p$ et $q$ deux propositions. La **biconditionnelle** $p\leftrightarrow q$ est une proposition qui est vraie quand $p$ et $q$ ont les mêmes valeurs de vérité et qui est fausse dans les autres cas. La table de vérité de la biconditionnelle est donnée ci-dessous.
+
+|      $p$      |      $q$      | $p \leftrightarrow q$ |
+|:-------------:|:-------------:|:---------------------:|
+| $\phantom{V}$ | $\phantom{V}$ |     $\phantom{V}$     |
+| $\phantom{V}$ | $\phantom{V}$ |     $\phantom{V}$     |
+| $\phantom{V}$ | $\phantom{V}$ |     $\phantom{V}$     |
+| $\phantom{V}$ | $\phantom{V}$ |     $\phantom{V}$     |
+
+En `Python`, il n'existe pas d'opérateur logique pour effectuer la biconditionnelle.
+:::
+
+:::{#exm-biconditionnelle-python}
+
+Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la biconditionnelle dans `Python`.
+
+```{python}
+#| label: biconditionnelle-python-todo
+#| eval: false
+
+def biconditionnelle(p, q):
+    return #REMPLACEZ MOI#
+
+print("p    q    p_biconditionnelle_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_biconditionnelle_q = biconditionnelle(p, q)
+        print(p, q, p_biconditionnelle_q)
+```
+
+```{python}
+#| label: biconditionnelle-python
+#| echo: false
+
+def biconditionnelle(p, q):
+    return  (p and q) or (not p and not q)
+
+print("p    q    p_biconditionnelle_q")
+for p in [True, False]:
+    for q in [True, False]:
+        p_biconditionnelle_q = biconditionnelle(p, q)
+        print(p, q, p_biconditionnelle_q)
+```
+:::
+
+:::{.callout-important}
+La biconditionnelle est vraie si les propositions ont la même valeur de vérité et fausse autrement.
+:::
+
+Comme les biconditionnelles apparaissent constamment en mathématiques, il existe une vaste terminologie pour désigner $p\leftrightarrow q$. Voici les modes les plus courants:
+
+- $p$ si et seulement si $q$;
+- $p$ est nécessaire et suffisante pour $q$;
+- si $p$ alors $q$ et réciproquement.
+
+:::{#def-reciproque-contraposee-inverse}
+## Réciproque, contraposée et inverse
+
+- La **réciproque** de la proposition $p\rightarrow q$ est la proposition $q \rightarrow p$.
+- La **contraposée** de la proposition $p\rightarrow q$ est la proposition $\lnot q \rightarrow \lnot p$.
+- L'**inverse** de la proposition $p\rightarrow q$ est la proposition $\lnot p \rightarrow \lnot q$.
+:::
+
+## Équivalences propositionnelles
+
+Une proposition composée est une proposition formée de plusieurs connecteurs logiques.
+
+:::{#def-tautologie-contradiction-contingence}
+## Tautologie, contradiction et contingence
+
+Une proposition composée qui est toujours vraie, quelle que soit la valeur de vérité des fonctions qui la compose est appelée une **tautologie**. Une proposition composée qui est toujours fausse est appelée une **contradiction**. Finalement, une proposition qui n'est ni une tautologie ni une contradiction est appelée une **contingence**.
+:::
+
+:::{#exm-tautologie-contradiction}
+Remplissez la table de vérité suivante et dites si les propositions composées sont des tautologies, des contradictions ou des contingences.
+
+|      $p$      |      $q$      | $p \vee \lnot p$ | $p \wedge \lnot p$ |
+|:-------------:|:-------------:|:----------------:|:------------------:|
+| $\phantom{V}$ | $\phantom{V}$ |   $\phantom{V}$  |    $\phantom{V}$   |
+| $\phantom{V}$ | $\phantom{V}$ |   $\phantom{V}$  |    $\phantom{V}$   |
+:::
+
+:::{#exm-proposition-compose}
+
+Le code ci-dessous révèle la table de vérité de la proposition composée $(p \wedge q) \vee \lnot q$.
+```{python}
+#| label: prop-composee-1
+
+def conjonction(p, q):
+    return p and q
+
+def disjonction(p, q):
+    return p or q
+
+print("p    q    a")
+for p in [True, False]:
+    for q in [True, False]:
+        a = disjonction(conjonction(p, q), not q)
+        print(p, q, a)
+```
+De quelle manière pouvez-vous modifier le code précédent pour obtenir la table de vérité de la proposition composée $(p \vee \lnot q) \wedge \lnot p$?
+:::
+
+Lorsque vous créez votre table de vérité, il est crucial que vous soyiez systématique pour vous assurer d'avoir toutes les valeurs de vérité possibles pour chacune des propositions simples. Chaque proposition a deux valeurs de vérité possibles, le nombre de lignes de la table devrait être égal à $2^n$, où $n$ est le nombre de propositions. Vous devriez également considérer de briser vos propositions complexes en plus petites propositions.
+
+:::{#exm-bloc-code}
+L'extrait de code suivant fait intervenir les variables booléennes $p$, $q$ et $r$. Chacune de ces variables peut prendre les valeurs **vrai** ou **faux**. Pour chaque bloc indiqué, donnez toutes les valeurs possibles pour $p$, $q$ et $r$ au moment où le bloc est atteint.
+
+```{python}
+#| label: bloc-code-python
+#| eval: false
+
+if (p and q):
+    if r:
+        #BLOC 1#
+    else:
+        #BLOC 2#
+else:
+    #BLOC 3#
+```
+
+|  $p$  |  $q$  |  $r$  | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+|:-----:|:-----:|:-----:|:-------------:|:-------------:|:-------------:|
+| **V** | **V** | **V** |               |               |               |
+| **V** | **V** | **F** |               |               |               |
+| **V** | **F** | **V** |               |               |               |
+| **V** | **F** | **F** |               |               |               |
+| **F** | **V** | **V** |               |               |               |
+| **F** | **V** | **F** |               |               |               |
+| **F** | **F** | **V** |               |               |               |
+| **F** | **F** | **F** |               |               |               |
+
+:::
+
+:::{#def-propositions-equivalentes}
+## Équivalences de propositions
+
+Les propositions $p$ et $q$ sont dites **logiquement équivalentes** si la proposition $p \leftrightarrow q$ est une tautologie. Ainsi, deux propositions sont logiquement équivalentes si elles ont la même table de vérité, c’est-à-dire la même valeur de vérité dans tous les cas possibles.
+
+La notation $p\equiv q$ signifie que $p$ et $q$ sont équivalentes.
+:::
+
+:::{#exm-proposition-equivalentes-1}
+Vérifiez l'équivalence suivante à l'aide d'une table de vérité.
+$$
+p \rightarrow q \equiv \lnot p \vee q
+$$
+
+|  $p$  |  $q$  | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+|:-----:|:-----:|:-------------:|:-------------:|:-------------:|
+| **V** | **V** |               |               |               |
+| **V** | **F** |               |               |               |
+| **F** | **V** |               |               |               |
+| **F** | **F** |               |               |               |
+:::
+
+:::{#exm-proposition-equivalentes-2}
+Vérifiez l'équivalence suivante à l'aide d'une table de vérité.
+$$
+\lnot (p \vee q) \equiv \lnot p \wedge \lnot q
+$$
+
+|  $p$  |  $q$  | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+|:-----:|:-----:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| **V** | **V** |               |               |               |               |               |
+| **V** | **F** |               |               |               |               |               |
+| **F** | **V** |               |               |               |               |               |
+| **F** | **F** |               |               |               |               |               |
+
+:::
+
+Pour gagner du temps 
+
+## Prédicats et quantificateurs
+
+:::{#def-quantificateurs}
+## Quantificateurs
+
+$$
+\forall:\ \text{quantificateur universel} \qquad \exists:\ \text{quantificateur existentiel}
+$$
+:::

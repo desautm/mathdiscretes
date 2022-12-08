@@ -1,0 +1,207 @@
+# Applications
+
+## Cryptographie à clé privée (symétrique) 
+
+## Cryptographie à clé publique (asymétrique)
+
+## RSA
+
+## Cryptanalyse
+
+## Tests de primalité
+
+### La méthode naïve
+
+Le test le plus simple est celui des divisions successives : pour tester $N$, on vérifie s’il est divisible par l’un des entiers compris au sens large entre 2 et $N-1$. Si la réponse est négative, alors $N$ est premier, sinon il est composé.
+
+Plusieurs changements permettent d’améliorer les performances de cet algorithme :
+
+- il suffit de tester tous les nombres de 2 à $\sqrt{N}$ seulement, puisque si $N=pq$ alors soit $p\leq \sqrt{N}$ soit $q\leq \sqrt{N}$,
+- on peut encore diviser par deux le travail en ne testant que les nombres impairs, une fois que la divisibilité par deux a échoué,
+- de façon générale, on peut calculer à l’avance une liste des nombres premiers inférieurs à une limite (avec un crible d'Ératosthène), pour ne tester que ceux-ci. Par exemple, pour tester les nombres inférieurs à 39 000, il suffit de tester les nombres premiers inférieurs à 198 (car 198^2^ > 39 000), soit 45 nombres premiers.
+
+:::{#exm-crible-erasthotene}
+
+### Le crible d'Érasthotène
+Trouvez tous les nombres premiers plus petits ou égaux à 30.
+
+Débutons en générant une liste de tous les entiers de 2 à 30:
+
+2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30
+
+2  3  ~~4~~  5  ~~6~~  7  ~~8~~  9  ~~10~~ 11 ~~12~~ 13 ~~14~~ 15 ~~16~~ 17 ~~18~~ 19 ~~20~~ 21 ~~22~~ 23 ~~24~~ 25 ~~26~~ 27 ~~28~~ 29 ~~30~~
+
+2  3  ~~4~~  5  ~~6~~  7  ~~8~~  ~~9~~  ~~10~~ 11 ~~12~~ 13 ~~14~~ ~~15~~ ~~16~~ 17 ~~18~~ 19 ~~20~~ ~~21~~ ~~22~~ 23 ~~24~~ 25 ~~26~~ ~~27~~ ~~28~~ 29 ~~30~~
+
+2  3  ~~4~~  5  ~~6~~  7  ~~8~~  ~~9~~  ~~10~~ 11 ~~12~~ 13 ~~14~~ ~~15~~ ~~16~~ 17 ~~18~~ 19 ~~20~~ ~~21~~ ~~22~~ 23 ~~24~~ ~~25~~ ~~26~~ ~~27~~ ~~28~~ 29 ~~30~~
+
+:::
+
+![Le crible d'Érasthotène](https://upload.wikimedia.org/wikipedia/commons/8/8c/New_Animation_Sieve_of_Eratosthenes.gif)
+
+```{python}
+import numpy
+def primes_upto2(limit):
+    is_prime = numpy.ones(limit + 1, dtype=bool)
+    for n in range(2, int(limit**0.5 + 1.5)): 
+        if is_prime[n]:
+            is_prime[n*n::n] = 0
+    return numpy.nonzero(is_prime)[0][2:]
+
+primes_upto2(100)
+```
+
+### Les nombres de Mersenne
+
+![Le 39^e^ nombre premier de Mersenne](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mersene39.png/220px-Mersene39.png)
+
+### Le petit théorème de Fermat
+
+Le petit théorème de Fermat s'énonce en termes de congruence sur les entiers:
+
+::: {#thm-petit-theoreme-fermat}
+
+## Le petit théorème de Fermat
+
+Si $p$ est un nombre premier alors pour tout $1 \leq a < p$, $a^{p-1}\equiv 1 \mod p$, c'est-à-dire $a^{p-1}-1$ est divisible par $p$.
+
+:::
+
+En algorithmique, le test de primalité de Fermat est un test de primalité probabiliste basé sur le petit théorème de Fermat. Il est de type Monte-Carlo : s'il détecte qu'un nombre est composé alors il a raison ; en revanche, il peut se tromper s'il prétend que le nombre est premier.
+
+Le test de primalité de Fermat repose sur l'idée suivante  : si $p$ est composé, alors il est peu probable que $a^p–1$ soit congru à 1 modulo $p$ pour une valeur arbitraire de $a$.
+
+![Si le test de Fermat échoue, alors le nombre est composé. Si le test réussit, il y a de fortes chances que le nombre soit premier](https://upload.wikimedia.org/wikipedia/commons/5/5e/TestDeFermat.svg)
+
+```{python}
+def fermat_test(n, k):
+    import random
+    # Implementation uses the Fermat Primality Test
+    # If number is even, it's a composite number
+
+    if n == 2:
+        return True
+
+    if n % 2 == 0:
+        return False
+
+    for i in range(k):
+        a = random.randint(1, n-1)
+
+        if pow(a, n-1) % n != 1:
+            return False
+    return True
+
+fermat_test(97,1)
+```
+
+## Fonction de hachage
+
+On nomme fonction de hachage, de l'anglais hash function (hash : pagaille, désordre, recouper et mélanger) par analogie avec la cuisine, une fonction particulière qui, à partir d'une donnée fournie en entrée, calcule une empreinte numérique servant à identifier rapidement la donnée initiale, au même titre qu'une signature pour identifier une personne. Les fonctions de hachage sont utilisées en informatique et en cryptographie notamment pour reconnaître rapidement des fichiers ou des mots de passe.
+
+![Exemples de hachages de textes par la fonction md5; (a) le texte utilisé est la version libre de *Vingt mille lieues sous les mers* du projet Gutenberg ; (b) la version modifiée est le même fichier texte, le 10^e^ caractère de la 1000^e^ ligne ayant été remplacé par le caractère "*". *Source : Wikipédia*](https://upload.wikimedia.org/wikipedia/commons/5/51/Hachage.svg)
+
+Une fonction de hachage est typiquement une fonction qui, pour un ensemble de très grande taille (théoriquement infini) et de nature très diversifiée, va renvoyer des résultats aux spécifications précises (en général des chaînes de caractère de taille limitée ou fixe) optimisées pour des applications particulières. Les chaînes permettent d'établir des relations (égalité, égalité probable, non-égalité, ordre...) entre les objets de départ sans accéder directement à ces derniers, en général soit pour des questions d'optimisation (la taille des objets de départ nuit aux performances), soit pour des questions de confidentialité.
+
+Autrement dit : à 1 fichier (ou à 1 mot) va correspondre une signature unique (le résultat de la fonction de hachage, soit le hash).
+
+En termes très concrets, on peut voir une fonction de hachage (non cryptographique) comme un moyen de replier l'espace de données que l'on suppose potentiellement très grand et très peu rempli pour le faire entrer dans la mémoire de l'ordinateur. En revanche, une fonction de hachage cryptographique est ce que l'on appelle une fonction à sens unique, ce qui veut dire que le calcul de la fonction de hachage est facile et rapide tandis que le calcul de sa fonction inverse est infaisable par calcul et donc non calculable en pratique. Grâce à la valeur de hachage (le hash), on peut discriminer deux objets apparemment proches, ce qui peut être utilisé pour garantir l'intégrité des objets, autrement dit leur non-modification par une erreur ou un acteur malveillant.
+
+## Fonction de hachage cryptographique
+
+Une fonction de hachage cryptographique est une fonction de hachage qui, à une donnée de taille arbitraire, associe une image de taille fixe, et dont une propriété essentielle est qu'elle est pratiquement impossible à inverser, c'est-à-dire que si l'image d'une donnée par la fonction se calcule très efficacement, le calcul inverse d'une donnée d'entrée ayant pour image une certaine valeur se révèle impossible sur le plan pratique. Pour cette raison, on dit d'une telle fonction qu'elle est à sens unique.
+
+![Une fonction de hachage cryptographique (spécifiquement, SHA-1) en action. Notez que même de petits changements dans la donnée d'entrée (ici dans le mot over) changent radicalement le résultat de sortie par un phénomène appelé effet avalanche.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Cryptographic_Hash_Function.svg/375px-Cryptographic_Hash_Function.svg.png)
+
+## Arithmétique parallélisée
+
+## Sommes de contrôle (checksum)
+
+Une somme de contrôle (checksum en anglais) est une courte séquence de données numériques calculée à partir d'un bloc de données plus important (par exemple un fichier ou un message) permettant de vérifier, avec une très haute probabilité, que l'intégrité de ce bloc a été préservée lors d'une opération de copie, stockage ou transmission. On parle aussi parfois d'empreinte numérique. Pour l'utilisateur final, les sommes de contrôle se présentent typiquement sous la forme de nombres au format hexadécimal. L'utilisation d'une somme de contrôle est une forme de contrôle par redondance.
+
+![Exemple de calcul de l'empreinte de deux chaînes de caractères proches. Ceci est généralisable à n'importe quelle chaîne de caractères et n'importe quel fichier.](https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Calcul_d%27une_empreinte.svg/440px-Calcul_d%27une_empreinte.svg.png)
+
+## Génération de nombres pseudo-aléatoires
+
+Un générateur de nombres pseudo-aléatoires, pseudorandom number generator (PRNG) en anglais, est un algorithme qui génère une séquence de nombres présentant certaines propriétés du hasard. Par exemple, les nombres sont supposés être suffisamment indépendants les uns des autres, et il est potentiellement difficile de repérer des groupes de nombres qui suivent une certaine règle (comportements de groupe).
+
+### La méthode de Von Neumann
+
+En 1946, John von Neumann propose un générateur pseudo-aléatoire connu sous le nom de la méthode middle-square (carré médian). Très simple, elle consiste à prendre un nombre, à l'élever au carré et à prendre les chiffres au milieu comme sortie. Celle-ci est utilisée comme graine pour l'itération suivante.
+
+::: {#exm-methode-von-neumann}
+
+Soit le nombre "1111".
+
+1. $1111^2=1234321$
+2. on récupère les chiffres du milieu: $3432$. C'est la sortie du générateur.
+3. $3432^2=11778624$
+4. on récupère les chiffres du milieu: $7786$.
+et ainsi de suite.
+:::
+
+Un exemple de la méthode programmée en `Python`:
+```{python}
+#| label: middle-square
+
+seed = 675248
+def random():
+    global seed
+    s = str(seed ** 2)
+    while len(s) != 12:
+        s = "0" + s
+    seed = int(s[3:9])
+    return seed
+for i in range(0,5):
+    print(random())
+```
+
+Von Neumann utilisa des nombres comportant 10 chiffres, le principe restant le même. Toutefois, la période du middle-square est faible. La qualité des sorties dépend de la graine, « 0000 » produit toujours la même séquence et constitue un « état absorbant » de l'algorithme. Von Neumann en était conscient, mais il craignait que des retouches a priori nécessaires n'apportent d'autres vices cachés. Sur l'ordinateur ENIAC qu'il utilisait avec sa méthode, il obtenait une génération 200 fois plus rapide que les résultats obtenus avec des cartes perforées. Selon Von Neumann, les générateurs basés sur du matériel ne pouvaient pas fonctionner correctement car ils ne stockaient pas les résultats (et on ne pouvait donc pas les vérifier). La méthode de Von Neumann montra vite ses limites lors d'applications utilisant des méthodes statistiques comme celle de Monte Carlo.
+
+### La méthode de Fibonacci
+
+Cette méthode est basée sur la suite de Fibonacci modulo la valeur maximale désirée:
+
+$$
+x_n = (x_{n-1}+x_{n-2}) \mod M \ \text{avec } x_0\ \text{et} \ x_1\ \text{en entrée}
+$$
+
+On peut employer une variante:
+
+$$
+x_n = (x_{n-1}+x_{n-k}) \mod M \ \text{avec } x_0,\ldots , x_{k-1}\ \text{en entrée}
+$$
+
+La qualité du générateur dépend de $k$ et des nombres utilisés pour initialiser la suite. Ce générateur est par contre très simple à implémenter et ne consomme que peu de ressources.
+
+### Générateurs congruentiels linéaires
+
+Introduits en 1948 par D. H. Lehmer sous une forme réduite (incrément nul), ils vont être généralisés et seront largement utilisés ensuite. Ils reposent sur une simple formule de récurrence:
+
+$$
+X_{n+1}=(a\cdot X_n+c) \mod m
+$$
+avec $X_0$ la graine. En général, la graine est un nombre premier, mais les contraintes exactes à son sujet dépendent de l'algorithme. Certaines graines peuvent conduire à des séquences dégénérées.
+
+La période de ce générateur est au maximum de m, c’est-à-dire qu’elle est relativement courte puisque m est souvent choisi de manière à être de l’ordre de la longueur des mots sur l’ordinateur (par exemple : 232 sur une machine 32 bits). Mais cette méthode présente un avantage : on connaît les critères sur les nombres a, c et m qui vont permettre d’obtenir une période maximale (égale à m).
+
+```{python}
+#| label: generateur-congruentiel-lineaire
+
+def bsd_rand(seed):
+   def rand():
+      nonlocal seed
+      # 0x7FFFFFFF is a number in hexadecimal (2,147,483,647 in decimal)
+      seed = (1103515245*seed + 12345) & 0x7fffffff
+      return seed
+   return rand
+
+def msvcrt_rand(seed):
+   def rand():
+      nonlocal seed
+      # 0x7FFFFFFF is a number in hexadecimal (2,147,483,647 in decimal)
+      seed = (214013*seed + 2531011) & 0x7fffffff
+      return seed >> 16
+   return rand
+
+```

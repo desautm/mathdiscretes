@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - Références</title>
+<title>Mathématiques discrètes - 7&nbsp; Théorie des nombres</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./applications.html" rel="prev">
+<link href="./preuves.html" rel="next">
+<link href="./algorithmes.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,6 +61,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -88,7 +71,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Références</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -155,7 +138,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></a>
+  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -185,7 +168,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">Références</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
     </ul>
@@ -193,14 +176,44 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table des matières</h2>
+   
+  <ul>
+  <li><a href="#arithmétique-modulaire" id="toc-arithmétique-modulaire" class="nav-link active" data-scroll-target="#arithmétique-modulaire"><span class="toc-section-number">7.1</span>  Arithmétique modulaire</a>
+  <ul class="collapse">
+  <li><a href="#division-entière" id="toc-division-entière" class="nav-link" data-scroll-target="#division-entière"><span class="toc-section-number">7.1.1</span>  Division entière</a></li>
+  <li><a href="#congruence-modulo-m" id="toc-congruence-modulo-m" class="nav-link" data-scroll-target="#congruence-modulo-m"><span class="toc-section-number">7.1.2</span>  Congruence modulo <span class="math inline">\(m\)</span></a></li>
+  </ul></li>
+  <li><a href="#entiers-et-algorithmes" id="toc-entiers-et-algorithmes" class="nav-link" data-scroll-target="#entiers-et-algorithmes"><span class="toc-section-number">7.2</span>  Entiers et algorithmes</a>
+  <ul class="collapse">
+  <li><a href="#algorithme-dexponentiation-modulaire-efficace" id="toc-algorithme-dexponentiation-modulaire-efficace" class="nav-link" data-scroll-target="#algorithme-dexponentiation-modulaire-efficace"><span class="toc-section-number">7.2.1</span>  Algorithme d’exponentiation modulaire efficace</a></li>
+  <li><a href="#nombres-premiers-et-pgcd" id="toc-nombres-premiers-et-pgcd" class="nav-link" data-scroll-target="#nombres-premiers-et-pgcd"><span class="toc-section-number">7.2.2</span>  Nombres premiers et PGCD</a></li>
+  <li><a href="#algorithme-deuclide-et-théorème-de-bézout" id="toc-algorithme-deuclide-et-théorème-de-bézout" class="nav-link" data-scroll-target="#algorithme-deuclide-et-théorème-de-bézout"><span class="toc-section-number">7.2.3</span>  Algorithme d’Euclide et théorème de Bézout</a></li>
+  <li><a href="#inverse-modulo-m" id="toc-inverse-modulo-m" class="nav-link" data-scroll-target="#inverse-modulo-m"><span class="toc-section-number">7.2.4</span>  Inverse modulo <span class="math inline">\(m\)</span></a></li>
+  <li><a href="#résolution-de-congruence" id="toc-résolution-de-congruence" class="nav-link" data-scroll-target="#résolution-de-congruence"><span class="toc-section-number">7.2.5</span>  Résolution de congruence</a></li>
+  <li><a href="#petit-théorème-de-fermat" id="toc-petit-théorème-de-fermat" class="nav-link" data-scroll-target="#petit-théorème-de-fermat"><span class="toc-section-number">7.2.6</span>  Petit théorème de Fermat</a></li>
+  </ul></li>
+  <li><a href="#cryptographie-à-clé-secrète" id="toc-cryptographie-à-clé-secrète" class="nav-link" data-scroll-target="#cryptographie-à-clé-secrète"><span class="toc-section-number">7.3</span>  Cryptographie à clé secrète</a>
+  <ul class="collapse">
+  <li><a href="#chiffrement-par-décalage" id="toc-chiffrement-par-décalage" class="nav-link" data-scroll-target="#chiffrement-par-décalage"><span class="toc-section-number">7.3.1</span>  Chiffrement par décalage</a></li>
+  <li><a href="#permutation-de-lalphabet" id="toc-permutation-de-lalphabet" class="nav-link" data-scroll-target="#permutation-de-lalphabet"><span class="toc-section-number">7.3.2</span>  Permutation de l’alphabet</a></li>
+  <li><a href="#masque-jetable" id="toc-masque-jetable" class="nav-link" data-scroll-target="#masque-jetable"><span class="toc-section-number">7.3.3</span>  Masque jetable</a></li>
+  <li><a href="#chiffrement-affine" id="toc-chiffrement-affine" class="nav-link" data-scroll-target="#chiffrement-affine"><span class="toc-section-number">7.3.4</span>  Chiffrement affine</a></li>
+  </ul></li>
+  <li><a href="#cryptographie-à-clé-publique" id="toc-cryptographie-à-clé-publique" class="nav-link" data-scroll-target="#cryptographie-à-clé-publique"><span class="toc-section-number">7.4</span>  Cryptographie à clé publique</a>
+  <ul class="collapse">
+  <li><a href="#chiffrement-rsa" id="toc-chiffrement-rsa" class="nav-link" data-scroll-target="#chiffrement-rsa"><span class="toc-section-number">7.4.1</span>  Chiffrement RSA</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Références</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></h1>
 </div>
 
 
@@ -215,11 +228,59 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
+<section id="arithmétique-modulaire" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="arithmétique-modulaire"><span class="header-section-number">7.1</span> Arithmétique modulaire</h2>
+<section id="division-entière" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="division-entière"><span class="header-section-number">7.1.1</span> Division entière</h3>
+</section>
+<section id="congruence-modulo-m" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="congruence-modulo-m"><span class="header-section-number">7.1.2</span> Congruence modulo <span class="math inline">\(m\)</span></h3>
+</section>
+</section>
+<section id="entiers-et-algorithmes" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="entiers-et-algorithmes"><span class="header-section-number">7.2</span> Entiers et algorithmes</h2>
+<section id="algorithme-dexponentiation-modulaire-efficace" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="algorithme-dexponentiation-modulaire-efficace"><span class="header-section-number">7.2.1</span> Algorithme d’exponentiation modulaire efficace</h3>
+</section>
+<section id="nombres-premiers-et-pgcd" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="nombres-premiers-et-pgcd"><span class="header-section-number">7.2.2</span> Nombres premiers et PGCD</h3>
+</section>
+<section id="algorithme-deuclide-et-théorème-de-bézout" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="algorithme-deuclide-et-théorème-de-bézout"><span class="header-section-number">7.2.3</span> Algorithme d’Euclide et théorème de Bézout</h3>
+</section>
+<section id="inverse-modulo-m" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="inverse-modulo-m"><span class="header-section-number">7.2.4</span> Inverse modulo <span class="math inline">\(m\)</span></h3>
+</section>
+<section id="résolution-de-congruence" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="résolution-de-congruence"><span class="header-section-number">7.2.5</span> Résolution de congruence</h3>
+</section>
+<section id="petit-théorème-de-fermat" class="level3" data-number="7.2.6">
+<h3 data-number="7.2.6" class="anchored" data-anchor-id="petit-théorème-de-fermat"><span class="header-section-number">7.2.6</span> Petit théorème de Fermat</h3>
+</section>
+</section>
+<section id="cryptographie-à-clé-secrète" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="cryptographie-à-clé-secrète"><span class="header-section-number">7.3</span> Cryptographie à clé secrète</h2>
+<section id="chiffrement-par-décalage" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="chiffrement-par-décalage"><span class="header-section-number">7.3.1</span> Chiffrement par décalage</h3>
+</section>
+<section id="permutation-de-lalphabet" class="level3" data-number="7.3.2">
+<h3 data-number="7.3.2" class="anchored" data-anchor-id="permutation-de-lalphabet"><span class="header-section-number">7.3.2</span> Permutation de l’alphabet</h3>
+</section>
+<section id="masque-jetable" class="level3" data-number="7.3.3">
+<h3 data-number="7.3.3" class="anchored" data-anchor-id="masque-jetable"><span class="header-section-number">7.3.3</span> Masque jetable</h3>
+</section>
+<section id="chiffrement-affine" class="level3" data-number="7.3.4">
+<h3 data-number="7.3.4" class="anchored" data-anchor-id="chiffrement-affine"><span class="header-section-number">7.3.4</span> Chiffrement affine</h3>
+</section>
+</section>
+<section id="cryptographie-à-clé-publique" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="cryptographie-à-clé-publique"><span class="header-section-number">7.4</span> Cryptographie à clé publique</h2>
+<section id="chiffrement-rsa" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="chiffrement-rsa"><span class="header-section-number">7.4.1</span> Chiffrement RSA</h3>
 
-</div>
 
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -357,11 +418,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./applications.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></span>
+      <a href="./algorithmes.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./preuves.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
