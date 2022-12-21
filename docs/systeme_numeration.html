@@ -123,6 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -142,13 +143,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
   <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -226,11 +244,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
@@ -260,22 +273,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#adresse-mac" id="toc-adresse-mac" class="nav-link" data-scroll-target="#adresse-mac"><span class="toc-section-number">1.6.3</span>  Adresse MAC</a></li>
   <li><a href="#couleurs" id="toc-couleurs" class="nav-link" data-scroll-target="#couleurs"><span class="toc-section-number">1.6.4</span>  Couleurs</a></li>
   </ul></li>
-  <li><a href="#addition-en-binaire" id="toc-addition-en-binaire" class="nav-link" data-scroll-target="#addition-en-binaire"><span class="toc-section-number">1.7</span>  Addition en binaire</a></li>
+  <li><a href="#addition-en-binaire" id="toc-addition-en-binaire" class="nav-link" data-scroll-target="#addition-en-binaire"><span class="toc-section-number">1.7</span>  Addition en binaire</a>
+  <ul class="collapse">
+  <li><a href="#procédure-pour-laddition" id="toc-procédure-pour-laddition" class="nav-link" data-scroll-target="#procédure-pour-laddition">Procédure pour l’addition</a></li>
+  </ul></li>
   <li><a href="#représentation-des-entiers" id="toc-représentation-des-entiers" class="nav-link" data-scroll-target="#représentation-des-entiers"><span class="toc-section-number">1.8</span>  Représentation des entiers</a>
   <ul class="collapse">
   <li><a href="#entiers-non-signés" id="toc-entiers-non-signés" class="nav-link" data-scroll-target="#entiers-non-signés"><span class="toc-section-number">1.8.1</span>  Entiers non signés</a></li>
   <li><a href="#entiers-signés" id="toc-entiers-signés" class="nav-link" data-scroll-target="#entiers-signés"><span class="toc-section-number">1.8.2</span>  Entiers signés</a></li>
   <li><a href="#complément-à-1" id="toc-complément-à-1" class="nav-link" data-scroll-target="#complément-à-1"><span class="toc-section-number">1.8.3</span>  Complément à 1</a></li>
   <li><a href="#complément-à-2" id="toc-complément-à-2" class="nav-link" data-scroll-target="#complément-à-2"><span class="toc-section-number">1.8.4</span>  Complément à 2</a></li>
-  <li><a href="#débordement" id="toc-débordement" class="nav-link" data-scroll-target="#débordement"><span class="toc-section-number">1.8.5</span>  Débordement</a></li>
+  <li><a href="#addition-de-nombres-par-complémentation-à-deux" id="toc-addition-de-nombres-par-complémentation-à-deux" class="nav-link" data-scroll-target="#addition-de-nombres-par-complémentation-à-deux"><span class="toc-section-number">1.8.5</span>  Addition de nombres par complémentation à deux</a></li>
+  <li><a href="#opérateurs-bit-à-bit" id="toc-opérateurs-bit-à-bit" class="nav-link" data-scroll-target="#opérateurs-bit-à-bit"><span class="toc-section-number">1.8.6</span>  Opérateurs bit à bit</a></li>
+  <li><a href="#left-shift" id="toc-left-shift" class="nav-link" data-scroll-target="#left-shift"><span class="toc-section-number">1.8.7</span>  LEFT-SHIFT &lt;&lt;</a></li>
+  <li><a href="#right-shift" id="toc-right-shift" class="nav-link" data-scroll-target="#right-shift"><span class="toc-section-number">1.8.8</span>  RIGHT-SHIFT &gt;&gt;</a></li>
+  <li><a href="#complément-à-un-même-chose-que-not" id="toc-complément-à-un-même-chose-que-not" class="nav-link" data-scroll-target="#complément-à-un-même-chose-que-not"><span class="toc-section-number">1.8.9</span>  COMPLÉMENT À UN ~ (MÊME CHOSE QUE NOT)</a></li>
   </ul></li>
-  <li><a href="#représentation-des-nombres-en-virgule-flottante" id="toc-représentation-des-nombres-en-virgule-flottante" class="nav-link" data-scroll-target="#représentation-des-nombres-en-virgule-flottante"><span class="toc-section-number">1.9</span>  Représentation des nombres en virgule flottante</a></li>
-  <li><a href="#la-norme-ieee754" id="toc-la-norme-ieee754" class="nav-link" data-scroll-target="#la-norme-ieee754"><span class="toc-section-number">1.10</span>  La norme IEEE754</a></li>
+  <li><a href="#représentation-des-nombres-en-virgule-flottante" id="toc-représentation-des-nombres-en-virgule-flottante" class="nav-link" data-scroll-target="#représentation-des-nombres-en-virgule-flottante"><span class="toc-section-number">1.9</span>  Représentation des nombres en virgule flottante</a>
+  <ul class="collapse">
+  <li><a href="#la-norme-ieee754" id="toc-la-norme-ieee754" class="nav-link" data-scroll-target="#la-norme-ieee754"><span class="toc-section-number">1.9.1</span>  La norme IEEE754</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/systeme_numeration.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -615,7 +637,7 @@ a=dq+r \quad \text{et} \quad 0\leq r&lt;d
 <ul>
 <li>L’entier <span class="math inline">\(d=3\)</span> est appelé <strong>diviseur</strong>.</li>
 <li>L’entier <span class="math inline">\(a=17\)</span> est appelé le <strong>dividende</strong>.</li>
-<li>L’entier <span class="math inline">\(q=5\)</span> est appeléle <strong>quotient</strong> (notation: $q=a d).</li>
+<li>L’entier <span class="math inline">\(q=5\)</span> est appeléle <strong>quotient</strong> (notation: <span class="math inline">\(q=a\mathbf{div} d\)</span>).</li>
 <li>L’entier <span class="math inline">\(r=2\)</span> est appelé le <strong>reste</strong>.</li>
 </ul>
 </div>
@@ -633,11 +655,14 @@ a=dq+r \quad \text{et} \quad 0\leq r&lt;d
 </ol>
 </div>
 <p>Nous pouvons utiliser la command <code>bin</code> de <code>Python</code> pour convertir des <strong>entiers</strong> décimaux en binaire.</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">bin</span>(<span class="dv">115</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">bin</span>(<span class="dv">71</span>)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="conversion-binaire" class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>'0b1000111'</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">bin</span>(<span class="dv">115</span>))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0b1110011</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">bin</span>(<span class="dv">71</span>))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0b1000111</code></pre>
 </div>
 </div>
 <p>Pour convertir un nombre fractionnaire en binaire, il suffit de multiplier (plutôt que de diviser) la partie fractionnaire en notant les parties entières et fractionnaires obtenues. Il faut ensuite répéter ces étapes avec la nouvelle partie fractionnaire et poursuivre le processus jusqu’à ce que la partie fractionnaire soit nulle. Les parties entières des résultats de ces produits correspondent aux coefficients de la représentation polynomiale (<strong>lire de haut en bas</strong>).</p>
@@ -679,11 +704,14 @@ Important
 </ol>
 </div>
 <p>Nous pouvons utiliser la command <code>hex</code> de <code>Python</code> pour convertir des <strong>entiers</strong> décimaux en hexadécimal.</p>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">hex</span>(<span class="dv">115</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">hex</span>(<span class="dv">71</span>)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="conversion-hexadecimal" class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>'0x47'</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">hex</span>(<span class="dv">115</span>))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0x73</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">hex</span>(<span class="dv">71</span>))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0x47</code></pre>
 </div>
 </div>
 </section>
@@ -815,6 +843,7 @@ Truc
 <h3 data-number="1.6.2" class="anchored" data-anchor-id="adresse-ip"><span class="header-section-number">1.6.2</span> Adresse IP</h3>
 <p>Une adresse IP (Internet Protocol) est un numéro d’identification qui est attribué de façon permanente ou provisoire à chaque périphérique relié à un réseau informatique qui utilise l’Internet Protocol. L’adresse IP est à la base du système d’acheminement (le routage) des paquets de données sur Internet.</p>
 <p>Il existe des adresses IP de version 4 sur 32 bits, et de version 6 sur 128 bits. La version 4 est actuellement la plus utilisée : elle est généralement représentée en notation décimale avec quatre nombres compris entre 0 et 255, séparés par des points, ce qui donne par exemple « 181.174.87.53 ».</p>
+<div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Adresse_Ipv4.svg" class="img-fluid figure-img"></p>
@@ -827,14 +856,15 @@ Truc
 <p></p><figcaption class="figure-caption">Adresse Ipv6</figcaption><p></p>
 </figure>
 </div>
+</div>
 </section>
 <section id="adresse-mac" class="level3" data-number="1.6.3">
 <h3 data-number="1.6.3" class="anchored" data-anchor-id="adresse-mac"><span class="header-section-number">1.6.3</span> Adresse MAC</h3>
 <p>Une adresse MAC (de l’anglais Media Access Control), parfois nommée adresse physique, est un identifiant physique stocké dans une carte réseau ou une interface réseau similaire. À moins qu’elle n’ait été modifiée par l’utilisateur, elle est unique au monde. Le MAC (acronyme de Media Access Control) n’a aucun rapport avec le Mac d’Apple (diminutif de Macintosh). Toutes les cartes réseau ont une adresse MAC, même celles contenues dans les PC et autres appareils connectés (tablette tactile, smartphone, consoles de jeux, réfrigérateurs, montres …).</p>
 <p>On peut utiliser <code>Python</code> et le module <code>uuid</code> pour trouver l’adresse MAC de l’appareil que j’utilise pour écrire ces lignes.</p>
-<div id="mac-adress" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uuid</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">hex</span>(uuid.getnode()))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> uuid</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">hex</span>(uuid.getnode()))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0xc0b5d7b3d9a2</code></pre>
 </div>
@@ -999,32 +1029,502 @@ Truc
 </section>
 <section id="addition-en-binaire" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="addition-en-binaire"><span class="header-section-number">1.7</span> Addition en binaire</h2>
+<p>La méthode pour l’addition en base 10 peut s’appliquer pour n’importe quelle base (principe de report). Pour additionner en binaire, on procède comme en décimal. Quand le résultat de la somme d’une colonne est supérieur à 1 (utilise plus de 1 <strong>bit</strong>), on reporte ce bit au voisin de gauche.</p>
+<p>En binaire:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">+</th>
+<th style="text-align: center;">0</th>
+<th style="text-align: center;">1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10</td>
+</tr>
+</tbody>
+</table>
+<section id="procédure-pour-laddition" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="procédure-pour-laddition">Procédure pour l’addition</h3>
+<ol type="1">
+<li>Superposer les nombres en colonnes de telle sorte que les chiffres de même position soit alignés verticalement.</li>
+<li>Additionner colonne par colonne, à partir de la droite, en effectuant les reports appropriés.</li>
+</ol>
+<div id="exm-addition-binaire" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.16 </strong></span>Effectuez les additions demandées:</p>
+<ol type="a">
+<li>(1011)<sub>2</sub>+(1001)<sub>2</sub></li>
+<li>(1011,011)<sub>2</sub>+(110,01)<sub>2</sub></li>
+<li>(110111,011)<sub>2</sub>+(10101,0101)<sub>2</sub></li>
+</ol>
+</div>
+</section>
 </section>
 <section id="représentation-des-entiers" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="représentation-des-entiers"><span class="header-section-number">1.8</span> Représentation des entiers</h2>
+<p>Il existe de nombreuses manières de représenter un nombre entier dans la mémoir d’un ordinateur. Nous n’en verrons que quelques unes.</p>
 <section id="entiers-non-signés" class="level3" data-number="1.8.1">
 <h3 data-number="1.8.1" class="anchored" data-anchor-id="entiers-non-signés"><span class="header-section-number">1.8.1</span> Entiers non signés</h3>
+<div id="def-entiers-non-signes" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 1.5 (Entiers non signés (nombres positifs)) </strong></span>Un nombre <strong>entier non signé</strong> (positif) est représenté par un nombre de bits préalablement fixé. Au besoin, on complète le nombre par des zéros à gauche fin d’avoir le nombre total de bits choisi.</p>
+</div>
+<div id="exm-entiers-non-signes" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.17 </strong></span>Transformez les entiers décimaux suivants en entiers non signés sur un octet (huit bits).</p>
+<ol type="a">
+<li>143</li>
+<li>15</li>
+<li>30</li>
+</ol>
+</div>
+<div id="exm-plus-grand-entier-non-signe" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.18 </strong></span>Quel est le plus grand entier non signé pouvant être représenté avec:</p>
+<ol type="a">
+<li>8 bits?</li>
+<li>32 bits?</li>
+<li><span class="math inline">\(n\)</span> bits?</li>
+</ol>
+</div>
 </section>
 <section id="entiers-signés" class="level3" data-number="1.8.2">
 <h3 data-number="1.8.2" class="anchored" data-anchor-id="entiers-signés"><span class="header-section-number">1.8.2</span> Entiers signés</h3>
+<p>Pour travailler avec des entiers qui peuvent être positifs ou négatifs, il faut inclure le signe du nombre dans sa représentation, et l’on parle alors d’entiers signés.</p>
+<div id="def-entiers-signes" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 1.6 (Entiers signés (représentation signe et module)) </strong></span>Un nombre <strong>entier signé</strong> (généralement représenté dans un octet) est un nombre où le 1<sup>er</sup> bit (à gauche) est réservé au signe, et les autres bits permettent d’indiquer la valeur absolue du nombre. Pour indique qu’un nombre est positif (+), le 1<sup>er</sup> bit est <code>0</code>, et pour un nombre négatif (-), le 1<sup>er</sup> bit est <code>1</code>.</p>
+</div>
+<div id="exm-completion-tableau-signe-module-4-bits" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.19 </strong></span>Complétez les tableaux suivants qui indiquent la représentation signe et module sur 4 bits.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Base 2</strong></th>
+<th style="text-align: center;"><strong>Base 10</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0000</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0001</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0010</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0011</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0100</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0101</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">0110</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">0111</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Base 2</strong></th>
+<th style="text-align: center;"><strong>Base 10</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1000</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1001</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1010</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1011</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1100</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1101</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1110</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1111</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>En utilisant les nombres entiers signés:</p>
+<ul>
+<li>On peut écrire autant de nombres positifs que de négatifs.</li>
+<li>Pour un nombre exprimé avec <span class="math inline">\(n\)</span> bits, les valeurs extrèmes sont <span class="math inline">\(\pm(2^{n-1}-1)\)</span></li>
+</ul>
+<div id="exm-valeurs-extremes-4-bits" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.20 </strong></span>Quelles sont les valeurs extrèmes pour des entiers signés représentés sur 4 bits?</p>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Inconvénients de la représentation signe et module
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Il y a deux zéros! Un <em>zéro</em> positif (0000 0000) et un <em>zéro</em> négatif (1000 0000).</li>
+<li>Les opérations arithmétiques ne se font pas de la même manière qu’habituellement. Par exemple, sur 4 bits:
+<ul>
+<li><strong>Base 2</strong>: 0100 + 1011 = 1111</li>
+<li><strong>Base 10</strong>: +4 + -3 = -7! (<strong>FAUX!</strong>)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="exm-representation-signe-module-8-bits" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.21 </strong></span>Écrivez la représentation signe et module sur 8 bits de:</p>
+<ol type="a">
+<li>15</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol type="a">
+<li>-15</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol type="a">
+<li>-10</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol type="a">
+<li>Quel est l’intervalle de nombres entiers <em>signés</em> pouvant être représentés avec:
+<ol type="i">
+<li>8 bits?</li>
+<li>16 bits?</li>
+</ol></li>
+</ol>
+</div>
 </section>
 <section id="complément-à-1" class="level3" data-number="1.8.3">
 <h3 data-number="1.8.3" class="anchored" data-anchor-id="complément-à-1"><span class="header-section-number">1.8.3</span> Complément à 1</h3>
+<p>Le complément à un d’un nombre binaire est la valeur obtenue en inversant tous les bits de ce nombre (en permutant les 0 par des 1 et inversement). Le complément à un d’un nombre se comporte alors comme le négatif du nombre original dans certaines opérations arithmétiques.</p>
+<p>D’un point de vue algébrique, qui est plus général, c’est l’opération qui consiste à complémenter un nombre écrit en base <span class="math inline">\(b\)</span> sur <span class="math inline">\(n\)</span> chiffres à <span class="math inline">\(b^n-1\)</span>. C’est-à-dire que le complément d’un nombre <span class="math inline">\(a\)</span> s’obtient par <span class="math inline">\((b^n−1)−a\)</span>.</p>
+<div id="exm-complement-a-un" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.22 </strong></span>Le complément à 1 de 0100 =</p>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remarquons que dans l’<a href="#exm-complement-a-un">Exemple&nbsp;<span>1.22</span></a>, le complément à un représente le calcul de <span class="math inline">\((2^4-1)-0100=1111-0100=1011\)</span></p>
+</div>
+</div>
+<div id="exm-complement-a-un-4-bits" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.23 </strong></span>Représentez dans le tableau suivant toutes les valeurs possibles du complément à un sur 4 bits.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Décimal</strong></th>
+<th style="text-align: center;"><strong>+</strong></th>
+<th style="text-align: center;"><strong>-</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{000}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\phantom{000}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="complément-à-2" class="level3" data-number="1.8.4">
 <h3 data-number="1.8.4" class="anchored" data-anchor-id="complément-à-2"><span class="header-section-number">1.8.4</span> Complément à 2</h3>
+<p>Dans le système de complément à un, la valeur 0 a deux représentations : « +0 » et « -0 » (exemple sur 4 bits: 0000 et 1111), ce qui oblige à réaliser deux tests pour tester la valeur nulle d’un résultat. Afin de pallier ce défaut, on a introduit la représentation par complément à deux.</p>
+<p>On obtient le complément à deux en ajoutant 1 au complément à un. On ignore alors la retenue sur le bit de poids fort.</p>
+<p>Le complément à deux ne s’applique qu’à des nombres ayant tous la même longueur : avec un codage sur <span class="math inline">\(n\)</span> bits, cette méthode permet de représenter toutes les valeurs entières de <span class="math inline">\(−2^n − 1\)</span> à <span class="math inline">\(2^{n − 1} − 1\)</span>.</p>
+<p>Tous les entiers en <code>Python</code> sont représentés en complémentation à deux et avec un nombre <em>infini</em> de bits (la limite est la capacité de mémoire de votre système). Par exemple:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sys <span class="im">import</span> getsizeof</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>counter1 <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>counter2 <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>counter3 <span class="op">=</span> <span class="dv">2</span><span class="op">**</span><span class="dv">64</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>size1 <span class="op">=</span> getsizeof(counter1)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>size2 <span class="op">=</span> getsizeof(counter2)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>size3 <span class="op">=</span> getsizeof(counter3)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(size1, size2, size3)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>24 28 36</code></pre>
+</div>
+</div>
+<section id="remarques" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="remarques">Remarques</h4>
+<p>Dans la représentation en complément à deux:</p>
+<ul>
+<li>le bit de gauche est réservé au signe;</li>
+<li>les <strong>entiers négatifs</strong> sont représentés par leur complément à deux;</li>
+<li>les entiers positifs sont simplement représentés par leur nombre binaire signé;</li>
+<li>le nombre de bits est <strong>fixé</strong>.</li>
+</ul>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il n’est pas nécessaire de complémenter un nombre positif.</p>
+</div>
+</div>
+<p>La complémentation à deux se fait en trois étapes:</p>
+<ol type="1">
+<li>Écrivez le nombre binaire sur le nombre de bits préalablement établi en ne tenant pas compte du signe (ajoutez des 0 à gauche au besoin).</li>
+<li>Calculez le complément à un (<strong>Remplacez tous les <code>0</code> par des <code>1</code> et tous les <code>1</code> par des <code>0</code></strong>).</li>
+<li>Calculez le complément à deux (<strong>Ajoutez 1 au complément à un</strong>).</li>
+</ol>
+<div id="exm-nombre-moins-4-complement-deux" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.24 </strong></span>Écrivez le nombre <span class="math inline">\(M=-4\)</span> dans sa représentation en complément à deux.</p>
+</div>
+<div id="exm-complement-deux-octets" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.25 </strong></span>Trouvez les compléments à deux des octets suivants.</p>
+<ol type="a">
+<li>(0110 0100)</li>
+<li>(0110 1101)</li>
+<li>(0110 1001)</li>
+</ol>
+</div>
+<div id="exm-valeur-5-8-bits" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.26 </strong></span>Vous avez 8 bits.</p>
+<ol type="a">
+<li>Écrivez 5 en binaire sur 8 bits.</li>
+<li>Complémentez à deux la réponses précédente.</li>
+<li>Additionnez les réponses obtenues en a) et en b).</li>
+</ol>
+</div>
 </section>
-<section id="débordement" class="level3" data-number="1.8.5">
-<h3 data-number="1.8.5" class="anchored" data-anchor-id="débordement"><span class="header-section-number">1.8.5</span> Débordement</h3>
+</section>
+<section id="addition-de-nombres-par-complémentation-à-deux" class="level3" data-number="1.8.5">
+<h3 data-number="1.8.5" class="anchored" data-anchor-id="addition-de-nombres-par-complémentation-à-deux"><span class="header-section-number">1.8.5</span> Addition de nombres par complémentation à deux</h3>
+<p>Puisque les opérations internes de l’ordinateur ne permettent que l’addition, il faut troiver une manière d’effectuer une soustraction sans réellement en faire une. Par exemple, afin de calculer 10-4, il est possible de faire l’addition 10+(-4).</p>
+<p>Ainsi, le complément à deux est nécessaire pour représenter les nombres négatifs et pour effectuer des soustractions.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Il est important de notes que:</p>
+<ul>
+<li>Il faut utiliser des nombres signés;</li>
+<li>Pour deux nombres ayant le même nombre de bits, il se peut que le résultat de l’addition de ces nombres comporte un bit de plus. Dans ce cas, il faut ignorer le bit supplémentaire;</li>
+<li><strong>Si le signe de la réponses n’a pas de sens, cela signifie que le résultat de l’addition est un nombre trop grand pour la capacité de l’ordinateur, on parle alors de débordement.</strong></li>
+<li>Si le bit-signe est à <code>1</code>, on doit complémenter le nombre pour retrouver le nombre négatif qui représente la réponse.</li>
+</ul>
+</div>
+</div>
+<section id="addition-de-deux-nombres-de-mêmes-signes" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="addition-de-deux-nombres-de-mêmes-signes">Addition de deux nombres de mêmes signes</h4>
+<p><strong>Cas particuliers</strong>:</p>
+<ul>
+<li>Si, après l’addition, le bit-signe est le même que les deux chiffres, le résultat est correct.</li>
+<li>Si le bit-signe est <em>différent</em> de celui des deux chiffres additionnés, il y a <strong>débordement</strong>.</li>
+</ul>
+<div id="exm-addition-complement-deux-1" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.27 </strong></span>À l’aide de la complémentation à deux, calculez 49+25.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="exm-addition-complement-deux-2" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.28 </strong></span>À l’aide de la complémentation à deux, calculez 75+87.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="exm-addition-complement-deux-3" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.29 </strong></span>À l’aide de la complémentation à deux, calculez -64-56.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="exm-addition-complement-deux-4" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.30 </strong></span>À l’aide de la complémentation à deux, calculez -78-85.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="addition-de-deux-nombres-de-signes-différents" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="addition-de-deux-nombres-de-signes-différents">Addition de deux nombres de signes différents</h4>
+<ul>
+<li>Il n’y a aucun débordement possible (<strong>POURQUOI?</strong>)</li>
+<li>Le résultat peut être positif ou négatif selon la valeur du bit-signe.</li>
+<li>On complémente le résultat si le bit-signe est <code>1</code>.</li>
+</ul>
+<div id="exm-addition-complement-deux-5" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.31 </strong></span>À l’aide de la complémentation à deux, calculez -59-18.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<div id="exm-addition-complement-deux-6" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 1.32 </strong></span>À l’aide de la complémentation à deux, calculez 18-59.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="systeme_numeration_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="opérateurs-bit-à-bit" class="level3" data-number="1.8.6">
+<h3 data-number="1.8.6" class="anchored" data-anchor-id="opérateurs-bit-à-bit"><span class="header-section-number">1.8.6</span> Opérateurs bit à bit</h3>
+<p>En logique, une opération bit à bit est un calcul manipulant les données directement au niveau des bits, selon une arithmétique booléenne. Elles sont utiles dès qu’il s’agit de manipuler les données à bas niveau : codages, couches basses du réseau (par exemple TCP/IP), cryptographie, etc.</p>
+<p>Les opérations bit à bit courantes comprennent des opérations logiques bit par bit et des opérations de décalage des bits, vers la droite ou vers la gauche.</p>
+</section>
+<section id="left-shift" class="level3" data-number="1.8.7">
+<h3 data-number="1.8.7" class="anchored" data-anchor-id="left-shift"><span class="header-section-number">1.8.7</span> LEFT-SHIFT &lt;&lt;</h3>
+</section>
+<section id="right-shift" class="level3" data-number="1.8.8">
+<h3 data-number="1.8.8" class="anchored" data-anchor-id="right-shift"><span class="header-section-number">1.8.8</span> RIGHT-SHIFT &gt;&gt;</h3>
+</section>
+<section id="complément-à-un-même-chose-que-not" class="level3" data-number="1.8.9">
+<h3 data-number="1.8.9" class="anchored" data-anchor-id="complément-à-un-même-chose-que-not"><span class="header-section-number">1.8.9</span> COMPLÉMENT À UN ~ (MÊME CHOSE QUE NOT)</h3>
 </section>
 </section>
 <section id="représentation-des-nombres-en-virgule-flottante" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="représentation-des-nombres-en-virgule-flottante"><span class="header-section-number">1.9</span> Représentation des nombres en virgule flottante</h2>
+<section id="la-norme-ieee754" class="level3" data-number="1.9.1">
+<h3 data-number="1.9.1" class="anchored" data-anchor-id="la-norme-ieee754"><span class="header-section-number">1.9.1</span> La norme IEEE754</h3>
+<p>En informatique, l’IEEE 754 est une norme sur l’arithmétique à virgule flottante mise au point par le <em>Institute of Electrical and Electronics Engineers</em>. Elle est la norme la plus employée actuellement pour le calcul des nombres à virgule flottante avec les CPU et les FPU. La norme définit les formats de représentation des nombres à virgule flottante (signe, mantisse, exposant, nombres dénormalisés) et valeurs spéciales (infinis et NaN), en même temps qu’un ensemble d’opérations sur les nombres flottants. Il décrit aussi cinq modes d’arrondi et cinq exceptions (comprenant les conditions dans lesquelles une exception se produit, et ce qui se passe dans ce cas).</p>
+<section id="format-général" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="format-général">Format général</h4>
+<p>Un nombre flottant est formé de trois éléments : la mantisse, l’exposant et le signe. Le bit de poids fort est le bit de signe : si ce bit est à 1, le nombre est négatif, et s’il est à 0, le nombre est positif. Les <span class="math inline">\(e\)</span> bits suivants représentent l’exposant biaisé (sauf valeur spéciale), et les <span class="math inline">\(m\)</span> bits suivants (<span class="math inline">\(m\)</span> bits de poids faible) représentent la mantisse.</p>
+<div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/IEEE754_Format_General.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Format général d’un nombre en virgule flottante.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>L’exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l’exposant est « biaisé », afin de le stocker sous forme d’un nombre non signé.</p>
+<p>Ce biais est de 2e−1 − 1 (e représente le nombre de bits de l’exposant) ; il s’agit donc d’une valeur constante une fois que le nombre de bits e est fixé.</p>
+
+
 </section>
-<section id="la-norme-ieee754" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="la-norme-ieee754"><span class="header-section-number">1.10</span> La norme IEEE754</h2>
-
-
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1161,7 +1661,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Préface</span>

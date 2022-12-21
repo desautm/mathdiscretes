@@ -37,7 +37,9 @@ Débutons en générant une liste de tous les entiers de 2 à 30:
 
 :::
 
+:::{.content-visible when-format="html"}
 ![Le crible d'Érasthotène](https://upload.wikimedia.org/wikipedia/commons/8/8c/New_Animation_Sieve_of_Eratosthenes.gif)
+:::
 
 ```{python}
 import numpy

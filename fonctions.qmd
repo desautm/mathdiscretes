@@ -1,8 +1,92 @@
 # Fonctions
 
+:::{#def-fonction}
+## Fonction
+
+Une **fonction** $f$ d'un ensemble $A$ vers un ensemble $B$ est une règle qui, à chaque élément $a$ de l'ensemble $A$, associe un et un seul élément $b$ de l'ensemble $B$. Cet élément $b$ est noté $f(a)$. On écrit parfois $(a,b)\in f$.
+
+La notation usuelle pour désigner une fonction $f$ d'un ensemble $A$ vers un ensemble $B$ est
+$$
+f:A\rightarrow B
+$$
+L'ensemble $A$ est appelé le **domaine** de la fonction $f$, noté $\mathbf{dom} (f)$, et le sous-ensemble $B$ formé des éléments atteints par $f$ est appelé l'**image** de $f$, noté $\mathbf{ima} (f)$.
+$$
+\mathbf{ima} (f) = \set{b\in B\ \mid\ \exists a\in A,\ f(a)=b} \subseteq B
+$$
+:::
+
+Par ailleurs, on peut aussi voir une fonction $f$ de $A$ vers $B$ comme un sous-ensemble du produit cartésien $A\times B$ ayant la propriété suivante:
+$$
+\forall\ a\in A,\ \exists !b\in B,\ (a,b)\in f
+$$
+où le symbole $\exists !$ désigne **il existe un et un seul**.
+
+:::{#exm-fonction-trains-bits-longueur-8}
+Considérons $T_8$, l'ensemble des trains de bits de longueur 8 et la fonction $f:T_8\rightarrow \mathbb{N}$ définie par
+$$
+f(t)=\text{nombre de 0 dans le train de bits}\ t
+$$
+Par exemple, $f(1100\ 1011)=3$. Donnez le domaine et l'image de la fonction $f$.
+:::
+
 ## Fonctions plancher et plafond
 
-UTILE LORSQUE NOUS FERONS DE LA THÉORIE DES NOMBRES
+:::{#def-fonction-plancher-plafond}
+## Fonctions plancher et plafond
+
+La fonction **plancher** associe à tout nombre réel $x$, le plus grand entier $n$ tel que $n\leq x$. On note $\lfloor x\rfloor = n$. La fonction **plafond** associe à tout nombre réel $x$, le plus petit entier $n$ tel que $n\geq x$. On note $\lceil x \rceil = n$.
+:::
+
+:::{#exm-fonction-plancher-et-plafond}
+Calculez les fonctions suivantes:
+\begin{align*}
+\left\lfloor \frac{1}{3}\right\rfloor &= \\
+\left\lceil \frac{1}{3}\right\rceil &= \\
+\left\lfloor -9,2\right\rfloor &= \\
+\left\lceil -9,2\right\rceil &= \\
+\end{align*}
+:::
+
+:::{#thm-proprietes-plancher-plafond}
+## Propriétés des fonctions plancher et plafond
+
+1. $\lfloor x\rfloor = n$ $\leftrightarrow$ $n\leq x<n+1$
+1. $\lceil x\rceil = n$ $\leftrightarrow$ $n-1< x\leq n$
+1. $x-1<\lfloor x\rfloor \leq x \leq \lceil x \rceil < x+1$
+:::
+
+La @fig-floor-ceiling présente le graphique des fonctions plancher et plafond.
+
+::: {#fig-floor-ceiling layout-ncol=2}
+
+![Fonction plancher](figs/ceiling_function.png)
+
+![Fonction plafond](figs/floor_function.png)
+
+Les fonctions plancher et plafond.
+:::
+
+Ces deux fonctions sont accessibles dans `Python` en utilisant la librairie `math`, sous le nom de `floor` (*fonction plancher*) et `ceil` (*fonction plafond*).
+
+```{python}
+#| label: fonctions-planchers-plafonds
+
+import math
+
+print("Résultats de la fonction plafond")
+print(math.ceil(1.4))
+print(math.ceil(5.3))
+print(math.ceil(-5.3))
+print(math.ceil(22.6))
+print(math.ceil(10.0))
+
+print("Résultats de la fonction plancher")
+print(math.floor(1.4))
+print(math.floor(5.3))
+print(math.floor(-5.3))
+print(math.floor(22.6))
+print(math.floor(10.0))
+```
 
 ## Fonctions en `Python`
 
@@ -38,4 +122,119 @@ Hashes are used (in cryptography) to verify something, but this time, deliberate
 
 ## Injection, surjection et bijection
 
-### Fonction de hachage est une fonction injective? surjective?
+:::{#def-fonction-injective-surjective-bijective}
+## Fonction injective, surjective, bijective
+
+Soit $f:A\rightarrow B$ une fonction. On dit que 
+
+- **$f$ est injective** si elle n'associe jamais la même image à deux éléments distincts:
+$$
+\forall\ a_1 \in A,\ \forall\ a_2 \in A,\ (a_1\neq a_2) \rightarrow (f(a_1) \neq f(a_2))
+$$
+- **$f$ est surjective** si son image est l'ensemble $B$ au complet, c'est-à-dire si tous les éléments de $B$ sont atteints:
+$$
+\forall\ b\in B,\ \exists\ a \in A,\ f(a)=b
+$$
+- **$f$ est bijective** si elle est injective et surjective:
+$$
+\forall\ b\in B,\ \exists! a\in A,\ f(a)=b
+$$
+:::
+
+:::{.callout-important}
+Si une fonction n'est pas **injective**, alors elle ne possède pas d'inverse.
+:::
+
+:::{.callout-important}
+Si une fonction n'est pas **surjective**, alors elle ne possède pas d'inverse.
+:::
+
+:::{#exm-fonction-injective-surjective-bijective}
+On considère un sous-ensemble $f$ du produit cartésien de deux ensembles. Dans chaque cas, tracez son graphe saggital puis déterminez s'il s'agit d'une fonction ou non. De plus, si $f$ est une fonction, déterminez si elle est injective, surjective ou bijective.
+
+Ici, $L=\set{a,b,c,d,e}$, $M=\set{a,b,c}$, $C=\set{1,2,3,4}$ et $D=\set{1,2,3}$.
+
+a. $f=\set{(1,a),(2,d),(3,c),(4,e)}\subseteq C \times L$
+a. $f=\set{(1,a),(2,a),(3,c),(4,b)}\subseteq C \times M$
+a. $f=\set{(1,a),(2,d),(3,c),(4,e),(1,b)}\subseteq C \times L$
+a. $f=\set{(1,c),(2,a),(3,a),(4,a)}\subseteq D \times M$
+a. $f=\set{(1,a),(2,a),(3,a),(4,a)}\subseteq C \times L$
+:::
+
+:::{#exm-fonction-dans-Z}
+La fonction $f:\mathbb{Z}\times\mathbb{Z}\rightarrow \mathbb{Z}$ définie par $f(x_1,x_2)=x_1+x^2$ est-elle oui on non injective? Est-elle oui ou non surjective? Est-elle oui ou non bijective?
+:::
+
+### Les dictionnaires dans `Python`
+
+Le dictionnaire n'est pas une séquence mais un autre type composite. Ils ressemblent aux listes dans une certaine mesure (ils sont modifiables comme elles), mais les éléments que nous allons y enregistrer ne seront pas disposés dans un ordre immuable. En revanche, nous pourrons accéder à n'importe lequel d'entre eux à l'aide d'un index spécifique que l'on appellera une clé, laquelle pourra être alphabétique, numérique, ou même d'un type composite sous certaines conditions.
+
+:::{#exm-jour-dejeuner-injective}
+Dites si le dictionnaire défini ci-dessous est une fonction injective, surjective, ou bijective.
+
+```{python}
+#| label: dictionnaries-days-breakfast-injective
+
+jour = {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"}
+dejeuner = {"Oeufs", "Céréales", "Rôties", "Gruau", "Pâtisserie", "Jambon", "Crèpes","Saucisses"}
+
+mydict = {
+    "Lundi": "Oeufs",
+    "Mardi": "Céréales",
+    "Mercredi": "Rôties",
+    "Jeudi": "Gruau",
+    "Vendredi": "Pâtisserie",
+    "Samedi": "Jambon",
+    "Dimanche": "Crèpes"
+}
+```
+
+:::
+
+:::{#exm-jour-dejeuner-non-injective}
+Dites si le dictionnaire défini ci-dessous est une fonction injective, surjective, ou bijective.
+
+```{python}
+#| label: dictionnaries-days-breakfast-non-injective
+
+jour = {"Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"}
+dejeuner = {"Oeufs", "Céréales", "Rôties", "Gruau", "Pâtisserie", "Jambon", "Crèpes","Saucisses"}
+
+mydict = {
+    "Lundi": "Oeufs",
+    "Mardi": "Oeufs",
+    "Mercredi": "Rôties",
+    "Jeudi": "Gruau",
+    "Vendredi": "Pâtisserie",
+    "Samedi": "Jambon",
+    "Dimanche": "Crèpes"
+}
+```
+
+:::
+
+### Fonction de hachage
+
+Une **fonction de hachage** est une fonction qui associe des données de taille arbitraire à des valeurs de taille fixe. Les valeurs renvoyées par une fonction de hachage sont appelées valeurs de hachage, codes de hachage, résumés, signatures ou simplement hachages. Les valeurs sont généralement utilisées pour être les indices d'une table de taille raisonnable appelée table de hachage. Le hachage ou adressage de stockage dispersé est donc l'utilisation d'une fonction de hachage pour créer les indices d'une table de hachage.
+
+Les fonctions de hachage sont utilisées dans les applications de stockage et de récupération de données pour accéder aux données en un temps réduit, en fait quasi-constant. Elles requièrent un espace de stockage à peine plus grand que l'espace total requis pour les données. Ainsi, le hachage est une forme d'accès aux données efficace en termes de calcul et d'espace de stockage.
+
+L'intérêt des fonctions de hachage repose sur de bonnes propriétés statistiques. En effet, le comportement dans le pire des cas est mauvais, mais il se manifeste avec une probabilité extrêmement faible, en fait négligeable, et le comportement dans le cas moyen est optimal (collision minimale ).
+
+Une fonction de hachage est typiquement une fonction qui, pour un ensemble de très grande taille (théoriquement infini) et de nature très diversifiée, va renvoyer des résultats aux spécifications précises (en général des chaînes de caractère de taille limitée ou fixe) optimisées pour des applications particulières. Les chaînes permettent d'établir des relations (égalité, égalité probable, non-égalité, ordre...) entre les objets de départ sans accéder directement à ces derniers, en général soit pour des questions d'optimisation (la taille des objets de départ nuit aux performances), soit pour des questions de confidentialité.
+
+Autrement dit : à 1 fichier (ou à 1 mot) va correspondre une signature unique (le résultat de la fonction de hachage).
+
+:::{.callout-important}
+Dans l'idéal, une fonction de hachage *devrait* être injective. 
+:::
+
+
+```{python}
+#| label: fonction-hachage-renard-corbeau
+
+phrase1 = "Maître Corbeau, sur un arbre perché, Tenait en son bec un fromage."
+phrase2 = "Maître Corbeau, sur un arbre perché, Tenait en son bec un Fromage."
+
+print(hex(hash(phrase1)), hex(hash(phrase2)))
+```

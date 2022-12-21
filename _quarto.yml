@@ -7,8 +7,11 @@ project:
 book:
   title: "Mathématiques discrètes"
   author: "Marc-André Désautels"
-  date: "2022-11-27"
   reader-mode: true
+  repo-url: https://github.com/desautm/mathdiscretes
+  repo-actions: [edit]
+  downloads: [pdf]
+  sharing: [twitter, facebook]
   chapters:
     - index.qmd
     - systeme_numeration.qmd
@@ -22,8 +25,10 @@ book:
     - denombrement.qmd
     - graphes.qmd
     - arbres.qmd
-    - applications.qmd
     - references.qmd
+
+comments: 
+  hypothesis: true
 
 bibliography: references.bib
 
@@ -33,17 +38,21 @@ format:
   html:
     theme: cosmo
     code-copy: true
+    page-layout: full
   pdf:
     documentclass: scrbook
     keep-tex: true
     code-block-bg: "#d5d6db"
-    pdf-engine: pdflatex
+    include-in-header:
+      - macros.tex
     geometry:
       - paper=a4paper
       - top=2cm
       - bottom=2cm
       - left=1.5cm
       - right=3.5cm
+      - marginparwidth=2.5cm
+      - marginparsep=2.5mm
       - twoside
 
 code-fold: false

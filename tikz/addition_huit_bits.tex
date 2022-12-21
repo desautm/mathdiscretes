@@ -1,0 +1,21 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.3cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+
+\end{document}

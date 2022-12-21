@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -60,7 +123,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -78,13 +143,30 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
   <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -162,11 +244,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
@@ -183,13 +260,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#fonctions-en-python" id="toc-fonctions-en-python" class="nav-link" data-scroll-target="#fonctions-en-python"><span class="toc-section-number">4.2</span>  Fonctions en <code>Python</code></a></li>
   <li><a href="#injection-surjection-et-bijection" id="toc-injection-surjection-et-bijection" class="nav-link" data-scroll-target="#injection-surjection-et-bijection"><span class="toc-section-number">4.3</span>  Injection, surjection et bijection</a>
   <ul class="collapse">
-  <li><a href="#fonction-de-hachage-est-une-fonction-injective-surjective" id="toc-fonction-de-hachage-est-une-fonction-injective-surjective" class="nav-link" data-scroll-target="#fonction-de-hachage-est-une-fonction-injective-surjective"><span class="toc-section-number">4.3.1</span>  Fonction de hachage est une fonction injective? surjective?</a></li>
+  <li><a href="#les-dictionnaires-dans-python" id="toc-les-dictionnaires-dans-python" class="nav-link" data-scroll-target="#les-dictionnaires-dans-python"><span class="toc-section-number">4.3.1</span>  Les dictionnaires dans <code>Python</code></a></li>
+  <li><a href="#fonction-de-hachage-est-une-fonction-injective-surjective" id="toc-fonction-de-hachage-est-une-fonction-injective-surjective" class="nav-link" data-scroll-target="#fonction-de-hachage-est-une-fonction-injective-surjective"><span class="toc-section-number">4.3.2</span>  Fonction de hachage est une fonction injective? surjective?</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/fonctions.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -208,16 +286,106 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div id="def-fonction" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.1 (Fonction) </strong></span>Une <strong>fonction</strong> <span class="math inline">\(f\)</span> d’un ensemble <span class="math inline">\(A\)</span> vers un ensemble <span class="math inline">\(B\)</span> est une règle qui, à chaque élément <span class="math inline">\(a\)</span> de l’ensemble <span class="math inline">\(A\)</span>, associe un et un seul élément <span class="math inline">\(b\)</span> de l’ensemble <span class="math inline">\(B\)</span>. Cet élément <span class="math inline">\(b\)</span> est noté <span class="math inline">\(f(a)\)</span>. On écrit parfois <span class="math inline">\((a,b)\in f\)</span>.</p>
+<p>La notation usuelle pour désigner une fonction <span class="math inline">\(f\)</span> d’un ensemble <span class="math inline">\(A\)</span> vers un ensemble <span class="math inline">\(B\)</span> est <span class="math display">\[
+f:A\rightarrow B
+\]</span> L’ensemble <span class="math inline">\(A\)</span> est appelé le <strong>domaine</strong> de la fonction <span class="math inline">\(f\)</span>, noté <span class="math inline">\(\mathbf{dom} (f)\)</span>, et le sous-ensemble <span class="math inline">\(B\)</span> formé des éléments atteints par <span class="math inline">\(f\)</span> est appelé l’<strong>image</strong> de <span class="math inline">\(f\)</span>, noté <span class="math inline">\(\mathbf{ima} (f)\)</span>. <span class="math display">\[
+\mathbf{ima} (f) = \set{b\in B\ \mid\ \exists a\in A,\ f(a)=b} \subseteq B
+\]</span></p>
+</div>
+<p>Par ailleurs, on peut aussi voir une fonction <span class="math inline">\(f\)</span> de <span class="math inline">\(A\)</span> vers <span class="math inline">\(B\)</span> comme un sous-ensemble du produit cartésien <span class="math inline">\(A\times B\)</span> ayant la propriété suivante: <span class="math display">\[
+\forall\ a\in A,\ \exists !b\in B,\ (a,b)\in f
+\]</span> où le symbole <span class="math inline">\(\exists !\)</span> désigne <strong>il existe un et un seul</strong>.</p>
+<div id="exm-fonction-trains-bits-longueur-8" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.1 </strong></span>Considérons <span class="math inline">\(T_8\)</span>, l’ensemble des trains de bits de longueur 8 et la fonction <span class="math inline">\(f:T_8\rightarrow \mathbb{N}\)</span> définie par <span class="math display">\[
+f(t)=\text{nombre de 0 dans le train de bits}\ t
+\]</span> Par exemple, <span class="math inline">\(f(1100\ 1011)=3\)</span>. Donnez le domaine et l’image de la fonction <span class="math inline">\(f\)</span>.</p>
+</div>
 <section id="fonctions-plancher-et-plafond" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="fonctions-plancher-et-plafond"><span class="header-section-number">4.1</span> Fonctions plancher et plafond</h2>
-<p>UTILE LORSQUE NOUS FERONS DE LA THÉORIE DES NOMBRES</p>
+<div id="def-fonction-plancher-plafond" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.2 (Fonctions plancher et plafond) </strong></span>La fonction <strong>plancher</strong> associe à tout nombre réel <span class="math inline">\(x\)</span>, le plus grand entier <span class="math inline">\(n\)</span> tel que <span class="math inline">\(n\leq x\)</span>. On note <span class="math inline">\(\lfloor x\rfloor = n\)</span>. La fonction <strong>plafond</strong> associe à tout nombre réel <span class="math inline">\(x\)</span>, le plus petit entier <span class="math inline">\(n\)</span> tel que <span class="math inline">\(n\geq x\)</span>. On note <span class="math inline">\(\lceil x \rceil = n\)</span>.</p>
+</div>
+<div id="exm-fonction-plancher-et-plafond" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.2 </strong></span>Calculez les fonctions suivantes: <span class="math display">\[\begin{align*}
+\left\lfloor \frac{1}{3}\right\rfloor &amp;= \\
+\left\lceil \frac{1}{3}\right\rceil &amp;= \\
+\left\lfloor -9,2\right\rfloor &amp;= \\
+\left\lceil -9,2\right\rceil &amp;= \\
+\end{align*}\]</span></p>
+</div>
+<div id="thm-proprietes-plancher-plafond" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 4.1 (Propriétés des fonctions plancher et plafond) </strong></span>&nbsp;</p>
+<ol type="1">
+<li><span class="math inline">\(\lfloor x\rfloor = n\)</span> <span class="math inline">\(\leftrightarrow\)</span> <span class="math inline">\(n\leq x&lt;n+1\)</span></li>
+<li><span class="math inline">\(\lceil x\rceil = n\)</span> <span class="math inline">\(\leftrightarrow\)</span> <span class="math inline">\(n-1&lt; x\leq n\)</span></li>
+<li><span class="math inline">\(x-1&lt;\lfloor x\rfloor \leq x \leq \lceil x \rceil &lt; x+1\)</span></li>
+</ol>
+</div>
+<p>La <a href="#fig-floor-ceiling">Figure&nbsp;<span>4.1</span></a> présente le graphique des fonctions plancher et plafond.</p>
+<div id="fig-floor-ceiling" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/ceiling_function.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fonction plancher</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/floor_function.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fonction plafond</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: Les fonctions plancher et plafond.</figcaption><p></p>
+</figure>
+</div>
+<p>Ces deux fonctions sont accessibles dans <code>Python</code> en utilisant la librairie <code>math</code>, sous le nom de <code>floor</code> (<em>fonction plancher</em>) et <code>ceil</code> (<em>fonction plafond</em>).</p>
+<div id="fonctions-planchers-plafonds" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Résultats de la fonction plafond"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.ceil(<span class="fl">1.4</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.ceil(<span class="fl">5.3</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.ceil(<span class="op">-</span><span class="fl">5.3</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.ceil(<span class="fl">22.6</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.ceil(<span class="fl">10.0</span>))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Résultats de la fonction plancher"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(<span class="fl">1.4</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(<span class="fl">5.3</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(<span class="op">-</span><span class="fl">5.3</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(<span class="fl">22.6</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.floor(<span class="fl">10.0</span>))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Résultats de la fonction plafond
+2
+6
+-5
+23
+10
+Résultats de la fonction plancher
+1
+5
+-6
+22
+10</code></pre>
+</div>
+</div>
 </section>
 <section id="fonctions-en-python" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="fonctions-en-python"><span class="header-section-number">4.2</span> Fonctions en <code>Python</code></h2>
 <p>DEVRAIT-ON PARLER DE ÇA????</p>
 <p>DICTIONNAIRE, HACHAGE…</p>
 <div id="exm-hash-python" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 4.1 </strong></span><a href="https://www.wikiwand.com/en/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function">Fonction de hachage dans Python</a></p>
+<p><span class="theorem-title"><strong>Exemple 4.3 </strong></span><a href="https://www.wikiwand.com/en/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function">Fonction de hachage dans Python</a></p>
 <p><a href="https://andrewbrookins.com/technology/pythons-default-hash-algorithm/">Hachage Python</a></p>
 <p><a href="https://thepythoncorner.com/posts/2020-08-21-hash-tables-understanding-dictionaries/">Dictionnary in Python</a></p>
 <p>A checksum is used to determine if something is the same.</p>
@@ -232,8 +400,61 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="injection-surjection-et-bijection" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="injection-surjection-et-bijection"><span class="header-section-number">4.3</span> Injection, surjection et bijection</h2>
-<section id="fonction-de-hachage-est-une-fonction-injective-surjective" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="fonction-de-hachage-est-une-fonction-injective-surjective"><span class="header-section-number">4.3.1</span> Fonction de hachage est une fonction injective? surjective?</h3>
+<div id="def-fonction-injective-surjective-bijective" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 4.3 (Fonction injective, surjective, bijective) </strong></span>Soit <span class="math inline">\(f:A\rightarrow B\)</span> une fonction. On dit que</p>
+<ul>
+<li><strong><span class="math inline">\(f\)</span> est injective</strong> si elle n’associe jamais la même image à deux éléments distincts: <span class="math display">\[
+\forall\ a_1 \in A,\ \forall\ a_2 \in A,\ (a_1\neq a_2) \rightarrow (f(a_1) \neq f(a_2))
+\]</span></li>
+<li><strong><span class="math inline">\(f\)</span> est surjective</strong> si son image est l’ensemble <span class="math inline">\(B\)</span> au complet, c’est-à-dire si tous les éléments de <span class="math inline">\(B\)</span> sont atteints: <span class="math display">\[
+\forall\ b\in B,\ \exists\ a \in A,\ f(a)=b
+\]</span></li>
+<li><strong><span class="math inline">\(f\)</span> est bijective</strong> si elle est injective et surjective: <span class="math display">\[
+\forall\ b\in B,\ \exists! a\in A,\ f(a)=b
+\]</span></li>
+</ul>
+</div>
+<div id="exm-fonction-injective-surjective-bijective" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.4 </strong></span>On considère un sous-ensemble <span class="math inline">\(f\)</span> du produit cartésien de deux ensembles. Dans chaque cas, tracez son graphe saggital puis déterminez s’il s’agit d’une fonction ou non. De plus, si <span class="math inline">\(f\)</span> est une fonction, déterminez si elle est injective, surjective ou bijective.</p>
+<p>Ici, <span class="math inline">\(L=\set{a,b,c,d,e}\)</span>, <span class="math inline">\(M=\set{a,b,c}\)</span>, <span class="math inline">\(C=\set{1,2,3,4}\)</span> et <span class="math inline">\(D=\set{1,2,3}\)</span>.</p>
+<ol type="a">
+<li><span class="math inline">\(f=\set{(1,a),(2,d),(3,c),(4,e)}\subseteq C \times L\)</span></li>
+<li><span class="math inline">\(f=\set{(1,a),(2,a),(3,c),(4,b)}\subseteq C \times M\)</span></li>
+<li><span class="math inline">\(f=\set{(1,a),(2,d),(3,c),(4,e),(1,b)}\subseteq C \times L\)</span></li>
+<li><span class="math inline">\(f=\set{(1,c),(2,a),(3,a),(4,a)}\subseteq D \times M\)</span></li>
+<li><span class="math inline">\(f=\set{(1,a),(2,a),(3,a),(4,a)}\subseteq C \times L\)</span></li>
+</ol>
+</div>
+<div id="exm-fonction-dans-Z" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.5 </strong></span>La fonction <span class="math inline">\(f:\mathbb{Z}\times\mathbb{Z}\rightarrow \mathbb{Z}\)</span> définie par <span class="math inline">\(f(x_1,x_2)=x_1+x^2\)</span> est-elle oui on non injective? Est-elle oui ou non surjective? Est-elle oui ou non bijective?</p>
+</div>
+<section id="les-dictionnaires-dans-python" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="les-dictionnaires-dans-python"><span class="header-section-number">4.3.1</span> Les dictionnaires dans <code>Python</code></h3>
+<p>Le dictionnaire n’est pas une séquence mais un autre type composite. Ils ressemblent aux listes dans une certaine mesure (ils sont modifiables comme elles), mais les éléments que nous allons y enregistrer ne seront pas disposés dans un ordre immuable. En revanche, nous pourrons accéder à n’importe lequel d’entre eux à l’aide d’un index spécifique que l’on appellera une clé, laquelle pourra être alphabétique, numérique, ou même d’un type composite sous certaines conditions.</p>
+<div id="exm-jour-dejeuner-injective" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.6 </strong></span>Dites si le dictionnaire défini ci-dessous est une fonction injective, surjective, ou bijective.</p>
+<div id="dictionnaries-days-breakfast" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>jour <span class="op">=</span> {<span class="st">"Lundi"</span>, <span class="st">"Mardi"</span>, <span class="st">"Mercredi"</span>, <span class="st">"Jeudi"</span>, <span class="st">"Vendredi"</span>, <span class="st">"Samedi"</span>, <span class="st">"Dimanche"</span>}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dejeuner <span class="op">=</span> {<span class="st">"Oeufs"</span>, <span class="st">"Céréales"</span>, <span class="st">"Rôties"</span>, <span class="st">"Gruau"</span>, <span class="st">"Pâtisserie"</span>, <span class="st">"Jambon"</span>, <span class="st">"Crèpes"</span>,<span class="st">"Saucisses"</span>}</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>mydict <span class="op">=</span> {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Lundi"</span>: <span class="st">"Oeufs"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mardi"</span>: <span class="st">"Céréales"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mercredi"</span>: <span class="st">"Rôties"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Jeudi"</span>: <span class="st">"Gruau"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Vendredi"</span>: <span class="st">"Pâtisserie"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Samedi"</span>: <span class="st">"Jambon"</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimanche"</span>: <span class="st">"Crèpes"</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mydict)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Lundi': 'Oeufs', 'Mardi': 'Céréales', 'Mercredi': 'Rôties', 'Jeudi': 'Gruau', 'Vendredi': 'Pâtisserie', 'Samedi': 'Jambon', 'Dimanche': 'Crèpes'}</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="fonction-de-hachage-est-une-fonction-injective-surjective" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="fonction-de-hachage-est-une-fonction-injective-surjective"><span class="header-section-number">4.3.2</span> Fonction de hachage est une fonction injective? surjective?</h3>
 
 
 </section>
@@ -373,7 +594,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./ensembles.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></span>

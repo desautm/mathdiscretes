@@ -1,0 +1,21 @@
+\documentclass[convert={density=300,outext=.png}]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+\begin{tikzpicture}
+\draw (-1.25,-1.25) rectangle (2.25,1.25);
+\begin{scope}
+    \clip (0,0) circle (1);
+    \clip (1,0) circle (1);
+    \fill[lightgray] (0,0) circle(1);
+\end{scope}
+\draw[black] (0,0) circle (1) (1,0) circle (1);
+\node at (-0.5,0) {$A$};
+\node at (1.5,0) {$B$};
+\node at (2,1) {$U$};
+\end{tikzpicture}
+
+\end{document}

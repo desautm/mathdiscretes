@@ -1,3 +1,7 @@
 # Sites webs intéressants
 
 [Discrete Math](https://ggc-discrete-math.github.io/index.html#_about_this_text)
+
+[Documents divers pour un cours de math discrètes](https://skylight.middlebury.edu/~skimmel/Courses/Past/200F17/Documents/)
+
+[Applied Discrete Structures](https://faculty.uml.edu/klevasseur/ads/index-ads.html)

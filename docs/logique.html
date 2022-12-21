@@ -123,6 +123,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -142,13 +143,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
   <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -226,11 +244,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
@@ -254,11 +267,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#équivalences-propositionnelles" id="toc-équivalences-propositionnelles" class="nav-link" data-scroll-target="#équivalences-propositionnelles"><span class="toc-section-number">2.2</span>  Équivalences propositionnelles</a></li>
   <li><a href="#prédicats-et-quantificateurs" id="toc-prédicats-et-quantificateurs" class="nav-link" data-scroll-target="#prédicats-et-quantificateurs"><span class="toc-section-number">2.3</span>  Prédicats et quantificateurs</a></li>
+  <li><a href="#opérations-bit-à-bit" id="toc-opérations-bit-à-bit" class="nav-link" data-scroll-target="#opérations-bit-à-bit"><span class="toc-section-number">2.4</span>  Opérations bit à bit</a></li>
+  <li><a href="#problèmes-de-logique" id="toc-problèmes-de-logique" class="nav-link" data-scroll-target="#problèmes-de-logique"><span class="toc-section-number">2.5</span>  Problèmes de logique</a>
+  <ul class="collapse">
+  <li><a href="#stratégies" id="toc-stratégies" class="nav-link" data-scroll-target="#stratégies">Stratégies</a></li>
+  <li><a href="#trois-énoncés-différents" id="toc-trois-énoncés-différents" class="nav-link" data-scroll-target="#trois-énoncés-différents"><span class="toc-section-number">2.5.1</span>  Trois énoncés différents</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/logique.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -992,17 +1011,498 @@ p \rightarrow q \equiv \lnot p \vee q
 </tbody>
 </table>
 </div>
-<p>Pour gagner du temps</p>
+<p>Pour gagner du temps, on note les équivalences fréquemment utilisées dans une table et on leur donne un nom ou un numéro afin d’y faire référence.</p>
+<div id="tbl-equivalences-logiques" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.1: Équivalences logiques</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 41%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Nom</strong></th>
+<th><strong>Équivalence 1</strong></th>
+<th><strong>Équivalence 2</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Identité</strong></td>
+<td><span class="math inline">\(p \wedge \mathbf{V} \equiv p\)</span></td>
+<td><span class="math inline">\(p \vee \mathbf{F} \equiv p\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Domination</strong></td>
+<td><span class="math inline">\(p \vee \mathbf{V} \equiv \mathbf{V}\)</span></td>
+<td><span class="math inline">\(p \wedge \mathbf{F} \equiv \mathbf{F}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Idempotence</strong></td>
+<td><span class="math inline">\(p \vee p \equiv p\)</span></td>
+<td><span class="math inline">\(p\wedge p \equiv p\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Double négation</strong></td>
+<td><span class="math inline">\(\lnot (\lnot p) \equiv p\)</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Commutativité</strong></td>
+<td><span class="math inline">\(p\wedge q \equiv q \wedge p\)</span></td>
+<td><span class="math inline">\(p \vee q \equiv q \vee p\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Associativité</strong></td>
+<td><span class="math inline">\((p \vee q) \vee r \equiv p \vee (q \vee r)\)</span></td>
+<td><span class="math inline">\((p \wedge q) \wedge r \equiv p \wedge (q \wedge r)\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Distributivité</strong></td>
+<td><span class="math inline">\(p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)\)</span></td>
+<td><span class="math inline">\(p\wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Lois de De Morgan</strong></td>
+<td><span class="math inline">\(\lnot (p \wedge q) \equiv \lnot p \vee \lnot q\)</span></td>
+<td><span class="math inline">\(\lnot (p \vee q) \equiv \lnot p \wedge \lnot q\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Absorption</strong></td>
+<td><span class="math inline">\(p \vee (p \wedge q) \equiv p\)</span></td>
+<td><span class="math inline">\(p \wedge (p \vee q) \equiv p\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Négation</strong></td>
+<td><span class="math inline">\(p \vee \lnot p \equiv \mathbf{V}\)</span></td>
+<td><span class="math inline">\(p \wedge \lnot p \equiv \mathbf{F}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-equivalences-logiques-implications" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.2: Équivalences logiques (implications)</caption>
+<colgroup>
+<col style="width: 13%">
+<col style="width: 86%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Numéro</strong></th>
+<th><strong>Implication</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td><span class="math inline">\(p \rightarrow q \equiv \lnot p \vee q\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td><span class="math inline">\(p \rightarrow q \equiv \lnot q \rightarrow \lnot p\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td><span class="math inline">\(p \vee q \equiv \lnot p \rightarrow q\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td><span class="math inline">\(p \wedge q \equiv \lnot(p \rightarrow \lnot q)\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td><span class="math inline">\(\lnot(p \rightarrow q) \equiv p \wedge \lnot q\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>6</strong></td>
+<td><span class="math inline">\((p \rightarrow q)\wedge (p\rightarrow r) \equiv p \rightarrow (q \wedge r)\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>7</strong></td>
+<td><span class="math inline">\((p \rightarrow r) \wedge (q \rightarrow r) \equiv (p \vee q) \rightarrow r\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>8</strong></td>
+<td><span class="math inline">\((p\rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q \vee r)\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>9</strong></td>
+<td><span class="math inline">\((p \rightarrow r) \vee (q \rightarrow r) \equiv (p \wedge q) \rightarrow r\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tbl-equivalences-logiques-biconditionnelles" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.3: Équivalences logiques (biconditionnelles)</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Numéro</strong></th>
+<th><strong>Biconditionnelle</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>1</strong></td>
+<td><span class="math inline">\(p \leftrightarrow q \equiv (p\rightarrow q) \wedge (q \rightarrow q)\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>2</strong></td>
+<td><span class="math inline">\(p \leftrightarrow q \equiv \lnot p \leftrightarrow \lnot q\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>3</strong></td>
+<td><span class="math inline">\(p \leftrightarrow q \equiv (p \wedge q) \vee (\lnot p \wedge \lnot q)\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>4</strong></td>
+<td><span class="math inline">\(p \leftrightarrow q \equiv \lnot(p \wedge \lnot q) \wedge \lnot(\lnot p \wedge q )\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>5</strong></td>
+<td><span class="math inline">\(\lnot(p \leftrightarrow q) \equiv p \leftrightarrow \lnot q\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exm-proposition-tautologie-deux-manieres" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.10 </strong></span>Vérifiez que la proposition <span class="math display">\[
+\lnot (p \rightarrow q) \rightarrow \lnot q
+\]</span> est une tautologie</p>
+<ol type="a">
+<li><p>à l’aide d’une table de vérité;</p>
+<table class="table">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(p\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(q\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\phantom{V}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\phantom{V}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\phantom{V}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\phantom{V}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\phantom{V}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>V</strong></td>
+<td style="text-align: center;"><strong>V</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>V</strong></td>
+<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: center;"><strong>V</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: center;"><strong>F</strong></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table></li>
+<li><p>sans l’aide d’une table de vérité, en utilisant les tableaux d’équivalences.</p></li>
+</ol>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Propositions équivalentes ou non?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pour démontrer que les propositions <strong>ne sont pas</strong> équivalentes, il suffit de fournir des valeurs de <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> et <span class="math inline">\(r\)</span> pour lesquelles elles diffèrent. Pour démontrer que les propositions sont équivalentes, on peut procéder de l’une des trois façons suivantes.</p>
+<ol type="1">
+<li>Fournir leur table de vérité.</li>
+<li>Utiliser la <a href="#tbl-equivalences-logiques">Table&nbsp;<span>2.1</span></a>, la <a href="#tbl-equivalences-logiques-implications">Table&nbsp;<span>2.2</span></a> ou la <a href="#tbl-equivalences-logiques-biconditionnelles">Table&nbsp;<span>2.3</span></a>.</li>
+<li>Formuler une explication en mots qui montre que les deux propositions sont vraies, ou encore que les deux sont fausses, exactement pour les mêmes combinaisons de valeur de vérité des variables propositionnelles.</li>
+</ol>
+</div>
+</div>
 </section>
 <section id="prédicats-et-quantificateurs" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="prédicats-et-quantificateurs"><span class="header-section-number">2.3</span> Prédicats et quantificateurs</h2>
+<p>Un énoncé contenant une ou plusieurs variables tel que <span class="math display">\[
+x&lt;10 \quad \text{ou} \quad x+2=7-y
+\]</span> n’est pas une proposition pusique, tant que la valeur de <span class="math inline">\(x\)</span> ou <span class="math inline">\(y\)</span> n’est pas connue, on ne peut dire s’il est vrai ou faux.</p>
+<div id="def-sujet-predicat" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 2.11 (Terminologie) </strong></span>Dans l’énoncé “<span class="math inline">\(x&lt;10\)</span>”, <span class="math inline">\(x\)</span> est le <strong>sujet</strong>, et “est inférieur à 10” est le <strong>prédicat</strong>. Notons <span class="math inline">\(P(x)\)</span> l’énoncé <span class="math inline">\(x&lt;10\)</span>. On dit que <span class="math inline">\(P\)</span> est une <strong>fonction propositionnelle</strong>.</p>
+</div>
+<p>Une fonction propositionnelle <span class="math inline">\(P(x)\)</span> prend la valeur vrai ou faux quand <span class="math inline">\(x\)</span> est précisé. Par exemple:</p>
+<ul>
+<li><span class="math inline">\(P(8)\)</span> est une proposition vraie. On écrira parfois <span class="math inline">\(P(8)\)</span> est vrai (au masculin, en sous-entendant l’énoncé est vrai, ou même <span class="math inline">\(P(8)\equiv \mathbf{V}\)</span>).</li>
+<li><span class="math inline">\(P(13)\)</span> est une proposition fausse.</li>
+<li><span class="math inline">\(P(\text{Marc-André})\)</span> n’est pas une proposition, car <em>Marc-André</em> n’est pas une valeur possible pour la variable <span class="math inline">\(x\)</span>.</li>
+</ul>
+<p>L’ensemble des valeurs possibles pour la variable <span class="math inline">\(x\)</span> est appelé <strong>univers du discours</strong>, ou <strong>domaine</strong> de la fonction <span class="math inline">\(P\)</span>.</p>
 <div id="def-quantificateurs" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.11 (Quantificateurs) </strong></span><span class="math display">\[
+<p><span class="theorem-title"><strong>Définition 2.12 (Quantificateurs) </strong></span><span class="math display">\[
 \forall:\ \text{quantificateur universel} \qquad \exists:\ \text{quantificateur existentiel}
 \]</span></p>
+<dl>
+<dt><span class="math inline">\(\forall\ x\ P(x)\)</span>:</dt>
+<dd>
+signifie “Pour toutes les valeurs de <span class="math inline">\(x\)</span> dans l’univers du discours, <span class="math inline">\(P(x)\)</span>”. Ou encore “Quel que soit <span class="math inline">\(x\)</span> (dans l’univers du discours), <span class="math inline">\(P(x)\)</span>”.
+</dd>
+<dt><span class="math inline">\(\exists\ x\ P(x)\)</span>:</dt>
+<dd>
+signifie “Il existe un élément de <span class="math inline">\(x\)</span> dans l’univers du discours tel que <span class="math inline">\(P(x)\)</span>”. Ou encore “Il y a au moins un <span class="math inline">\(x\)</span> (dans l’univers du discours) tel que <span class="math inline">\(P(x)\)</span>”. Ou encore “Pour un certain <span class="math inline">\(x\)</span> (dans l’univers du discours), <span class="math inline">\(P(x)\)</span>”.
+</dd>
+</dl>
+<p><strong>Notation</strong>. Certains auteurs mettent une virgule avant la fonction propositionnelle, surtout quand celle-ci est composée. Par exemple: <span class="math inline">\(\forall\ x,\ (P_1(x)\rightarrow P_2(x) \vee P_3(x))\)</span>. Par ailleurs, si l’ensemble <span class="math inline">\(U\)</span> n’a pas déjà été identifié, on peut préciser que la variable <span class="math inline">\(x\)</span> prendra des valeurs dans l’ensemble <span class="math inline">\(U\)</span> ainsi: <span class="math inline">\(\exists\ x\in U,\ P(x)\)</span>.</p>
+</div>
+<p>Lorsque l’univers du discours est un ensemble fini <span class="math inline">\(\{x_1,x_2,\ldots, x_n\}\)</span>, on a les équivalences logiques suivantes:</p>
+<p><span class="math display">\[\begin{align*}
+\forall\ x\ P(x) &amp;\equiv P(x_1)\wedge P(x_2) \wedge \cdots \wedge P(x_n) \\
+\exists\ x\ P(x) &amp;\equiv P(x_1)\vee P(x_2) \vee \cdots \vee P(x_n)
+\end{align*}\]</span></p>
+<p>La quantification universelle <span class="math inline">\(\forall\ x\ P(x)\)</span> est vraie quand <span class="math inline">\(P(x)\)</span> est vraie pour toutes les valeurs de <span class="math inline">\(x\)</span> dans l’univers du discours <span class="math inline">\(U\)</span>. Elle est donc fausse s’il existe un <span class="math inline">\(x\)</span> de <span class="math inline">\(U\)</span> pour lequel <span class="math inline">\(P(x)\)</span> est fausse. Un tel élément est appelé un <strong>contre-exemple</strong> de <span class="math inline">\(\forall\ x\ P(x)\)</span>.</p>
+<p>La quantification existentielle <span class="math inline">\(\exists\ x\ P(x)\)</span> est vraie s’il existe au moins une valeur <span class="math inline">\(x\)</span> dans l’univers du discours telle que <span class="math inline">\(P(x)\)</span> est vraie. Elle est fausse si <span class="math inline">\(P(x)\)</span> est fausse pour toutes les valeurs possibles de <span class="math inline">\(x\)</span>.</p>
+<p>Ainsi, pour prouver un énoncé de la forme <span class="math inline">\(\forall\ x\ P(x)\)</span> est vrai, fournir un exemple de <span class="math inline">\(x\)</span> tel que <span class="math inline">\(P(x)\)</span> est vrai ne suffit pas. Il faut montrer que la proposition <span class="math inline">\(P(x)\)</span> est vraie pour toutes les valeurs de <span class="math inline">\(x\)</span>, ce qui peut s’avérer particulièrement <strong>difficile lorsque <span class="math inline">\(U\)</span> est un ensemble infini</strong>. Il en va de même losqu’on veut prouver qu’un énoncé de la forme <span class="math inline">\(\exists\ x\ P(x)\)</span> est faux.</p>
+<div id="tbl-prouver-enonce-univers-infini" class="anchored">
+<table class="table">
+<caption>Table&nbsp;2.4: Comment prouver qu’un énoncé quantifié est vrai ou faux quand l’univers du discours <span class="math inline">\(U\)</span> est infini.</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 45%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Pour prouver que</th>
+<th>est <strong>vrai</strong></th>
+<th>est <strong>faux</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\exists\ x\ P(x)\)</span></td>
+<td>il suffit de fournir <strong>un exemple</strong>: un <span class="math inline">\(x\)</span> de <span class="math inline">\(U\)</span> tel que <span class="math inline">\(P(x)\)</span> est vrai.</td>
+<td>il faut fournir un argument général pour montrer que <span class="math inline">\(P(x)\)</span> est faux quel que soit <span class="math inline">\(x\)</span> de <span class="math inline">\(U\)</span>.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\forall\ x\ P(x)\)</span></td>
+<td>il faut fournir un argument général pour montrer que $P(x) est vrai quel que soit <span class="math inline">\(x\)</span> de <span class="math inline">\(U\)</span>.</td>
+<td>il suffit de fournir un <strong>contre-exemple</strong>: un <span class="math inline">\(x\)</span> de <span class="math inline">\(U\)</span> tel que <span class="math inline">\(P(x)\)</span> est faux.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exm-univers-discours-nombres-reels" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.11 </strong></span>Si l’univers du discours est l’ensemble des nombres réels et <span class="math display">\[\begin{align*}
+&amp;P(x)\ \text{désigne}\ x\geq 0 \\
+&amp;Q(x)\ \text{désigne}\ x\ \text{est un nombre premier} \\
+&amp;R(x)\ \text{désigne}\ 3^x+4^x=5^x \\
+&amp;S(x)\ \text{désigne}\ x\geq 100
+\end{align*}\]</span> dites si chacun des énoncés suivants est une proposition vraie, une proposition fausse ou n’est pas une proposition. Donnez un exemple ou un contre-exemple le cas échéant. Dans le cas contraire, indiquez qu’un argument général est requis.</p>
+<ol type="a">
+<li><span class="math inline">\(\forall\ x\ P(x)\)</span></li>
+<li><span class="math inline">\(\forall\ x\ \lnot P(x)\)</span></li>
+<li><span class="math inline">\(\forall\ x\ P(x^2)\)</span></li>
+<li><span class="math inline">\(\exists\ x\ P(x)\)</span></li>
+<li><span class="math inline">\(\exists\ x\ \lnot P(x)\)</span></li>
+<li><span class="math inline">\(\exists\ x\ Q(x)\)</span></li>
+<li><span class="math inline">\(\exists\ x\ Q(x^2)\)</span></li>
+<li><span class="math inline">\(\forall\ x\ R(x)\)</span></li>
+<li><span class="math inline">\(P(x)\)</span></li>
+<li><span class="math inline">\(\forall\ x\ (S(x)\rightarrow P(x))\)</span></li>
+<li><span class="math inline">\((\forall\ x\ P(x)) \rightarrow (\forall\ x\ S(x))\)</span></li>
+<li><span class="math inline">\(\forall\ x\ S(x+100)\)</span></li>
+<li><span class="math inline">\(\forall\ x\ S(x^2+100)\)</span></li>
+</ol>
+</div>
+<div id="thm-de-morgan-quantificateurs" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 2.1 (Lois de De Morgan pour les quantificateurs) </strong></span><span class="math display">\[
+\lnot \exists\ x\ P(x) \equiv \forall\ x\ \lnot P(x) \qquad \lnot \forall\ x\ P(x) \equiv \exists\ x\ \lnot P(x)
+\]</span></p>
+</div>
+<div id="exm-univers-etudiants-stjean-repertoire" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.12 </strong></span>Si l’univers du discours est l’ensemble des étudiants du programme Sciences Informatique et Mathématique (ScIM) et <span class="math inline">\(M(x)\)</span> désigne l’énoncé <em>l’étudiant <span class="math inline">\(x\)</span> peut modifier les fichiers du répertoire <span class="math inline">\(U\)</span></em>, traduisez clairement les propositions suivantes à l’aide des quantificateurs.</p>
+<ol type="a">
+<li>Tous les étudiants de ScIM peuvent modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
+<li>Il est faux que tous les étudiants de ScIM peuvent modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
+<li>Au moins un étudiant de ScIM peut modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
+<li>Il est faux qu’au moins un étudiant de ScIM peut modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
+<li>Aucun étudiant de ScIM ne peut modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
+<li>Au moins un étudiant de ScIM ne peut pas modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
+</ol>
+<p>De plus, déterminez les propositions ci-dessus qui sont équivalentes.</p>
+</div>
+<div id="exm-univers-billes-rouges-bleues" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.13 </strong></span>Si l’univers du discours est l’ensemble des billes contenues dans un bol, et si</p>
+<ul>
+<li><span class="math inline">\(G(x)\)</span> désigne <em>la bille <span class="math inline">\(x\)</span> est grosse</em></li>
+<li><span class="math inline">\(J(x)\)</span> désigne <em>la bille <span class="math inline">\(x\)</span> est jaune</em></li>
+<li><span class="math inline">\(R(x)\)</span> désigne <em>la bille <span class="math inline">\(x\)</span> est rouge</em></li>
+<li><span class="math inline">\(B(x)\)</span> désigne <em>la bille <span class="math inline">\(x\)</span> est bleue</em></li>
+</ul>
+<p>traduisez clairement les propositions suivantes en prenant soin de bien formuler les phrases.</p>
+<ol type="a">
+<li><span class="math inline">\(\forall\ x\ (R(x) \vee J(x))\)</span></li>
+<li><span class="math inline">\((\forall\ x\ R(x)) \vee (\forall\ x\ J(x))\)</span></li>
+<li>Les propositions a. et b. sont-elles équivalentes?</li>
+<li><span class="math inline">\(\exists\ x\ B(x)\)</span></li>
+<li><span class="math inline">\(\lnot(\exists\ x\ B(x))\)</span></li>
+<li>Utilisez le quantificateur universel <span class="math inline">\(\forall\)</span> pour écrire une proposition équivalente à la précédente.</li>
+<li><span class="math inline">\(\lnot(\forall\ x\ R(x))\)</span></li>
+<li>Utilisez le quantificateur existentiel <span class="math inline">\(\exists\)</span> pour écrire une proposition équivalente à la précédente.</li>
+<li><span class="math inline">\(\forall\ x\ (G(x) \rightarrow B(x))\)</span></li>
+<li><span class="math inline">\(\exists\ x\ (G(x) \wedge B(x))\)</span></li>
+<li><span class="math inline">\((\exists\ x\ G(x)) \wedge (\exists\ x\ B(x))\)</span></li>
+<li>Les deux propositions précédentes sont-elles équivalentes?</li>
+<li>Les deux propositions suivantes sont-elles équivalentes? <span class="math display">\[
+(\exists\ x\ R(x)) \vee (\exists\ x\ J(x)) \qquad \text{et} \qquad \exists\ x\ (R(x) \vee J(x))
+\]</span></li>
+<li>Les deux propositions suivantes sont-elles équivalentes? <span class="math display">\[
+(\forall\ x\ R(x)) \wedge (\forall\ x\ G(x)) \qquad \text{et} \qquad \forall\ x\ (R(x) \wedge G(x))
+\]</span></li>
+</ol>
+</div>
+</section>
+<section id="opérations-bit-à-bit" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="opérations-bit-à-bit"><span class="header-section-number">2.4</span> Opérations bit à bit</h2>
+</section>
+<section id="problèmes-de-logique" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="problèmes-de-logique"><span class="header-section-number">2.5</span> Problèmes de logique</h2>
+<p>Les problèmes suivants se déroulent sur une île imaginaire où tous les habitants sont soit des <strong>chevaliers</strong>, qui disent toujours la vérité, soit des <strong>fripons</strong>, qui mentent toujours. Ces énigmes implique un visiteur qui rencontre un petit groupe d’habitants de l’île. La plupart du temps, le but du visiteur est de <em>déduire</em> les types des habitants à partir de leurs énoncés.</p>
+<p>Voici un exemple type de problème possible.</p>
+<div class="callout callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Déduisez!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En vous promenant sur l’île, vous rencontrez trois habitants gardant un pont. Pour passer, vous devez déduire le type de chaque habitant. Chaque individu dit un seul énoncé:</p>
+<ul>
+<li>Individu A: Si je suis un fripon, alors il y a exactement deux chevaliers ici.</li>
+<li>Individu B: L’individu A ment.</li>
+<li>Individu C: Soit nous sommes tous des fripons ou alors au moins l’un d’entre nous est un chevalier.</li>
+</ul>
+<p>Quels sont les types des trois individus?</p>
+</div>
+</div>
+<section id="stratégies" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="stratégies">Stratégies</h3>
+<p>Voici quelques stratégies que vous pouvez utiliser pour résoudre ce genre de problème:</p>
+<ul>
+<li>Commencez en supposant qu’un individu est d’un certain type. Soyez stratégique avec votre supposition, tentez de résoudre un énoncé <strong>ET</strong>.
+<ul>
+<li>Si un individu dit <strong>ET</strong>, supposez qu’il est un chevalier;</li>
+<li>Si un individu dit <strong>OU</strong>, supposez qu’il est un fripon;</li>
+<li>Si un individu dit <strong>SI/ALORS</strong>, supposez qu’il est un fripon;</li>
+<li>Si un individu dit <strong>SI ET SEULEMENT SI</strong>, attendez de connaître la valeur de vérité de leur énoncé avant de faire une supposition.</li>
+</ul></li>
+<li>Lorsqu’un individu est un chevalier, vous pouvez continuer leur énoncé.</li>
+<li>Lorsqu’un individu est un fripon, vous pouvez continuer la négation de leur énoncé.
+<ul>
+<li>Partie 1 <strong>ET</strong> Partie 2 <span class="math inline">\(\rightarrow\)</span> <strong>NON</strong> Partie 1 <strong>OU</strong> <strong>NON</strong> Partie 2</li>
+<li>Partie 1 <strong>OU</strong> Partie 2 <span class="math inline">\(\rightarrow\)</span> <strong>NON</strong> Partie 1 <strong>ET</strong> <strong>NON</strong> Partie 2</li>
+<li><strong>SI</strong> Partie 1, alors Partie 2 <span class="math inline">\(\rightarrow\)</span> Partie 1 <strong>ET</strong> <strong>NON</strong> Partie 2</li>
+</ul></li>
+<li>Soyez prudents avec les <em>si et seulement si</em>
+<ul>
+<li>Lorsqu’un <em>si et seulement si</em> est <code>VRAI</code>, alors les deux parties ont la <strong>même</strong> valeur de vérité.</li>
+<li>Lorsqu’un <em>si et seulement si</em> est <code>FAUX</code>, alors les deux parties ont des valeurs de vérités <strong>différentes</strong>.</li>
+</ul></li>
+<li>Lorsque vous avez prouvé l’identité d’un individu, vous pouvez utiliser cette information partout dans le reste de l’énigme.</li>
+<li>Si vous avez suffisament d’information pour confirmer que l’énoncé d’un individu est <code>VRAI</code>, alors ils doivent être un chevalier.</li>
+<li>Si vous avez suffisament d’information pour confirmer que l’énoncé d’un individu est <code>FAUX</code>, alors ils doivent être un fripon.</li>
+</ul>
+</section>
+<section id="trois-énoncés-différents" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="trois-énoncés-différents"><span class="header-section-number">2.5.1</span> Trois énoncés différents</h3>
+<p>Nous pouvons, dans la plupart des problèmes, regrouper les énoncés des habitants de l’île en trois formes distinctes.</p>
+<section id="accusations-et-affirmations" class="level4" data-number="2.5.1.1">
+<h4 data-number="2.5.1.1" class="anchored" data-anchor-id="accusations-et-affirmations"><span class="header-section-number">2.5.1.1</span> Accusations et affirmations</h4>
+<p>Dans une accusation, un habitant <em>A</em> dit par exemple <em>B est un fripon</em> ou un énoncé équivalent comme <em>B ment toujours</em>. Dans une affirmation, l’habitant <em>A</em> dit par exemple <em>B est un chevalier</em> ou alors <em>B dit toujours la vérité</em>.</p>
+<div id="exm-accusation-different-types" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.14 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par une <strong>accusation</strong>?</p>
+</div>
+<div id="exm-accusation-different-types" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.15 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par une <strong>affirmation</strong>?</p>
+</div>
+</section>
+<section id="conjonctions-de-fripons" class="level4" data-number="2.5.1.2">
+<h4 data-number="2.5.1.2" class="anchored" data-anchor-id="conjonctions-de-fripons"><span class="header-section-number">2.5.1.2</span> Conjonctions de fripons</h4>
+<p>Un exemple de conjonction de fripons est lorsque <em>A</em> dit que <em>B est un chevalier ou je suis un fripon</em>, ou alors <em>C est un fripon et je suis un fripon</em></p>
+<div id="exm-conjonction-de-fripons-ou" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.16 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par <strong>ou je suis un fripon</strong>?</p>
+</div>
+<div id="exm-conjonction-de-fripons-et" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.17 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par <strong>et je suis un fripon</strong>?</p>
+</div>
+</section>
+<section id="énoncés-de-différences-ou-de-similarités" class="level4" data-number="2.5.1.3">
+<h4 data-number="2.5.1.3" class="anchored" data-anchor-id="énoncés-de-différences-ou-de-similarités"><span class="header-section-number">2.5.1.3</span> Énoncés de différences ou de similarités</h4>
+<p>Parfois un habitant <em>A</em> dira <em>B est de mon type</em> ou peut-être <em>C n’est pas de mon type</em>.</p>
+<div id="exm-similarite-fripons" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.18 </strong></span>Que pouvez-vous conclure si <em>A</em> dit que <em>B est de son type</em>?</p>
+</div>
+<div id="exm-difference-fripons" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.19 </strong></span>Que pouvez-vous conclure si <em>A</em> dit que <em>C n’est pas de son type</em>?</p>
+</div>
+<p>Il est intéressant de comparer ces énoncés avec ceux d’accusations et d’affirmations. Ces deux types d’énoncés sont réciproques en quelque sorte. Lorsqu’un habitant dit directement de quel type est un autre habitant (dans une accusation ou une affirmation), tout ce qu’on apprend c’est que la source et la cible sont similaires ou différents, sans apprendre leur type. Par contre, lorsqu’un habitant dit un énoncé par rapport aux similitudes ou aux différences, nous apprenons exactement de quel type la cible est, sans apprendre si elle est similaire ou différente de la source.</p>
+<div id="exm-chevaliers-et-fripons-1" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.20 </strong></span>Vous rencontrez trois habitants de l’île.</p>
+<ul>
+<li>A dit: B ne ment jamais.</li>
+<li>A dit: C est un chevalier ou je suis un fripon.</li>
+</ul>
+</div>
+<div id="exm-chevaliers-et-fripons-2" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.21 </strong></span>Vous rencontrez trois habitants de l’île.</p>
+<ul>
+<li>A dit: B ment toujours.</li>
+<li>B dit: A n’est pas de mon type.</li>
+</ul>
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1139,7 +1639,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./systeme_numeration.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></span>

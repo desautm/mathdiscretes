@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -60,6 +123,7 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script async="" src="https://hypothes.is/embed.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -79,13 +143,30 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+    </ul>
   <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
@@ -163,11 +244,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Applications</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
   </div>
 </li>
@@ -184,14 +260,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" id="toc-ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" class="nav-link" data-scroll-target="#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr"><span class="toc-section-number">3.2</span>  Ensembles de nombres <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Z}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span></a></li>
   <li><a href="#produit-cartésien" id="toc-produit-cartésien" class="nav-link" data-scroll-target="#produit-cartésien"><span class="toc-section-number">3.3</span>  Produit cartésien</a></li>
   <li><a href="#opérations-sur-les-ensembles-cap-cup-oplus--" id="toc-opérations-sur-les-ensembles-cap-cup-oplus--" class="nav-link" data-scroll-target="#opérations-sur-les-ensembles-cap-cup-oplus--"><span class="toc-section-number">3.4</span>  Opérations sur les ensembles <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\cup\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(-\)</span></a></li>
-  <li><a href="#diagrammes-de-venn" id="toc-diagrammes-de-venn" class="nav-link" data-scroll-target="#diagrammes-de-venn"><span class="toc-section-number">3.5</span>  Diagrammes de Venn</a></li>
-  <li><a href="#représentation-de-sous-ensembles-par-trains-de-bits" id="toc-représentation-de-sous-ensembles-par-trains-de-bits" class="nav-link" data-scroll-target="#représentation-de-sous-ensembles-par-trains-de-bits"><span class="toc-section-number">3.6</span>  Représentation de sous-ensembles par trains de bits</a></li>
-  <li><a href="#polygones-convexes-avec-des-opérations-sur-les-ensembles" id="toc-polygones-convexes-avec-des-opérations-sur-les-ensembles" class="nav-link" data-scroll-target="#polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="toc-section-number">3.7</span>  Polygones convexes avec des opérations sur les ensembles</a></li>
+  <li><a href="#représentation-de-sous-ensembles-par-trains-de-bits" id="toc-représentation-de-sous-ensembles-par-trains-de-bits" class="nav-link" data-scroll-target="#représentation-de-sous-ensembles-par-trains-de-bits"><span class="toc-section-number">3.5</span>  Représentation de sous-ensembles par trains de bits</a></li>
+  <li><a href="#polygones-convexes-avec-des-opérations-sur-les-ensembles" id="toc-polygones-convexes-avec-des-opérations-sur-les-ensembles" class="nav-link" data-scroll-target="#polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="toc-section-number">3.6</span>  Polygones convexes avec des opérations sur les ensembles</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/ensembles.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-body" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -212,24 +287,487 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="notions-de-base-sur-les-ensembles" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="notions-de-base-sur-les-ensembles"><span class="header-section-number">3.1</span> Notions de base sur les ensembles</h2>
+<div id="def-ensemble-element" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.1 (Ensemble, élément) </strong></span>Un <strong>ensemble</strong> est un collection non ordonnée d’objets. Les objets sont appelés <strong>éléments</strong> de l’ensemble et on dit qu’ils appartiennent à l’ensemble.</p>
+<p>Notation : <span class="math inline">\(x\in F\)</span> signifie que <span class="math inline">\(x\)</span> est un élément de l’ensemble <span class="math inline">\(F\)</span>. On dit aussi que <span class="math inline">\(x\)</span> appartient à l’ensemble <span class="math inline">\(F\)</span>.</p>
+</div>
+<div id="def-ensemble-fini-infini-cardinalite" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.2 (Ensemble fini ou infini, cardinalité) </strong></span>Soit <span class="math inline">\(A\)</span> un ensemble composé de <span class="math inline">\(n\)</span> éléments distincts. On dit que <span class="math inline">\(A\)</span> est un <strong>ensemble fini</strong> de <strong>cardinalité</strong> <span class="math inline">\(n\)</span> et on note <span class="math inline">\(|A|=n\)</span>. Un ensemble est dit <strong>infini</strong> s’il n’est pas fini.</p>
+</div>
+<div id="exm-ensemble-simple" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.1 </strong></span>Soit l’ensemble <span class="math inline">\(F=\set{2,\pi,7}\)</span>. Utilisez les symboles introduits pour traduire les énoncés suivants: l’ensemble <span class="math inline">\(F\)</span> contient 3 éléments, <span class="math inline">\(\pi\)</span> appartient à <span class="math inline">\(F\)</span>, 5 n’appartient pas à <span class="math inline">\(F\)</span>.</p>
+</div>
+<p>On peut décrire un ensemble <strong>en extension</strong> (on énumère ses éléments que l’on place entre accolades) <span class="math display">\[
+A=\set{5,7,9,11} \qquad B=\set{1,8,27,64}
+\]</span> ou en <strong>compréhension</strong>, comme ceci: <span class="math display">\[
+A=\set{x\in\mathbb{N}\mid (x\ \text{est impair}) \wedge (5\leq x \leq 11)} \qquad
+B=\set{x\in\mathbb{N}\mid (x \leq 64) \wedge (\exists\ y\in \mathbb{N},\ y^3=x)}
+\]</span></p>
+<p>Pour créer un ensemble dans <code>Python</code>, nous allons utiliser une paire d’accolades <code>{</code> <code>}</code> et placer les différents éléments de notre ensemble entre ces accolades en les séparant avec une virgule. De plus, nous pouvons vérifier si un élément appartient à l’ensemble en utilisant la commande <code>in</code>.</p>
+<div id="ensemble-accolades" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A<span class="op">=</span>{<span class="op">-</span><span class="dv">2</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A, <span class="dv">1</span> <span class="kw">in</span> A, <span class="dv">5</span> <span class="kw">in</span> A)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0, 1, 4, -2} True False</code></pre>
+</div>
+</div>
+<p>Pour calculer la cardinalité d’un ensemble dans <code>Python</code>, vous utilisez la fonction <code>len()</code>. En <code>Python</code>, il faut être prudent si on souhaite utiliser l’ensemble vide, <span class="math inline">\(\emptyset\)</span>. Si vous utilisez <code>{}</code> pour décrire l’ensemble vide, <code>Python</code> va plutôt l’interpréter comme un <em>dictionnaire</em> vide. Vous devez plutôt utiliser la fonction <code>set()</code>.</p>
+<div id="cardinalite-python" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> {<span class="dv">0</span>}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(A), <span class="bu">len</span>(B), <span class="bu">len</span>(C))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4 0 1</code></pre>
+</div>
+</div>
 </section>
 <section id="ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr"><span class="header-section-number">3.2</span> Ensembles de nombres <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Z}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span></h2>
+<p>Nous détaillerons dans la <a href="#tbl-ensembles-nombres-usuels">Table&nbsp;<span>3.1</span></a>, les ensembles de nombres les plus communs.</p>
+<div id="tbl-ensembles-nombres-usuels" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.1: Ensembles de nombres usuels.</caption>
+<colgroup>
+<col style="width: 56%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Ensemble</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\emptyset = \set{\phantom{1}}\)</span></td>
+<td>Ensemble vide (ne contient aucun élément <span class="math inline">\(\mid\emptyset\mid=0\)</span>)</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{N}=\set{0,1,2,3,\ldots}\)</span></td>
+<td>Ensemble des nombres naturels</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{N^*}=\set{1,2,3,\ldots}\)</span></td>
+<td>Ensemble des nombres naturels strictement positifs</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{Z}=\set{\ldots,-2,-1,0,1,2,\ldots}\)</span></td>
+<td>Ensemble des nombres entiers</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{Z^*}=\set{\ldots,-2,-1,1,2,\ldots}\)</span></td>
+<td>Ensemble des entiers non nuls</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{Q}=\set{\frac{p}{q}\mid p\in\mathbb{Z},q\in\mathbb{Z}\ \text{et}\ q\neq 0}\)</span></td>
+<td>Ensemble des nombres rationnels</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{R}\)</span></td>
+<td>Ensemble des nombres réels</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{R^+}=\set{x\in\mathbb{R}\mid x\geq 0}\)</span></td>
+<td>Ensemble des nombres réels positifs</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mathbb{C}=\set{a+bi\mid a\in \mathbb{R}\ \text{et}\ b\in\mathbb{R}}\)</span> avec <span class="math inline">\(i^2=-1\)</span></td>
+<td>Ensemble des nombres complexes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exm-ensembles-creation-par-comprehension" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.2 </strong></span>Établissez un lien entre les ensembles décrits par compréhension aux parties a. à f.&nbsp;avec le même ensemble décrit par extension aux parties 1 à 6.</p>
+<ol type="a">
+<li><span class="math inline">\(\set{x\in\mathbb{Z}\mid x^2=1}\)</span></li>
+<li><span class="math inline">\(\set{x\in\mathbb{Z}\mid x^3=1}\)</span></li>
+<li><span class="math inline">\(\set{x\in\mathbb{Z}\mid |x|\leq 2}\)</span></li>
+<li><span class="math inline">\(\set{x\in\mathbb{Z}\mid x^2 \leq 4}\)</span></li>
+<li><span class="math inline">\(\set{x\in\mathbb{Z}\mid x&lt;|x|}\)</span></li>
+<li><span class="math inline">\(\set{x\in\mathbb{Z}\mid (x+1)^2=x^2+2x+1}\)</span></li>
+</ol>
+<ol type="1">
+<li><span class="math inline">\(\set{-1,0,1}\)</span></li>
+<li><span class="math inline">\(\set{\ldots,-3,-2,-1,0,1,2,3,\ldots}\)</span></li>
+<li><span class="math inline">\(\set{1}\)</span></li>
+<li><span class="math inline">\(\set{\ldots,-3,-2,-1}\)</span></li>
+<li><span class="math inline">\(\set{-1,1}\)</span></li>
+<li><span class="math inline">\(\set{-2,-1,0,1,2}\)</span></li>
+</ol>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Lorsqu’il y a trop d’éléments dans un ensemble pour être en mesure de tous les écrire, nous utilisons souvent les trois-points (<span class="math inline">\(\ldots\)</span>) lorsque la suite d’éléments est claire. Par exemple, nous avons: <span class="math display">\[
+\mathbb{Z}=\set{\ldots,-3,-2,-1,0,1,2,3,\ldots}
+\]</span></p>
+</div>
+</div>
+<p>En <code>Python</code>, si vous avez un ensemble décrit par compréhension, il est particulièrement facile de le créer avec une <code>compréhension de liste</code>. L’idée est simple: simplifier le code pour le rendre plus lisible et donc plus rapide à écrire et plus simple à maintenir. La syntaxe est la suivante:</p>
+<pre><code>new_list = [function(item) for item in list if condition(item)]
+new_list = {function(item) for item in list if condition(item)}</code></pre>
+<p>Par exemple, si vous voulez créer l’ensemble <span class="math inline">\(\set{x^3\mid 0\leq x &lt; 10}\)</span>, nous pouvons le faire en <code>Python</code> de la manière suivante:</p>
+<div id="comprehension-de-liste" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ensemble <span class="op">=</span> {x<span class="op">**</span><span class="dv">3</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)}</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>liste <span class="op">=</span> [x<span class="op">**</span><span class="dv">3</span> <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ensemble, liste)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0, 1, 64, 512, 8, 343, 216, 729, 27, 125} [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]</code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remarquez que dans l’ensemble, les éléments ne sont pas ordonnés, tandis qu’ils le sont dans la liste.</p>
+</div>
+</div>
+<div id="def-egalite-ensembles" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.3 (Égalité d’ensembles) </strong></span>Deux ensembles sont dits égaux si et seulement s’ils contiennent exactement les mêmes éléments. <span class="math display">\[
+A=B \leftrightarrow \forall\ x\ (x\in A \leftrightarrow x\in B)
+\]</span></p>
+</div>
+<div id="exm-ensembles-egaux-oui-non" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.3 </strong></span>Les ensembles suivants sont-ils égaux? <span class="math display">\[\begin{align*}
+\set{1,3,5} &amp;\stackrel{?}{=} \set{3,5,1} \\
+\set{1,3,5} &amp;\stackrel{?}{=} \set{\set{1},\set{3},\set{5}}
+\end{align*}\]</span></p>
+</div>
+<div id="def-sous-ensemble" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.4 (Sous-ensemble) </strong></span>L’ensemble <span class="math inline">\(A\)</span> est <strong>sous-ensemble</strong> de l’ensemble <span class="math inline">\(B\)</span> si et seulement si tous les éléments de <span class="math inline">\(A\)</span> sont aussi des éléments de <span class="math inline">\(B\)</span>: <span class="math display">\[
+A \subseteq B \leftrightarrow \forall\ x\ (x\in A \rightarrow x\in B)
+\]</span> L’ensemble <span class="math inline">\(A\)</span> est <strong>sous-ensemble strict (ou propre)</strong> de l’ensemble <span class="math inline">\(B\)</span> si et seulement si tous les éléments de <span class="math inline">\(A\)</span> sont aussi des éléments de <span class="math inline">\(B\)</span> et <span class="math inline">\(A\)</span> n’est pas égal à <span class="math inline">\(B\)</span>: <span class="math display">\[
+A \subset B \leftrightarrow A\subseteq B \wedge\ A\neq B
+\]</span></p>
+</div>
+<div id="exm-sous-ensembles-verification" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.4 </strong></span>Convainquez-vous des affirmations suivantes. <span class="math display">\[\begin{align*}
+\set{1,2} &amp;\subseteq \set{1,2,3,4,5} \\
+\set{1,2} &amp;\subset \set{1,2,3,4,5} \\
+\set{2k\mid k\in\mathbb{N}} &amp;= \set{0,2,4,6,\ldots}\subset\mathbb{N}
+\end{align*}\]</span></p>
+</div>
+<div id="tbl-notation-theorie-ensembles" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.2: Notation de la théorie des ensembles.</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 90%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Notation</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\in\)</span></td>
+<td><span class="math inline">\(2\in\set{1,2,3}\)</span> indique que 2 est <strong>un élément de</strong> l’ensemble <span class="math inline">\(\set{1,2,3}\)</span>.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\not\in\)</span></td>
+<td><span class="math inline">\(4\not\in\set{1,2,3}\)</span> indique que 4 <strong>n’est pas un élément de</strong> l’ensemble <span class="math inline">\(\set{1,2,3}\)</span>.</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\subseteq\)</span></td>
+<td><span class="math inline">\(A\subseteq B\)</span> indique que <span class="math inline">\(A\)</span> est un <strong>sous-ensemble</strong> de <span class="math inline">\(B\)</span>: chaque élément de <span class="math inline">\(A\)</span> est aussi un élément de <span class="math inline">\(B\)</span>.</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\subset\)</span></td>
+<td><span class="math inline">\(A\subset B\)</span> indique que <span class="math inline">\(A\)</span> est un <strong>sous-ensemble propre</strong> de <span class="math inline">\(B\)</span>: chaque élément de <span class="math inline">\(A\)</span> est aussi un élément de <span class="math inline">\(B\)</span>, mais <span class="math inline">\(A\neq B\)</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="thm-sous-ensemble-vide" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 3.1 </strong></span>Pour tout ensemble <span class="math inline">\(A\)</span>, on a :</p>
+<ol type="1">
+<li><span class="math inline">\(\emptyset\subseteq A\)</span></li>
+<li><span class="math inline">\(A\subseteq A\)</span></li>
+</ol>
+</div>
+<div id="thm-sous-ensemble-egalite-ensemble" class="theorem">
+<p><span class="theorem-title"><strong>Théorème 3.2 </strong></span><span class="math inline">\(A=B\)</span> si et seulement si <span class="math inline">\(A\subseteq B\)</span> et <span class="math inline">\(B\subseteq A\)</span>.</p>
+</div>
+<p>En <code>Python</code>, nous pouvons utiliser la fonction <code>issubset</code> pour vérifier qu’un ensemble est sous-ensemble d’un autre.</p>
+<div id="sous-ensemble-verification" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">4</span>,<span class="dv">8</span>,<span class="dv">12</span>}</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.issubset(B), B.issubset(A))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False True</code></pre>
+</div>
+</div>
 </section>
 <section id="produit-cartésien" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="produit-cartésien"><span class="header-section-number">3.3</span> Produit cartésien</h2>
+<div id="def-produit-cartesien" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.5 (Produit cartésien) </strong></span>Le <strong>produit cartésien</strong> des ennsembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, noté <span class="math inline">\(A\times B\)</span>, est L’ensemble de tous les couples (paires ordonnées) dont le premier élément appartient à <span class="math inline">\(A\)</span> et le second, à <span class="math inline">\(B\)</span>: <span class="math display">\[
+A\times B = \set{(a,b)\mid\ a\in A\ \text{et}\ b\in B}
+\]</span> On généralise cette définition au produit cartésien de <span class="math inline">\(n\)</span> ensembles: <span class="math display">\[
+A_1 \times A_2 \times \ldots \times A_n = \set{(a_1,a_2,\ldots,a_n)\mid\ a_1\in A_1,\ldots, a_n\in A_n}
+\]</span></p>
+</div>
+<div id="exm-ensembles-extension-produit-cartesien" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.5 </strong></span>Décrivez en extension les produits cartésiens <span class="math inline">\(A\times B\)</span> et <span class="math inline">\(B\times A\)</span>, où <span class="math inline">\(A=\set{0,1,2}\)</span> et <span class="math inline">\(B=\set{a,c}\)</span>.</p>
+</div>
+<div id="def-relation" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.6 (Relation) </strong></span>Une <strong>relation</strong> entre les ensembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> est un sous-ensemble du produit cartésien <span class="math inline">\(A\times B\)</span>.</p>
+</div>
+<div id="exm-relation-entre-A-et-B" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.6 </strong></span>Soit $A= et $B=. L’ensemble <span class="math display">\[
+R=\set{(0,a),(1,c),(2,a)}\subseteq A\times B
+\]</span> est une relation de <span class="math inline">\(A\)</span> dans <span class="math inline">\(B\)</span>.</p>
+</div>
+<div id="def-ensemble-des-parties" class="theorem definition">
+<p><span class="theorem-title"><strong>Définition 3.7 </strong></span>L’<strong>ensmeble des parties</strong> de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(\mathcal{P}(A)\)</span>, est l’ensemble de tous les sous-ensembles de <span class="math inline">\(A\)</span>. <span class="math display">\[
+B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
+\]</span></p>
+</div>
+<div id="exm-ensemble-des-parties-de-A-3-elements" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.7 </strong></span>Décrivez <span class="math inline">\(\mathcal{P}(A)\)</span>, l’ensemble des parties de <span class="math inline">\(A\)</span>, où <span class="math inline">\(A=\set{0,1,2}\)</span>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 54%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(k\)</span></strong></th>
+<th><strong>Sous-ensembles de <span class="math inline">\(A\)</span> ayant <span class="math inline">\(k\)</span> éléments</strong></th>
+<th><strong>Nombre de sous-ensembles</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(\emptyset\)</span></td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(\set{0}\)</span>, <span class="math inline">\(\set{1}\)</span>, <span class="math inline">\(\set{2}\)</span></td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(\set{0,1}\)</span>, <span class="math inline">\(\set{0,2}\)</span>, <span class="math inline">\(\set{1,2}\)</span></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">\(\set{0,1,2}\)</span></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exm-ensemble-des-parties-de-A-4-elements" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 3.8 </strong></span>Décrivez <span class="math inline">\(\mathcal{P}(A)\)</span>, l’ensemble des parties de <span class="math inline">\(A\)</span>, où <span class="math inline">\(A=\set{0,1,2,3}\)</span>.</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 54%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong><span class="math inline">\(k\)</span></strong></th>
+<th><strong>Sous-ensembles de <span class="math inline">\(A\)</span> ayant <span class="math inline">\(k\)</span> éléments</strong></th>
+<th><strong>Nombre de sous-ensembles</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="opérations-sur-les-ensembles-cap-cup-oplus--" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="opérations-sur-les-ensembles-cap-cup-oplus--"><span class="header-section-number">3.4</span> Opérations sur les ensembles <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\cup\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(-\)</span></h2>
+<p>Soit <span class="math inline">\(U\)</span> l’ensemble universel et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> des sous-ensembles de <span class="math inline">\(U\)</span>. Les opérations suivantes génèrent des sous-ensembles de <span class="math inline">\(U\)</span>.</p>
+<div id="tbl-operations-ensembles" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.3: Les diverses opérations sur les ensembles.</caption>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Opération</strong></th>
+<th><strong>Forme mathématique</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Union</strong></td>
+<td><span class="math inline">\(\set{x\in U\mid\ x\in A\ \vee\ x\in B}\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Intersection</strong></td>
+<td><span class="math inline">\(\set{x\in U\mid\ x\in A\ \wedge\ x\in B}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Différence</strong></td>
+<td><span class="math inline">\(\set{x\in U\mid\ x\in A\ \wedge\ x\not\in B}=A\setminus B\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Différence symétrique</strong></td>
+<td><span class="math inline">\(\set{x\in U\mid\ x\in A\ \oplus\ x\in B}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Complément</strong></td>
+<td><span class="math inline">\(\set{x\in U\mid\ x\not\in A}=U-A\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tikz/union.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Union</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tikz/intersection.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Intersection</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tikz/difference.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Différence</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tikz/difference_symetrique.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Différence symétrique</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tikz/complement.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Complément</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Vous pouvez effectuer ces opérations dans <code>Python</code> à l’aide des commandes suivantes:</p>
+<div id="tbl-operations-ensembles-python" class="anchored">
+<table class="table">
+<caption>Table&nbsp;3.4: Les opérations sur les ensembles dans <code>Python</code>.</caption>
+<thead>
+<tr class="header">
+<th><strong>Opération</strong></th>
+<th><strong>Commande</strong> <code>Python</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Union</strong></td>
+<td><code>union</code></td>
+</tr>
+<tr class="even">
+<td><strong>Intersection</strong></td>
+<td><code>intersection</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Différence</strong></td>
+<td><code>difference</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="union-python" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>}</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.union(B))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0, 2, 5, -3, -1}</code></pre>
+</div>
+</div>
+<div id="intersection-python" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>}</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.intersection(B))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{2, -1}</code></pre>
+</div>
+</div>
+<div id="difference-python" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>}</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="op">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">2</span>}</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.difference(B))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{5, -3}</code></pre>
+</div>
+</div>
 </section>
-<section id="diagrammes-de-venn" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="diagrammes-de-venn"><span class="header-section-number">3.5</span> Diagrammes de Venn</h2>
+<section id="représentation-de-sous-ensembles-par-trains-de-bits" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="représentation-de-sous-ensembles-par-trains-de-bits"><span class="header-section-number">3.5</span> Représentation de sous-ensembles par trains de bits</h2>
 </section>
-<section id="représentation-de-sous-ensembles-par-trains-de-bits" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="représentation-de-sous-ensembles-par-trains-de-bits"><span class="header-section-number">3.6</span> Représentation de sous-ensembles par trains de bits</h2>
-</section>
-<section id="polygones-convexes-avec-des-opérations-sur-les-ensembles" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="header-section-number">3.7</span> Polygones convexes avec des opérations sur les ensembles</h2>
+<section id="polygones-convexes-avec-des-opérations-sur-les-ensembles" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="header-section-number">3.6</span> Polygones convexes avec des opérations sur les ensembles</h2>
 
 
 </section>
@@ -368,7 +906,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
+<nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./logique.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></span>

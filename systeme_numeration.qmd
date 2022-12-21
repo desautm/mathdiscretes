@@ -188,7 +188,7 @@ $$
 
 - L'entier $d=3$ est appelé **diviseur**.
 - L'entier $a=17$ est appelé le **dividende**.
-- L'entier $q=5$ est appeléle **quotient** (notation: $q=a\mathbf{div} d).
+- L'entier $q=5$ est appeléle **quotient** (notation: $q=a\mathbf{div} d$).
 - L'entier $r=2$ est appelé le **reste**.
 :::
 
@@ -210,8 +210,8 @@ Nous pouvons utiliser la command `bin` de `Python` pour convertir des **entiers*
 ```{python}
 #| label: conversion-binaire
 
-bin(115)
-bin(71)
+print(bin(115))
+print(bin(71))
 ```
 
 Pour convertir un nombre fractionnaire en binaire, il suffit de multiplier (plutôt que de diviser) la partie fractionnaire en notant les parties entières et fractionnaires obtenues. Il faut ensuite répéter ces étapes avec la nouvelle partie fractionnaire et poursuivre le processus jusqu'à ce que la partie fractionnaire soit nulle. Les parties entières des résultats de ces produits correspondent aux coefficients de la représentation polynomiale (**lire de haut en bas**).
@@ -248,8 +248,8 @@ Nous pouvons utiliser la command `hex` de `Python` pour convertir des **entiers*
 ```{python}
 #| label: conversion-hexadecimal
 
-hex(115)
-hex(71)
+print(hex(115))
+print(hex(71))
 ```
 
 ### Conversions binaire - hexadécimal
@@ -313,9 +313,11 @@ Une adresse IP (Internet Protocol) est un numéro d'identification qui est attri
 
 Il existe des adresses IP de version 4 sur 32 bits, et de version 6 sur 128 bits. La version 4 est actuellement la plus utilisée : elle est généralement représentée en notation décimale avec quatre nombres compris entre 0 et 255, séparés par des points, ce qui donne par exemple « 181.174.87.53 ».
 
+:::{.content-visible when-format="html"}
 ![Adresse Ipv4](https://upload.wikimedia.org/wikipedia/commons/3/34/Adresse_Ipv4.svg)
 
 ![Adresse Ipv6](https://upload.wikimedia.org/wikipedia/commons/4/4d/Ipv6_address-fr.svg)
+:::
 
 ### Adresse MAC
 
@@ -360,20 +362,428 @@ L'informatique utilise des nombres codés en système binaire, par groupes de hu
 
 ## Addition en binaire
 
+La méthode pour l'addition en base 10 peut s'appliquer pour n'importe quelle base (principe de report). Pour additionner en binaire, on procède comme en décimal. Quand le résultat de la somme d'une colonne est supérieur à 1 (utilise plus de 1 **bit**), on reporte ce bit au voisin de gauche.
 
+En binaire:
+
+| + | 0 |  1 |
+|:-:|:-:|:--:|
+| 0 | 0 |  1 |
+| 1 | 1 | 10 |
+
+### Procédure pour l'addition {.unnumbered}
+
+1. Superposer les nombres en colonnes de telle sorte que les chiffres de même position soit alignés verticalement.
+1. Additionner colonne par colonne, à partir de la droite, en effectuant les reports appropriés.
+
+:::{#exm-addition-binaire}
+Effectuez les additions demandées:
+
+a) (1011)~2~+(1001)~2~
+a) (1011,011)~2~+(110,01)~2~
+a) (110111,011)~2~+(10101,0101)~2~
+:::
 
 ## Représentation des entiers
 
+Il existe de nombreuses manières de représenter un nombre entier dans la mémoir d'un ordinateur. Nous n'en verrons que quelques unes.
+
 ### Entiers non signés
+
+:::{#def-entiers-non-signes}
+## Entiers non signés (nombres positifs)
+
+Un nombre **entier non signé** (positif) est représenté par un nombre de bits préalablement fixé. Au besoin, on complète le nombre par des zéros à gauche fin d'avoir le nombre total de bits choisi.
+:::
+
+:::{#exm-entiers-non-signes}
+Transformez les entiers décimaux suivants en entiers non signés sur un octet (huit bits).
+
+a) 143
+a) 15
+a) 30
+:::
+
+:::{#exm-plus-grand-entier-non-signe}
+Quel est le plus grand entier non signé pouvant être représenté avec:
+
+a) 8 bits?
+a) 32 bits?
+a) $n$ bits?
+:::
 
 ### Entiers signés
 
+Pour travailler avec des entiers qui peuvent être positifs ou négatifs, il faut inclure le signe du nombre dans sa représentation, et l'on parle alors d'entiers signés.
+
+:::{#def-entiers-signes}
+## Entiers signés (représentation signe et module)
+
+Un nombre **entier signé** (généralement représenté dans un octet) est un nombre où le 1^er^ bit (à gauche) est réservé au signe, et les autres bits permettent d'indiquer la valeur absolue du nombre. Pour indique qu'un nombre est positif (+), le 1^er^ bit est `0`, et pour un nombre négatif (-), le 1^er^ bit est `1`.
+:::
+
+:::{#exm-completion-tableau-signe-module-4-bits}
+Complétez les tableaux suivants qui indiquent la représentation signe et module sur 4 bits.
+
+:::{.columns}
+
+:::{.column width="40%"}
+| **Base 2** | **Base 10** |
+|:----------:|:-----------:|
+|    0000    |             |
+|    0001    |             |
+|    0010    |             |
+|    0011    |             |
+|    0100    |             |
+|    0101    |             |
+|    0110    |             |
+|    0111    |             |
+:::
+
+:::{.column width="10%"}
+
+:::
+
+:::{.column width="40%"}
+| **Base 2** | **Base 10** |
+|:----------:|:-----------:|
+|    1000    |             |
+|    1001    |             |
+|    1010    |             |
+|    1011    |             |
+|    1100    |             |
+|    1101    |             |
+|    1110    |             |
+|    1111    |             |
+:::
+:::
+:::
+
+En utilisant les nombres entiers signés:
+
+- On peut écrire autant de nombres positifs que de négatifs.
+- Pour un nombre exprimé avec $n$ bits, les valeurs extrèmes sont $\pm(2^{n-1}-1)$
+
+:::{#exm-valeurs-extremes-4-bits}
+Quelles sont les valeurs extrèmes pour des entiers signés représentés sur 4 bits?
+:::
+
+:::{.callout-warning}
+## Inconvénients de la représentation signe et module
+
+- Il y a deux zéros! Un *zéro* positif (0000 0000) et un *zéro* négatif (1000 0000).
+- Les opérations arithmétiques ne se font pas de la même manière qu'habituellement. Par exemple, sur 4 bits:
+    - **Base 2**: 0100 + 1011 = 1111
+    - **Base 10**: +4 + -3 = -7! (**FAUX!**)
+:::
+
+:::{#exm-representation-signe-module-8-bits}
+Écrivez la représentation signe et module sur 8 bits de:
+
+a) 15
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\end{tikzpicture}
+```
+a) -15
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\end{tikzpicture}
+```
+a) -10
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\end{tikzpicture}
+```
+a) Quel est l'intervalle de nombres entiers *signés* pouvant être représentés avec:
+    i. 8 bits?
+    i. 16 bits?
+:::
+
 ### Complément à 1
+
+Le complément à un d'un nombre binaire est la valeur obtenue en inversant tous les bits de ce nombre (en permutant les 0 par des 1 et inversement). Le complément à un d'un nombre se comporte alors comme le négatif du nombre original dans certaines opérations arithmétiques.
+
+D'un point de vue algébrique, qui est plus général, c'est l'opération qui consiste à complémenter un nombre écrit en base $b$ sur $n$ chiffres à $b^n-1$. C'est-à-dire que le complément d'un nombre $a$ s'obtient par $(b^n−1)−a$.
+
+:::{#exm-complement-a-un}
+Le complément à 1 de 0100 = 
+:::
+
+:::{.callout-note}
+Remarquons que dans l'@exm-complement-a-un, le complément à un représente le calcul de $(2^4-1)-0100=1111-0100=1011$
+:::
+
+:::{#exm-complement-a-un-4-bits}
+Représentez dans le tableau suivant toutes les valeurs possibles du complément à un sur 4 bits.
+
+| **Décimal** |      **+**      |      **-**      |
+|:-----------:|:---------------:|:---------------:|
+|      0      | $\phantom{000}$ | $\phantom{000}$ |
+|      1      |                 |                 |
+|      2      |                 |                 |
+|      3      |                 |                 |
+|      4      |                 |                 |
+|      5      |                 |                 |
+|      6      |                 |                 |
+|      7      |                 |                 |
+:::
 
 ### Complément à 2
 
-### Débordement
+Dans le système de complément à un, la valeur 0 a deux représentations : « +0 » et « -0 » (exemple sur 4 bits: 0000 et 1111), ce qui oblige à réaliser deux tests pour tester la valeur nulle d'un résultat. Afin de pallier ce défaut, on a introduit la représentation par complément à deux.
+
+On obtient le complément à deux en ajoutant 1 au complément à un. On ignore alors la retenue sur le bit de poids fort.
+
+Le complément à deux ne s'applique qu'à des nombres ayant tous la même longueur : avec un codage sur $n$ bits, cette méthode permet de représenter toutes les valeurs entières de $−2^n − 1$ à $2^{n − 1} − 1$.
+
+Tous les entiers en `Python` sont représentés en complémentation à deux et avec un nombre *infini* de bits (la limite est la capacité de mémoire de votre système). Par exemple:
+
+```{python}
+#| label: taille-entiers-python
+
+from sys import getsizeof
+
+counter1 = 0
+counter2 = 100
+counter3 = 2**64
+size1 = getsizeof(counter1)
+size2 = getsizeof(counter2)
+size3 = getsizeof(counter3)
+print(size1, size2, size3)
+```
+
+#### Remarques {.unnumbered}
+
+Dans la représentation en complément à deux:
+
+- le bit de gauche est réservé au signe;
+- les **entiers négatifs** sont représentés par leur complément à deux;
+- les entiers positifs sont simplement représentés par leur nombre binaire signé;
+- le nombre de bits est **fixé**.
+
+:::{.callout-important}
+Il n'est pas nécessaire de complémenter un nombre positif.
+:::
+
+La complémentation à deux se fait en trois étapes:
+
+1. Écrivez le nombre binaire sur le nombre de bits préalablement établi en ne tenant pas compte du signe (ajoutez des 0 à gauche au besoin).
+1. Calculez le complément à un (**Remplacez tous les `0` par des `1` et tous les `1` par des `0`**).
+1. Calculez le complément à deux (**Ajoutez 1 au complément à un**).
+
+:::{#exm-nombre-moins-4-complement-deux}
+Écrivez le nombre $M=-4$ dans sa représentation en complément à deux.
+:::
+
+:::{#exm-complement-deux-octets}
+Trouvez les compléments à deux des octets suivants.
+
+a) (0110 0100)
+a) (0110 1101)
+a) (0110 1001)
+:::
+
+:::{#exm-valeur-5-8-bits}
+Vous avez 8 bits.
+
+a) Écrivez 5 en binaire sur 8 bits.
+a) Complémentez à deux la réponses précédente.
+a) Additionnez les réponses obtenues en a) et en b).
+:::
+
+### Addition de nombres par complémentation à deux
+
+Puisque les opérations internes de l'ordinateur ne permettent que l'addition, il faut troiver une manière d'effectuer une soustraction sans réellement en faire une. Par exemple, afin de calculer 10-4, il est possible de faire l'addition 10+(-4).
+
+Ainsi, le complément à deux est nécessaire pour représenter les nombres négatifs et pour effectuer des soustractions.
+
+:::{.callout-important}
+Il est important de notes que:
+
+- Il faut utiliser des nombres signés;
+- Pour deux nombres ayant le même nombre de bits, il se peut que le résultat de l'addition de ces nombres comporte un bit de plus. Dans ce cas, il faut ignorer le bit supplémentaire;
+- **Si le signe de la réponses n'a pas de sens, cela signifie que le résultat de l'addition est un nombre trop grand pour la capacité de l'ordinateur, on parle alors de débordement.**
+- Si le bit-signe est à `1`, on doit complémenter le nombre pour retrouver le nombre négatif qui représente la réponse.
+:::
+
+#### Addition de deux nombres de mêmes signes {.unnumbered}
+
+**Cas particuliers**:
+
+- Si, après l'addition, le bit-signe est le même que les deux chiffres, le résultat est correct.
+- Si le bit-signe est *différent* de celui des deux chiffres additionnés, il y a **débordement**.
+
+:::{#exm-addition-complement-deux-1}
+À l'aide de la complémentation à deux, calculez 49+25.
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.35cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+```
+:::
+
+:::{#exm-addition-complement-deux-2}
+À l'aide de la complémentation à deux, calculez 75+87.
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.35cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+```
+:::
+
+:::{#exm-addition-complement-deux-3}
+À l'aide de la complémentation à deux, calculez -64-56.
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.35cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+```
+:::
+
+:::{#exm-addition-complement-deux-4}
+À l'aide de la complémentation à deux, calculez -78-85.
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.35cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+```
+:::
+
+#### Addition de deux nombres de signes différents {.unnumbered}
+
+- Il n'y a aucun débordement possible (**POURQUOI?**)
+- Le résultat peut être positif ou négatif selon la valeur du bit-signe.
+- On complémente le résultat si le bit-signe est `1`.
+
+:::{#exm-addition-complement-deux-5}
+À l'aide de la complémentation à deux, calculez -59-18.
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.35cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+```
+:::
+
+:::{#exm-addition-complement-deux-6}
+À l'aide de la complémentation à deux, calculez 18-59.
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+\draw (0,0) grid (8,1);
+\begin{scope}[yshift=-1.2cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\begin{scope}[yshift=-1.35cm]
+\draw[very thick] (-0.2,0)--(8.2,0);
+\end{scope}
+\begin{scope}[yshift=-2.5cm]
+\draw (0,0) grid (8,1);
+\end{scope}
+\end{tikzpicture}
+```
+:::
+
+### Opérateurs bit à bit
+
+En logique, une opération bit à bit est un calcul manipulant les données directement au niveau des bits, selon une arithmétique booléenne. Elles sont utiles dès qu'il s'agit de manipuler les données à bas niveau : codages, couches basses du réseau (par exemple TCP/IP), cryptographie, etc.
+
+Les opérations bit à bit courantes comprennent des opérations logiques bit par bit et des opérations de décalage des bits, vers la droite ou vers la gauche.
+
+### LEFT-SHIFT <<
+
+### RIGHT-SHIFT >>
+
+### COMPLÉMENT À UN ~ (MÊME CHOSE QUE NOT)
 
 ## Représentation des nombres en virgule flottante
 
-## La norme IEEE754
+### La norme IEEE754
+
+En informatique, l’IEEE 754 est une norme sur l'arithmétique à virgule flottante mise au point par le *Institute of Electrical and Electronics Engineers*. Elle est la norme la plus employée actuellement pour le calcul des nombres à virgule flottante avec les CPU et les FPU. La norme définit les formats de représentation des nombres à virgule flottante (signe, mantisse, exposant, nombres dénormalisés) et valeurs spéciales (infinis et NaN), en même temps qu’un ensemble d’opérations sur les nombres flottants. Il décrit aussi cinq modes d'arrondi et cinq exceptions (comprenant les conditions dans lesquelles une exception se produit, et ce qui se passe dans ce cas).
+
+#### Format général {.unnumbered}
+
+Un nombre flottant est formé de trois éléments : la mantisse, l'exposant et le signe. Le bit de poids fort est le bit de signe : si ce bit est à 1, le nombre est négatif, et s’il est à 0, le nombre est positif. Les $e$ bits suivants représentent l'exposant biaisé (sauf valeur spéciale), et les $m$ bits suivants ($m$ bits de poids faible) représentent la mantisse.
+
+:::{.content-visible when-format="html"}
+![Format général d'un nombre en virgule flottante.](https://upload.wikimedia.org/wikipedia/commons/2/29/IEEE754_Format_General.png)
+:::
+
+L'exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l'exposant est « biaisé », afin de le stocker sous forme d'un nombre non signé.
+
+Ce biais est de 2e−1 − 1 (e représente le nombre de bits de l'exposant) ; il s'agit donc d'une valeur constante une fois que le nombre de bits e est fixé.

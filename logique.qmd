@@ -424,9 +424,97 @@ $$
 
 :::
 
-Pour gagner du temps 
+Pour gagner du temps, on note les équivalences fréquemment utilisées dans une table et on leur donne un nom ou un numéro afin d’y faire référence.
+
+| **Nom**               | **Équivalence 1**                                         | **Équivalence 2**                                          |
+|-----------------------|-----------------------------------------------------------|------------------------------------------------------------|
+| **Identité**          | $p \wedge \mathbf{V} \equiv p$                            | $p \vee \mathbf{F} \equiv p$                               |
+| **Domination**        | $p \vee \mathbf{V} \equiv \mathbf{V}$                     | $p \wedge \mathbf{F} \equiv \mathbf{F}$                    |
+| **Idempotence**       | $p \vee p \equiv p$                                       | $p\wedge p \equiv p$                                       |
+| **Double négation**   | $\lnot (\lnot p)   \equiv p$                              |                                                            |
+| **Commutativité**     | $p\wedge q \equiv q \wedge p$                             | $p \vee q \equiv q \vee p$                                 |
+| **Associativité**     | $(p \vee q) \vee r \equiv p \vee (q \vee r)$              | $(p \wedge q) \wedge r \equiv p \wedge (q \wedge r)$       |
+| **Distributivité**    | $p \vee (q \wedge r) \equiv (p \vee q) \wedge (p \vee r)$ | $p\wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$ |
+| **Lois de De Morgan** | $\lnot (p \wedge q) \equiv \lnot p \vee \lnot q$          | $\lnot (p \vee q) \equiv \lnot p \wedge \lnot q$           |
+| **Absorption**        | $p \vee (p \wedge q) \equiv p$                            | $p \wedge (p \vee q) \equiv p$                             |
+| **Négation**          | $p \vee \lnot p \equiv \mathbf{V}$                        | $p \wedge \lnot p \equiv \mathbf{F}$                       |
+
+: Équivalences logiques {#tbl-equivalences-logiques}
+
+| **Numéro** | **Implication**                                                              |
+|------------|------------------------------------------------------------------------------|
+| **1**      | $p \rightarrow q \equiv \lnot p \vee q$                                      |
+| **2**      | $p \rightarrow q \equiv \lnot q \rightarrow \lnot p$                         |
+| **3**      | $p \vee q \equiv \lnot p \rightarrow q$                                      |
+| **4**      | $p \wedge q \equiv \lnot(p \rightarrow \lnot q)$                             |
+| **5**      | $\lnot(p \rightarrow q) \equiv p \wedge \lnot q$                             |
+| **6**      | $(p \rightarrow q)\wedge (p\rightarrow r) \equiv p \rightarrow (q \wedge r)$ |
+| **7**      | $(p \rightarrow r) \wedge (q \rightarrow r) \equiv (p \vee q) \rightarrow r$ |
+| **8**      | $(p\rightarrow q) \vee (p \rightarrow r) \equiv p \rightarrow (q \vee r)$    |
+| **9**      | $(p \rightarrow r) \vee (q \rightarrow r) \equiv (p \wedge q) \rightarrow r$ |
+
+: Équivalences logiques (implications) {#tbl-equivalences-logiques-implications}
+
+| **Numéro** | **Biconditionnelle**                                                                 |
+|------------|--------------------------------------------------------------------------------------|
+| **1**      | $p \leftrightarrow q \equiv (p\rightarrow q) \wedge (q \rightarrow q)$               |
+| **2**      | $p \leftrightarrow q \equiv \lnot p \leftrightarrow \lnot q$                         |
+| **3**      | $p \leftrightarrow q \equiv (p \wedge q) \vee (\lnot p \wedge \lnot q)$              |
+| **4**      | $p \leftrightarrow q \equiv \lnot(p \wedge \lnot q) \wedge \lnot(\lnot p \wedge q )$ |
+| **5**      | $\lnot(p \leftrightarrow q) \equiv p \leftrightarrow \lnot q$                        |
+
+: Équivalences logiques (biconditionnelles) {#tbl-equivalences-logiques-biconditionnelles}
+
+:::{#exm-proposition-tautologie-deux-manieres}
+Vérifiez que la proposition
+$$
+\lnot (p \rightarrow q) \rightarrow \lnot q
+$$
+est une tautologie
+
+a. à l'aide d'une table de vérité;
+
+    |  $p$  |  $q$  | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ | $\phantom{V}$ |
+|:-----:|:-----:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| **V** | **V** |               |               |               |               |               |
+| **V** | **F** |               |               |               |               |               |
+| **F** | **V** |               |               |               |               |               |
+| **F** | **F** |               |               |               |               |               |
+
+a. sans l'aide d'une table de vérité, en utilisant les tableaux d'équivalences.
+:::
+
+:::{.callout-important}
+## Propositions équivalentes ou non?
+
+Pour démontrer que les propositions **ne sont pas** équivalentes, il suffit de fournir des valeurs de $p$, $q$ et $r$ pour lesquelles elles diffèrent. Pour démontrer que les propositions sont équivalentes, on peut procéder de l’une des trois façons suivantes.
+
+1. Fournir leur table de vérité.
+1. Utiliser la @tbl-equivalences-logiques, la @tbl-equivalences-logiques-implications ou la @tbl-equivalences-logiques-biconditionnelles.
+1. Formuler une explication en mots qui montre que les deux propositions sont vraies, ou encore que les deux sont fausses, exactement pour les mêmes combinaisons de valeur de vérité des variables propositionnelles.
+:::
 
 ## Prédicats et quantificateurs
+
+Un énoncé contenant une ou plusieurs variables tel que
+$$
+x<10 \quad \text{ou} \quad x+2=7-y
+$$
+n'est pas une proposition pusique, tant que la valeur de $x$ ou $y$ n'est pas connue, on ne peut dire s'il est vrai ou faux.
+
+:::{#def-sujet-predicat}
+## Terminologie
+
+Dans l'énoncé "$x<10$", $x$ est le **sujet**, et "est inférieur à 10" est le **prédicat**. Notons $P(x)$ l'énoncé $x<10$. On dit que $P$ est une **fonction propositionnelle**.
+:::
+
+Une fonction propositionnelle $P(x)$ prend la valeur vrai ou faux quand $x$ est précisé. Par exemple:
+
+- $P(8)$ est une proposition vraie. On écrira parfois $P(8)$ est vrai (au masculin, en sous-entendant l'énoncé est vrai, ou même $P(8)\equiv \mathbf{V}$).
+- $P(13)$ est une proposition fausse.
+- $P(\text{Marc-André})$ n'est pas une proposition, car *Marc-André* n'est pas une valeur possible pour la variable $x$.
+
+L'ensemble des valeurs possibles pour la variable $x$ est appelé **univers du discours**, ou **domaine** de la fonction $P$.
 
 :::{#def-quantificateurs}
 ## Quantificateurs
@@ -434,4 +522,207 @@ Pour gagner du temps
 $$
 \forall:\ \text{quantificateur universel} \qquad \exists:\ \text{quantificateur existentiel}
 $$
+
+$\forall\ x\ P(x)$:
+: signifie "Pour toutes les valeurs de $x$ dans l'univers du discours, $P(x)$". Ou encore "Quel que soit $x$ (dans l'univers du discours), $P(x)$".
+
+$\exists\ x\ P(x)$:
+: signifie "Il existe un élément de $x$ dans l'univers du discours tel que $P(x)$". Ou encore "Il y a au moins un $x$ (dans l'univers du discours) tel que $P(x)$". Ou encore "Pour un certain $x$ (dans l'univers du discours), $P(x)$".
+
+**Notation**. Certains auteurs mettent une virgule avant la fonction propositionnelle, surtout quand celle-ci est composée. Par exemple: $\forall\ x,\ (P_1(x)\rightarrow P_2(x) \vee P_3(x))$. Par ailleurs, si l'ensemble $U$ n'a pas déjà été identifié, on peut préciser que la variable $x$ prendra des valeurs dans l'ensemble $U$ ainsi: $\exists\ x\in U,\ P(x)$.
+:::
+
+Lorsque l'univers du discours est un ensemble fini $\{x_1,x_2,\ldots, x_n\}$, on a les équivalences logiques suivantes:
+
+\begin{align*}
+\forall\ x\ P(x) &\equiv P(x_1)\wedge P(x_2) \wedge \cdots \wedge P(x_n) \\
+\exists\ x\ P(x) &\equiv P(x_1)\vee P(x_2) \vee \cdots \vee P(x_n)
+\end{align*}
+
+La quantification universelle $\forall\ x\ P(x)$ est vraie quand $P(x)$ est vraie pour toutes les valeurs de $x$ dans l'univers du discours $U$. Elle est donc fausse s'il existe un $x$ de $U$ pour lequel $P(x)$ est fausse. Un tel élément est appelé un **contre-exemple** de $\forall\ x\ P(x)$.
+
+La quantification existentielle $\exists\ x\ P(x)$ est vraie s'il existe au moins une valeur $x$ dans l'univers du discours telle que $P(x)$ est vraie. Elle est fausse si $P(x)$ est fausse pour toutes les valeurs possibles de $x$.
+
+Ainsi, pour prouver un énoncé de la forme $\forall\ x\ P(x)$ est vrai, fournir un exemple de $x$ tel que $P(x)$ est vrai ne suffit pas. Il faut montrer que la proposition $P(x)$ est vraie pour toutes les valeurs de $x$, ce qui peut s'avérer particulièrement **difficile lorsque $U$ est un ensemble infini**. Il en va de même losqu'on veut prouver qu'un énoncé de la forme $\exists\ x\ P(x)$ est faux.
+
+| Pour prouver que   | est **vrai**                                                                                  | est **faux**                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
+| $\exists\ x\ P(x)$ | il suffit de fournir **un exemple**: un $x$ de $U$ tel que $P(x)$ est vrai.                   | il faut fournir un argument général pour montrer que $P(x)$ est faux quel que soit $x$ de $U$. |
+| $\forall\ x\ P(x)$ | il faut fournir un argument général pour montrer que $P(x) est vrai quel que soit $x$ de $U$. | il suffit de fournir un **contre-exemple**: un $x$ de $U$ tel que $P(x)$ est faux.             |
+
+: Comment prouver qu'un énoncé quantifié est vrai ou faux quand l'univers du discours $U$ est infini. {#tbl-prouver-enonce-univers-infini}
+
+:::{#exm-univers-discours-nombres-reels}
+Si l'univers du discours est l'ensemble des nombres réels et
+\begin{align*}
+&P(x)\ \text{désigne}\ x\geq 0 \\
+&Q(x)\ \text{désigne}\ x\ \text{est un nombre premier} \\
+&R(x)\ \text{désigne}\ 3^x+4^x=5^x \\
+&S(x)\ \text{désigne}\ x\geq 100
+\end{align*}
+dites si chacun des énoncés suivants est une proposition vraie, une proposition fausse ou n'est pas une proposition. Donnez un exemple ou un contre-exemple le cas échéant. Dans le cas contraire, indiquez qu'un argument général est requis.
+
+a. $\forall\ x\ P(x)$
+a. $\forall\ x\ \lnot P(x)$
+a. $\forall\ x\ P(x^2)$
+a. $\exists\ x\ P(x)$
+a. $\exists\ x\ \lnot P(x)$
+a. $\exists\ x\ Q(x)$
+a. $\exists\ x\ Q(x^2)$
+a. $\forall\ x\ R(x)$
+a. $P(x)$
+a. $\forall\ x\ (S(x)\rightarrow P(x))$
+a. $(\forall\ x\ P(x)) \rightarrow (\forall\ x\ S(x))$
+a. $\forall\ x\ S(x+100)$
+a. $\forall\ x\ S(x^2+100)$
+:::
+
+:::{#thm-de-morgan-quantificateurs}
+## Lois de De Morgan pour les quantificateurs
+
+$$
+\lnot \exists\ x\ P(x) \equiv \forall\ x\ \lnot P(x) \qquad \lnot \forall\ x\ P(x) \equiv \exists\ x\ \lnot P(x)
+$$
+:::
+
+:::{#exm-univers-etudiants-stjean-repertoire}
+Si l'univers du discours est l'ensemble des étudiants du programme Sciences Informatique et Mathématique (ScIM) et $M(x)$ désigne l'énoncé *l'étudiant $x$ peut modifier les fichiers du répertoire $U$*, traduisez clairement les propositions suivantes à l'aide des quantificateurs.
+
+a. Tous les étudiants de ScIM peuvent modifier les fichiers du répertoire $U$.
+a. Il est faux que tous les étudiants de ScIM peuvent modifier les fichiers du répertoire $U$.
+a. Au moins un étudiant de ScIM peut modifier les fichiers du répertoire $U$.
+a. Il est faux qu'au moins un étudiant de ScIM peut modifier les fichiers du répertoire $U$.
+a. Aucun étudiant de ScIM ne peut modifier les fichiers du répertoire $U$.
+a. Au moins un étudiant de ScIM ne peut pas modifier les fichiers du répertoire $U$.
+
+De plus, déterminez les propositions ci-dessus qui sont équivalentes.
+:::
+
+:::{#exm-univers-billes-rouges-bleues}
+Si l'univers du discours est l'ensemble des billes contenues dans un bol, et si
+
+- $G(x)$ désigne *la bille $x$ est grosse*
+- $J(x)$ désigne *la bille $x$ est jaune*
+- $R(x)$ désigne *la bille $x$ est rouge*
+- $B(x)$ désigne *la bille $x$ est bleue*
+
+traduisez clairement les propositions suivantes en prenant soin de bien formuler les phrases.
+
+a. $\forall\ x\ (R(x) \vee J(x))$
+a. $(\forall\ x\ R(x)) \vee (\forall\ x\ J(x))$
+a. Les propositions a. et b. sont-elles équivalentes?
+a. $\exists\ x\ B(x)$
+a. $\lnot(\exists\ x\ B(x))$
+a. Utilisez le quantificateur universel $\forall$ pour écrire une proposition équivalente à la précédente.
+a. $\lnot(\forall\ x\ R(x))$
+a. Utilisez le quantificateur existentiel $\exists$ pour écrire une proposition équivalente à la précédente.
+a. $\forall\ x\ (G(x) \rightarrow B(x))$
+a. $\exists\ x\ (G(x) \wedge B(x))$
+a. $(\exists\ x\ G(x)) \wedge (\exists\ x\ B(x))$
+a. Les deux propositions précédentes sont-elles équivalentes?
+a. Les deux propositions suivantes sont-elles équivalentes?
+$$
+(\exists\ x\ R(x)) \vee (\exists\ x\ J(x)) \qquad \text{et} \qquad \exists\ x\ (R(x) \vee J(x))
+$$
+a. Les deux propositions suivantes sont-elles équivalentes?
+$$
+(\forall\ x\ R(x)) \wedge (\forall\ x\ G(x)) \qquad \text{et} \qquad \forall\ x\ (R(x) \wedge G(x))
+$$
+:::
+
+## Opérations bit à bit
+
+## Problèmes de logique
+
+Les problèmes suivants se déroulent sur une île imaginaire où tous les habitants sont soit des **chevaliers**, qui disent toujours la vérité, soit des **fripons**, qui mentent toujours. Ces énigmes implique un visiteur qui rencontre un petit groupe d'habitants de l'île. La plupart du temps, le but du visiteur est de *déduire* les types des habitants à partir de leurs énoncés. 
+
+Voici un exemple type de problème possible.
+
+:::{.callout}
+## Déduisez!
+
+En vous promenant sur l'île, vous rencontrez trois habitants gardant un pont. Pour passer, vous devez déduire le type de chaque habitant. Chaque individu dit un seul énoncé:
+
+- Individu A: Si je suis un fripon, alors il y a exactement deux chevaliers ici.
+- Individu B: L'individu A ment.
+- Individu C: Soit nous sommes tous des fripons ou alors au moins l'un d'entre nous est un chevalier.
+
+Quels sont les types des trois individus?
+:::
+
+### Stratégies {.unnumbered}
+
+Voici quelques stratégies que vous pouvez utiliser pour résoudre ce genre de problème:
+
+- Commencez en supposant qu'un individu est d'un certain type. Soyez stratégique avec votre supposition, tentez de résoudre un énoncé **ET**.
+    - Si un individu dit **ET**, supposez qu'il est un chevalier;
+    - Si un individu dit **OU**, supposez qu'il est un fripon;
+    - Si un individu dit **SI/ALORS**, supposez qu'il est un fripon;
+    - Si un individu dit **SI ET SEULEMENT SI**, attendez de connaître la valeur de vérité de leur énoncé avant de faire une supposition.
+- Lorsqu'un individu est un chevalier, vous pouvez continuer leur énoncé.
+- Lorsqu'un individu est un fripon, vous pouvez continuer la négation de leur énoncé.
+    - Partie 1 **ET** Partie 2 $\rightarrow$ **NON** Partie 1 **OU** **NON** Partie 2
+    - Partie 1 **OU** Partie 2 $\rightarrow$ **NON** Partie 1 **ET** **NON** Partie 2
+    - **SI** Partie 1, alors Partie 2 $\rightarrow$ Partie 1 **ET** **NON** Partie 2
+- Soyez prudents avec les *si et seulement si*
+    - Lorsqu'un *si et seulement si* est `VRAI`, alors les deux parties ont la **même** valeur de vérité.
+    - Lorsqu'un *si et seulement si* est `FAUX`, alors les deux parties ont des valeurs de vérités **différentes**.
+- Lorsque vous avez prouvé l'identité d'un individu, vous pouvez utiliser cette information partout dans le reste de l'énigme.
+- Si vous avez suffisament d'information pour confirmer que l'énoncé d'un individu est `VRAI`, alors ils doivent être un chevalier.
+- Si vous avez suffisament d'information pour confirmer que l'énoncé d'un individu est `FAUX`, alors ils doivent être un fripon.
+
+### Trois énoncés différents
+
+Nous pouvons, dans la plupart des problèmes, regrouper les énoncés des habitants de l'île en trois formes distinctes. 
+
+#### Accusations et affirmations
+
+Dans une accusation, un habitant *A* dit par exemple *B est un fripon* ou un énoncé équivalent comme *B ment toujours*. Dans une affirmation, l'habitant *A* dit par exemple *B est un chevalier* ou alors *B dit toujours la vérité*.
+
+:::{#exm-accusation-different-types}
+Que pouvez-vous conclure si *A* et *B* sont reliés par une **accusation**?
+:::
+
+:::{#exm-accusation-different-types}
+Que pouvez-vous conclure si *A* et *B* sont reliés par une **affirmation**?
+:::
+
+#### Conjonctions de fripons
+
+Un exemple de conjonction de fripons est lorsque *A* dit que *B est un chevalier ou je suis un fripon*, ou alors *C est un fripon et je suis un fripon*
+
+:::{#exm-conjonction-de-fripons-ou}
+Que pouvez-vous conclure si *A* et *B* sont reliés par **ou je suis un fripon**?
+:::
+
+:::{#exm-conjonction-de-fripons-et}
+Que pouvez-vous conclure si *A* et *B* sont reliés par **et je suis un fripon**?
+:::
+
+#### Énoncés de différences ou de similarités
+
+Parfois un habitant *A* dira *B est de mon type* ou peut-être *C n'est pas de mon type*. 
+
+:::{#exm-similarite-fripons}
+Que pouvez-vous conclure si *A* dit que *B est de son type*?
+:::
+
+:::{#exm-difference-fripons}
+Que pouvez-vous conclure si *A* dit que *C n'est pas de son type*?
+:::
+
+Il est intéressant de comparer ces énoncés avec ceux d'accusations et d'affirmations. Ces deux types d'énoncés sont réciproques en quelque sorte. Lorsqu'un habitant dit directement de quel type est un autre habitant (dans une accusation ou une affirmation), tout ce qu'on apprend c'est que la source et la cible sont similaires ou différents, sans apprendre leur type. Par contre, lorsqu'un habitant dit un énoncé par rapport aux similitudes ou aux différences, nous apprenons exactement de quel type la cible est, sans apprendre si elle est similaire ou différente de la source.
+
+:::{#exm-chevaliers-et-fripons-1}
+Vous rencontrez trois habitants de l'île.
+
+- A dit: B ne ment jamais.
+- A dit: C est un chevalier ou je suis un fripon.
+:::
+
+:::{#exm-chevaliers-et-fripons-2}
+Vous rencontrez trois habitants de l'île.
+
+- A dit: B ment toujours.
+- B dit: A n'est pas de mon type.
 :::
