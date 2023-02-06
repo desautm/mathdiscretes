@@ -261,7 +261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#injection-surjection-et-bijection" id="toc-injection-surjection-et-bijection" class="nav-link" data-scroll-target="#injection-surjection-et-bijection"><span class="toc-section-number">4.3</span>  Injection, surjection et bijection</a>
   <ul class="collapse">
   <li><a href="#les-dictionnaires-dans-python" id="toc-les-dictionnaires-dans-python" class="nav-link" data-scroll-target="#les-dictionnaires-dans-python"><span class="toc-section-number">4.3.1</span>  Les dictionnaires dans <code>Python</code></a></li>
-  <li><a href="#fonction-de-hachage-est-une-fonction-injective-surjective" id="toc-fonction-de-hachage-est-une-fonction-injective-surjective" class="nav-link" data-scroll-target="#fonction-de-hachage-est-une-fonction-injective-surjective"><span class="toc-section-number">4.3.2</span>  Fonction de hachage est une fonction injective? surjective?</a></li>
+  <li><a href="#fonction-de-hachage" id="toc-fonction-de-hachage" class="nav-link" data-scroll-target="#fonction-de-hachage"><span class="toc-section-number">4.3.2</span>  Fonction de hachage</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/fonctions.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
@@ -323,14 +323,14 @@ f(t)=\text{nombre de 0 dans le train de bits}\ t
 <li><span class="math inline">\(x-1&lt;\lfloor x\rfloor \leq x \leq \lceil x \rceil &lt; x+1\)</span></li>
 </ol>
 </div>
-<p>La <a href="#fig-floor-ceiling">Figure&nbsp;<span>4.1</span></a> présente le graphique des fonctions plancher et plafond.</p>
+<p>La <a href="#fig-floor-ceiling">Figure&nbsp;<span class="quarto-unresolved-ref">fig-floor-ceiling</span></a> présente le graphique des fonctions plancher et plafond.</p>
 <div id="fig-floor-ceiling" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/ceiling_function.png" class="img-fluid figure-img"></p>
+<p><img src="figs/floor_function.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Fonction plancher</figcaption><p></p>
 </figure>
 </div>
@@ -338,7 +338,7 @@ f(t)=\text{nombre de 0 dans le train de bits}\ t
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figs/floor_function.png" class="img-fluid figure-img"></p>
+<p><img src="figs/ceiling_function.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Fonction plafond</figcaption><p></p>
 </figure>
 </div>
@@ -414,6 +414,32 @@ Résultats de la fonction plancher
 \]</span></li>
 </ul>
 </div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si une fonction n’est pas <strong>injective</strong>, alors elle ne possède pas d’inverse.</p>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si une fonction n’est pas <strong>surjective</strong>, alors elle ne possède pas d’inverse.</p>
+</div>
+</div>
 <div id="exm-fonction-injective-surjective-bijective" class="theorem example">
 <p><span class="theorem-title"><strong>Exemple 4.4 </strong></span>On considère un sous-ensemble <span class="math inline">\(f\)</span> du produit cartésien de deux ensembles. Dans chaque cas, tracez son graphe saggital puis déterminez s’il s’agit d’une fonction ou non. De plus, si <span class="math inline">\(f\)</span> est une fonction, déterminez si elle est injective, surjective ou bijective.</p>
 <p>Ici, <span class="math inline">\(L=\set{a,b,c,d,e}\)</span>, <span class="math inline">\(M=\set{a,b,c}\)</span>, <span class="math inline">\(C=\set{1,2,3,4}\)</span> et <span class="math inline">\(D=\set{1,2,3}\)</span>.</p>
@@ -433,7 +459,7 @@ Résultats de la fonction plancher
 <p>Le dictionnaire n’est pas une séquence mais un autre type composite. Ils ressemblent aux listes dans une certaine mesure (ils sont modifiables comme elles), mais les éléments que nous allons y enregistrer ne seront pas disposés dans un ordre immuable. En revanche, nous pourrons accéder à n’importe lequel d’entre eux à l’aide d’un index spécifique que l’on appellera une clé, laquelle pourra être alphabétique, numérique, ou même d’un type composite sous certaines conditions.</p>
 <div id="exm-jour-dejeuner-injective" class="theorem example">
 <p><span class="theorem-title"><strong>Exemple 4.6 </strong></span>Dites si le dictionnaire défini ci-dessous est une fonction injective, surjective, ou bijective.</p>
-<div id="dictionnaries-days-breakfast" class="cell" data-execution_count="2">
+<div id="dictionnaries-days-breakfast-injective" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>jour <span class="op">=</span> {<span class="st">"Lundi"</span>, <span class="st">"Mardi"</span>, <span class="st">"Mercredi"</span>, <span class="st">"Jeudi"</span>, <span class="st">"Vendredi"</span>, <span class="st">"Samedi"</span>, <span class="st">"Dimanche"</span>}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dejeuner <span class="op">=</span> {<span class="st">"Oeufs"</span>, <span class="st">"Céréales"</span>, <span class="st">"Rôties"</span>, <span class="st">"Gruau"</span>, <span class="st">"Pâtisserie"</span>, <span class="st">"Jambon"</span>, <span class="st">"Crèpes"</span>,<span class="st">"Saucisses"</span>}</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -445,16 +471,57 @@ Résultats de la fonction plancher
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Vendredi"</span>: <span class="st">"Pâtisserie"</span>,</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Samedi"</span>: <span class="st">"Jambon"</span>,</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimanche"</span>: <span class="st">"Crèpes"</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mydict)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>{'Lundi': 'Oeufs', 'Mardi': 'Céréales', 'Mercredi': 'Rôties', 'Jeudi': 'Gruau', 'Vendredi': 'Pâtisserie', 'Samedi': 'Jambon', 'Dimanche': 'Crèpes'}</code></pre>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+<div id="exm-jour-dejeuner-non-injective" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 4.7 </strong></span>Dites si le dictionnaire défini ci-dessous est une fonction injective, surjective, ou bijective.</p>
+<div id="dictionnaries-days-breakfast-non-injective" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jour <span class="op">=</span> {<span class="st">"Lundi"</span>, <span class="st">"Mardi"</span>, <span class="st">"Mercredi"</span>, <span class="st">"Jeudi"</span>, <span class="st">"Vendredi"</span>, <span class="st">"Samedi"</span>, <span class="st">"Dimanche"</span>}</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dejeuner <span class="op">=</span> {<span class="st">"Oeufs"</span>, <span class="st">"Céréales"</span>, <span class="st">"Rôties"</span>, <span class="st">"Gruau"</span>, <span class="st">"Pâtisserie"</span>, <span class="st">"Jambon"</span>, <span class="st">"Crèpes"</span>,<span class="st">"Saucisses"</span>}</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mydict <span class="op">=</span> {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Lundi"</span>: <span class="st">"Oeufs"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mardi"</span>: <span class="st">"Oeufs"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Mercredi"</span>: <span class="st">"Rôties"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Jeudi"</span>: <span class="st">"Gruau"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Vendredi"</span>: <span class="st">"Pâtisserie"</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Samedi"</span>: <span class="st">"Jambon"</span>,</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimanche"</span>: <span class="st">"Crèpes"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="fonction-de-hachage-est-une-fonction-injective-surjective" class="level3" data-number="4.3.2">
-<h3 data-number="4.3.2" class="anchored" data-anchor-id="fonction-de-hachage-est-une-fonction-injective-surjective"><span class="header-section-number">4.3.2</span> Fonction de hachage est une fonction injective? surjective?</h3>
+<section id="fonction-de-hachage" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="fonction-de-hachage"><span class="header-section-number">4.3.2</span> Fonction de hachage</h3>
+<p>Une <strong>fonction de hachage</strong> est une fonction qui associe des données de taille arbitraire à des valeurs de taille fixe. Les valeurs renvoyées par une fonction de hachage sont appelées valeurs de hachage, codes de hachage, résumés, signatures ou simplement hachages. Les valeurs sont généralement utilisées pour être les indices d’une table de taille raisonnable appelée table de hachage. Le hachage ou adressage de stockage dispersé est donc l’utilisation d’une fonction de hachage pour créer les indices d’une table de hachage.</p>
+<p>Les fonctions de hachage sont utilisées dans les applications de stockage et de récupération de données pour accéder aux données en un temps réduit, en fait quasi-constant. Elles requièrent un espace de stockage à peine plus grand que l’espace total requis pour les données. Ainsi, le hachage est une forme d’accès aux données efficace en termes de calcul et d’espace de stockage.</p>
+<p>L’intérêt des fonctions de hachage repose sur de bonnes propriétés statistiques. En effet, le comportement dans le pire des cas est mauvais, mais il se manifeste avec une probabilité extrêmement faible, en fait négligeable, et le comportement dans le cas moyen est optimal (collision minimale ).</p>
+<p>Une fonction de hachage est typiquement une fonction qui, pour un ensemble de très grande taille (théoriquement infini) et de nature très diversifiée, va renvoyer des résultats aux spécifications précises (en général des chaînes de caractère de taille limitée ou fixe) optimisées pour des applications particulières. Les chaînes permettent d’établir des relations (égalité, égalité probable, non-égalité, ordre…) entre les objets de départ sans accéder directement à ces derniers, en général soit pour des questions d’optimisation (la taille des objets de départ nuit aux performances), soit pour des questions de confidentialité.</p>
+<p>Autrement dit : à 1 fichier (ou à 1 mot) va correspondre une signature unique (le résultat de la fonction de hachage).</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans l’idéal, une fonction de hachage <em>devrait</em> être injective.</p>
+</div>
+</div>
+<p>On peut trouver le haché d’un élément en <code>Python</code> en utilisant la commande <code>hash</code>. On peut remarquer dans le code ci-dessous que de changer une lettre minuscule en lettre majuscule (le <em>F</em> de fromage) change drastiquement le haché.</p>
+<div id="fonction-hachage-renard-corbeau" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>phrase1 <span class="op">=</span> <span class="st">"Maître Corbeau, sur un arbre perché, Tenait en son bec un fromage."</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>phrase2 <span class="op">=</span> <span class="st">"Maître Corbeau, sur un arbre perché, Tenait en son bec un Fromage."</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">hex</span>(<span class="bu">hash</span>(phrase1)), <span class="bu">hex</span>(<span class="bu">hash</span>(phrase2)))</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0x67d5d8c3358b47a2 0x792b50917e1f97e2</code></pre>
+</div>
+</div>
 
 
 </section>

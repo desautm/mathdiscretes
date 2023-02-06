@@ -59,9 +59,9 @@ La @fig-floor-ceiling présente le graphique des fonctions plancher et plafond.
 
 ::: {#fig-floor-ceiling layout-ncol=2}
 
-![Fonction plancher](figs/ceiling_function.png)
+![Fonction plancher](figs/floor_function.png)
 
-![Fonction plafond](figs/floor_function.png)
+![Fonction plafond](figs/ceiling_function.png)
 
 Les fonctions plancher et plafond.
 :::
@@ -229,7 +229,7 @@ Autrement dit : à 1 fichier (ou à 1 mot) va correspondre une signature unique 
 Dans l'idéal, une fonction de hachage *devrait* être injective. 
 :::
 
-
+On peut trouver le haché d'un élément en `Python` en utilisant la commande `hash`. On peut remarquer dans le code ci-dessous que de changer une lettre minuscule en lettre majuscule (le *F* de fromage) change drastiquement le haché.
 ```{python}
 #| label: fonction-hachage-renard-corbeau
 
@@ -238,3 +238,4 @@ phrase2 = "Maître Corbeau, sur un arbre perché, Tenait en son bec un Fromage."
 
 print(hex(hash(phrase1)), hex(hash(phrase2)))
 ```
+
