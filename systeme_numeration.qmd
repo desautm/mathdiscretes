@@ -65,9 +65,18 @@ Nous avons donc que 3482=
 Pour convertir un nombre de la base $b$ vers la base 10 (décimal), on trouve sa représentation polynomiale.
 :::
 
+En `Python`, on peut utiliser la commande `int` pour convertir un **entier** dans une base quelconque vers la base 10. On utilise cette fonction de la manière suivante: `int(x = 0, base = 10)`, où `x` est l'entier à convertir et `base` est la base de départ du nombre.
+
 :::{#exm-octal-vers-decimal}
 En utilisant la représentation polynomale en base 10, convertissez le nombre (176,21)~8~.
 :::
+
+En `Python`, nous aurions:
+```{python}
+#| label: conversion-octal-decimal
+
+int('176', 8)
+```
 
 ## Système binaire
 
@@ -94,6 +103,13 @@ Convertissez le nombre (11001)~2~ en décimal.
 Nous avons donc que (11001)~2~ = 
 :::
 
+En `Python`, nous aurions:
+```{python}
+#| label: conversion-binaire-decimal
+
+int('11001', 2)
+```
+
 :::{#exm-binaire-to-decimal}
 Convertissez les nombres suivants en base 10 (décimal).
 
@@ -111,6 +127,13 @@ Quels sont les nombres qui, dans la base deux, succèdent à (0)~2~?
 :::{#exm-nombres-succedent-0-base-2-2}
 Quels sont les nombres qui, dans la base deux, succèdent à (1110)~2~?
 :::
+
+```{python}
+depart = 0b1110
+for i in range(6):
+    depart = depart + 1
+    print(bin(depart))
+```
 
 ## Système hexadécimal
 
@@ -194,7 +217,7 @@ $$
 
 ## Conversions de la base 10 vers une base $b$
 
-Pour convertir un nombre entier de la base 10 vers une base $b$, il faut effectuer de façon successive des divisions en utilisant la @def-diviseur-dividende-quotient-reste. Les restes des divisions successives correspondent aux coefficients de la représentation polynomiale (**lire de base en haut**).
+Pour convertir un nombre entier de la base 10 vers une base $b$, il faut effectuer de façon successive des divisions en utilisant la @def-diviseur-dividende-quotient-reste. Les restes des divisions successives correspondent aux coefficients de la représentation polynomiale (**lire de bas en haut**).
 
 ### Conversions vers binaire
 
@@ -787,3 +810,5 @@ Un nombre flottant est formé de trois éléments : la mantisse, l'exposant et l
 L'exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l'exposant est « biaisé », afin de le stocker sous forme d'un nombre non signé.
 
 Ce biais est de 2e−1 − 1 (e représente le nombre de bits de l'exposant) ; il s'agit donc d'une valeur constante une fois que le nombre de bits e est fixé.
+
+[Float Toy](https://evanw.github.io/float-toy/)

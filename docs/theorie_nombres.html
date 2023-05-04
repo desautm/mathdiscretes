@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - 7&nbsp; Théorie des nombres</title>
+<title>Mathématiques discrètes - 8&nbsp; Théorie des nombres</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -62,6 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -70,11 +71,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./theorie_nombres.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -82,29 +88,31 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./mathematiques-discretes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -112,111 +120,131 @@ ul.task-list li input[type="checkbox"] {
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Préface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Préface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./systeme_numeration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></a>
+  <a href="./systeme_numeration_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./logique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></a>
+  <a href="./representation_nombres_ordinateurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Représentation des nombres dans l’ordinateur</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ensembles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></a>
+  <a href="./logique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logique</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fonctions</span></a>
+  <a href="./ensembles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation_grand_o.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notation grand O</span></a>
+  <a href="./fonctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fonctions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></a>
+  <a href="./notation_grand_o.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Notation grand O</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></a>
+  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preuves.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></a>
+  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./denombrement.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></a>
+  <a href="./preuves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./graphes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></a>
+  <a href="./denombrement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dénombrement</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arbres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Arbres</span></a>
+  <a href="./graphes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Graphes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  <a href="./arbres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Arbres</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Références</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#arithmétique-modulaire" id="toc-arithmétique-modulaire" class="nav-link active" data-scroll-target="#arithmétique-modulaire"><span class="toc-section-number">7.1</span>  Arithmétique modulaire</a>
+  <li><a href="#arithmétique-modulaire" id="toc-arithmétique-modulaire" class="nav-link active" data-scroll-target="#arithmétique-modulaire"><span class="header-section-number">8.1</span> Arithmétique modulaire</a>
   <ul class="collapse">
-  <li><a href="#division-entière" id="toc-division-entière" class="nav-link" data-scroll-target="#division-entière"><span class="toc-section-number">7.1.1</span>  Division entière</a></li>
-  <li><a href="#congruence-modulo-m" id="toc-congruence-modulo-m" class="nav-link" data-scroll-target="#congruence-modulo-m"><span class="toc-section-number">7.1.2</span>  Congruence modulo <span class="math inline">\(m\)</span></a></li>
+  <li><a href="#division-entière" id="toc-division-entière" class="nav-link" data-scroll-target="#division-entière"><span class="header-section-number">8.1.1</span> Division entière</a></li>
+  <li><a href="#congruence-modulo-m" id="toc-congruence-modulo-m" class="nav-link" data-scroll-target="#congruence-modulo-m"><span class="header-section-number">8.1.2</span> Congruence modulo <span class="math inline">\(m\)</span></a></li>
   </ul></li>
-  <li><a href="#entiers-et-algorithmes" id="toc-entiers-et-algorithmes" class="nav-link" data-scroll-target="#entiers-et-algorithmes"><span class="toc-section-number">7.2</span>  Entiers et algorithmes</a>
+  <li><a href="#entiers-et-algorithmes" id="toc-entiers-et-algorithmes" class="nav-link" data-scroll-target="#entiers-et-algorithmes"><span class="header-section-number">8.2</span> Entiers et algorithmes</a>
   <ul class="collapse">
-  <li><a href="#algorithme-dexponentiation-modulaire-efficace" id="toc-algorithme-dexponentiation-modulaire-efficace" class="nav-link" data-scroll-target="#algorithme-dexponentiation-modulaire-efficace"><span class="toc-section-number">7.2.1</span>  Algorithme d’exponentiation modulaire efficace</a></li>
-  <li><a href="#nombres-premiers-et-pgcd" id="toc-nombres-premiers-et-pgcd" class="nav-link" data-scroll-target="#nombres-premiers-et-pgcd"><span class="toc-section-number">7.2.2</span>  Nombres premiers et PGCD</a></li>
-  <li><a href="#algorithme-deuclide-et-théorème-de-bézout" id="toc-algorithme-deuclide-et-théorème-de-bézout" class="nav-link" data-scroll-target="#algorithme-deuclide-et-théorème-de-bézout"><span class="toc-section-number">7.2.3</span>  Algorithme d’Euclide et théorème de Bézout</a></li>
-  <li><a href="#inverse-modulo-m" id="toc-inverse-modulo-m" class="nav-link" data-scroll-target="#inverse-modulo-m"><span class="toc-section-number">7.2.4</span>  Inverse modulo <span class="math inline">\(m\)</span></a></li>
-  <li><a href="#résolution-de-congruence" id="toc-résolution-de-congruence" class="nav-link" data-scroll-target="#résolution-de-congruence"><span class="toc-section-number">7.2.5</span>  Résolution de congruence</a></li>
-  <li><a href="#petit-théorème-de-fermat" id="toc-petit-théorème-de-fermat" class="nav-link" data-scroll-target="#petit-théorème-de-fermat"><span class="toc-section-number">7.2.6</span>  Petit théorème de Fermat</a></li>
+  <li><a href="#algorithme-dexponentiation-modulaire-efficace" id="toc-algorithme-dexponentiation-modulaire-efficace" class="nav-link" data-scroll-target="#algorithme-dexponentiation-modulaire-efficace"><span class="header-section-number">8.2.1</span> Algorithme d’exponentiation modulaire efficace</a></li>
+  <li><a href="#nombres-premiers-et-pgcd" id="toc-nombres-premiers-et-pgcd" class="nav-link" data-scroll-target="#nombres-premiers-et-pgcd"><span class="header-section-number">8.2.2</span> Nombres premiers et PGCD</a></li>
+  <li><a href="#algorithme-deuclide-et-théorème-de-bézout" id="toc-algorithme-deuclide-et-théorème-de-bézout" class="nav-link" data-scroll-target="#algorithme-deuclide-et-théorème-de-bézout"><span class="header-section-number">8.2.3</span> Algorithme d’Euclide et théorème de Bézout</a></li>
+  <li><a href="#inverse-modulo-m" id="toc-inverse-modulo-m" class="nav-link" data-scroll-target="#inverse-modulo-m"><span class="header-section-number">8.2.4</span> Inverse modulo <span class="math inline">\(m\)</span></a></li>
+  <li><a href="#résolution-de-congruence" id="toc-résolution-de-congruence" class="nav-link" data-scroll-target="#résolution-de-congruence"><span class="header-section-number">8.2.5</span> Résolution de congruence</a></li>
+  <li><a href="#petit-théorème-de-fermat" id="toc-petit-théorème-de-fermat" class="nav-link" data-scroll-target="#petit-théorème-de-fermat"><span class="header-section-number">8.2.6</span> Petit théorème de Fermat</a></li>
   </ul></li>
-  <li><a href="#cryptographie-à-clé-secrète" id="toc-cryptographie-à-clé-secrète" class="nav-link" data-scroll-target="#cryptographie-à-clé-secrète"><span class="toc-section-number">7.3</span>  Cryptographie à clé secrète</a>
+  <li><a href="#cryptographie-à-clé-secrète" id="toc-cryptographie-à-clé-secrète" class="nav-link" data-scroll-target="#cryptographie-à-clé-secrète"><span class="header-section-number">8.3</span> Cryptographie à clé secrète</a>
   <ul class="collapse">
-  <li><a href="#chiffrement-par-décalage" id="toc-chiffrement-par-décalage" class="nav-link" data-scroll-target="#chiffrement-par-décalage"><span class="toc-section-number">7.3.1</span>  Chiffrement par décalage</a></li>
-  <li><a href="#permutation-de-lalphabet" id="toc-permutation-de-lalphabet" class="nav-link" data-scroll-target="#permutation-de-lalphabet"><span class="toc-section-number">7.3.2</span>  Permutation de l’alphabet</a></li>
-  <li><a href="#masque-jetable" id="toc-masque-jetable" class="nav-link" data-scroll-target="#masque-jetable"><span class="toc-section-number">7.3.3</span>  Masque jetable</a></li>
-  <li><a href="#chiffrement-affine" id="toc-chiffrement-affine" class="nav-link" data-scroll-target="#chiffrement-affine"><span class="toc-section-number">7.3.4</span>  Chiffrement affine</a></li>
+  <li><a href="#chiffrement-par-décalage" id="toc-chiffrement-par-décalage" class="nav-link" data-scroll-target="#chiffrement-par-décalage"><span class="header-section-number">8.3.1</span> Chiffrement par décalage</a></li>
+  <li><a href="#permutation-de-lalphabet" id="toc-permutation-de-lalphabet" class="nav-link" data-scroll-target="#permutation-de-lalphabet"><span class="header-section-number">8.3.2</span> Permutation de l’alphabet</a></li>
+  <li><a href="#masque-jetable" id="toc-masque-jetable" class="nav-link" data-scroll-target="#masque-jetable"><span class="header-section-number">8.3.3</span> Masque jetable</a></li>
+  <li><a href="#chiffrement-affine" id="toc-chiffrement-affine" class="nav-link" data-scroll-target="#chiffrement-affine"><span class="header-section-number">8.3.4</span> Chiffrement affine</a></li>
   </ul></li>
-  <li><a href="#cryptographie-à-clé-publique" id="toc-cryptographie-à-clé-publique" class="nav-link" data-scroll-target="#cryptographie-à-clé-publique"><span class="toc-section-number">7.4</span>  Cryptographie à clé publique</a>
+  <li><a href="#cryptographie-à-clé-publique" id="toc-cryptographie-à-clé-publique" class="nav-link" data-scroll-target="#cryptographie-à-clé-publique"><span class="header-section-number">8.4</span> Cryptographie à clé publique</a>
   <ul class="collapse">
-  <li><a href="#chiffrement-rsa" id="toc-chiffrement-rsa" class="nav-link" data-scroll-target="#chiffrement-rsa"><span class="toc-section-number">7.4.1</span>  Chiffrement RSA</a></li>
+  <li><a href="#chiffrement-rsa" id="toc-chiffrement-rsa" class="nav-link" data-scroll-target="#chiffrement-rsa"><span class="header-section-number">8.4.1</span> Chiffrement RSA</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/theorie_nombres.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
@@ -226,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></h1>
 </div>
 
 
@@ -241,55 +269,55 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="arithmétique-modulaire" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="arithmétique-modulaire"><span class="header-section-number">7.1</span> Arithmétique modulaire</h2>
-<section id="division-entière" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="division-entière"><span class="header-section-number">7.1.1</span> Division entière</h3>
+<section id="arithmétique-modulaire" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="arithmétique-modulaire"><span class="header-section-number">8.1</span> Arithmétique modulaire</h2>
+<section id="division-entière" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="division-entière"><span class="header-section-number">8.1.1</span> Division entière</h3>
 </section>
-<section id="congruence-modulo-m" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="congruence-modulo-m"><span class="header-section-number">7.1.2</span> Congruence modulo <span class="math inline">\(m\)</span></h3>
-</section>
-</section>
-<section id="entiers-et-algorithmes" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="entiers-et-algorithmes"><span class="header-section-number">7.2</span> Entiers et algorithmes</h2>
-<section id="algorithme-dexponentiation-modulaire-efficace" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="algorithme-dexponentiation-modulaire-efficace"><span class="header-section-number">7.2.1</span> Algorithme d’exponentiation modulaire efficace</h3>
-</section>
-<section id="nombres-premiers-et-pgcd" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="nombres-premiers-et-pgcd"><span class="header-section-number">7.2.2</span> Nombres premiers et PGCD</h3>
-</section>
-<section id="algorithme-deuclide-et-théorème-de-bézout" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="algorithme-deuclide-et-théorème-de-bézout"><span class="header-section-number">7.2.3</span> Algorithme d’Euclide et théorème de Bézout</h3>
-</section>
-<section id="inverse-modulo-m" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="inverse-modulo-m"><span class="header-section-number">7.2.4</span> Inverse modulo <span class="math inline">\(m\)</span></h3>
-</section>
-<section id="résolution-de-congruence" class="level3" data-number="7.2.5">
-<h3 data-number="7.2.5" class="anchored" data-anchor-id="résolution-de-congruence"><span class="header-section-number">7.2.5</span> Résolution de congruence</h3>
-</section>
-<section id="petit-théorème-de-fermat" class="level3" data-number="7.2.6">
-<h3 data-number="7.2.6" class="anchored" data-anchor-id="petit-théorème-de-fermat"><span class="header-section-number">7.2.6</span> Petit théorème de Fermat</h3>
+<section id="congruence-modulo-m" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="congruence-modulo-m"><span class="header-section-number">8.1.2</span> Congruence modulo <span class="math inline">\(m\)</span></h3>
 </section>
 </section>
-<section id="cryptographie-à-clé-secrète" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="cryptographie-à-clé-secrète"><span class="header-section-number">7.3</span> Cryptographie à clé secrète</h2>
-<section id="chiffrement-par-décalage" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="chiffrement-par-décalage"><span class="header-section-number">7.3.1</span> Chiffrement par décalage</h3>
+<section id="entiers-et-algorithmes" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="entiers-et-algorithmes"><span class="header-section-number">8.2</span> Entiers et algorithmes</h2>
+<section id="algorithme-dexponentiation-modulaire-efficace" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="algorithme-dexponentiation-modulaire-efficace"><span class="header-section-number">8.2.1</span> Algorithme d’exponentiation modulaire efficace</h3>
 </section>
-<section id="permutation-de-lalphabet" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="permutation-de-lalphabet"><span class="header-section-number">7.3.2</span> Permutation de l’alphabet</h3>
+<section id="nombres-premiers-et-pgcd" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="nombres-premiers-et-pgcd"><span class="header-section-number">8.2.2</span> Nombres premiers et PGCD</h3>
 </section>
-<section id="masque-jetable" class="level3" data-number="7.3.3">
-<h3 data-number="7.3.3" class="anchored" data-anchor-id="masque-jetable"><span class="header-section-number">7.3.3</span> Masque jetable</h3>
+<section id="algorithme-deuclide-et-théorème-de-bézout" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="algorithme-deuclide-et-théorème-de-bézout"><span class="header-section-number">8.2.3</span> Algorithme d’Euclide et théorème de Bézout</h3>
 </section>
-<section id="chiffrement-affine" class="level3" data-number="7.3.4">
-<h3 data-number="7.3.4" class="anchored" data-anchor-id="chiffrement-affine"><span class="header-section-number">7.3.4</span> Chiffrement affine</h3>
+<section id="inverse-modulo-m" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="inverse-modulo-m"><span class="header-section-number">8.2.4</span> Inverse modulo <span class="math inline">\(m\)</span></h3>
+</section>
+<section id="résolution-de-congruence" class="level3" data-number="8.2.5">
+<h3 data-number="8.2.5" class="anchored" data-anchor-id="résolution-de-congruence"><span class="header-section-number">8.2.5</span> Résolution de congruence</h3>
+</section>
+<section id="petit-théorème-de-fermat" class="level3" data-number="8.2.6">
+<h3 data-number="8.2.6" class="anchored" data-anchor-id="petit-théorème-de-fermat"><span class="header-section-number">8.2.6</span> Petit théorème de Fermat</h3>
 </section>
 </section>
-<section id="cryptographie-à-clé-publique" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="cryptographie-à-clé-publique"><span class="header-section-number">7.4</span> Cryptographie à clé publique</h2>
-<section id="chiffrement-rsa" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="chiffrement-rsa"><span class="header-section-number">7.4.1</span> Chiffrement RSA</h3>
+<section id="cryptographie-à-clé-secrète" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="cryptographie-à-clé-secrète"><span class="header-section-number">8.3</span> Cryptographie à clé secrète</h2>
+<section id="chiffrement-par-décalage" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="chiffrement-par-décalage"><span class="header-section-number">8.3.1</span> Chiffrement par décalage</h3>
+</section>
+<section id="permutation-de-lalphabet" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="permutation-de-lalphabet"><span class="header-section-number">8.3.2</span> Permutation de l’alphabet</h3>
+</section>
+<section id="masque-jetable" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="masque-jetable"><span class="header-section-number">8.3.3</span> Masque jetable</h3>
+</section>
+<section id="chiffrement-affine" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="chiffrement-affine"><span class="header-section-number">8.3.4</span> Chiffrement affine</h3>
+</section>
+</section>
+<section id="cryptographie-à-clé-publique" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="cryptographie-à-clé-publique"><span class="header-section-number">8.4</span> Cryptographie à clé publique</h2>
+<section id="chiffrement-rsa" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="chiffrement-rsa"><span class="header-section-number">8.4.1</span> Chiffrement RSA</h3>
 
 
 </section>
@@ -323,9 +351,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -390,6 +432,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -432,12 +560,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./algorithmes.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./preuves.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

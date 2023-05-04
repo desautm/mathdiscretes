@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - 3&nbsp; Théorie des ensembles</title>
+<title>Mathématiques discrètes - 4&nbsp; Théorie des ensembles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -125,6 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -133,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ensembles.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -145,29 +122,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./mathematiques-discretes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -175,93 +154,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Préface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Préface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./systeme_numeration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></a>
+  <a href="./systeme_numeration_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./logique.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></a>
+  <a href="./representation_nombres_ordinateurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Représentation des nombres dans l’ordinateur</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ensembles.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></a>
+  <a href="./logique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logique</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fonctions</span></a>
+  <a href="./ensembles.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation_grand_o.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notation grand O</span></a>
+  <a href="./fonctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fonctions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></a>
+  <a href="./notation_grand_o.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Notation grand O</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></a>
+  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preuves.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></a>
+  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./denombrement.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></a>
+  <a href="./preuves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./graphes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></a>
+  <a href="./denombrement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dénombrement</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arbres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Arbres</span></a>
+  <a href="./graphes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Graphes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  <a href="./arbres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Arbres</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Références</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#notions-de-base-sur-les-ensembles" id="toc-notions-de-base-sur-les-ensembles" class="nav-link active" data-scroll-target="#notions-de-base-sur-les-ensembles"><span class="toc-section-number">3.1</span>  Notions de base sur les ensembles</a></li>
-  <li><a href="#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" id="toc-ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" class="nav-link" data-scroll-target="#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr"><span class="toc-section-number">3.2</span>  Ensembles de nombres <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Z}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span></a></li>
-  <li><a href="#produit-cartésien" id="toc-produit-cartésien" class="nav-link" data-scroll-target="#produit-cartésien"><span class="toc-section-number">3.3</span>  Produit cartésien</a></li>
-  <li><a href="#opérations-sur-les-ensembles-cap-cup-oplus--" id="toc-opérations-sur-les-ensembles-cap-cup-oplus--" class="nav-link" data-scroll-target="#opérations-sur-les-ensembles-cap-cup-oplus--"><span class="toc-section-number">3.4</span>  Opérations sur les ensembles <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\cup\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(-\)</span></a></li>
-  <li><a href="#représentation-de-sous-ensembles-par-trains-de-bits" id="toc-représentation-de-sous-ensembles-par-trains-de-bits" class="nav-link" data-scroll-target="#représentation-de-sous-ensembles-par-trains-de-bits"><span class="toc-section-number">3.5</span>  Représentation de sous-ensembles par trains de bits</a></li>
-  <li><a href="#polygones-convexes-avec-des-opérations-sur-les-ensembles" id="toc-polygones-convexes-avec-des-opérations-sur-les-ensembles" class="nav-link" data-scroll-target="#polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="toc-section-number">3.6</span>  Polygones convexes avec des opérations sur les ensembles</a></li>
+  <li><a href="#notions-de-base-sur-les-ensembles" id="toc-notions-de-base-sur-les-ensembles" class="nav-link active" data-scroll-target="#notions-de-base-sur-les-ensembles"><span class="header-section-number">4.1</span> Notions de base sur les ensembles</a></li>
+  <li><a href="#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" id="toc-ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" class="nav-link" data-scroll-target="#ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr"><span class="header-section-number">4.2</span> Ensembles de nombres <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Z}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span></a></li>
+  <li><a href="#produit-cartésien" id="toc-produit-cartésien" class="nav-link" data-scroll-target="#produit-cartésien"><span class="header-section-number">4.3</span> Produit cartésien</a></li>
+  <li><a href="#opérations-sur-les-ensembles-cap-cup-oplus--" id="toc-opérations-sur-les-ensembles-cap-cup-oplus--" class="nav-link" data-scroll-target="#opérations-sur-les-ensembles-cap-cup-oplus--"><span class="header-section-number">4.4</span> Opérations sur les ensembles <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\cup\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(-\)</span></a></li>
+  <li><a href="#représentation-de-sous-ensembles-par-trains-de-bits" id="toc-représentation-de-sous-ensembles-par-trains-de-bits" class="nav-link" data-scroll-target="#représentation-de-sous-ensembles-par-trains-de-bits"><span class="header-section-number">4.5</span> Représentation de sous-ensembles par trains de bits</a></li>
+  <li><a href="#polygones-convexes-avec-des-opérations-sur-les-ensembles" id="toc-polygones-convexes-avec-des-opérations-sur-les-ensembles" class="nav-link" data-scroll-target="#polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="header-section-number">4.6</span> Polygones convexes avec des opérations sur les ensembles</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/ensembles.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
     </div>
@@ -270,7 +269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></h1>
 </div>
 
 
@@ -285,17 +284,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="notions-de-base-sur-les-ensembles" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="notions-de-base-sur-les-ensembles"><span class="header-section-number">3.1</span> Notions de base sur les ensembles</h2>
+<section id="notions-de-base-sur-les-ensembles" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="notions-de-base-sur-les-ensembles"><span class="header-section-number">4.1</span> Notions de base sur les ensembles</h2>
 <div id="def-ensemble-element" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.1 (Ensemble, élément) </strong></span>Un <strong>ensemble</strong> est un collection non ordonnée d’objets. Les objets sont appelés <strong>éléments</strong> de l’ensemble et on dit qu’ils appartiennent à l’ensemble.</p>
+<p><span class="theorem-title"><strong>Définition 4.1 (Ensemble, élément) </strong></span>Un <strong>ensemble</strong> est un collection non ordonnée d’objets. Les objets sont appelés <strong>éléments</strong> de l’ensemble et on dit qu’ils appartiennent à l’ensemble.</p>
 <p>Notation : <span class="math inline">\(x\in F\)</span> signifie que <span class="math inline">\(x\)</span> est un élément de l’ensemble <span class="math inline">\(F\)</span>. On dit aussi que <span class="math inline">\(x\)</span> appartient à l’ensemble <span class="math inline">\(F\)</span>.</p>
 </div>
 <div id="def-ensemble-fini-infini-cardinalite" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.2 (Ensemble fini ou infini, cardinalité) </strong></span>Soit <span class="math inline">\(A\)</span> un ensemble composé de <span class="math inline">\(n\)</span> éléments distincts. On dit que <span class="math inline">\(A\)</span> est un <strong>ensemble fini</strong> de <strong>cardinalité</strong> <span class="math inline">\(n\)</span> et on note <span class="math inline">\(|A|=n\)</span>. Un ensemble est dit <strong>infini</strong> s’il n’est pas fini.</p>
+<p><span class="theorem-title"><strong>Définition 4.2 (Ensemble fini ou infini, cardinalité) </strong></span>Soit <span class="math inline">\(A\)</span> un ensemble composé de <span class="math inline">\(n\)</span> éléments distincts. On dit que <span class="math inline">\(A\)</span> est un <strong>ensemble fini</strong> de <strong>cardinalité</strong> <span class="math inline">\(n\)</span> et on note <span class="math inline">\(|A|=n\)</span>. Un ensemble est dit <strong>infini</strong> s’il n’est pas fini.</p>
 </div>
 <div id="exm-ensemble-simple" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.1 </strong></span>Soit l’ensemble <span class="math inline">\(F=\set{2,\pi,7}\)</span>. Utilisez les symboles introduits pour traduire les énoncés suivants: l’ensemble <span class="math inline">\(F\)</span> contient 3 éléments, <span class="math inline">\(\pi\)</span> appartient à <span class="math inline">\(F\)</span>, 5 n’appartient pas à <span class="math inline">\(F\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 4.1 </strong></span>Soit l’ensemble <span class="math inline">\(F=\set{2,\pi,7}\)</span>. Utilisez les symboles introduits pour traduire les énoncés suivants: l’ensemble <span class="math inline">\(F\)</span> contient 3 éléments, <span class="math inline">\(\pi\)</span> appartient à <span class="math inline">\(F\)</span>, 5 n’appartient pas à <span class="math inline">\(F\)</span>.</p>
 </div>
 <p>On peut décrire un ensemble <strong>en extension</strong> (on énumère ses éléments que l’on place entre accolades) <span class="math display">\[
 A=\set{5,7,9,11} \qquad B=\set{1,8,27,64}
@@ -322,12 +321,12 @@ B=\set{x\in\mathbb{N}\mid (x \leq 64) \wedge (\exists\ y\in \mathbb{N},\ y^3=x)}
 </div>
 </div>
 </section>
-<section id="ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr"><span class="header-section-number">3.2</span> Ensembles de nombres <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Z}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span></h2>
-<p>Nous détaillerons dans la <a href="#tbl-ensembles-nombres-usuels">Table&nbsp;<span>3.1</span></a>, les ensembles de nombres les plus communs.</p>
+<section id="ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ensembles-de-nombres-mathbbn-mathbbz-mathbbq-mathbbr"><span class="header-section-number">4.2</span> Ensembles de nombres <span class="math inline">\(\mathbb{N}\)</span>, <span class="math inline">\(\mathbb{Z}\)</span>, <span class="math inline">\(\mathbb{Q}\)</span>, <span class="math inline">\(\mathbb{R}\)</span></h2>
+<p>Nous détaillerons dans la <a href="#tbl-ensembles-nombres-usuels">Table&nbsp;<span>4.1</span></a>, les ensembles de nombres les plus communs.</p>
 <div id="tbl-ensembles-nombres-usuels" class="anchored">
 <table class="table">
-<caption>Table&nbsp;3.1: Ensembles de nombres usuels.</caption>
+<caption>Table&nbsp;4.1: Ensembles de nombres usuels.</caption>
 <colgroup>
 <col style="width: 56%">
 <col style="width: 43%">
@@ -379,7 +378,7 @@ B=\set{x\in\mathbb{N}\mid (x \leq 64) \wedge (\exists\ y\in \mathbb{N},\ y^3=x)}
 </table>
 </div>
 <div id="exm-ensembles-creation-par-comprehension" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.2 </strong></span>Établissez un lien entre les ensembles décrits par compréhension aux parties a. à f.&nbsp;avec le même ensemble décrit par extension aux parties 1 à 6.</p>
+<p><span class="theorem-title"><strong>Exemple 4.2 </strong></span>Établissez un lien entre les ensembles décrits par compréhension aux parties a. à f.&nbsp;avec le même ensemble décrit par extension aux parties 1 à 6.</p>
 <ol type="a">
 <li><span class="math inline">\(\set{x\in\mathbb{Z}\mid x^2=1}\)</span></li>
 <li><span class="math inline">\(\set{x\in\mathbb{Z}\mid x^3=1}\)</span></li>
@@ -397,12 +396,12 @@ B=\set{x\in\mathbb{N}\mid (x \leq 64) \wedge (\exists\ y\in \mathbb{N},\ y^3=x)}
 <li><span class="math inline">\(\set{-2,-1,0,1,2}\)</span></li>
 </ol>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -424,12 +423,12 @@ new_list = {function(item) for item in list if condition(item)}</code></pre>
 <pre><code>{0, 1, 64, 512, 8, 343, 216, 729, 27, 125} [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]</code></pre>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -438,25 +437,25 @@ Note
 </div>
 </div>
 <div id="def-egalite-ensembles" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.3 (Égalité d’ensembles) </strong></span>Deux ensembles sont dits égaux si et seulement s’ils contiennent exactement les mêmes éléments. <span class="math display">\[
+<p><span class="theorem-title"><strong>Définition 4.3 (Égalité d’ensembles) </strong></span>Deux ensembles sont dits égaux si et seulement s’ils contiennent exactement les mêmes éléments. <span class="math display">\[
 A=B \leftrightarrow \forall\ x\ (x\in A \leftrightarrow x\in B)
 \]</span></p>
 </div>
 <div id="exm-ensembles-egaux-oui-non" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.3 </strong></span>Les ensembles suivants sont-ils égaux? <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Exemple 4.3 </strong></span>Les ensembles suivants sont-ils égaux? <span class="math display">\[\begin{align*}
 \set{1,3,5} &amp;\stackrel{?}{=} \set{3,5,1} \\
 \set{1,3,5} &amp;\stackrel{?}{=} \set{\set{1},\set{3},\set{5}}
 \end{align*}\]</span></p>
 </div>
 <div id="def-sous-ensemble" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.4 (Sous-ensemble) </strong></span>L’ensemble <span class="math inline">\(A\)</span> est <strong>sous-ensemble</strong> de l’ensemble <span class="math inline">\(B\)</span> si et seulement si tous les éléments de <span class="math inline">\(A\)</span> sont aussi des éléments de <span class="math inline">\(B\)</span>: <span class="math display">\[
+<p><span class="theorem-title"><strong>Définition 4.4 (Sous-ensemble) </strong></span>L’ensemble <span class="math inline">\(A\)</span> est <strong>sous-ensemble</strong> de l’ensemble <span class="math inline">\(B\)</span> si et seulement si tous les éléments de <span class="math inline">\(A\)</span> sont aussi des éléments de <span class="math inline">\(B\)</span>: <span class="math display">\[
 A \subseteq B \leftrightarrow \forall\ x\ (x\in A \rightarrow x\in B)
 \]</span> L’ensemble <span class="math inline">\(A\)</span> est <strong>sous-ensemble strict (ou propre)</strong> de l’ensemble <span class="math inline">\(B\)</span> si et seulement si tous les éléments de <span class="math inline">\(A\)</span> sont aussi des éléments de <span class="math inline">\(B\)</span> et <span class="math inline">\(A\)</span> n’est pas égal à <span class="math inline">\(B\)</span>: <span class="math display">\[
 A \subset B \leftrightarrow A\subseteq B \wedge\ A\neq B
 \]</span></p>
 </div>
 <div id="exm-sous-ensembles-verification" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.4 </strong></span>Convainquez-vous des affirmations suivantes. <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Exemple 4.4 </strong></span>Convainquez-vous des affirmations suivantes. <span class="math display">\[\begin{align*}
 \set{1,2} &amp;\subseteq \set{1,2,3,4,5} \\
 \set{1,2} &amp;\subset \set{1,2,3,4,5} \\
 \set{2k\mid k\in\mathbb{N}} &amp;= \set{0,2,4,6,\ldots}\subset\mathbb{N}
@@ -464,7 +463,7 @@ A \subset B \leftrightarrow A\subseteq B \wedge\ A\neq B
 </div>
 <div id="tbl-notation-theorie-ensembles" class="anchored">
 <table class="table">
-<caption>Table&nbsp;3.2: Notation de la théorie des ensembles.</caption>
+<caption>Table&nbsp;4.2: Notation de la théorie des ensembles.</caption>
 <colgroup>
 <col style="width: 9%">
 <col style="width: 90%">
@@ -496,14 +495,14 @@ A \subset B \leftrightarrow A\subseteq B \wedge\ A\neq B
 </table>
 </div>
 <div id="thm-sous-ensemble-vide" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 3.1 </strong></span>Pour tout ensemble <span class="math inline">\(A\)</span>, on a :</p>
+<p><span class="theorem-title"><strong>Théorème 4.1 </strong></span>Pour tout ensemble <span class="math inline">\(A\)</span>, on a :</p>
 <ol type="1">
 <li><span class="math inline">\(\emptyset\subseteq A\)</span></li>
 <li><span class="math inline">\(A\subseteq A\)</span></li>
 </ol>
 </div>
 <div id="thm-sous-ensemble-egalite-ensemble" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 3.2 </strong></span><span class="math inline">\(A=B\)</span> si et seulement si <span class="math inline">\(A\subseteq B\)</span> et <span class="math inline">\(B\subseteq A\)</span>.</p>
+<p><span class="theorem-title"><strong>Théorème 4.2 </strong></span><span class="math inline">\(A=B\)</span> si et seulement si <span class="math inline">\(A\subseteq B\)</span> et <span class="math inline">\(B\subseteq A\)</span>.</p>
 </div>
 <p>En <code>Python</code>, nous pouvons utiliser la fonction <code>issubset</code> pour vérifier qu’un ensemble est sous-ensemble d’un autre.</p>
 <div id="sous-ensemble-verification" class="cell" data-execution_count="4">
@@ -515,33 +514,33 @@ A \subset B \leftrightarrow A\subseteq B \wedge\ A\neq B
 </div>
 </div>
 </section>
-<section id="produit-cartésien" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="produit-cartésien"><span class="header-section-number">3.3</span> Produit cartésien</h2>
+<section id="produit-cartésien" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="produit-cartésien"><span class="header-section-number">4.3</span> Produit cartésien</h2>
 <div id="def-produit-cartesien" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.5 (Produit cartésien) </strong></span>Le <strong>produit cartésien</strong> des ennsembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, noté <span class="math inline">\(A\times B\)</span>, est L’ensemble de tous les couples (paires ordonnées) dont le premier élément appartient à <span class="math inline">\(A\)</span> et le second, à <span class="math inline">\(B\)</span>: <span class="math display">\[
+<p><span class="theorem-title"><strong>Définition 4.5 (Produit cartésien) </strong></span>Le <strong>produit cartésien</strong> des ennsembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span>, noté <span class="math inline">\(A\times B\)</span>, est L’ensemble de tous les couples (paires ordonnées) dont le premier élément appartient à <span class="math inline">\(A\)</span> et le second, à <span class="math inline">\(B\)</span>: <span class="math display">\[
 A\times B = \set{(a,b)\mid\ a\in A\ \text{et}\ b\in B}
 \]</span> On généralise cette définition au produit cartésien de <span class="math inline">\(n\)</span> ensembles: <span class="math display">\[
 A_1 \times A_2 \times \ldots \times A_n = \set{(a_1,a_2,\ldots,a_n)\mid\ a_1\in A_1,\ldots, a_n\in A_n}
 \]</span></p>
 </div>
 <div id="exm-ensembles-extension-produit-cartesien" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.5 </strong></span>Décrivez en extension les produits cartésiens <span class="math inline">\(A\times B\)</span> et <span class="math inline">\(B\times A\)</span>, où <span class="math inline">\(A=\set{0,1,2}\)</span> et <span class="math inline">\(B=\set{a,c}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 4.5 </strong></span>Décrivez en extension les produits cartésiens <span class="math inline">\(A\times B\)</span> et <span class="math inline">\(B\times A\)</span>, où <span class="math inline">\(A=\set{0,1,2}\)</span> et <span class="math inline">\(B=\set{a,c}\)</span>.</p>
 </div>
 <div id="def-relation" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.6 (Relation) </strong></span>Une <strong>relation</strong> entre les ensembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> est un sous-ensemble du produit cartésien <span class="math inline">\(A\times B\)</span>.</p>
+<p><span class="theorem-title"><strong>Définition 4.6 (Relation) </strong></span>Une <strong>relation</strong> entre les ensembles <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> est un sous-ensemble du produit cartésien <span class="math inline">\(A\times B\)</span>.</p>
 </div>
 <div id="exm-relation-entre-A-et-B" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.6 </strong></span>Soit $A= et $B=. L’ensemble <span class="math display">\[
+<p><span class="theorem-title"><strong>Exemple 4.6 </strong></span>Soit $A= et $B=. L’ensemble <span class="math display">\[
 R=\set{(0,a),(1,c),(2,a)}\subseteq A\times B
 \]</span> est une relation de <span class="math inline">\(A\)</span> dans <span class="math inline">\(B\)</span>.</p>
 </div>
 <div id="def-ensemble-des-parties" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 3.7 </strong></span>L’<strong>ensmeble des parties</strong> de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(\mathcal{P}(A)\)</span>, est l’ensemble de tous les sous-ensembles de <span class="math inline">\(A\)</span>. <span class="math display">\[
+<p><span class="theorem-title"><strong>Définition 4.7 </strong></span>L’<strong>ensmeble des parties</strong> de <span class="math inline">\(A\)</span>, noté <span class="math inline">\(\mathcal{P}(A)\)</span>, est l’ensemble de tous les sous-ensembles de <span class="math inline">\(A\)</span>. <span class="math display">\[
 B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 \]</span></p>
 </div>
 <div id="exm-ensemble-des-parties-de-A-3-elements" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.7 </strong></span>Décrivez <span class="math inline">\(\mathcal{P}(A)\)</span>, l’ensemble des parties de <span class="math inline">\(A\)</span>, où <span class="math inline">\(A=\set{0,1,2}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 4.7 </strong></span>Décrivez <span class="math inline">\(\mathcal{P}(A)\)</span>, l’ensemble des parties de <span class="math inline">\(A\)</span>, où <span class="math inline">\(A=\set{0,1,2}\)</span>.</p>
 <table class="table">
 <colgroup>
 <col style="width: 10%">
@@ -580,7 +579,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 </table>
 </div>
 <div id="exm-ensemble-des-parties-de-A-4-elements" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 3.8 </strong></span>Décrivez <span class="math inline">\(\mathcal{P}(A)\)</span>, l’ensemble des parties de <span class="math inline">\(A\)</span>, où <span class="math inline">\(A=\set{0,1,2,3}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 4.8 </strong></span>Décrivez <span class="math inline">\(\mathcal{P}(A)\)</span>, l’ensemble des parties de <span class="math inline">\(A\)</span>, où <span class="math inline">\(A=\set{0,1,2,3}\)</span>.</p>
 <table class="table">
 <colgroup>
 <col style="width: 10%">
@@ -624,12 +623,12 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 </table>
 </div>
 </section>
-<section id="opérations-sur-les-ensembles-cap-cup-oplus--" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="opérations-sur-les-ensembles-cap-cup-oplus--"><span class="header-section-number">3.4</span> Opérations sur les ensembles <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\cup\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(-\)</span></h2>
+<section id="opérations-sur-les-ensembles-cap-cup-oplus--" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="opérations-sur-les-ensembles-cap-cup-oplus--"><span class="header-section-number">4.4</span> Opérations sur les ensembles <span class="math inline">\(\cap\)</span>, <span class="math inline">\(\cup\)</span>, <span class="math inline">\(\oplus\)</span>, <span class="math inline">\(-\)</span></h2>
 <p>Soit <span class="math inline">\(U\)</span> l’ensemble universel et <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> des sous-ensembles de <span class="math inline">\(U\)</span>. Les opérations suivantes génèrent des sous-ensembles de <span class="math inline">\(U\)</span>.</p>
 <div id="tbl-operations-ensembles" class="anchored">
 <table class="table">
-<caption>Table&nbsp;3.3: Les diverses opérations sur les ensembles.</caption>
+<caption>Table&nbsp;4.3: Les diverses opérations sur les ensembles.</caption>
 <colgroup>
 <col style="width: 30%">
 <col style="width: 69%">
@@ -670,7 +669,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="tikz/union.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Union</figcaption><p></p>
+<figcaption class="figure-caption">Union</figcaption>
 </figure>
 </div>
 </div>
@@ -678,7 +677,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="tikz/intersection.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Intersection</figcaption><p></p>
+<figcaption class="figure-caption">Intersection</figcaption>
 </figure>
 </div>
 </div>
@@ -688,7 +687,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="tikz/difference.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Différence</figcaption><p></p>
+<figcaption class="figure-caption">Différence</figcaption>
 </figure>
 </div>
 </div>
@@ -696,7 +695,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="tikz/difference_symetrique.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Différence symétrique</figcaption><p></p>
+<figcaption class="figure-caption">Différence symétrique</figcaption>
 </figure>
 </div>
 </div>
@@ -706,7 +705,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="tikz/complement.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Complément</figcaption><p></p>
+<figcaption class="figure-caption">Complément</figcaption>
 </figure>
 </div>
 </div>
@@ -715,7 +714,7 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 <p>Vous pouvez effectuer ces opérations dans <code>Python</code> à l’aide des commandes suivantes:</p>
 <div id="tbl-operations-ensembles-python" class="anchored">
 <table class="table">
-<caption>Table&nbsp;3.4: Les opérations sur les ensembles dans <code>Python</code>.</caption>
+<caption>Table&nbsp;4.4: Les opérations sur les ensembles dans <code>Python</code>.</caption>
 <thead>
 <tr class="header">
 <th><strong>Opération</strong></th>
@@ -763,11 +762,11 @@ B\in \mathcal{P}(A) \leftrightarrow B \subseteq A
 </div>
 </div>
 </section>
-<section id="représentation-de-sous-ensembles-par-trains-de-bits" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="représentation-de-sous-ensembles-par-trains-de-bits"><span class="header-section-number">3.5</span> Représentation de sous-ensembles par trains de bits</h2>
+<section id="représentation-de-sous-ensembles-par-trains-de-bits" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="représentation-de-sous-ensembles-par-trains-de-bits"><span class="header-section-number">4.5</span> Représentation de sous-ensembles par trains de bits</h2>
 </section>
-<section id="polygones-convexes-avec-des-opérations-sur-les-ensembles" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="header-section-number">3.6</span> Polygones convexes avec des opérations sur les ensembles</h2>
+<section id="polygones-convexes-avec-des-opérations-sur-les-ensembles" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="polygones-convexes-avec-des-opérations-sur-les-ensembles"><span class="header-section-number">4.6</span> Polygones convexes avec des opérations sur les ensembles</h2>
 
 
 </section>
@@ -800,9 +799,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -867,6 +880,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -909,12 +1008,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
       <a href="./logique.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logique</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./fonctions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fonctions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fonctions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

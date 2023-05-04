@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mathématiques discrètes - 2&nbsp; Logique</title>
+<title>Mathématiques discrètes - 3&nbsp; Logique</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -94,7 +65,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./ensembles.html" rel="next">
-<link href="./systeme_numeration.html" rel="prev">
+<link href="./representation_nombres_ordinateurs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,6 +96,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -133,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./logique.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logique</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -145,29 +122,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Mathématiques discrètes</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Mathématiques-discrètes.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-    </ul>
-  <a href="" class="quarto-reader-toggle sidebar-tool" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+    <a href="https://github.com/desautm/mathdiscretes" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="./mathematiques-discretes.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -175,103 +154,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Préface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Préface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./systeme_numeration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></a>
+  <a href="./systeme_numeration_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./logique.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></a>
+  <a href="./representation_nombres_ordinateurs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Représentation des nombres dans l’ordinateur</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ensembles.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></a>
+  <a href="./logique.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logique</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fonctions</span></a>
+  <a href="./ensembles.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation_grand_o.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Notation grand O</span></a>
+  <a href="./fonctions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Fonctions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></a>
+  <a href="./notation_grand_o.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Notation grand O</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></a>
+  <a href="./algorithmes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Introduction aux algorithmes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./preuves.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></a>
+  <a href="./theorie_nombres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Théorie des nombres</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./denombrement.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Dénombrement</span></a>
+  <a href="./preuves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Preuves et raisonnement mathématique</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./graphes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Graphes</span></a>
+  <a href="./denombrement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dénombrement</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./arbres.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Arbres</span></a>
+  <a href="./graphes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Graphes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">Références</a>
+  <a href="./arbres.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Arbres</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Références</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#logique-propositionnelle" id="toc-logique-propositionnelle" class="nav-link active" data-scroll-target="#logique-propositionnelle"><span class="toc-section-number">2.1</span>  Logique propositionnelle</a>
+  <li><a href="#logique-propositionnelle" id="toc-logique-propositionnelle" class="nav-link active" data-scroll-target="#logique-propositionnelle"><span class="header-section-number">3.1</span> Logique propositionnelle</a>
   <ul class="collapse">
-  <li><a href="#la-négation" id="toc-la-négation" class="nav-link" data-scroll-target="#la-négation"><span class="toc-section-number">2.1.1</span>  La négation</a></li>
-  <li><a href="#la-conjonction" id="toc-la-conjonction" class="nav-link" data-scroll-target="#la-conjonction"><span class="toc-section-number">2.1.2</span>  La conjonction</a></li>
-  <li><a href="#la-disjonction" id="toc-la-disjonction" class="nav-link" data-scroll-target="#la-disjonction"><span class="toc-section-number">2.1.3</span>  La disjonction</a></li>
-  <li><a href="#la-disjonction-exclusive" id="toc-la-disjonction-exclusive" class="nav-link" data-scroll-target="#la-disjonction-exclusive"><span class="toc-section-number">2.1.4</span>  La disjonction exclusive</a></li>
-  <li><a href="#limplication" id="toc-limplication" class="nav-link" data-scroll-target="#limplication"><span class="toc-section-number">2.1.5</span>  L’implication</a></li>
-  <li><a href="#la-biconditionnelle" id="toc-la-biconditionnelle" class="nav-link" data-scroll-target="#la-biconditionnelle"><span class="toc-section-number">2.1.6</span>  La biconditionnelle</a></li>
+  <li><a href="#la-négation" id="toc-la-négation" class="nav-link" data-scroll-target="#la-négation"><span class="header-section-number">3.1.1</span> La négation</a></li>
+  <li><a href="#la-conjonction" id="toc-la-conjonction" class="nav-link" data-scroll-target="#la-conjonction"><span class="header-section-number">3.1.2</span> La conjonction</a></li>
+  <li><a href="#la-disjonction" id="toc-la-disjonction" class="nav-link" data-scroll-target="#la-disjonction"><span class="header-section-number">3.1.3</span> La disjonction</a></li>
+  <li><a href="#la-disjonction-exclusive" id="toc-la-disjonction-exclusive" class="nav-link" data-scroll-target="#la-disjonction-exclusive"><span class="header-section-number">3.1.4</span> La disjonction exclusive</a></li>
+  <li><a href="#limplication" id="toc-limplication" class="nav-link" data-scroll-target="#limplication"><span class="header-section-number">3.1.5</span> L’implication</a></li>
+  <li><a href="#la-biconditionnelle" id="toc-la-biconditionnelle" class="nav-link" data-scroll-target="#la-biconditionnelle"><span class="header-section-number">3.1.6</span> La biconditionnelle</a></li>
   </ul></li>
-  <li><a href="#équivalences-propositionnelles" id="toc-équivalences-propositionnelles" class="nav-link" data-scroll-target="#équivalences-propositionnelles"><span class="toc-section-number">2.2</span>  Équivalences propositionnelles</a></li>
-  <li><a href="#prédicats-et-quantificateurs" id="toc-prédicats-et-quantificateurs" class="nav-link" data-scroll-target="#prédicats-et-quantificateurs"><span class="toc-section-number">2.3</span>  Prédicats et quantificateurs</a></li>
-  <li><a href="#opérations-bit-à-bit" id="toc-opérations-bit-à-bit" class="nav-link" data-scroll-target="#opérations-bit-à-bit"><span class="toc-section-number">2.4</span>  Opérations bit à bit</a></li>
-  <li><a href="#problèmes-de-logique" id="toc-problèmes-de-logique" class="nav-link" data-scroll-target="#problèmes-de-logique"><span class="toc-section-number">2.5</span>  Problèmes de logique</a>
+  <li><a href="#équivalences-propositionnelles" id="toc-équivalences-propositionnelles" class="nav-link" data-scroll-target="#équivalences-propositionnelles"><span class="header-section-number">3.2</span> Équivalences propositionnelles</a></li>
+  <li><a href="#prédicats-et-quantificateurs" id="toc-prédicats-et-quantificateurs" class="nav-link" data-scroll-target="#prédicats-et-quantificateurs"><span class="header-section-number">3.3</span> Prédicats et quantificateurs</a></li>
+  <li><a href="#opérations-bit-à-bit" id="toc-opérations-bit-à-bit" class="nav-link" data-scroll-target="#opérations-bit-à-bit"><span class="header-section-number">3.4</span> Opérations bit à bit</a></li>
+  <li><a href="#problèmes-de-logique" id="toc-problèmes-de-logique" class="nav-link" data-scroll-target="#problèmes-de-logique"><span class="header-section-number">3.5</span> Problèmes de logique</a>
   <ul class="collapse">
   <li><a href="#stratégies" id="toc-stratégies" class="nav-link" data-scroll-target="#stratégies">Stratégies</a></li>
-  <li><a href="#trois-énoncés-différents" id="toc-trois-énoncés-différents" class="nav-link" data-scroll-target="#trois-énoncés-différents"><span class="toc-section-number">2.5.1</span>  Trois énoncés différents</a></li>
+  <li><a href="#trois-énoncés-différents" id="toc-trois-énoncés-différents" class="nav-link" data-scroll-target="#trois-énoncés-différents"><span class="header-section-number">3.5.1</span> Trois énoncés différents</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/logique.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
@@ -281,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Logique</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Logique</span></h1>
 </div>
 
 
@@ -296,15 +295,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="logique-propositionnelle" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="logique-propositionnelle"><span class="header-section-number">2.1</span> Logique propositionnelle</h2>
+<section id="logique-propositionnelle" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="logique-propositionnelle"><span class="header-section-number">3.1</span> Logique propositionnelle</h2>
 <div id="def-proposition" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.1 (Proposition) </strong></span>Un énoncé qui est soit vrai, soit faux est appelé une <strong>proposition</strong>. La <strong>valeur de vérité</strong> d’une proposition est donc <strong>VRAI</strong> ou <strong>FAUX</strong>.</p>
+<p><span class="theorem-title"><strong>Définition 3.1 (Proposition) </strong></span>Un énoncé qui est soit vrai, soit faux est appelé une <strong>proposition</strong>. La <strong>valeur de vérité</strong> d’une proposition est donc <strong>VRAI</strong> ou <strong>FAUX</strong>.</p>
 <p>En <code>Python</code>, les valeurs de vérités sont données par <code>True</code> (<strong>VRAI</strong>) et <code>False</code> (<strong>FAUX</strong>).</p>
 </div>
 <p>Un énoncé qui n’est pas une proposition (comme un paradoxe, une phrase impérative ou interrogative) sera qualifié d’innaceptable.</p>
 <div id="exm-propositions" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.1 </strong></span>Les énoncés suivants sont des propositions:</p>
+<p><span class="theorem-title"><strong>Exemple 3.1 </strong></span>Les énoncés suivants sont des propositions:</p>
 <ul>
 <li>Les numéros de téléphones au Canada ont dix chiffres.</li>
 <li>La lune est faite de fromage.</li>
@@ -322,10 +321,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <p>Nous utilisons une table de vérité pour montrer les valeurs de vérité de propositions composées.</p>
-<section id="la-négation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="la-négation"><span class="header-section-number">2.1.1</span> La négation</h3>
+<section id="la-négation" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="la-négation"><span class="header-section-number">3.1.1</span> La négation</h3>
 <div id="def-negation" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.2 (La négation) </strong></span>Soit <span class="math inline">\(p\)</span> une proposition. L’énoncé:</p>
+<p><span class="theorem-title"><strong>Définition 3.2 (La négation) </strong></span>Soit <span class="math inline">\(p\)</span> une proposition. L’énoncé:</p>
 <blockquote class="blockquote">
 <p><em>Il n’est pas vrai que <span class="math inline">\(p\)</span>.</em></p>
 </blockquote>
@@ -365,13 +364,13 @@ False True</code></pre>
 </div>
 </div>
 </section>
-<section id="la-conjonction" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="la-conjonction"><span class="header-section-number">2.1.2</span> La conjonction</h3>
+<section id="la-conjonction" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="la-conjonction"><span class="header-section-number">3.1.2</span> La conjonction</h3>
 <blockquote class="blockquote">
 <p>Je suis une roche <strong>ET</strong> je suis une île.</p>
 </blockquote>
 <div id="def-conjonction" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.3 (La conjonction) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La proposition <em><span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span></em>, notée <span class="math inline">\(p\wedge q\)</span>, est vraie si à la fois <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont vraies. Elle est fausse dans tous les autres cas. Cette proposition est appelée la <strong>conjonction</strong> de <span class="math inline">\(p\)</span> et de <span class="math inline">\(q\)</span>. La table de vérité de la conjonction est donnée ci-dessous.</p>
+<p><span class="theorem-title"><strong>Définition 3.3 (La conjonction) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La proposition <em><span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span></em>, notée <span class="math inline">\(p\wedge q\)</span>, est vraie si à la fois <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont vraies. Elle est fausse dans tous les autres cas. Cette proposition est appelée la <strong>conjonction</strong> de <span class="math inline">\(p\)</span> et de <span class="math inline">\(q\)</span>. La table de vérité de la conjonction est donnée ci-dessous.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -423,13 +422,13 @@ False False False</code></pre>
 </div>
 </div>
 </section>
-<section id="la-disjonction" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="la-disjonction"><span class="header-section-number">2.1.3</span> La disjonction</h3>
+<section id="la-disjonction" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="la-disjonction"><span class="header-section-number">3.1.3</span> La disjonction</h3>
 <blockquote class="blockquote">
 <p>Elle a étudié très fort <strong>OU</strong> elle est extrêmement brillante.</p>
 </blockquote>
 <div id="def-disjonction" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.4 (La disjonction) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La proposition <em><span class="math inline">\(p\)</span> ou <span class="math inline">\(q\)</span></em>, notée <span class="math inline">\(p\vee q\)</span>, est fausse si <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont fausses. Elle est vraie dans tous les autres cas. Cette proposition est appelée la <strong>disjonction</strong> de <span class="math inline">\(p\)</span> et de <span class="math inline">\(q\)</span>. La table de vérité de la disjonction est donnée ci-dessous.</p>
+<p><span class="theorem-title"><strong>Définition 3.4 (La disjonction) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La proposition <em><span class="math inline">\(p\)</span> ou <span class="math inline">\(q\)</span></em>, notée <span class="math inline">\(p\vee q\)</span>, est fausse si <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont fausses. Elle est vraie dans tous les autres cas. Cette proposition est appelée la <strong>disjonction</strong> de <span class="math inline">\(p\)</span> et de <span class="math inline">\(q\)</span>. La table de vérité de la disjonction est donnée ci-dessous.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -481,13 +480,13 @@ False False False</code></pre>
 </div>
 </div>
 </section>
-<section id="la-disjonction-exclusive" class="level3" data-number="2.1.4">
-<h3 data-number="2.1.4" class="anchored" data-anchor-id="la-disjonction-exclusive"><span class="header-section-number">2.1.4</span> La disjonction exclusive</h3>
+<section id="la-disjonction-exclusive" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="la-disjonction-exclusive"><span class="header-section-number">3.1.4</span> La disjonction exclusive</h3>
 <blockquote class="blockquote">
 <p>Prenez <strong>SOIT</strong> deux Advil <strong>OU</strong> deux Tylenols.</p>
 </blockquote>
 <div id="def-disjonction-exclusive" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.5 (La disjonction exclusive) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La proposition <em><span class="math inline">\(p\)</span> ou exclusif <span class="math inline">\(q\)</span></em>, notée <span class="math inline">\(p\oplus q\)</span>, est vraie si <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> ont des valeurs de vérité <strong>différentes</strong>. Elle est fausse dans tous les autres cas. Cette proposition est appelée la <strong>disjonction exclusive</strong> de <span class="math inline">\(p\)</span> et de <span class="math inline">\(q\)</span>. La table de vérité de la disjonction exclusive est donnée ci-dessous.</p>
+<p><span class="theorem-title"><strong>Définition 3.5 (La disjonction exclusive) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La proposition <em><span class="math inline">\(p\)</span> ou exclusif <span class="math inline">\(q\)</span></em>, notée <span class="math inline">\(p\oplus q\)</span>, est vraie si <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> ont des valeurs de vérité <strong>différentes</strong>. Elle est fausse dans tous les autres cas. Cette proposition est appelée la <strong>disjonction exclusive</strong> de <span class="math inline">\(p\)</span> et de <span class="math inline">\(q\)</span>. La table de vérité de la disjonction exclusive est donnée ci-dessous.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -522,7 +521,7 @@ False False False</code></pre>
 <p>En <code>Python</code>, il n’existe pas d’opérateur logique pour effectuer la disjonction exclusive. On peut par contre utiliser l’opérateur bit à bit <code>^</code> pour faire cette disjonction exclusive.</p>
 </div>
 <div id="exm-disjonction-exclusive-python" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.2 </strong></span>Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la disjonction exclusive dans <code>Python</code>.</p>
+<p><span class="theorem-title"><strong>Exemple 3.2 </strong></span>Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la disjonction exclusive dans <code>Python</code>.</p>
 <div id="disjonction-exclusive-python-todo" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> disjonction_exclusive(p, q):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="co">#REMPLACEZ MOI#</span></span>
@@ -543,12 +542,12 @@ False False False</code></pre>
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
@@ -557,13 +556,13 @@ Important
 </div>
 </div>
 </section>
-<section id="limplication" class="level3" data-number="2.1.5">
-<h3 data-number="2.1.5" class="anchored" data-anchor-id="limplication"><span class="header-section-number">2.1.5</span> L’implication</h3>
+<section id="limplication" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="limplication"><span class="header-section-number">3.1.5</span> L’implication</h3>
 <blockquote class="blockquote">
 <p><strong>SI</strong> vous avez 100 à l’examen final, <strong>ALORS</strong> vous obtiendrez A dans ce cours.</p>
 </blockquote>
 <div id="def-implication" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.6 (L’implication) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. L’<strong>implication</strong> <span class="math inline">\(p\rightarrow q\)</span> est une proposition qui est fausse quand <span class="math inline">\(p\)</span> est vraie et que <span class="math inline">\(q\)</span> est fausse, et qui est vraie dans tous les autres cas. Dans une implication, <span class="math inline">\(p\)</span> est appelée l’<strong>hypothèse</strong> (ou l’<strong>antécédent</strong> ou la <strong>prémisse</strong>) et <span class="math inline">\(q\)</span>, la <strong>conclusion</strong> (ou la <strong>conséquence</strong>). La table de vérité de l’implication’ est donnée ci-dessous.</p>
+<p><span class="theorem-title"><strong>Définition 3.6 (L’implication) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. L’<strong>implication</strong> <span class="math inline">\(p\rightarrow q\)</span> est une proposition qui est fausse quand <span class="math inline">\(p\)</span> est vraie et que <span class="math inline">\(q\)</span> est fausse, et qui est vraie dans tous les autres cas. Dans une implication, <span class="math inline">\(p\)</span> est appelée l’<strong>hypothèse</strong> (ou l’<strong>antécédent</strong> ou la <strong>prémisse</strong>) et <span class="math inline">\(q\)</span>, la <strong>conclusion</strong> (ou la <strong>conséquence</strong>). La table de vérité de l’implication’ est donnée ci-dessous.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -598,7 +597,7 @@ Important
 <p>En <code>Python</code>, il n’existe pas d’opérateur logique pour effectuer l’implication.</p>
 </div>
 <div id="exm-implication-python" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.3 </strong></span>Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de l’implication dans <code>Python</code>.</p>
+<p><span class="theorem-title"><strong>Exemple 3.3 </strong></span>Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de l’implication dans <code>Python</code>.</p>
 <div id="implication-python-todo" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> implication(p, q):</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="co">#REMPLACEZ MOI#</span></span>
@@ -619,12 +618,12 @@ False False True</code></pre>
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
@@ -643,13 +642,13 @@ Important
 <li><span class="math inline">\(q\)</span> est nécessaire à <span class="math inline">\(p\)</span>.</li>
 </ul>
 </section>
-<section id="la-biconditionnelle" class="level3" data-number="2.1.6">
-<h3 data-number="2.1.6" class="anchored" data-anchor-id="la-biconditionnelle"><span class="header-section-number">2.1.6</span> La biconditionnelle</h3>
+<section id="la-biconditionnelle" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="la-biconditionnelle"><span class="header-section-number">3.1.6</span> La biconditionnelle</h3>
 <blockquote class="blockquote">
 <p>Il pleut dehors <strong>SI ET SEULEMENT SI</strong> c’est un jour nuageux.</p>
 </blockquote>
 <div id="def-biconditionnelle" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.7 (La biconditionnelle) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La <strong>biconditionnelle</strong> <span class="math inline">\(p\leftrightarrow q\)</span> est une proposition qui est vraie quand <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> ont les mêmes valeurs de vérité et qui est fausse dans les autres cas. La table de vérité de la biconditionnelle est donnée ci-dessous.</p>
+<p><span class="theorem-title"><strong>Définition 3.7 (La biconditionnelle) </strong></span>Soit <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> deux propositions. La <strong>biconditionnelle</strong> <span class="math inline">\(p\leftrightarrow q\)</span> est une proposition qui est vraie quand <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> ont les mêmes valeurs de vérité et qui est fausse dans les autres cas. La table de vérité de la biconditionnelle est donnée ci-dessous.</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -684,7 +683,7 @@ Important
 <p>En <code>Python</code>, il n’existe pas d’opérateur logique pour effectuer la biconditionnelle.</p>
 </div>
 <div id="exm-biconditionnelle-python" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.4 </strong></span>Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la biconditionnelle dans <code>Python</code>.</p>
+<p><span class="theorem-title"><strong>Exemple 3.4 </strong></span>Utilisez les opérateurs logiques vus précédemment pour construire la table de vérité de la biconditionnelle dans <code>Python</code>.</p>
 <div id="biconditionnelle-python-todo" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> biconditionnelle(p, q):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="co">#REMPLACEZ MOI#</span></span>
@@ -705,12 +704,12 @@ False False True</code></pre>
 </div>
 </div>
 </div>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
@@ -725,7 +724,7 @@ Important
 <li>si <span class="math inline">\(p\)</span> alors <span class="math inline">\(q\)</span> et réciproquement.</li>
 </ul>
 <div id="def-reciproque-contraposee-inverse" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.8 (Réciproque, contraposée et inverse) </strong></span>&nbsp;</p>
+<p><span class="theorem-title"><strong>Définition 3.8 (Réciproque, contraposée et inverse) </strong></span>&nbsp;</p>
 <ul>
 <li>La <strong>réciproque</strong> de la proposition <span class="math inline">\(p\rightarrow q\)</span> est la proposition <span class="math inline">\(q \rightarrow p\)</span>.</li>
 <li>La <strong>contraposée</strong> de la proposition <span class="math inline">\(p\rightarrow q\)</span> est la proposition <span class="math inline">\(\lnot q \rightarrow \lnot p\)</span>.</li>
@@ -734,14 +733,14 @@ Important
 </div>
 </section>
 </section>
-<section id="équivalences-propositionnelles" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="équivalences-propositionnelles"><span class="header-section-number">2.2</span> Équivalences propositionnelles</h2>
+<section id="équivalences-propositionnelles" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="équivalences-propositionnelles"><span class="header-section-number">3.2</span> Équivalences propositionnelles</h2>
 <p>Une proposition composée est une proposition formée de plusieurs connecteurs logiques.</p>
 <div id="def-tautologie-contradiction-contingence" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.9 (Tautologie, contradiction et contingence) </strong></span>Une proposition composée qui est toujours vraie, quelle que soit la valeur de vérité des fonctions qui la compose est appelée une <strong>tautologie</strong>. Une proposition composée qui est toujours fausse est appelée une <strong>contradiction</strong>. Finalement, une proposition qui n’est ni une tautologie ni une contradiction est appelée une <strong>contingence</strong>.</p>
+<p><span class="theorem-title"><strong>Définition 3.9 (Tautologie, contradiction et contingence) </strong></span>Une proposition composée qui est toujours vraie, quelle que soit la valeur de vérité des fonctions qui la compose est appelée une <strong>tautologie</strong>. Une proposition composée qui est toujours fausse est appelée une <strong>contradiction</strong>. Finalement, une proposition qui n’est ni une tautologie ni une contradiction est appelée une <strong>contingence</strong>.</p>
 </div>
 <div id="exm-tautologie-contradiction" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.5 </strong></span>Remplissez la table de vérité suivante et dites si les propositions composées sont des tautologies, des contradictions ou des contingences.</p>
+<p><span class="theorem-title"><strong>Exemple 3.5 </strong></span>Remplissez la table de vérité suivante et dites si les propositions composées sont des tautologies, des contradictions ou des contingences.</p>
 <table class="table">
 <colgroup>
 <col style="width: 22%">
@@ -774,7 +773,7 @@ Important
 </table>
 </div>
 <div id="exm-proposition-compose" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.6 </strong></span>Le code ci-dessous révèle la table de vérité de la proposition composée <span class="math inline">\((p \wedge q) \vee \lnot q\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 3.6 </strong></span>Le code ci-dessous révèle la table de vérité de la proposition composée <span class="math inline">\((p \wedge q) \vee \lnot q\)</span>.</p>
 <div id="prop-composee-1" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> conjonction(p, q):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p <span class="kw">and</span> q</span>
@@ -799,7 +798,7 @@ False False True</code></pre>
 </div>
 <p>Lorsque vous créez votre table de vérité, il est crucial que vous soyiez systématique pour vous assurer d’avoir toutes les valeurs de vérité possibles pour chacune des propositions simples. Chaque proposition a deux valeurs de vérité possibles, le nombre de lignes de la table devrait être égal à <span class="math inline">\(2^n\)</span>, où <span class="math inline">\(n\)</span> est le nombre de propositions. Vous devriez également considérer de briser vos propositions complexes en plus petites propositions.</p>
 <div id="exm-bloc-code" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.7 </strong></span>L’extrait de code suivant fait intervenir les variables booléennes <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> et <span class="math inline">\(r\)</span>. Chacune de ces variables peut prendre les valeurs <strong>vrai</strong> ou <strong>faux</strong>. Pour chaque bloc indiqué, donnez toutes les valeurs possibles pour <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> et <span class="math inline">\(r\)</span> au moment où le bloc est atteint.</p>
+<p><span class="theorem-title"><strong>Exemple 3.7 </strong></span>L’extrait de code suivant fait intervenir les variables booléennes <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> et <span class="math inline">\(r\)</span>. Chacune de ces variables peut prendre les valeurs <strong>vrai</strong> ou <strong>faux</strong>. Pour chaque bloc indiqué, donnez toutes les valeurs possibles pour <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> et <span class="math inline">\(r\)</span> au moment où le bloc est atteint.</p>
 <div id="bloc-code-python" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (p <span class="kw">and</span> q):</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r:</span>
@@ -897,11 +896,11 @@ False False True</code></pre>
 </table>
 </div>
 <div id="def-propositions-equivalentes" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.10 (Équivalences de propositions) </strong></span>Les propositions <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont dites <strong>logiquement équivalentes</strong> si la proposition <span class="math inline">\(p \leftrightarrow q\)</span> est une tautologie. Ainsi, deux propositions sont logiquement équivalentes si elles ont la même table de vérité, c’est-à-dire la même valeur de vérité dans tous les cas possibles.</p>
+<p><span class="theorem-title"><strong>Définition 3.10 (Équivalences de propositions) </strong></span>Les propositions <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont dites <strong>logiquement équivalentes</strong> si la proposition <span class="math inline">\(p \leftrightarrow q\)</span> est une tautologie. Ainsi, deux propositions sont logiquement équivalentes si elles ont la même table de vérité, c’est-à-dire la même valeur de vérité dans tous les cas possibles.</p>
 <p>La notation <span class="math inline">\(p\equiv q\)</span> signifie que <span class="math inline">\(p\)</span> et <span class="math inline">\(q\)</span> sont équivalentes.</p>
 </div>
 <div id="exm-proposition-equivalentes-1" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.8 </strong></span>Vérifiez l’équivalence suivante à l’aide d’une table de vérité. <span class="math display">\[
+<p><span class="theorem-title"><strong>Exemple 3.8 </strong></span>Vérifiez l’équivalence suivante à l’aide d’une table de vérité. <span class="math display">\[
 p \rightarrow q \equiv \lnot p \vee q
 \]</span></p>
 <table class="table">
@@ -947,7 +946,7 @@ p \rightarrow q \equiv \lnot p \vee q
 </table>
 </div>
 <div id="exm-proposition-equivalentes-2" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.9 </strong></span>Vérifiez l’équivalence suivante à l’aide d’une table de vérité. <span class="math display">\[
+<p><span class="theorem-title"><strong>Exemple 3.9 </strong></span>Vérifiez l’équivalence suivante à l’aide d’une table de vérité. <span class="math display">\[
 \lnot (p \vee q) \equiv \lnot p \wedge \lnot q
 \]</span></p>
 <table class="table">
@@ -1014,7 +1013,7 @@ p \rightarrow q \equiv \lnot p \vee q
 <p>Pour gagner du temps, on note les équivalences fréquemment utilisées dans une table et on leur donne un nom ou un numéro afin d’y faire référence.</p>
 <div id="tbl-equivalences-logiques" class="anchored">
 <table class="table">
-<caption>Table&nbsp;2.1: Équivalences logiques</caption>
+<caption>Table&nbsp;3.1: Équivalences logiques</caption>
 <colgroup>
 <col style="width: 16%">
 <col style="width: 41%">
@@ -1083,7 +1082,7 @@ p \rightarrow q \equiv \lnot p \vee q
 </div>
 <div id="tbl-equivalences-logiques-implications" class="anchored">
 <table class="table">
-<caption>Table&nbsp;2.2: Équivalences logiques (implications)</caption>
+<caption>Table&nbsp;3.2: Équivalences logiques (implications)</caption>
 <colgroup>
 <col style="width: 13%">
 <col style="width: 86%">
@@ -1136,7 +1135,7 @@ p \rightarrow q \equiv \lnot p \vee q
 </div>
 <div id="tbl-equivalences-logiques-biconditionnelles" class="anchored">
 <table class="table">
-<caption>Table&nbsp;2.3: Équivalences logiques (biconditionnelles)</caption>
+<caption>Table&nbsp;3.3: Équivalences logiques (biconditionnelles)</caption>
 <colgroup>
 <col style="width: 12%">
 <col style="width: 87%">
@@ -1172,7 +1171,7 @@ p \rightarrow q \equiv \lnot p \vee q
 </table>
 </div>
 <div id="exm-proposition-tautologie-deux-manieres" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.10 </strong></span>Vérifiez que la proposition <span class="math display">\[
+<p><span class="theorem-title"><strong>Exemple 3.10 </strong></span>Vérifiez que la proposition <span class="math display">\[
 \lnot (p \rightarrow q) \rightarrow \lnot q
 \]</span> est une tautologie</p>
 <ol type="a">
@@ -1240,12 +1239,12 @@ p \rightarrow q \equiv \lnot p \vee q
 <li><p>sans l’aide d’une table de vérité, en utilisant les tableaux d’équivalences.</p></li>
 </ol>
 </div>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Propositions équivalentes ou non?
 </div>
 </div>
@@ -1253,19 +1252,19 @@ Propositions équivalentes ou non?
 <p>Pour démontrer que les propositions <strong>ne sont pas</strong> équivalentes, il suffit de fournir des valeurs de <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> et <span class="math inline">\(r\)</span> pour lesquelles elles diffèrent. Pour démontrer que les propositions sont équivalentes, on peut procéder de l’une des trois façons suivantes.</p>
 <ol type="1">
 <li>Fournir leur table de vérité.</li>
-<li>Utiliser la <a href="#tbl-equivalences-logiques">Table&nbsp;<span>2.1</span></a>, la <a href="#tbl-equivalences-logiques-implications">Table&nbsp;<span>2.2</span></a> ou la <a href="#tbl-equivalences-logiques-biconditionnelles">Table&nbsp;<span>2.3</span></a>.</li>
+<li>Utiliser la <a href="#tbl-equivalences-logiques">Table&nbsp;<span>3.1</span></a>, la <a href="#tbl-equivalences-logiques-implications">Table&nbsp;<span>3.2</span></a> ou la <a href="#tbl-equivalences-logiques-biconditionnelles">Table&nbsp;<span>3.3</span></a>.</li>
 <li>Formuler une explication en mots qui montre que les deux propositions sont vraies, ou encore que les deux sont fausses, exactement pour les mêmes combinaisons de valeur de vérité des variables propositionnelles.</li>
 </ol>
 </div>
 </div>
 </section>
-<section id="prédicats-et-quantificateurs" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="prédicats-et-quantificateurs"><span class="header-section-number">2.3</span> Prédicats et quantificateurs</h2>
+<section id="prédicats-et-quantificateurs" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="prédicats-et-quantificateurs"><span class="header-section-number">3.3</span> Prédicats et quantificateurs</h2>
 <p>Un énoncé contenant une ou plusieurs variables tel que <span class="math display">\[
 x&lt;10 \quad \text{ou} \quad x+2=7-y
 \]</span> n’est pas une proposition pusique, tant que la valeur de <span class="math inline">\(x\)</span> ou <span class="math inline">\(y\)</span> n’est pas connue, on ne peut dire s’il est vrai ou faux.</p>
 <div id="def-sujet-predicat" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.11 (Terminologie) </strong></span>Dans l’énoncé “<span class="math inline">\(x&lt;10\)</span>”, <span class="math inline">\(x\)</span> est le <strong>sujet</strong>, et “est inférieur à 10” est le <strong>prédicat</strong>. Notons <span class="math inline">\(P(x)\)</span> l’énoncé <span class="math inline">\(x&lt;10\)</span>. On dit que <span class="math inline">\(P\)</span> est une <strong>fonction propositionnelle</strong>.</p>
+<p><span class="theorem-title"><strong>Définition 3.11 (Terminologie) </strong></span>Dans l’énoncé “<span class="math inline">\(x&lt;10\)</span>”, <span class="math inline">\(x\)</span> est le <strong>sujet</strong>, et “est inférieur à 10” est le <strong>prédicat</strong>. Notons <span class="math inline">\(P(x)\)</span> l’énoncé <span class="math inline">\(x&lt;10\)</span>. On dit que <span class="math inline">\(P\)</span> est une <strong>fonction propositionnelle</strong>.</p>
 </div>
 <p>Une fonction propositionnelle <span class="math inline">\(P(x)\)</span> prend la valeur vrai ou faux quand <span class="math inline">\(x\)</span> est précisé. Par exemple:</p>
 <ul>
@@ -1275,7 +1274,7 @@ x&lt;10 \quad \text{ou} \quad x+2=7-y
 </ul>
 <p>L’ensemble des valeurs possibles pour la variable <span class="math inline">\(x\)</span> est appelé <strong>univers du discours</strong>, ou <strong>domaine</strong> de la fonction <span class="math inline">\(P\)</span>.</p>
 <div id="def-quantificateurs" class="theorem definition">
-<p><span class="theorem-title"><strong>Définition 2.12 (Quantificateurs) </strong></span><span class="math display">\[
+<p><span class="theorem-title"><strong>Définition 3.12 (Quantificateurs) </strong></span><span class="math display">\[
 \forall:\ \text{quantificateur universel} \qquad \exists:\ \text{quantificateur existentiel}
 \]</span></p>
 <dl>
@@ -1300,7 +1299,7 @@ signifie “Il existe un élément de <span class="math inline">\(x\)</span> dan
 <p>Ainsi, pour prouver un énoncé de la forme <span class="math inline">\(\forall\ x\ P(x)\)</span> est vrai, fournir un exemple de <span class="math inline">\(x\)</span> tel que <span class="math inline">\(P(x)\)</span> est vrai ne suffit pas. Il faut montrer que la proposition <span class="math inline">\(P(x)\)</span> est vraie pour toutes les valeurs de <span class="math inline">\(x\)</span>, ce qui peut s’avérer particulièrement <strong>difficile lorsque <span class="math inline">\(U\)</span> est un ensemble infini</strong>. Il en va de même losqu’on veut prouver qu’un énoncé de la forme <span class="math inline">\(\exists\ x\ P(x)\)</span> est faux.</p>
 <div id="tbl-prouver-enonce-univers-infini" class="anchored">
 <table class="table">
-<caption>Table&nbsp;2.4: Comment prouver qu’un énoncé quantifié est vrai ou faux quand l’univers du discours <span class="math inline">\(U\)</span> est infini.</caption>
+<caption>Table&nbsp;3.4: Comment prouver qu’un énoncé quantifié est vrai ou faux quand l’univers du discours <span class="math inline">\(U\)</span> est infini.</caption>
 <colgroup>
 <col style="width: 9%">
 <col style="width: 45%">
@@ -1328,7 +1327,7 @@ signifie “Il existe un élément de <span class="math inline">\(x\)</span> dan
 </table>
 </div>
 <div id="exm-univers-discours-nombres-reels" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.11 </strong></span>Si l’univers du discours est l’ensemble des nombres réels et <span class="math display">\[\begin{align*}
+<p><span class="theorem-title"><strong>Exemple 3.11 </strong></span>Si l’univers du discours est l’ensemble des nombres réels et <span class="math display">\[\begin{align*}
 &amp;P(x)\ \text{désigne}\ x\geq 0 \\
 &amp;Q(x)\ \text{désigne}\ x\ \text{est un nombre premier} \\
 &amp;R(x)\ \text{désigne}\ 3^x+4^x=5^x \\
@@ -1351,12 +1350,12 @@ signifie “Il existe un élément de <span class="math inline">\(x\)</span> dan
 </ol>
 </div>
 <div id="thm-de-morgan-quantificateurs" class="theorem">
-<p><span class="theorem-title"><strong>Théorème 2.1 (Lois de De Morgan pour les quantificateurs) </strong></span><span class="math display">\[
+<p><span class="theorem-title"><strong>Théorème 3.1 (Lois de De Morgan pour les quantificateurs) </strong></span><span class="math display">\[
 \lnot \exists\ x\ P(x) \equiv \forall\ x\ \lnot P(x) \qquad \lnot \forall\ x\ P(x) \equiv \exists\ x\ \lnot P(x)
 \]</span></p>
 </div>
 <div id="exm-univers-etudiants-stjean-repertoire" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.12 </strong></span>Si l’univers du discours est l’ensemble des étudiants du programme Sciences Informatique et Mathématique (ScIM) et <span class="math inline">\(M(x)\)</span> désigne l’énoncé <em>l’étudiant <span class="math inline">\(x\)</span> peut modifier les fichiers du répertoire <span class="math inline">\(U\)</span></em>, traduisez clairement les propositions suivantes à l’aide des quantificateurs.</p>
+<p><span class="theorem-title"><strong>Exemple 3.12 </strong></span>Si l’univers du discours est l’ensemble des étudiants du programme Sciences Informatique et Mathématique (ScIM) et <span class="math inline">\(M(x)\)</span> désigne l’énoncé <em>l’étudiant <span class="math inline">\(x\)</span> peut modifier les fichiers du répertoire <span class="math inline">\(U\)</span></em>, traduisez clairement les propositions suivantes à l’aide des quantificateurs.</p>
 <ol type="a">
 <li>Tous les étudiants de ScIM peuvent modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
 <li>Il est faux que tous les étudiants de ScIM peuvent modifier les fichiers du répertoire <span class="math inline">\(U\)</span>.</li>
@@ -1368,7 +1367,7 @@ signifie “Il existe un élément de <span class="math inline">\(x\)</span> dan
 <p>De plus, déterminez les propositions ci-dessus qui sont équivalentes.</p>
 </div>
 <div id="exm-univers-billes-rouges-bleues" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.13 </strong></span>Si l’univers du discours est l’ensemble des billes contenues dans un bol, et si</p>
+<p><span class="theorem-title"><strong>Exemple 3.13 </strong></span>Si l’univers du discours est l’ensemble des billes contenues dans un bol, et si</p>
 <ul>
 <li><span class="math inline">\(G(x)\)</span> désigne <em>la bille <span class="math inline">\(x\)</span> est grosse</em></li>
 <li><span class="math inline">\(J(x)\)</span> désigne <em>la bille <span class="math inline">\(x\)</span> est jaune</em></li>
@@ -1398,19 +1397,19 @@ signifie “Il existe un élément de <span class="math inline">\(x\)</span> dan
 </ol>
 </div>
 </section>
-<section id="opérations-bit-à-bit" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="opérations-bit-à-bit"><span class="header-section-number">2.4</span> Opérations bit à bit</h2>
+<section id="opérations-bit-à-bit" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="opérations-bit-à-bit"><span class="header-section-number">3.4</span> Opérations bit à bit</h2>
 </section>
-<section id="problèmes-de-logique" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="problèmes-de-logique"><span class="header-section-number">2.5</span> Problèmes de logique</h2>
+<section id="problèmes-de-logique" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="problèmes-de-logique"><span class="header-section-number">3.5</span> Problèmes de logique</h2>
 <p>Les problèmes suivants se déroulent sur une île imaginaire où tous les habitants sont soit des <strong>chevaliers</strong>, qui disent toujours la vérité, soit des <strong>fripons</strong>, qui mentent toujours. Ces énigmes implique un visiteur qui rencontre un petit groupe d’habitants de l’île. La plupart du temps, le but du visiteur est de <em>déduire</em> les types des habitants à partir de leurs énoncés.</p>
 <p>Voici un exemple type de problème possible.</p>
-<div class="callout callout callout-style-simple no-icon callout-captioned">
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Déduisez!
 </div>
 </div>
@@ -1452,48 +1451,48 @@ Déduisez!
 <li>Si vous avez suffisament d’information pour confirmer que l’énoncé d’un individu est <code>FAUX</code>, alors ils doivent être un fripon.</li>
 </ul>
 </section>
-<section id="trois-énoncés-différents" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="trois-énoncés-différents"><span class="header-section-number">2.5.1</span> Trois énoncés différents</h3>
+<section id="trois-énoncés-différents" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="trois-énoncés-différents"><span class="header-section-number">3.5.1</span> Trois énoncés différents</h3>
 <p>Nous pouvons, dans la plupart des problèmes, regrouper les énoncés des habitants de l’île en trois formes distinctes.</p>
-<section id="accusations-et-affirmations" class="level4" data-number="2.5.1.1">
-<h4 data-number="2.5.1.1" class="anchored" data-anchor-id="accusations-et-affirmations"><span class="header-section-number">2.5.1.1</span> Accusations et affirmations</h4>
+<section id="accusations-et-affirmations" class="level4" data-number="3.5.1.1">
+<h4 data-number="3.5.1.1" class="anchored" data-anchor-id="accusations-et-affirmations"><span class="header-section-number">3.5.1.1</span> Accusations et affirmations</h4>
 <p>Dans une accusation, un habitant <em>A</em> dit par exemple <em>B est un fripon</em> ou un énoncé équivalent comme <em>B ment toujours</em>. Dans une affirmation, l’habitant <em>A</em> dit par exemple <em>B est un chevalier</em> ou alors <em>B dit toujours la vérité</em>.</p>
 <div id="exm-accusation-different-types" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.14 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par une <strong>accusation</strong>?</p>
+<p><span class="theorem-title"><strong>Exemple 3.14 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par une <strong>accusation</strong>?</p>
 </div>
 <div id="exm-accusation-different-types" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.15 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par une <strong>affirmation</strong>?</p>
+<p><span class="theorem-title"><strong>Exemple 3.15 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par une <strong>affirmation</strong>?</p>
 </div>
 </section>
-<section id="conjonctions-de-fripons" class="level4" data-number="2.5.1.2">
-<h4 data-number="2.5.1.2" class="anchored" data-anchor-id="conjonctions-de-fripons"><span class="header-section-number">2.5.1.2</span> Conjonctions de fripons</h4>
+<section id="conjonctions-de-fripons" class="level4" data-number="3.5.1.2">
+<h4 data-number="3.5.1.2" class="anchored" data-anchor-id="conjonctions-de-fripons"><span class="header-section-number">3.5.1.2</span> Conjonctions de fripons</h4>
 <p>Un exemple de conjonction de fripons est lorsque <em>A</em> dit que <em>B est un chevalier ou je suis un fripon</em>, ou alors <em>C est un fripon et je suis un fripon</em></p>
 <div id="exm-conjonction-de-fripons-ou" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.16 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par <strong>ou je suis un fripon</strong>?</p>
+<p><span class="theorem-title"><strong>Exemple 3.16 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par <strong>ou je suis un fripon</strong>?</p>
 </div>
 <div id="exm-conjonction-de-fripons-et" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.17 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par <strong>et je suis un fripon</strong>?</p>
+<p><span class="theorem-title"><strong>Exemple 3.17 </strong></span>Que pouvez-vous conclure si <em>A</em> et <em>B</em> sont reliés par <strong>et je suis un fripon</strong>?</p>
 </div>
 </section>
-<section id="énoncés-de-différences-ou-de-similarités" class="level4" data-number="2.5.1.3">
-<h4 data-number="2.5.1.3" class="anchored" data-anchor-id="énoncés-de-différences-ou-de-similarités"><span class="header-section-number">2.5.1.3</span> Énoncés de différences ou de similarités</h4>
+<section id="énoncés-de-différences-ou-de-similarités" class="level4" data-number="3.5.1.3">
+<h4 data-number="3.5.1.3" class="anchored" data-anchor-id="énoncés-de-différences-ou-de-similarités"><span class="header-section-number">3.5.1.3</span> Énoncés de différences ou de similarités</h4>
 <p>Parfois un habitant <em>A</em> dira <em>B est de mon type</em> ou peut-être <em>C n’est pas de mon type</em>.</p>
 <div id="exm-similarite-fripons" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.18 </strong></span>Que pouvez-vous conclure si <em>A</em> dit que <em>B est de son type</em>?</p>
+<p><span class="theorem-title"><strong>Exemple 3.18 </strong></span>Que pouvez-vous conclure si <em>A</em> dit que <em>B est de son type</em>?</p>
 </div>
 <div id="exm-difference-fripons" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.19 </strong></span>Que pouvez-vous conclure si <em>A</em> dit que <em>C n’est pas de son type</em>?</p>
+<p><span class="theorem-title"><strong>Exemple 3.19 </strong></span>Que pouvez-vous conclure si <em>A</em> dit que <em>C n’est pas de son type</em>?</p>
 </div>
 <p>Il est intéressant de comparer ces énoncés avec ceux d’accusations et d’affirmations. Ces deux types d’énoncés sont réciproques en quelque sorte. Lorsqu’un habitant dit directement de quel type est un autre habitant (dans une accusation ou une affirmation), tout ce qu’on apprend c’est que la source et la cible sont similaires ou différents, sans apprendre leur type. Par contre, lorsqu’un habitant dit un énoncé par rapport aux similitudes ou aux différences, nous apprenons exactement de quel type la cible est, sans apprendre si elle est similaire ou différente de la source.</p>
 <div id="exm-chevaliers-et-fripons-1" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.20 </strong></span>Vous rencontrez trois habitants de l’île.</p>
+<p><span class="theorem-title"><strong>Exemple 3.20 </strong></span>Vous rencontrez trois habitants de l’île.</p>
 <ul>
 <li>A dit: B ne ment jamais.</li>
 <li>A dit: C est un chevalier ou je suis un fripon.</li>
 </ul>
 </div>
 <div id="exm-chevaliers-et-fripons-2" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.21 </strong></span>Vous rencontrez trois habitants de l’île.</p>
+<p><span class="theorem-title"><strong>Exemple 3.21 </strong></span>Vous rencontrez trois habitants de l’île.</p>
 <ul>
 <li>A dit: B ment toujours.</li>
 <li>B dit: A n’est pas de mon type.</li>
@@ -1533,9 +1532,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1600,6 +1613,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1641,13 +1740,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation column-body">
   <div class="nav-page nav-page-previous">
-      <a href="./systeme_numeration.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Systèmes de numération positionnelle</span></span>
+      <a href="./representation_nombres_ordinateurs.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Représentation des nombres dans l’ordinateur</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ensembles.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Théorie des ensembles</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

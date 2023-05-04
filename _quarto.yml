@@ -6,15 +6,18 @@ project:
 
 book:
   title: "Mathématiques discrètes"
+  output-file: "mathematiques-discretes"
   author: "Marc-André Désautels"
   reader-mode: true
   repo-url: https://github.com/desautm/mathdiscretes
   repo-actions: [edit]
   downloads: [pdf]
   sharing: [twitter, facebook]
+  cover-image: triangle_pascal_fibonacci.jpg
   chapters:
     - index.qmd
-    - systeme_numeration.qmd
+    - systeme_numeration_v2.qmd
+    - representation_nombres_ordinateurs.qmd
     - logique.qmd
     - ensembles.qmd
     - fonctions.qmd
@@ -41,7 +44,7 @@ format:
     page-layout: full
   pdf:
     documentclass: scrbook
-    keep-tex: true
+    keep-tex: false
     code-block-bg: "#d5d6db"
     include-in-header:
       - macros.tex

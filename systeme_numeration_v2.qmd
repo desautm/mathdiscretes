@@ -1,0 +1,361 @@
+# Systèmes de numération positionnelle
+
+Un système de numération est un ensemble de règles qui permettent de représenter des nombres. Le plus ancien est probablement le système unaire où le symbole | représente l’entier un, || représente l’entier deux, ||| pour trois, |||| pour quatre et ainsi de suite. Ce système atteint vite ses limites, mais il permet de mettre en évidence le fait qu’il existe plusieurs façons de représenter les entiers.
+
+| **Nom français** |     **Système unaire**     | **Système décimal** | **Chiffres romains** |
+|:----------------:|:--------------------------:|:-------------------:|:--------------------:|
+|       Zéro       |                            |          0          |                      |
+|        Un        |             \|             |          1          |           I          |
+|       Deux       |            \|\|            |          2          |          II          |
+|       Trois      |           \|\|\|           |          3          |          III         |
+|     $\vdots$     |          $\vdots$          |       $\vdots$      |       $\vdots$       |
+|       Douze      | \|\|\|\| \|\|\|\| \|\|\|\| |          12         |          XII         |
+|     $\vdots$     |          $\vdots$          |       $\vdots$      |       $\vdots$       |
+
+Dans la table ci-dessus, on remarque que sur une ligne donnée, on retrouve quatre manières différentes de représenter le même entier. Pour le reste de cette section, il sera important de dissocier la **représentation** d’un nombre et sa **valeur**.
+
+:::{#def-systeme-numeration}
+## Système de numération
+
+Un **système de numération** permet de compter des objets et de les représenter par des nombres. Un système de numération **positionnel** possède trois éléments:
+
+- Base $b$ (un entier supérieur à 1)
+- Symboles (digits): 0, 1, 2, ..., $b$-1
+- Poids des symboles selon la position et la base, où poids=base^position^
+
+:::
+
+:::{.callout-note}
+Lorsque plusieurs bases interviennent dans un même contexte, on écrit $(a_n \ldots a_1a_0)_b$ pour indiquer que le nombre représenté en base $b$.
+:::
+
+:::{#def-representation-polynomiale}
+## Représentation polynomiale
+
+Le système positionnel utilise la **représentation polynomiale**. Celle-ci est donnée par:
+
+$$
+\begin{aligned}
+(a_na_{n-1}\ldots a_1a_0,a_{-1}a_{-2}\ldots a_{-m})_b &= a_nb^n+a_{n-1}b^{n-1}+\ldots +a_1b^1+a_0b^0+\ldots \\
+& \qquad \qquad \ldots + a_{-1}b^{-1}+\ldots +a_{-m}b^{-m}
+\end{aligned}
+$$
+
+où $b$ est la **base** et les $a_i$ sont des **coefficients** (les symboles de votre système de numération).
+:::
+
+## Système décimal
+
+Il s’agit du système de numération le plus utilisé dans notre société. On peut le résumer avec les trois règles suivantes.
+
+- Base = 10
+- Symboles ordonnés qu'on nomme les *chiffres* : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.
+- Le poids des symboles est donné par 10^position^
+
+Ainsi, l'écriture "197 281" signifie:
+$$
+197\ 281 = 1\cdot 10^5 + 9\cdot 10^4 + 7\cdot 10^3 + 2\cdot 10^2 + 8\cdot 10^1 +1 \cdot 10^0
+$$
+
+:::{#exm-decimal-3482}
+Représentez le nombre 3482 sous une forme de numération positionnelle.
+:::
+
+## Système binaire
+
+Ce concept est essentiel en informatique, puisque les processeurs des ordinateurs sont composés de transistors ne gérant que deux états chacun (0 ou 1). Un calcul informatique n'est donc qu'une suite d'opérations sur des paquets de 0 et de 1, appelés **bits**.
+
+- Base = 2
+- Symboles ordonnés qu'on nomme les *bits*: 0, 1
+- Le poids des symboles est donné par 2^position^
+
+:::{.callout-important}
+En base 2, le *chiffre* 2 n'existe pas (c'est un **nombre**); tout comme le *chiffre* 10 n'existe pas en base 10 (c'est un **nombre**).
+:::
+
+::: {.callout-tip}
+## Nombres binaires en `Python`
+
+Pour indiquer qu'un nombre est en binaire dans `Python`, il faut le faire précéder par `0b`. 
+
+Pour convertir un nombre en binaire, on utilise la command `bin`.
+:::
+
+:::{#exm-nombres-succedent-0-base-2-1}
+Quels sont les nombres qui, dans la base deux, succèdent à (0)~2~?
+
+```{python}
+depart = 0b0
+for i in range(6):
+    depart = depart + 1
+    print(bin(depart))
+```
+
+:::
+
+:::{#exm-nombres-succedent-0-base-2-2}
+Quels sont les nombres qui, dans la base deux, succèdent à (1110)~2~?
+
+```{python}
+depart = 0b1110
+for i in range(6):
+    depart = depart + 1
+    print(bin(depart))
+```
+
+:::
+
+:::{#exm-11001-en-decimal}
+Convertissez le nombre (11001)~2~ en décimal.
+:::
+
+:::{#exm-binaire-to-decimal}
+Convertissez les nombres suivants en décimal.
+
+(a) (110)~2~ = 
+(a) (101101)~2~ = 
+(a) (0,1011)~2~ = 
+(a) (110,101)~2~ = 
+
+:::
+
+## Système octal
+
+Le système de numération octal est le système de numération de base 8, et utilise les chiffres de 0 à 7. D'après l'ouvrage de Donald Knuth's, *The Art of Computer Programming*, il fut inventé par le roi Charles XII de Suède.
+
+- Base = 8
+- Symboles ordonnés qu'on nomme les *chiffres*: 0, 1, 2, 3, 4, 5, 6, 7
+- Le poids des symboles est donné par 8^position^
+
+::: {.callout-tip}
+## Nombres octaux en `Python`
+
+Pour indiquer qu'un nombre est en octal dans `Python`, il faut le faire précéder par `0o`.
+
+Pour convertir un nombre en octal, on utilise la commande `oct`.
+:::
+
+:::{#exm-nombres-succedent-octal}
+Quels sont les nombres qui, dans la base 8, succèdent à (65)~8~?
+
+```{python}
+depart = 0o65
+for i in range(12):
+    depart = depart + 1
+    print(oct(depart))
+```
+
+:::
+
+## Système hexadécimal
+
+Le système hexadécimal est utilisé notamment en électronique numérique et en informatique car il est particulièrement commode et permet un compromis entre le code binaire des machines et une base de numération pratique à utiliser pour les ingénieurs. En effet, chaque chiffre hexadécimal correspond exactement à quatre chiffres binaires (ou bits), rendant les conversions très simples et fournissant une écriture plus compacte. L'hexadécimal a été utilisé la première fois en 1956 par les ingénieurs de l'ordinateur Bendix G-15.
+
+- Base = 16
+- Symboles ordonnés qu'on nomme les *chiffres*: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+- Le poids des symboles est donné par 16^position^
+
+On remarque qu'en base 16, les dix chiffres de 0 à 9 ne suffisent pas. Il faut donc se doter de 6 symboles additionnels. On utilise les lettres de A à F avec la signification suivante:
+
+$$
+(A)_{16}=(10)_{10}, \quad (B)_{16}=(11)_{10}, \quad (C)_{16}=(12)_{10}
+$$
+
+$$
+\quad (D)_{16}=(13)_{10} \quad (E)_{16}=(14)_{10}, \quad (F)_{16}=(15)_{10}
+$$
+
+::: {.callout-tip}
+## Nombres hexadécimaux en `Python`
+
+Pour indiquer qu'un nombre est en hexadécimal dans `Python`, il faut le faire précéder par `0x`.
+
+Pour convertir un nombre en hexadécimal, on utilise la commande `hex`.
+:::
+
+:::{#exm-nombres-succedent-hexa}
+Quels sont les nombres qui, dans la base 16, succèdent à (AAA)~16~?
+
+```{python}
+depart = 0xAAA
+for i in range(12):
+    depart = depart + 1
+    print(hex(depart))
+```
+
+:::
+
+:::{#exm-conversion-hexa-decimal}   
+Trouvez la représentation en base 10 de:
+
+a) (AB0)~16~
+a) (214,EA)~16~
+:::
+
+:::{.callout-important}
+Pour convertir un nombre de la base $b$ vers la base 10 (décimal), on trouve sa représentation polynomiale.
+:::
+
+::: {.callout-tip}
+## Conversion des nombres entiers vers décimal en `Python`
+
+Pour convertir un nombre entier $nb$ représenté dans la base $b$ en `Python` en décimal, on utilise la commande `int(nb, b)`. Le nombre entier $nb$ doit être représenté comme une chaîne de caractères (**string**).
+
+Par exemple, si vous avez le nombre hexadécimal $A0F$, vous le convertissez de la manière suivante:
+
+```{python}
+int('A0F', 16)
+```
+:::
+
+## Division entière
+
+:::{#def-divisibilite}
+## Divisibilité
+
+Si $a\in\mathbb{Z}$, $b\in\mathbb{Z}$ et $a\neq 0$, on dit que $a$ **divise** $b$ s'il existe un entier $c$ tel que $b=ac$. L'entier $a$ est alors appelé **facteur** de $b$.
+
+Si $a$ **divise** $b$, nous le notons $a \mid b$.
+:::
+
+:::{#thm-divisibilite}
+## Divisibilité
+
+Soit $a$, $b$ et $c$ des nombres entiers quelconques, avec $a\neq 0$.
+
+1. Si $a\mid b$ et $a\mid c$ alors $a\mid(b+c)$ et $a\mid (b-c)$.
+1. Si $a\mid b$ alors $a\mid (bc)$.
+1. Si $a\mid b$ et $b\mid c$ alors $a\mid c$.
+:::
+
+:::{#exm-vrai-faux-divisibilite}
+Vrai ou faux? Justifiez en invoquant une définition, un théorème, en donnant une preuve ou un contre-exemple.
+
+a) $7\mid 10$
+a) $-5\mid 10$
+a) $100\mid 10$
+a) $5\mid -10$
+:::
+
+:::{#thm-une-seule-paire-entiers}
+Soit $a$ et $d$ des entiers, avec $d>0$. Il existe une seule paire d'entiers $q$ et $r$ satisfaisant
+$$
+0\leq r<d \quad \text{et} \quad a=dq+r
+$$
+:::
+
+:::{#def-diviseur-dividende-quotient-reste}
+## Diviseur, dividende, quotient, reste
+
+Considérons $a$ et $d$ des entiers, avec $d>0$. Le @thm-une-seule-paire-entiers stipule qu'il existe une seule paire d'entiers $q$ et $r$ satisfaisant
+$$
+a=dq+r \quad \text{et} \quad 0\leq r<d
+$$
+
+Par exemple, si $a=17$ et $d=3$, on a 
+$$
+17=3\cdot 5+2 \quad \text{et} \quad 0\leq 2<3
+$$
+
+- L'entier $d=3$ est appelé **diviseur**.
+- L'entier $a=17$ est appelé le **dividende**.
+- L'entier $q=5$ est appeléle **quotient** (notation: $q=a\ \mathbf{div}\ d$).
+- L'entier $r=2$ est appelé le **reste**.
+:::
+
+## Conversions de la base 10 vers une base $b$
+
+Pour convertir un nombre entier de la base 10 vers une base $b$, il faut effectuer de façon successive des divisions en utilisant la @def-diviseur-dividende-quotient-reste. Les restes des divisions successives correspondent aux coefficients de la représentation polynomiale (**lire de base en haut**).
+
+### Conversions vers binaire
+
+:::{#exm-conversion-vers-binaire}
+Convertissez les nombres suivants en binaire.
+
+a) 115
+a) 71
+:::
+
+Nous pouvons utiliser la commande `bin` de `Python` pour convertir des **entiers** décimaux en binaire.
+
+```{python}
+#| label: conversion-binaire
+
+print(bin(115))
+print(bin(71))
+```
+
+Pour convertir un nombre fractionnaire en binaire, il suffit de multiplier (plutôt que de diviser) la partie fractionnaire en notant les parties entières et fractionnaires obtenues. Il faut ensuite répéter ces étapes avec la nouvelle partie fractionnaire et poursuivre le processus jusqu'à ce que la partie fractionnaire soit nulle. Les parties entières des résultats de ces produits correspondent aux coefficients de la représentation polynomiale (**lire de haut en bas**).
+
+:::{#exm-conversion-fractionnaire-binaire}
+Convertissez les nombres suivants en binaire.
+
+a) (0,8125)~10~
+a) (0,15)~10~
+:::
+
+:::{.callout-important}
+La conversion en binaire ou en n'importe quelle base ne donne pas toujours une suite finie. Si c'est un nombre rationnel, la conversion donnera toujours une suite finie ou périodique.
+:::
+
+:::{#exm-conversion-binaire-totale}
+Convertissez en binaire les nombres suivants, en ne conservant que 6 chiffres pour la partie fractionnaire, au besoin.
+
+a) (51,375)~10~
+a) (564,32)~10~
+:::
+
+### Conversions vers octal
+
+Nous pouvons utiliser la command `oct` de `Python` pour convertir des **entiers** décimaux en octal.
+
+```{python}
+#| label: conversion-octal
+
+print(oct(115))
+print(oct(71))
+```
+
+### Conversions vers hexadécimal
+
+:::{#exm-conversion-decimal-hexadecimal}
+Convertissez les nombres décimaux suivants en hexadécimal.
+
+a) (176,47)~10~
+a) (69,28)~10~
+:::
+
+Nous pouvons utiliser la command `hex` de `Python` pour convertir des **entiers** décimaux en hexadécimal.
+
+```{python}
+#| label: conversion-hexadecimal
+
+print(hex(115))
+print(hex(71))
+```
+
+### Conversions binaire - hexadécimal
+
+Une des raisons pour lesquelles le format hexadécimal a été inventé est qu'il est particulièrement simple de convertir un nombre binaire en nombre hexadécimal et inversement. 
+
+| **Hexa**    | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
+|-------------|------|------|------|------|------|------|------|------|
+| **Binaire** | 0000 | 0001 | 0010 | 0011 | 0100 | 0101 | 0110 | 0111 |
+| **Hexa**    | 8    | 9    | A    | B    | C    | D    | E    | F    |
+| **Binaire** | 1000 | 1001 | 1010 | 1011 | 1100 | 1101 | 1110 | 1111 |
+
+Pour convertir un nombre binaire, on regroupe par *paquets* de 4 chiffres à partir de la virgule (pour la partie entière et la partie fractionnaire).
+
+:::{#exm-conversion-binaire-hexadecimal}
+Convertissez les nombres binaires suivants en hexadécimal.
+
+a) $(111001,1101)_2$
+a) $(1110001,11\overline{001})_2$
+:::
+
+:::{#exm-conversion-hexadecimal-binaire}
+Convertissez les nombres hexadécimaux suivants en binaire.
+
+a) $(537,14)_{16}$
+a) $(45B,1\overline{DE})_{16}$
+:::
