@@ -184,48 +184,185 @@ a) Quel est l'intervalle de nombres entiers *signés* pouvant être représenté
     i. 16 bits?
 :::
 
-## Représentation des nombres en virgule flottante
+## Format d'un nombre en virgule flottante
 
-La virgule flottante est une méthode d'écriture de nombres fréquemment utilisée dans les ordinateurs, équivalente à la notation scientifique en numération binaire. Elle consiste à représenter un nombre par :
-
-- un signe (égal à −1 ou 1) ;
-- une mantisse (aussi appelée significande) ;
-- et un exposant (entier relatif, généralement borné).
+La virgule flottante est une méthode d'écriture de nombres fréquemment utilisée dans les ordinateurs, équivalente à la notation scientifique en numération binaire. 
 
 Par exemple:
 $$
-1,3254 = \underbrace{13254}_{\text{mantisse}} \times \overbrace{10^{-4}}^{\text{exposant}}
++13,254 = \underbrace{+}_{\text{signe}} \underbrace{0,13254}_{\text{mantisse}} \times 10^{\overbrace{{2}}^{\text{exposant}}}
 $$
 
-### La norme IEEE754
-
-En informatique, l’IEEE 754 est une norme sur l'arithmétique à virgule flottante mise au point par le *Institute of Electrical and Electronics Engineers*. Elle est la norme la plus employée actuellement pour le calcul des nombres à virgule flottante avec les CPU et les FPU. La norme définit les formats de représentation des nombres à virgule flottante (signe, mantisse, exposant, nombres dénormalisés) et valeurs spéciales (infinis et NaN), en même temps qu’un ensemble d’opérations sur les nombres flottants. Il décrit aussi cinq modes d'arrondi et cinq exceptions (comprenant les conditions dans lesquelles une exception se produit, et ce qui se passe dans ce cas).
-
-#### Format général {.unnumbered}
+### Format général {.unnumbered}
 
 Un nombre flottant est formé de trois éléments : la mantisse, l'exposant et le signe. Le bit de poids fort est le bit de signe : si ce bit est à 1, le nombre est négatif, et s’il est à 0, le nombre est positif. Les $e$ bits suivants représentent l'exposant biaisé (sauf valeur spéciale), et les $m$ bits suivants ($m$ bits de poids faible) représentent la mantisse.
 
+:::{.columns}
+
+:::{.column width="40%"}
+| **Signe** | **Exposant biaisé** | **Mantisse** |
+|:---------:|:-------------------:|:------------:|
+|  (1 bit)  |       (e bits)      |   (m bits)   |
+:::
+
+:::{.column width="10%"}
+
+:::
+
+:::{.column width="40%"}
+![Format général de représentation des flottants](https://upload.wikimedia.org/wikipedia/commons/2/29/IEEE754_Format_General.png)
+:::
+:::
+
+Nous reviendrons sur l'exposant biaisé à la section @sec-ieee754.
+
+### Opérations sur les nombres en virgule flottante
+
+Pour simplifier la présentation et la compréhension, nous utiliserons la base décimale avec 7 chiffres de précision, tout comme le format *binary32* (format à simple précision), que nous verrons plus tard. Les principes fondamentaux sont les mêmes peu importe la base et le nombre de chiffres de précision. Nous utiliserons $f$ pour désigner la mantisse (en anglais on parle de **float**) et $e$ pour désigner l'exposant.
+
+#### Additions et soustractions
+
+Pour additionner (ou soustraire) des nombres en virgule flottante, nous devons les représenter avec le même exposant. La convention est de modifier l'exposant le *plus petit* pour le rendre égal à l'exposant le plus grand.
+
+$$
+\begin{array}{rrll}
+& e=5; & s=1,234567 & (123456,7) \\
++ & e=2; & s=1,017654 & (101,7654) \\ \\
+\hline
+\\
+& e=5; & s=1,234567 &  \\
++ & e=5; & s=0,01017654 & (\text{après déplacement de la virgule}) \\ \\
+\hline
+\\
+& e=5; & s=1,235584654 & (\text{somme réelle}: 123558,4654)
+\end{array}
+$$
+
+Le résultat précédent correspond à la somme réelle des deux nombres. Le résultat sera ensuite arrondi à 7 chiffres et normalisé si nécessaire. Le résultat final est:
+
+$$
+\begin{array}{rrll}
+& e=5; & s=1,235585 & (\text{somme finale}: 123558,5)
+\end{array}
+$$
+
+Les trois derniers chiffres du second nombre (654) sont essentiellement perdus. C'est ce que nous appelons l'erreur d'arrondi. Dans des cas extrèmes, la somme de deux nombres *différents de zéro* peut être égale à un de ces nombre.
+
+:::{#exm-addition-deux-nombres}
+Additionnez les deux nombres 123456,7 et 0,009876543, en utilisant 7 chiffres pour la mantisse.
+:::
+
+::: {.callout-warning}
+## Attention
+
+Dans l'exemple précédent, il semblerait qu'un grand nombre de chiffres supplémentaires soit nécessaire pour s'assurer d'obtenir le bon résultat. En pratique, pour l'addition ou la soustraction en binaire, en utilisant une bonne implémentation, seulement un *guard bit*, un *rounding bit* et un *sticky bit* sont nécessaires pour obtenir un bon résultat.
+:::
+
+Un autre problème peut se produire lorsque des approximations de deux nombres presque égaux sont soustraites. 
+
+::: {#exm-soustraction-deux-nombres-presque-egaux}
+Effectuez la soustraction de 123457,1467 et 123456,659, en utilisant 7 chiffres pour la mantisse.
+:::
+
+::: {#exm-soustraction-deux-nombres-presque-egaux-erreur}
+Calculez l'erreur relative faite à l'@exm-soustraction-deux-nombres-presque-egaux.
+:::
+
+::: {.callout-warning}
+## Attention
+
+L'[annulation catastrophique](https://www.wikiwand.com/en/Catastrophic_cancellation) de l'@exm-soustraction-deux-nombres-presque-egaux illustre le danger de supposer que tous les chiffres d'un résultat sont pertinents.
+:::
+
+::: {#exm-difference-de-carres}
+Soit deux nombres $x$ et $y$. La manière naïve de calculer la fonction $x^2-y^2$ en virgule flottante est sujette à l'annulation catastrophique, lorsque $x$ et $y$ sont proches. En effet, la soustraction peut faire apparaître les erreurs d'arrondi dans l'élévation au carré. La fonction factorisée $(x+y)(x-y)$ évite l'annulation catastrophique car elle évite d'introduire des erreurs d'arrondis avant la soustraction.
+
+```{python}
+x = 1+2**(-29)
+y = 1+2**(-30)
+
+ds1 = x**2-y**2
+ds2 = (x+y)*(x-y)
+err = abs(ds1-ds2)/ds2
+
+print(ds1, ds2, err)
+```
+
+:::
+
+
+#### Multiplications et divisions
+
+Contrairement à l'addition et la soustraction, il n'y a pas de problème d'annulation catastrophique pour la multiplication ou la division. 
+
+Pour multiplier, les mantisses sont multipliées et les exposants sont additionnés. Le résultat est ensuite arrondi et normalisé. Pour diviser, les mantisses sont divisées et les exposants sont soustraits. Le résultat est ensuite arrondi et normalisé.
+
+::: {#exm-multiplication-virgule-flottante}
+Effectuez la multiplication de 4734,612 et 541724,2, en utilisant 7 chiffres pour la mantisse.
+:::
+
+## La norme IEEE754 {#sec-ieee754}
+
+En informatique, l’IEEE 754 est une norme sur l'arithmétique à virgule flottante mise au point par le *Institute of Electrical and Electronics Engineers*. Elle est la norme la plus employée actuellement pour le calcul des nombres à virgule flottante avec les CPU et les FPU. La norme définit les formats de représentation des nombres à virgule flottante (signe, mantisse, exposant, nombres dénormalisés) et valeurs spéciales (infinis et NaN), en même temps qu’un ensemble d’opérations sur les nombres flottants. Il décrit aussi cinq modes d'arrondi et cinq exceptions (comprenant les conditions dans lesquelles une exception se produit, et ce qui se passe dans ce cas).
+
 ![Format général d'un nombre en virgule flottante.](https://upload.wikimedia.org/wikipedia/commons/2/29/IEEE754_Format_General.png)
 
-L'exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l'exposant est « biaisé », afin de le stocker sous forme d'un nombre non signé.
+### Biais de l'exposant {.unnumbered}
 
-Ce biais est de 2e−1 − 1 (e représente le nombre de bits de l'exposant) ; il s'agit donc d'une valeur constante une fois que le nombre de bits e est fixé.
+L'exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l'exposant est **biaisé**, afin de le stocker sous forme d'un nombre non signé. Le terme **biaisé** signifie que l'exposant est stocké sous forme d'entier positif, mais pour trouver l'exposant réel, il faut soustraire une valeur (le biais) à celle stockée. 
 
-Nous remplaçons $\mathbb{R}$ par l'ensemble $\mathbb{F}$ des nombres à virgules flottantes, dont les membres sont zéro et tous les nombres de la forme:
+Ce biais est de $2^{e-1}-1$ ($e$ représente le nombre de bits de l'exposant) ; il s'agit donc d'une valeur constante une fois que le nombre de bits $e$ est fixé.
+
+Par exemple, dans le cas où l'exposant est composé de 8 bits, nous avons $e=8$ et le biais est de $2^{8-1}-1=127$.
+
+L'interprétation d'un nombre (autre qu'infini) est donc : *valeur* = *signe* x 2^(*exposant*−*biais*)^ x *mantisse* avec:
+
+- *signe* = $\pm$ 1
+- *biais* = $2^{e-1}-1$
+
+### Exceptions{.unnumbered}
+
+Le bit de poids fort de la mantisse est déterminé par la valeur de l'exposant biaisé. Si l'exposant biaisé est différent de 0 et de $2^e-1$, le bit de poids fort de la mantisse est 1, et le nombre est dit **normalisé**. Si l'exposant biaisé est nul, le bit de poids fort de la mantisse est nul, et le nombre est **dénormalisé**.
+
+Il y a trois cas particuliers:
+
+- si l'exposant biaisé et la mantisse sont tous deux nuls, le nombre est $\pm$ 0 (selon le bit de signe)
+- si l'exposant biaisé est égal à $2^e-1$, et si la mantisse est nulle, le nombre est $\pm$ infini (selon le bit de signe)
+- si l'exposant biaisé est égal à $2^e-1$, mais que la mantisse n'est pas nulle, le nombre est *NaN* (not a number : pas un nombre).
+
+Un nombre flottant normalisé a une valeur $v$ donnée par la formule suivante:
 $$
-\pm (1+f) \times 2^e
+v = s \times 2^e \times (1+f)
 $$
-où $1+f$ représente la mantisse et où
+
+- $s=\pm 1$ représente le signe (selon le bit de signe);
+- $e$ est l'exposant avant son biais de $2^{e-1}-1$;
+- $f$ représente un nombre en binaire compris entre 0 et 1.
+
+Les nombres dénormalisés suivent le même principe, sauf qu'une seule valeur de $e$ est possible, $e=2-2^{e-1}$. Nous avons donc 
+$$
+v = s \times 2^e \times (0+f)
+$$
+
+::: {.callout-note}
+- Il y a deux zéros: +0 et -0 (zéro positif et zéro négatif), selon la valeur du bit de signe;
+- Il y a deux infinis: $+\infty$ et $-\infty$, selon la valeur du bit de signe;
+- Les zéros et les nombres dénormalisés ont un exposant biaisé de 0; tous les bits du champ *exposant* sont donc à 0;
+- Les NaNs et les infinis ont un exposant biaisé de $2^e-1$; tous les bits du champ *exposant* sont donc à 1;
+- Les NaNs peuvent avoir un signe et une partie significative mais ceux-ci n'ont aucun sens en tant que valeur réelle (sauf pour la signalisation, qui peut activer une exception, et la correction d'erreurs) ;
+:::
+
+La mantisse est représentée par:
 $$
 \begin{aligned}
-f &= \sum_{i=1}^{m} a_i 2^{-i}, \qquad a_i \in \{0, 1 \} \\
-&= a_1 2^{-1}+a_2 2^{-2}+\ldots + a_m 2^{-m}
+f &= \sum_{i=1}^{m} b_i 2^{-i}, \qquad b_i \in \{0, 1 \} \\
+&= b_1 2^{-1}+b_2 2^{-2}+\ldots + b_m 2^{-m}
 \end{aligned}
 $${#eq-mantisse-1-2}
 pour un entier fixé $m$, la taille de la mantisse. L'équation (@eq-mantisse-1-2) représente des nombres dans l'intervalle $[1,2[$. De manière équivalente, nous pouvons écrire
 $$
 \begin{aligned}
-f &= 2^{-m} \sum_{i=1}^{m} a_i 2^{m-i} = 2^{-m} z, \qquad a_i \in \{0, 1 \}
+f &= 2^{-m} \sum_{i=1}^{m} b_i 2^{m-i} = 2^{-m} z, \qquad b_i \in \{0, 1 \}
 \end{aligned}
 $${#eq-mantisse-0-puissance-2}
 pour un entier $z$ dans l'ensemble $\{ 0, 1, \ldots, 2^m-1 \}$.
@@ -238,12 +375,19 @@ pour un entier $z$ dans l'ensemble $\{ 0, 1, \ldots, 2^m-1 \}$.
 Écrivez toutes les mantisses possibles si le nombre de bits de la mantisse est de 2, c'est-à-dire $m=2$.
 :::
 
+::: {.callout-note}
+L'expression $f = \sum_{i=1}^{m} b_i 2^{-i}$ peut être calculée facilement lorsque tous les $b_i=1$. Nous obtenons:
+$$
+f = \sum_{i=1}^{m} 1 \cdot 2^{-i} = 2-2^{-m}
+$$
+:::
+
 :::{#def-epsilon-machine}
 ## L'epsilon d'une machine
 
 L'epsilon d'une machine est défini comme le plus petit nombre qui, ajouté à un, donne un résultat différent de un.
 
-En utilisant l'équation (@eq-mantisse-1-2), nous remarquons que le plus petit nombre (autre que 0) possible est $2^{-m}$.
+En utilisant l'équation (@eq-mantisse-0-puissance-2), nous remarquons que le plus petit nombre (autre que 0) possible est $2^{-m}$.
 
 Pour déterminer l'epsilon de la machine en `Python`, on utilise la commande `sys.float_info.epsilon` du module `sys`.
 
@@ -254,7 +398,6 @@ sys.float_info.epsilon
 :::
 
 Nous pouvons aussi utiliser un petit programme pour déterminer l'epsilon de la machine.
-
 ```{python}
 eps = 1.0
 while eps + 1 > 1:
@@ -270,4 +413,148 @@ eps = sys.float_info.epsilon
 print(1+eps, 1+eps/2)
 ```
 
+### Le format à virgule flottante à précision simple
+
+Le standard [IEEE 754](https://www.wikiwand.com/fr/IEEE%20754) spécifie un format à précision simple comme:
+
+- un signe : 1 bit
+- exposant biaisé : 8 bits
+- mantisse : 23 bits + 1 bit implicite
+
+L'exposant est un entier non signé de 8 bits de 0 à 255 sous la forme biaisée, c'est-à-dire que pour obtenir l'exposant réel, nous devons lui soustraire 127. Les exposants peuvent prendre les valeurs entières de -126 à +127 car les exposants -127 (seulement des zéros) et +128 (seulement des uns) sont réservés pour des nombres spéciaux.
+
+```{r}
+#| engine: tikz
+#| echo: false
+
+\begin{tikzpicture}
+
+\tikzstyle{signe}=[draw, very thick, fill=blue!20!white]
+\tikzstyle{exposant}=[draw, very thick, fill=green!20!white]
+\tikzstyle{mantisse}=[draw, very thick, fill=red!20!white]
+
+\matrix [column sep=0cm]
+{
+\node (f-31) [signe] {0}; 
+
+& \node (f-30) [exposant] {0}; 
+& \node (f-29) [exposant] {1}; 
+& \node (f-28) [exposant] {1}; 
+& \node (f-27) [exposant] {1}; 
+& \node (f-26) [exposant] {1}; 
+& \node (f-25) [exposant] {1}; 
+& \node (f-24) [exposant] {0}; 
+& \node (f-23) [exposant] {0}; 
+
+& \node (f-22) [mantisse] {0}; 
+& \node (f-21) [mantisse] {1}; 
+& \node (f-20) [mantisse] {0}; 
+& \node (f-19) [mantisse] {0}; 
+& \node (f-18) [mantisse] {0}; 
+& \node (f-17) [mantisse] {0}; 
+& \node (f-16) [mantisse] {0}; 
+& \node (f-15) [mantisse] {0};
+& \node (f-14) [mantisse] {0};
+& \node (f-13) [mantisse] {0};
+& \node (f-12) [mantisse] {0};
+& \node (f-11) [mantisse] {0};
+& \node (f-10) [mantisse] {0};
+& \node (f-9) [mantisse] {0};
+& \node (f-8) [mantisse] {0};
+& \node (f-7) [mantisse] {0};
+& \node (f-6) [mantisse] {0};
+& \node (f-5) [mantisse] {0};
+& \node (f-4) [mantisse] {0};
+& \node (f-3) [mantisse] {0};
+& \node (f-2) [mantisse] {0};
+& \node (f-1) [mantisse] {0};
+& \node (f-0) [mantisse] {0};  
+\\
+};
+
+\draw[blue] ([shift=({0,0.1cm})]f-31.north)--++(0,0.25) node[above] {signe};
+\draw[fill=black] ([shift=({0,-0.1cm})]f-31.south) circle (1pt) node[below] {31};
+\draw[fill=black] ([shift=({0,-0.1cm})]f-30.south) circle (1pt) node[below] {30};
+\draw[fill=black] ([shift=({0,-0.1cm})]f-23.south) circle (1pt) node[below] {23};
+\draw[fill=black] ([shift=({0,-0.1cm})]f-22.south) circle (1pt) node[below] {22};
+\draw[fill=black] ([shift=({0,-0.1cm})]f-0.south) circle (1pt) node[below] {0};
+\node[below] at (f-16.south) {(index des bits)};
+
+\draw[green] ([shift=({0,0.1cm})]f-30.north)--++(0,0.25)--([shift=({0,0.35cm})]f-23.north) node[midway, above] {exposant (8 bits)} --++(0,-0.25);
+
+\draw[red] ([shift=({0,0.1cm})]f-22.north)--++(0,0.25)--([shift=({0,0.35cm})]f-0.north) node[midway, above] {mantisse (23 bits)} --++(0,-0.25);
+
+\node[right] at (f-0.east) {$=0,15625$};
+
+\end{tikzpicture}
+```
+
+La valeur est donc donnée par:
+
+$$
+(-1)^{b_{31}}\times 2^{(b_{30}b_{29}\ldots b_{23})_2-127}\times (1,b_{22}b_{21}\ldots b_0)_2
+$$
+ce qui donne
+$$
+\text{valeur}=(-1)^{\text{signe}}\times 2^{(E-127)}\times \left( 1+ \sum_{i=1}^{23} b_{23-i} 2^{-i}\right)
+$$
+
+Dans l'exemple précédent, nous avons:
+
+- signe = $b_{31}$ = 0;
+- $(-1)^{\text{signe}}=(-1)^0=+1\in \{-1,+1\}$;
+- $E=(b_{30}b_{29}\ldots b_{23})_2=\sum_{i=0}^7 b_{23+i}2^{+i}=124\in \{1,\ldots, (2^8-1)-1\}=\{1,\ldots, 254\}$;
+- $2^{(E-127)}=2^{124-127}=2^{-3}\in \{2^{-126},\ldots, 2^{127}\}$;
+- $1,b_{22}b_{21}\ldots b_0=1+\sum_{i=1}^{23} b_{23-i}2^{-i}=1+1\cdot 2^{-2}=1,25\in \{1,1+2^{-23},\ldots, 2-2^{-23}\} \subset [1;2-2^{-23}] \subset [1;2[$
+
+#### L'encodage de l'exposant {.unnumbered}
+
+L'exposant du format à virgule flottante à précision simple est encodé de manière biaisée, avec un biais de 127 ($2^{e-1}-1=2^{8-1}-1$).
+
+- E~min~=01~16~-7F~16~=-126
+- E~max~=FE~16~-7F~16~=127
+- Biais de l'exposant = 7F~16~=127
+
+Pour obtenir l'exposant véritable, on doit soustraire 127 à l'exposant stocké.
+
+Les exposants 00~16~ et FF~16~ ont une interprétation spéciale.
+
+| Exposant           | Fraction = 0   | Fraction $\neq$ 0  | Équation                                                                    |
+|--------------------|----------------|--------------------|-----------------------------------------------------------------------------|
+| 00~16~ | $\pm$ zéro     | nombre dénormalisé | $(-1)^{\text{signe}}\times 2^{-126}\times 0,\text{fraction}$                |
+| 01~16~,...,FE~16~    | valeur normale | valeur normale     | $(-1)^{\text{signe}}\times 2^{\text{exposant}-127}\times 1,\text{fraction}$ |
+| FF~16~ | $\pm$ infini   | NaN                |                                                                             |
+
+#### Cas particuliers dans le format virgule flottante à précision simple {.unnumbered}
+
+Pour les exemples suivants, trouvez la représentation sous forme binaire et hexadécimale.
+
+:::{#exm-plus-petit-nombre-denormalise}
+Trouvez le plus petit nombre dénormalisé positif.
+:::
+
+:::{#exm-plus-grand-nombre-denormalise}
+Trouvez le plus grand nombre dénormalisé positif.
+:::
+
+:::{#exm-plus-petit-nombre-normalise}
+Trouvez le plus petit nombre normalisé positif.
+:::
+
+:::{#exm-plus-grand-nombre-normalise}
+Trouvez le plus grand nombre normalisé positif.
+:::
+
+:::{#exm-plus-grand-nombre-plus-petit-un}
+Trouvez le plus grand nombre plus petit que un.
+:::
+
+### Le format à virgule flottante à précision double
+
 [Float Toy](https://evanw.github.io/float-toy/)
+
+[Princeton Float](https://introcs.cs.princeton.edu/java/91float/)
+
+[Cheatsheets for ieee 754 representation](https://hackingcpp.com/cpp/lang/fundamental_types.html)
+
+[IEEE754 Wiki Wand](https://www.wikiwand.com/fr/IEEE%20754)

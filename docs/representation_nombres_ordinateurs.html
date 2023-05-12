@@ -260,9 +260,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#entiers-non-signés" id="toc-entiers-non-signés" class="nav-link" data-scroll-target="#entiers-non-signés"><span class="header-section-number">2.1.1</span> Entiers non signés</a></li>
   <li><a href="#entiers-signés" id="toc-entiers-signés" class="nav-link" data-scroll-target="#entiers-signés"><span class="header-section-number">2.1.2</span> Entiers signés</a></li>
   </ul></li>
-  <li><a href="#représentation-des-nombres-en-virgule-flottante" id="toc-représentation-des-nombres-en-virgule-flottante" class="nav-link" data-scroll-target="#représentation-des-nombres-en-virgule-flottante"><span class="header-section-number">2.2</span> Représentation des nombres en virgule flottante</a>
+  <li><a href="#format-dun-nombre-en-virgule-flottante" id="toc-format-dun-nombre-en-virgule-flottante" class="nav-link" data-scroll-target="#format-dun-nombre-en-virgule-flottante"><span class="header-section-number">2.2</span> Format d’un nombre en virgule flottante</a>
   <ul class="collapse">
-  <li><a href="#la-norme-ieee754" id="toc-la-norme-ieee754" class="nav-link" data-scroll-target="#la-norme-ieee754"><span class="header-section-number">2.2.1</span> La norme IEEE754</a></li>
+  <li><a href="#format-général" id="toc-format-général" class="nav-link" data-scroll-target="#format-général">Format général</a></li>
+  <li><a href="#opérations-sur-les-nombres-en-virgule-flottante" id="toc-opérations-sur-les-nombres-en-virgule-flottante" class="nav-link" data-scroll-target="#opérations-sur-les-nombres-en-virgule-flottante"><span class="header-section-number">2.2.1</span> Opérations sur les nombres en virgule flottante</a></li>
+  </ul></li>
+  <li><a href="#sec-ieee754" id="toc-sec-ieee754" class="nav-link" data-scroll-target="#sec-ieee754"><span class="header-section-number">2.3</span> La norme IEEE754</a>
+  <ul class="collapse">
+  <li><a href="#biais-de-lexposant" id="toc-biais-de-lexposant" class="nav-link" data-scroll-target="#biais-de-lexposant">Biais de l’exposant</a></li>
+  <li><a href="#exceptions" id="toc-exceptions" class="nav-link" data-scroll-target="#exceptions">Exceptions</a></li>
+  <li><a href="#le-format-à-virgule-flottante-à-précision-simple" id="toc-le-format-à-virgule-flottante-à-précision-simple" class="nav-link" data-scroll-target="#le-format-à-virgule-flottante-à-précision-simple"><span class="header-section-number">2.3.1</span> Le format à virgule flottante à précision simple</a></li>
+  <li><a href="#le-format-à-virgule-flottante-à-précision-double" id="toc-le-format-à-virgule-flottante-à-précision-double" class="nav-link" data-scroll-target="#le-format-à-virgule-flottante-à-précision-double"><span class="header-section-number">2.3.2</span> Le format à virgule flottante à précision double</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/desautm/mathdiscretes/edit/main/representation_nombres_ordinateurs.qmd" class="toc-action">Éditez cette page</a></p></div></div></nav>
@@ -556,56 +564,232 @@ Inconvénients de la représentation signe et module
 </div>
 </section>
 </section>
-<section id="représentation-des-nombres-en-virgule-flottante" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="représentation-des-nombres-en-virgule-flottante"><span class="header-section-number">2.2</span> Représentation des nombres en virgule flottante</h2>
-<p>La virgule flottante est une méthode d’écriture de nombres fréquemment utilisée dans les ordinateurs, équivalente à la notation scientifique en numération binaire. Elle consiste à représenter un nombre par :</p>
-<ul>
-<li>un signe (égal à −1 ou 1) ;</li>
-<li>une mantisse (aussi appelée significande) ;</li>
-<li>et un exposant (entier relatif, généralement borné).</li>
-</ul>
+<section id="format-dun-nombre-en-virgule-flottante" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="format-dun-nombre-en-virgule-flottante"><span class="header-section-number">2.2</span> Format d’un nombre en virgule flottante</h2>
+<p>La virgule flottante est une méthode d’écriture de nombres fréquemment utilisée dans les ordinateurs, équivalente à la notation scientifique en numération binaire.</p>
 <p>Par exemple: <span class="math display">\[
-1,3254 = \underbrace{13254}_{\text{mantisse}} \times \overbrace{10^{-4}}^{\text{exposant}}
++13,254 = \underbrace{+}_{\text{signe}} \underbrace{0,13254}_{\text{mantisse}} \times 10^{\overbrace{{2}}^{\text{exposant}}}
 \]</span></p>
-<section id="la-norme-ieee754" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="la-norme-ieee754"><span class="header-section-number">2.2.1</span> La norme IEEE754</h3>
-<p>En informatique, l’IEEE 754 est une norme sur l’arithmétique à virgule flottante mise au point par le <em>Institute of Electrical and Electronics Engineers</em>. Elle est la norme la plus employée actuellement pour le calcul des nombres à virgule flottante avec les CPU et les FPU. La norme définit les formats de représentation des nombres à virgule flottante (signe, mantisse, exposant, nombres dénormalisés) et valeurs spéciales (infinis et NaN), en même temps qu’un ensemble d’opérations sur les nombres flottants. Il décrit aussi cinq modes d’arrondi et cinq exceptions (comprenant les conditions dans lesquelles une exception se produit, et ce qui se passe dans ce cas).</p>
-<section id="format-général" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="format-général">Format général</h4>
+<section id="format-général" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="format-général">Format général</h3>
 <p>Un nombre flottant est formé de trois éléments : la mantisse, l’exposant et le signe. Le bit de poids fort est le bit de signe : si ce bit est à 1, le nombre est négatif, et s’il est à 0, le nombre est positif. Les <span class="math inline">\(e\)</span> bits suivants représentent l’exposant biaisé (sauf valeur spéciale), et les <span class="math inline">\(m\)</span> bits suivants (<span class="math inline">\(m\)</span> bits de poids faible) représentent la mantisse.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>Signe</strong></th>
+<th style="text-align: center;"><strong>Exposant biaisé</strong></th>
+<th style="text-align: center;"><strong>Mantisse</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">(1 bit)</td>
+<td style="text-align: center;">(e bits)</td>
+<td style="text-align: center;">(m bits)</td>
+</tr>
+</tbody>
+</table>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/IEEE754_Format_General.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Format général de représentation des flottants</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Nous reviendrons sur l’exposant biaisé à la section <a href="#sec-ieee754"><span class="quarto-unresolved-ref">sec-ieee754</span></a>.</p>
+</section>
+<section id="opérations-sur-les-nombres-en-virgule-flottante" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="opérations-sur-les-nombres-en-virgule-flottante"><span class="header-section-number">2.2.1</span> Opérations sur les nombres en virgule flottante</h3>
+<p>Pour simplifier la présentation et la compréhension, nous utiliserons la base décimale avec 7 chiffres de précision, tout comme le format <em>binary32</em> (format à simple précision), que nous verrons plus tard. Les principes fondamentaux sont les mêmes peu importe la base et le nombre de chiffres de précision. Nous utiliserons <span class="math inline">\(f\)</span> pour désigner la mantisse (en anglais on parle de <strong>float</strong>) et <span class="math inline">\(e\)</span> pour désigner l’exposant.</p>
+<section id="additions-et-soustractions" class="level4" data-number="2.2.1.1">
+<h4 data-number="2.2.1.1" class="anchored" data-anchor-id="additions-et-soustractions"><span class="header-section-number">2.2.1.1</span> Additions et soustractions</h4>
+<p>Pour additionner (ou soustraire) des nombres en virgule flottante, nous devons les représenter avec le même exposant. La convention est de modifier l’exposant le <em>plus petit</em> pour le rendre égal à l’exposant le plus grand.</p>
+<p><span class="math display">\[
+\begin{array}{rrll}
+&amp; e=5; &amp; s=1,234567 &amp; (123456,7) \\
++ &amp; e=2; &amp; s=1,017654 &amp; (101,7654) \\ \\
+\hline
+\\
+&amp; e=5; &amp; s=1,234567 &amp;  \\
++ &amp; e=5; &amp; s=0,01017654 &amp; (\text{après déplacement de la virgule}) \\ \\
+\hline
+\\
+&amp; e=5; &amp; s=1,235584654 &amp; (\text{somme réelle}: 123558,4654)
+\end{array}
+\]</span></p>
+<p>Le résultat précédent correspond à la somme réelle des deux nombres. Le résultat sera ensuite arrondi à 7 chiffres et normalisé si nécessaire. Le résultat final est:</p>
+<p><span class="math display">\[
+\begin{array}{rrll}
+&amp; e=5; &amp; s=1,235585 &amp; (\text{somme finale}: 123558,5)
+\end{array}
+\]</span></p>
+<p>Les trois derniers chiffres du second nombre (654) sont essentiellement perdus. C’est ce que nous appelons l’erreur d’arrondi. Dans des cas extrèmes, la somme de deux nombres <em>différents de zéro</em> peut être égale à un de ces nombre.</p>
+<div id="exm-addition-deux-nombres" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.6 </strong></span>Additionnez les deux nombres 123456,7 et 0,009876543, en utilisant 7 chiffres pour la mantisse.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dans l’exemple précédent, il semblerait qu’un grand nombre de chiffres supplémentaires soit nécessaire pour s’assurer d’obtenir le bon résultat. En pratique, pour l’addition ou la soustraction en binaire, en utilisant une bonne implémentation, seulement un <em>guard bit</em>, un <em>rounding bit</em> et un <em>sticky bit</em> sont nécessaires pour obtenir un bon résultat.</p>
+</div>
+</div>
+<p>Un autre problème peut se produire lorsque des approximations de deux nombres presque égaux sont soustraites.</p>
+<div id="exm-soustraction-deux-nombres-presque-egaux" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.7 </strong></span>Effectuez la soustraction de 123457,1467 et 123456,659, en utilisant 7 chiffres pour la mantisse.</p>
+</div>
+<div id="exm-soustraction-deux-nombres-presque-egaux-erreur" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.8 </strong></span>Calculez l’erreur relative faite à l’<a href="#exm-soustraction-deux-nombres-presque-egaux">Exemple&nbsp;<span class="quarto-unresolved-ref">exm-soustraction-deux-nombres-presque-egaux</span></a>.</p>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Attention
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’<a href="https://www.wikiwand.com/en/Catastrophic_cancellation">annulation catastrophique</a> de l’<a href="#exm-soustraction-deux-nombres-presque-egaux">Exemple&nbsp;<span class="quarto-unresolved-ref">exm-soustraction-deux-nombres-presque-egaux</span></a> illustre le danger de supposer que tous les chiffres d’un résultat sont pertinents.</p>
+</div>
+</div>
+<div id="exm-difference-de-carres" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.9 </strong></span>Soit deux nombres <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>. La manière naïve de calculer la fonction <span class="math inline">\(x^2-y^2\)</span> en virgule flottante est sujette à l’annulation catastrophique, lorsque <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> sont proches. En effet, la soustraction peut faire apparaître les erreurs d’arrondi dans l’élévation au carré. La fonction factorisée <span class="math inline">\((x+y)(x-y)\)</span> évite l’annulation catastrophique car elle évite d’introduire des erreurs d’arrondis avant la soustraction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">**</span>(<span class="op">-</span><span class="dv">29</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span><span class="op">+</span><span class="dv">2</span><span class="op">**</span>(<span class="op">-</span><span class="dv">30</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ds1 <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span><span class="op">-</span>y<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ds2 <span class="op">=</span> (x<span class="op">+</span>y)<span class="op">*</span>(x<span class="op">-</span>y)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>err <span class="op">=</span> <span class="bu">abs</span>(ds1<span class="op">-</span>ds2)<span class="op">/</span>ds2</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ds1, ds2, err)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.862645149230957e-09 1.8626451518330422e-09 1.3969838599716539e-09</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="multiplications-et-divisions" class="level4" data-number="2.2.1.2">
+<h4 data-number="2.2.1.2" class="anchored" data-anchor-id="multiplications-et-divisions"><span class="header-section-number">2.2.1.2</span> Multiplications et divisions</h4>
+<p>Contrairement à l’addition et la soustraction, il n’y a pas de problème d’annulation catastrophique pour la multiplication ou la division.</p>
+<p>Pour multiplier, les mantisses sont multipliées et les exposants sont additionnés. Le résultat est ensuite arrondi et normalisé. Pour diviser, les mantisses sont divisées et les exposants sont soustraits. Le résultat est ensuite arrondi et normalisé.</p>
+<div id="exm-multiplication-virgule-flottante" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.10 </strong></span>Effectuez la multiplication de 4734,612 et 541724,2, en utilisant 7 chiffres pour la mantisse.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="sec-ieee754" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-ieee754"><span class="header-section-number">2.3</span> La norme IEEE754</h2>
+<p>En informatique, l’IEEE 754 est une norme sur l’arithmétique à virgule flottante mise au point par le <em>Institute of Electrical and Electronics Engineers</em>. Elle est la norme la plus employée actuellement pour le calcul des nombres à virgule flottante avec les CPU et les FPU. La norme définit les formats de représentation des nombres à virgule flottante (signe, mantisse, exposant, nombres dénormalisés) et valeurs spéciales (infinis et NaN), en même temps qu’un ensemble d’opérations sur les nombres flottants. Il décrit aussi cinq modes d’arrondi et cinq exceptions (comprenant les conditions dans lesquelles une exception se produit, et ce qui se passe dans ce cas).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/IEEE754_Format_General.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Format général d’un nombre en virgule flottante.</figcaption>
 </figure>
 </div>
-<p>L’exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l’exposant est « biaisé », afin de le stocker sous forme d’un nombre non signé.</p>
-<p>Ce biais est de 2e−1 − 1 (e représente le nombre de bits de l’exposant) ; il s’agit donc d’une valeur constante une fois que le nombre de bits e est fixé.</p>
-<p>Nous remplaçons <span class="math inline">\(\mathbb{R}\)</span> par l’ensemble <span class="math inline">\(\mathbb{F}\)</span> des nombres à virgules flottantes, dont les membres sont zéro et tous les nombres de la forme: <span class="math display">\[
-\pm (1+f) \times 2^e
-\]</span> où <span class="math inline">\(1+f\)</span> représente la mantisse et où <span id="eq-mantisse-1-2"><span class="math display">\[
+<section id="biais-de-lexposant" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="biais-de-lexposant">Biais de l’exposant</h3>
+<p>L’exposant peut être positif ou négatif. Cependant, la représentation habituelle des nombres signés (complément à 2) rendrait la comparaison entre les nombres flottants un peu plus difficile. Pour régler ce problème, l’exposant est <strong>biaisé</strong>, afin de le stocker sous forme d’un nombre non signé. Le terme <strong>biaisé</strong> signifie que l’exposant est stocké sous forme d’entier positif, mais pour trouver l’exposant réel, il faut soustraire une valeur (le biais) à celle stockée.</p>
+<p>Ce biais est de <span class="math inline">\(2^{e-1}-1\)</span> (<span class="math inline">\(e\)</span> représente le nombre de bits de l’exposant) ; il s’agit donc d’une valeur constante une fois que le nombre de bits <span class="math inline">\(e\)</span> est fixé.</p>
+<p>Par exemple, dans le cas où l’exposant est composé de 8 bits, nous avons <span class="math inline">\(e=8\)</span> et le biais est de <span class="math inline">\(2^{8-1}-1=127\)</span>.</p>
+<p>L’interprétation d’un nombre (autre qu’infini) est donc : <em>valeur</em> = <em>signe</em> x 2<sup>(<em>exposant</em>−<em>biais</em>)</sup> x <em>mantisse</em> avec:</p>
+<ul>
+<li><em>signe</em> = <span class="math inline">\(\pm\)</span> 1</li>
+<li><em>biais</em> = <span class="math inline">\(2^{e-1}-1\)</span></li>
+</ul>
+</section>
+<section id="exceptions" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="exceptions">Exceptions</h3>
+<p>Le bit de poids fort de la mantisse est déterminé par la valeur de l’exposant biaisé. Si l’exposant biaisé est différent de 0 et de <span class="math inline">\(2^e-1\)</span>, le bit de poids fort de la mantisse est 1, et le nombre est dit <strong>normalisé</strong>. Si l’exposant biaisé est nul, le bit de poids fort de la mantisse est nul, et le nombre est <strong>dénormalisé</strong>.</p>
+<p>Il y a trois cas particuliers:</p>
+<ul>
+<li>si l’exposant biaisé et la mantisse sont tous deux nuls, le nombre est <span class="math inline">\(\pm\)</span> 0 (selon le bit de signe)</li>
+<li>si l’exposant biaisé est égal à <span class="math inline">\(2^e-1\)</span>, et si la mantisse est nulle, le nombre est <span class="math inline">\(\pm\)</span> infini (selon le bit de signe)</li>
+<li>si l’exposant biaisé est égal à <span class="math inline">\(2^e-1\)</span>, mais que la mantisse n’est pas nulle, le nombre est <em>NaN</em> (not a number : pas un nombre).</li>
+</ul>
+<p>Un nombre flottant normalisé a une valeur <span class="math inline">\(v\)</span> donnée par la formule suivante: <span class="math display">\[
+v = s \times 2^e \times (1+f)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(s=\pm 1\)</span> représente le signe (selon le bit de signe);</li>
+<li><span class="math inline">\(e\)</span> est l’exposant avant son biais de <span class="math inline">\(2^{e-1}-1\)</span>;</li>
+<li><span class="math inline">\(f\)</span> représente un nombre en binaire compris entre 0 et 1.</li>
+</ul>
+<p>Les nombres dénormalisés suivent le même principe, sauf qu’une seule valeur de <span class="math inline">\(e\)</span> est possible, <span class="math inline">\(e=2-2^{e-1}\)</span>. Nous avons donc <span class="math display">\[
+v = s \times 2^e \times (0+f)
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Il y a deux zéros: +0 et -0 (zéro positif et zéro négatif), selon la valeur du bit de signe;</li>
+<li>Il y a deux infinis: <span class="math inline">\(+\infty\)</span> et <span class="math inline">\(-\infty\)</span>, selon la valeur du bit de signe;</li>
+<li>Les zéros et les nombres dénormalisés ont un exposant biaisé de 0; tous les bits du champ <em>exposant</em> sont donc à 0;</li>
+<li>Les NaNs et les infinis ont un exposant biaisé de <span class="math inline">\(2^e-1\)</span>; tous les bits du champ <em>exposant</em> sont donc à 1;</li>
+<li>Les NaNs peuvent avoir un signe et une partie significative mais ceux-ci n’ont aucun sens en tant que valeur réelle (sauf pour la signalisation, qui peut activer une exception, et la correction d’erreurs) ;</li>
+</ul>
+</div>
+</div>
+<p>La mantisse est représentée par: <span id="eq-mantisse-1-2"><span class="math display">\[
 \begin{aligned}
-f &amp;= \sum_{i=1}^{m} a_i 2^{-i}, \qquad a_i \in \{0, 1 \} \\
-&amp;= a_1 2^{-1}+a_2 2^{-2}+\ldots + a_m 2^{-m}
+f &amp;= \sum_{i=1}^{m} b_i 2^{-i}, \qquad b_i \in \{0, 1 \} \\
+&amp;= b_1 2^{-1}+b_2 2^{-2}+\ldots + b_m 2^{-m}
 \end{aligned}
-\tag{2.1}\]</span></span> pour un entier fixé <span class="math inline">\(m\)</span>, la taille de la mantisse. L’équation (<a href="#eq-mantisse-1-2">Équation&nbsp;<span>2.1</span></a>) représente des nombres dans l’intervalle <span class="math inline">\([1,2[\)</span>. De manière équivalente, nous pouvons écrire <span id="eq-mantisse-0-puissance-2"><span class="math display">\[
+\tag{2.1}\]</span></span> pour un entier fixé <span class="math inline">\(m\)</span>, la taille de la mantisse. L’équation (<a href="#eq-mantisse-1-2">Équation&nbsp;<span class="quarto-unresolved-ref">eq-mantisse-1-2</span></a>) représente des nombres dans l’intervalle <span class="math inline">\([1,2[\)</span>. De manière équivalente, nous pouvons écrire <span id="eq-mantisse-0-puissance-2"><span class="math display">\[
 \begin{aligned}
-f &amp;= 2^{-m} \sum_{i=1}^{m} a_i 2^{m-i} = 2^{-m} z, \qquad a_i \in \{0, 1 \}
+f &amp;= 2^{-m} \sum_{i=1}^{m} b_i 2^{m-i} = 2^{-m} z, \qquad b_i \in \{0, 1 \}
 \end{aligned}
 \tag{2.2}\]</span></span> pour un entier <span class="math inline">\(z\)</span> dans l’ensemble <span class="math inline">\(\{ 0, 1, \ldots, 2^m-1 \}\)</span>.</p>
 <div id="exm-virgule-flottante-1-bit" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.6 </strong></span>Écrivez toutes les mantisses possibles si le nombre de bits de la mantisse est de 1, c’est-à-dire <span class="math inline">\(m=1\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 2.11 </strong></span>Écrivez toutes les mantisses possibles si le nombre de bits de la mantisse est de 1, c’est-à-dire <span class="math inline">\(m=1\)</span>.</p>
 </div>
 <div id="exm-virgule-flottante-2-bits" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.7 </strong></span>Écrivez toutes les mantisses possibles si le nombre de bits de la mantisse est de 2, c’est-à-dire <span class="math inline">\(m=2\)</span>.</p>
+<p><span class="theorem-title"><strong>Exemple 2.12 </strong></span>Écrivez toutes les mantisses possibles si le nombre de bits de la mantisse est de 2, c’est-à-dire <span class="math inline">\(m=2\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>L’expression <span class="math inline">\(f = \sum_{i=1}^{m} b_i 2^{-i}\)</span> peut être calculée facilement lorsque tous les <span class="math inline">\(b_i=1\)</span>. Nous obtenons: <span class="math display">\[
+f = \sum_{i=1}^{m} 1 \cdot 2^{-i} = 2-2^{-m}
+\]</span></p>
+</div>
 </div>
 <div id="def-epsilon-machine" class="theorem definition">
 <p><span class="theorem-title"><strong>Définition 2.3 (L’epsilon d’une machine) </strong></span>L’epsilon d’une machine est défini comme le plus petit nombre qui, ajouté à un, donne un résultat différent de un.</p>
-<p>En utilisant l’équation (<a href="#eq-mantisse-1-2">Équation&nbsp;<span>2.1</span></a>), nous remarquons que le plus petit nombre (autre que 0) possible est <span class="math inline">\(2^{-m}\)</span>.</p>
+<p>En utilisant l’équation (<a href="#eq-mantisse-0-puissance-2">Équation&nbsp;<span class="quarto-unresolved-ref">eq-mantisse-0-puissance-2</span></a>), nous remarquons que le plus petit nombre (autre que 0) possible est <span class="math inline">\(2^{-m}\)</span>.</p>
 <p>Pour déterminer l’epsilon de la machine en <code>Python</code>, on utilise la commande <code>sys.float_info.epsilon</code> du module <code>sys</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sys.float_info.epsilon</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sys.float_info.epsilon</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2.220446049250313e-16</code></pre>
 </div>
@@ -613,28 +797,128 @@ f &amp;= 2^{-m} \sum_{i=1}^{m} a_i 2^{m-i} = 2^{-m} z, \qquad a_i \in \{0, 1 \}
 </div>
 <p>Nous pouvons aussi utiliser un petit programme pour déterminer l’epsilon de la machine.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> eps <span class="op">+</span> <span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">1</span>:</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    eps <span class="op">/=</span> <span class="dv">2</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>eps <span class="op">*=</span> <span class="dv">2</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"L'epsilon machine est:"</span>, eps)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> eps <span class="op">+</span> <span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">1</span>:</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    eps <span class="op">/=</span> <span class="dv">2</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>eps <span class="op">*=</span> <span class="dv">2</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"L'epsilon machine est:"</span>, eps)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>L'epsilon machine est: 2.220446049250313e-16</code></pre>
 </div>
 </div>
 <p>En clair, si nous additionnons un nombre plus petit que l’epsilon machine, le résultat reste inchangé.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> sys.float_info.epsilon</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span><span class="op">+</span>eps, <span class="dv">1</span><span class="op">+</span>eps<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> sys.float_info.epsilon</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span><span class="op">+</span>eps, <span class="dv">1</span><span class="op">+</span>eps<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copiez au Presse-Papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.0000000000000002 1.0</code></pre>
 </div>
 </div>
-<p><a href="https://evanw.github.io/float-toy/">Float Toy</a></p>
-
-
 </section>
+<section id="le-format-à-virgule-flottante-à-précision-simple" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="le-format-à-virgule-flottante-à-précision-simple"><span class="header-section-number">2.3.1</span> Le format à virgule flottante à précision simple</h3>
+<p>Le standard <a href="https://www.wikiwand.com/fr/IEEE%20754">IEEE 754</a> spécifie un format à précision simple comme:</p>
+<ul>
+<li>un signe : 1 bit</li>
+<li>exposant biaisé : 8 bits</li>
+<li>mantisse : 23 bits + 1 bit implicite</li>
+</ul>
+<p>L’exposant est un entier non signé de 8 bits de 0 à 255 sous la forme biaisée, c’est-à-dire que pour obtenir l’exposant réel, nous devons lui soustraire 127. Les exposants peuvent prendre les valeurs entières de -126 à +127 car les exposants -127 (seulement des zéros) et +128 (seulement des uns) sont réservés pour des nombres spéciaux.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="representation_nombres_ordinateurs_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>La valeur est donc donnée par:</p>
+<p><span class="math display">\[
+(-1)^{b_{31}}\times 2^{(b_{30}b_{29}\ldots b_{23})_2-127}\times (1,b_{22}b_{21}\ldots b_0)_2
+\]</span> ce qui donne <span class="math display">\[
+\text{valeur}=(-1)^{\text{signe}}\times 2^{(E-127)}\times \left( 1+ \sum_{i=1}^{23} b_{23-i} 2^{-i}\right)
+\]</span></p>
+<p>Dans l’exemple précédent, nous avons:</p>
+<ul>
+<li>signe = <span class="math inline">\(b_{31}\)</span> = 0;</li>
+<li><span class="math inline">\((-1)^{\text{signe}}=(-1)^0=+1\in \{-1,+1\}\)</span>;</li>
+<li><span class="math inline">\(E=(b_{30}b_{29}\ldots b_{23})_2=\sum_{i=0}^7 b_{23+i}2^{+i}=124\in \{1,\ldots, (2^8-1)-1\}=\{1,\ldots, 254\}\)</span>;</li>
+<li><span class="math inline">\(2^{(E-127)}=2^{124-127}=2^{-3}\in \{2^{-126},\ldots, 2^{127}\}\)</span>;</li>
+<li><span class="math inline">\(1,b_{22}b_{21}\ldots b_0=1+\sum_{i=1}^{23} b_{23-i}2^{-i}=1+1\cdot 2^{-2}=1,25\in \{1,1+2^{-23},\ldots, 2-2^{-23}\} \subset [1;2-2^{-23}] \subset [1;2[\)</span></li>
+</ul>
+<section id="lencodage-de-lexposant" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="lencodage-de-lexposant">L’encodage de l’exposant</h4>
+<p>L’exposant du format à virgule flottante à précision simple est encodé de manière biaisée, avec un biais de 127 (<span class="math inline">\(2^{e-1}-1=2^{8-1}-1\)</span>).</p>
+<ul>
+<li>E<sub>min</sub>=01<sub>16</sub>-7F<sub>16</sub>=-126</li>
+<li>E<sub>max</sub>=FE<sub>16</sub>-7F<sub>16</sub>=127</li>
+<li>Biais de l’exposant = 7F<sub>16</sub>=127</li>
+</ul>
+<p>Pour obtenir l’exposant véritable, on doit soustraire 127 à l’exposant stocké.</p>
+<p>Les exposants 00<sub>16</sub> et FF<sub>16</sub> ont une interprétation spéciale.</p>
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 15%">
+<col style="width: 57%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Exposant</th>
+<th>Fraction = 0</th>
+<th>Fraction <span class="math inline">\(\neq\)</span> 0</th>
+<th>Équation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>00<sub>16</sub></td>
+<td><span class="math inline">\(\pm\)</span> zéro</td>
+<td>nombre dénormalisé</td>
+<td><span class="math inline">\((-1)^{\text{signe}}\times 2^{-126}\times 0,\text{fraction}\)</span></td>
+</tr>
+<tr class="even">
+<td>01<sub>16</sub>,…,FE<sub>16</sub></td>
+<td>valeur normale</td>
+<td>valeur normale</td>
+<td><span class="math inline">\((-1)^{\text{signe}}\times 2^{\text{exposant}-127}\times 1,\text{fraction}\)</span></td>
+</tr>
+<tr class="odd">
+<td>FF<sub>16</sub></td>
+<td><span class="math inline">\(\pm\)</span> infini</td>
+<td>NaN</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cas-particuliers-dans-le-format-virgule-flottante-à-précision-simple" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="cas-particuliers-dans-le-format-virgule-flottante-à-précision-simple">Cas particuliers dans le format virgule flottante à précision simple</h4>
+<p>Pour les exemples suivants, trouvez la représentation sous forme binaire et hexadécimale.</p>
+<div id="exm-plus-petit-nombre-denormalise" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.13 </strong></span>Trouvez le plus petit nombre dénormalisé positif.</p>
+</div>
+<div id="exm-plus-grand-nombre-denormalise" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.14 </strong></span>Trouvez le plus grand nombre dénormalisé positif.</p>
+</div>
+<div id="exm-plus-petit-nombre-normalise" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.15 </strong></span>Trouvez le plus petit nombre normalisé positif.</p>
+</div>
+<div id="exm-plus-grand-nombre-normalise" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.16 </strong></span>Trouvez le plus grand nombre normalisé positif.</p>
+</div>
+<div id="exm-plus-grand-nombre-plus-petit-un" class="theorem example">
+<p><span class="theorem-title"><strong>Exemple 2.17 </strong></span>Trouvez le plus grand nombre plus petit que un.</p>
+</div>
+</section>
+</section>
+<section id="le-format-à-virgule-flottante-à-précision-double" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="le-format-à-virgule-flottante-à-précision-double"><span class="header-section-number">2.3.2</span> Le format à virgule flottante à précision double</h3>
+<p><a href="https://evanw.github.io/float-toy/">Float Toy</a></p>
+<p><a href="https://introcs.cs.princeton.edu/java/91float/">Princeton Float</a></p>
+<p><a href="https://hackingcpp.com/cpp/lang/fundamental_types.html">Cheatsheets for ieee 754 representation</a></p>
+<p><a href="https://www.wikiwand.com/fr/IEEE%20754">IEEE754 Wiki Wand</a></p>
+
+
 </section>
 </section>
 
