@@ -602,7 +602,7 @@ Inconvénients de la représentation signe et module
 </div>
 </div>
 </div>
-<p>Nous reviendrons sur l’exposant biaisé à la section <a href="#sec-ieee754"><span class="quarto-unresolved-ref">sec-ieee754</span></a>.</p>
+<p>Nous reviendrons sur l’exposant biaisé à la section <a href="#sec-ieee754"><span>Section&nbsp;2.3</span></a>.</p>
 </section>
 <section id="opérations-sur-les-nombres-en-virgule-flottante" class="level3" data-number="2.2.1">
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="opérations-sur-les-nombres-en-virgule-flottante"><span class="header-section-number">2.2.1</span> Opérations sur les nombres en virgule flottante</h3>
@@ -651,7 +651,7 @@ Attention
 <p><span class="theorem-title"><strong>Exemple 2.7 </strong></span>Effectuez la soustraction de 123457,1467 et 123456,659, en utilisant 7 chiffres pour la mantisse.</p>
 </div>
 <div id="exm-soustraction-deux-nombres-presque-egaux-erreur" class="theorem example">
-<p><span class="theorem-title"><strong>Exemple 2.8 </strong></span>Calculez l’erreur relative faite à l’<a href="#exm-soustraction-deux-nombres-presque-egaux">Exemple&nbsp;<span class="quarto-unresolved-ref">exm-soustraction-deux-nombres-presque-egaux</span></a>.</p>
+<p><span class="theorem-title"><strong>Exemple 2.8 </strong></span>Calculez l’erreur relative faite à l’<a href="#exm-soustraction-deux-nombres-presque-egaux">Exemple&nbsp;<span>2.7</span></a>.</p>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -663,7 +663,7 @@ Attention
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>L’<a href="https://www.wikiwand.com/en/Catastrophic_cancellation">annulation catastrophique</a> de l’<a href="#exm-soustraction-deux-nombres-presque-egaux">Exemple&nbsp;<span class="quarto-unresolved-ref">exm-soustraction-deux-nombres-presque-egaux</span></a> illustre le danger de supposer que tous les chiffres d’un résultat sont pertinents.</p>
+<p>L’<a href="https://www.wikiwand.com/en/Catastrophic_cancellation">annulation catastrophique</a> de l’<a href="#exm-soustraction-deux-nombres-presque-egaux">Exemple&nbsp;<span>2.7</span></a> illustre le danger de supposer que tous les chiffres d’un résultat sont pertinents.</p>
 </div>
 </div>
 <div id="exm-difference-de-carres" class="theorem example">
@@ -757,7 +757,7 @@ Note
 f &amp;= \sum_{i=1}^{m} b_i 2^{-i}, \qquad b_i \in \{0, 1 \} \\
 &amp;= b_1 2^{-1}+b_2 2^{-2}+\ldots + b_m 2^{-m}
 \end{aligned}
-\tag{2.1}\]</span></span> pour un entier fixé <span class="math inline">\(m\)</span>, la taille de la mantisse. L’équation (<a href="#eq-mantisse-1-2">Équation&nbsp;<span class="quarto-unresolved-ref">eq-mantisse-1-2</span></a>) représente des nombres dans l’intervalle <span class="math inline">\([1,2[\)</span>. De manière équivalente, nous pouvons écrire <span id="eq-mantisse-0-puissance-2"><span class="math display">\[
+\tag{2.1}\]</span></span> pour un entier fixé <span class="math inline">\(m\)</span>, la taille de la mantisse. L’équation (<a href="#eq-mantisse-1-2">Équation&nbsp;<span>2.1</span></a>) représente des nombres dans l’intervalle <span class="math inline">\([1,2[\)</span>. De manière équivalente, nous pouvons écrire <span id="eq-mantisse-0-puissance-2"><span class="math display">\[
 \begin{aligned}
 f &amp;= 2^{-m} \sum_{i=1}^{m} b_i 2^{m-i} = 2^{-m} z, \qquad b_i \in \{0, 1 \}
 \end{aligned}
@@ -785,7 +785,7 @@ f = \sum_{i=1}^{m} 1 \cdot 2^{-i} = 2-2^{-m}
 </div>
 <div id="def-epsilon-machine" class="theorem definition">
 <p><span class="theorem-title"><strong>Définition 2.3 (L’epsilon d’une machine) </strong></span>L’epsilon d’une machine est défini comme le plus petit nombre qui, ajouté à un, donne un résultat différent de un.</p>
-<p>En utilisant l’équation (<a href="#eq-mantisse-0-puissance-2">Équation&nbsp;<span class="quarto-unresolved-ref">eq-mantisse-0-puissance-2</span></a>), nous remarquons que le plus petit nombre (autre que 0) possible est <span class="math inline">\(2^{-m}\)</span>.</p>
+<p>En utilisant l’équation (<a href="#eq-mantisse-0-puissance-2">Équation&nbsp;<span>2.2</span></a>), nous remarquons que le plus petit nombre (autre que 0) possible est <span class="math inline">\(2^{-m}\)</span>.</p>
 <p>Pour déterminer l’epsilon de la machine en <code>Python</code>, on utilise la commande <code>sys.float_info.epsilon</code> du module <code>sys</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
